@@ -491,6 +491,7 @@ int main(int argc, char* argv[])
   const std::string default_cat_str = "default";
   std::vector<std::string> evt_cat_strs = { default_cat_str };
   std::vector<std::string> HHWeightNames;
+
 //--- HH scan
   const edm::ParameterSet hhWeight_cfg = cfg_analyze.getParameterSet("hhWeight_cfg");
   const bool apply_HH_rwgt = eventInfo.is_hh_nonresonant() && hhWeight_cfg.getParameter<bool>("apply_rwgt");
@@ -502,14 +503,19 @@ int main(int argc, char* argv[])
     HHWeightNames = HHWeight_calc->get_weight_names();
   }
   const size_t Nscan = evt_cat_strs.size();
-  std::cout << "Number of points being scanned = " << Nscan << '\n';
   if (apply_HH_rwgt)
-    {
-      std::cout << "\n Weights booked = " << apply_HH_rwgt << '\n';
-      for (const std::string catcat : evt_cat_strs) {
-	std::cout << catcat << '\n';
-      }
+  {
+    std::cout << "Number of points being scanned = " << Nscan << '\n';
+    std::cout << "\n Weights booked = " << apply_HH_rwgt << '\n';
+    for (const std::string catcat : evt_cat_strs) {
+      std::cout << catcat << '\n';
     }
+  }
+  else
+  {
+    std::cout << "No HH reweighting applied: " << boost::join(evt_cat_strs, ", ") << '\n';
+  }
+
   const std::vector<edm::ParameterSet> tHweights = cfg_analyze.getParameterSetVector("tHweights");
   if((isMC_tH || isMC_ttH) && ! tHweights.empty())
   {
@@ -1749,6 +1755,17 @@ int main(int argc, char* argv[])
           std::cout << "line = " <<kv.first << "; Weight = " <<  kv.second << '\n';
         }
         std::cout << '\n';
+      }
+    } 
+    else 
+    {
+      for(const std::string & evt_cat_str: evt_cat_strs) 
+      {
+	if(evt_cat_str != default_cat_str)
+	{
+	  continue;
+	}
+	reWeightMapHH[evt_cat_str] = evtWeightRecorder.get(central_or_shift_main);
       }
     }
     
