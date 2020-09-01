@@ -358,9 +358,28 @@ int main(int argc, char* argv[])
 
   const bool selectBDT = cfg_analyze.exists("selectBDT") ? cfg_analyze.getParameter<bool>("selectBDT") : false;
 
-  // std::string BDTFileName_even  = cfg_analyze.getParameter<std::string>("BDT_xml_FileName_even");
-  // std::string BDTFileName_odd   = cfg_analyze.getParameter<std::string>("BDT_xml_FileName_odd");
-  // std::vector<double> gen_mHH = cfg_analyze.getParameter<std::vector<double>>("gen_mHH");
+  const edm::ParameterSet mvaInfo_res = cfg_analyze.getParameter<edm::ParameterSet>("mvaInfo_res");
+  std::vector<double> gen_mHH = cfg_analyze.getParameter<std::vector<double>>("gen_mHH");
+  std::string BDTFileName_even_spin2  = mvaInfo_res.getParameter<std::string>("BDT_xml_FileName_even_spin2");
+  std::string BDTFileName_odd_spin2   = mvaInfo_res.getParameter<std::string>("BDT_xml_FileName_odd_spin2");
+  std::string fitFunctionFileName_spin2 = mvaInfo_res.getParameter<std::string>("fitFunctionFileName_spin2");
+  std::vector<std::string> BDTInputVariables_SUM_spin2 = mvaInfo_res.getParameter<std::vector<std::string>>("inputVars_spin2");
+  std::string BDTFileName_even_spin0  = mvaInfo_res.getParameter<std::string>("BDT_xml_FileName_even_spin0");
+  std::string BDTFileName_odd_spin0   = mvaInfo_res.getParameter<std::string>("BDT_xml_FileName_odd_spin0");
+  std::string fitFunctionFileName_spin0 = mvaInfo_res.getParameter<std::string>("fitFunctionFileName_spin0");
+  std::vector<std::string> BDTInputVariables_SUM_spin0 = mvaInfo_res.getParameter<std::vector<std::string>>("inputVars_spin0");
+
+
+  assert(fitFunctionFileName_spin2 != "");
+  assert(fitFunctionFileName_spin0 != "");
+  TMVAInterface* BDT_SUM_spin2 = new TMVAInterface(BDTFileName_odd_spin2, BDTFileName_even_spin2, BDTInputVariables_SUM_spin2, fitFunctionFileName_spin2);
+  BDT_SUM_spin2->enableBDTTransform();
+  TMVAInterface* BDT_SUM_spin0 = new TMVAInterface(BDTFileName_odd_spin0, BDTFileName_even_spin0, BDTInputVariables_SUM_spin0, fitFunctionFileName_spin0);
+  BDT_SUM_spin0->enableBDTTransform();
+  std::map<std::string, double> AllVars_Map;
+  std::map<std::string, double> BDTOutput_SUM_Map_spin2;
+  std::map<std::string, double> BDTOutput_SUM_Map_spin0;
+
 
   std::string selEventsFileName_input = cfg_analyze.getParameter<std::string>("selEventsFileName_input");
   std::cout << "selEventsFileName_input = " << selEventsFileName_input << std::endl;
