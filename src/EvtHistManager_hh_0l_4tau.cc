@@ -25,12 +25,11 @@ EvtHistManager_hh_0l_4tau::EvtHistManager_hh_0l_4tau(const edm::ParameterSet & c
   std::vector<double> gen_mHH = cfg.getParameter<std::vector<double>>("gen_mHH");
 
   for(unsigned int i=0;i<gen_mHH.size();i++){
-    unsigned int mass_int = (int)gen_mHH[i]; // Conversion from double to unsigned int                                                                                                    
+    unsigned int mass_int = (int)gen_mHH[i]; // Conversion from double to unsigned int
     std::string key = "";
     std::ostringstream temp;
     temp << mass_int;
-    key = temp.str(); // Conversion from unsigned int to string                                                                                                                          
-                                                                                   
+    key = temp.str(); // Conversion from unsigned int to string
     std::string key_final = "BDTOutput_" + key; // For the TMVAInterface
     std::string key_final_spin2 = key_final + "_hypo_spin2";
     std::string key_final_spin0 = key_final + "_hypo_spin0";
