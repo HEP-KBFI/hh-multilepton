@@ -5,6 +5,7 @@ from tthAnalysis.HiggsToTauTau.jobTools import query_yes_no
 from tthAnalysis.HiggsToTauTau.analysisSettings import systematics, get_lumi
 from tthAnalysis.HiggsToTauTau.runConfig import tthAnalyzeParser, filter_samples
 from tthAnalysis.HiggsToTauTau.common import logging, load_samples_hh_multilepton as load_samples
+from tthAnalysis.HiggsToTauTau.common import load_samples_stitched
 
 import os
 import sys
@@ -105,11 +106,13 @@ hadTau_selection = tau_id + hadTauWP_map[tau_id]
 
 if mode == "default":
   samples = load_samples(era, suffix = "preselected" if use_preselected else "")
+  samples = load_samples_stitched(samples, era, [ 'dy_nlo' ])
 elif mode == "forBDTtraining":
   if use_preselected:
     raise ValueError("Producing Ntuples for BDT training from preselected Ntuples makes no sense!")
 
   samples = load_samples(era, suffix = "BDT")
+  samples = load_samples_stitched(samples, era, [ 'dy_lo' ])
 
   hadTauWP_map_relaxed = {
     'dR03mva' : 'VLoose',
