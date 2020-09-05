@@ -100,7 +100,7 @@ else:
 
 hadTauWP_map = {
   'dR03mva' : 'Loose',
-  'deepVSj' : 'Loose',
+  'deepVSj' : 'Medium',
 }
 hadTau_selection = tau_id + hadTauWP_map[tau_id]
 
@@ -116,7 +116,7 @@ elif mode == "forBDTtraining":
 
   hadTauWP_map_relaxed = {
     'dR03mva' : 'VLoose',
-    'deepVSj' : 'VLoose',
+    'deepVSj' : 'VVVLoose',
   }
   if args.tau_id_wp:
     tau_id = args.tau_id[:7]
