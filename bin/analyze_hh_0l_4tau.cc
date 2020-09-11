@@ -1433,17 +1433,28 @@ int main(int argc, char* argv[])
         std::cout << '\n';
       }
     }
-    else 
+    
+    for(const std::string & central_or_shift: central_or_shifts_local)
     {
-      for(const std::string & evt_cat_str: evt_cat_strs) 
+      const double evtWeight = evtWeightRecorder.get(central_or_shift);
+      const bool skipFilling = central_or_shift != central_or_shift_main;
+      for(const std::string & evt_cat_str: evt_cat_strs)
       {
-	if(evt_cat_str != default_cat_str)
+	if(skipFilling && evt_cat_str != default_cat_str)
 	{
 	  continue;
 	}
-	reWeightMapHH[evt_cat_str] = evtWeightRecorder.get(central_or_shift_main);
+	if(apply_HH_rwgt)
+	{
+	  reWeightMapHH[evt_cat_str] *= evtWeight;
+	}
+	else
+	{
+	  reWeightMapHH[evt_cat_str] = evtWeight;
+	}
       }
     }
+
     
     std::vector<SVfit4tauResult> svFit4tauResults_woMassConstraint = compSVfit4tau(
       *selHadTau_lead, *selHadTau_sublead, *selHadTau_third, *selHadTau_fourth, met, hadTauChargeSelection_string, rnd,  -1., 2.);

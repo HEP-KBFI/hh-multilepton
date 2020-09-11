@@ -4,7 +4,7 @@ from hhAnalysis.multilepton.configs.analyzeConfig_hh_2l_2tau import analyzeConfi
 from tthAnalysis.HiggsToTauTau.jobTools import query_yes_no
 from tthAnalysis.HiggsToTauTau.analysisSettings import systematics, get_lumi
 from tthAnalysis.HiggsToTauTau.runConfig import tthAnalyzeParser, filter_samples
-from tthAnalysis.HiggsToTauTau.common import logging, load_samples_hh_multilepton as load_samples
+from tthAnalysis.HiggsToTauTau.common import logging, load_samples_hh_multilepton as load_samples, load_samples_stitched
 
 import os
 import sys
@@ -103,11 +103,14 @@ hadTau_selection = tau_id + hadTauWP_map[tau_id]
 
 if mode == "default":
   samples = load_samples(era, suffix = "preselected" if use_preselected else "")
+  samples = load_samples_stitched(samples, era, [ 'dy_nlo' ])
 elif mode == "forBDTtraining":
   if use_preselected:
     raise ValueError("Producing Ntuples for BDT training from preselected Ntuples makes no sense!")
 
   samples = load_samples(era, suffix = "BDT")
+  samples = load_samples_stitched(samples, era, [ 'dy_lo' ])
+
 
   hadTauWP_map_relaxed = {
     'dR03mva' : 'VLoose',
@@ -162,26 +165,13 @@ if __name__ == '__main__':
     executable_addFlips                   = "addBackgroundLeptonFlips",
     histograms_to_fit                     = {
       "EventCounter"                      : {},
-      #"numJets"                           : {},
-      "mTauTauVis"                        : {},
-      "dihiggsVisMass"                    : {},
       "dihiggsMass"                       : {},
-      "HT"                                : {},
-      "STMET"                             : {},
-      "BDTOutput_1000"                    : {},
-      "BDTOutput_250"                    : {},
-      "BDTOutput_400"                    : {},
-      "BDTOutput_700"                    : {},
-      "BDTOutput_300"                    : {},
-      "BDTOutput_500"                    : {},
-      "BDTOutput_800"                    : {},
-      "NNOutput_1000"                    : {},
-      "NNOutput_250"                    : {},
-      "NNOutput_400"                    : {},
-      "NNOutput_700"                    : {},
-      "NNOutput_300"                    : {},
-      "NNOutput_500"                    : {},
-      "NNOutput_800"                    : {}
+      "BDTOutput_300_hypo_spin0"          : {},
+      "BDTOutput_500_hypo_spin0"          : {},
+      "BDTOutput_800_hypo_spin0"          : {},
+      "BDTOutput_300_hypo_spin2"          : {},
+      "BDTOutput_500_hypo_spin2"          : {},
+      "BDTOutput_800_hypo_spin2"          : {}
     },
     select_rle_output                     = True,
     dry_run                               = dry_run,

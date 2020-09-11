@@ -6,7 +6,6 @@ from tthAnalysis.HiggsToTauTau.analysisSettings import systematics, get_lumi
 from tthAnalysis.HiggsToTauTau.runConfig import tthAnalyzeParser, filter_samples
 from tthAnalysis.HiggsToTauTau.common import logging, load_samples_hh_multilepton as load_samples
 from tthAnalysis.HiggsToTauTau.common import load_samples_stitched
-
 import os
 import sys
 import getpass
@@ -113,6 +112,7 @@ elif mode == "forBDTtraining":
 
   samples = load_samples(era, suffix = "BDT")
   samples = load_samples_stitched(samples, era, [ 'dy_lo' ])
+
 
   hadTauWP_map_relaxed = {
     'dR03mva' : 'VLoose',

@@ -175,11 +175,23 @@ class analyzeConfig_hh_2l_2tau(analyzeConfig_hh):
     self.hlt_filter = hlt_filter
 
     self.categories = [
-      "hh_2l_2tau", "hh_2lSS_2tau", "hh_2lOS_2tau", 
-      "hh_2e_2tau", "hh_1e1mu_2tau", "hh_2mu_2tau",
-      "hh_2eSS_2tau", "hh_2eOS_2tau", "hh_1e1muSS_2tau", 
-      "hh_1e1muOS_2tau", "hh_2muSS_2tau", "hh_2muOS_2tau",
-      "hh_2lOS_2tau_wChargeFlipWeights", "hh_2eOS_2tau_wChargeFlipWeights", "hh_2muOS_2tau_wChargeFlipWeights", "hh_1e1muOS_2tau_wChargeFlipWeights"]  ## N.B.: Inclusive category is a member of this list 
+      "hh_2l_2tau", 
+      #"hh_2lSS_2tau", 
+      #"hh_2lOS_2tau", 
+      "hh_2e_2tau", 
+      "hh_1e1mu_2tau", 
+      "hh_2mu_2tau",
+      #"hh_2eSS_2tau", 
+      #"hh_2eOS_2tau", 
+      #"hh_1e1muSS_2tau", 
+      #"hh_1e1muOS_2tau", 
+      #"hh_2muSS_2tau", 
+      #"hh_2muOS_2tau",
+      #"hh_2lOS_2tau_wChargeFlipWeights", 
+      #"hh_2eOS_2tau_wChargeFlipWeights", 
+      #"hh_2muOS_2tau_wChargeFlipWeights", 
+      #"hh_1e1muOS_2tau_wChargeFlipWeights"
+    ]  ## N.B.: Inclusive category is a member of this list 
     self.category_inclusive = "hh_2l_2tau"
 
   def set_BDT_training(self, hadTau_selection_relaxed):

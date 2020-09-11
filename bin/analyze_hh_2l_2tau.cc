@@ -177,6 +177,134 @@ struct HadTauHistManagerWrapper_eta
   double etaMax_;
 };
 
+struct ParticlePair
+{
+
+ParticlePair(const Particle::LorentzVector & particle1_p4,
+	     const Particle::LorentzVector & particle2_p4,
+	     const int & particle1_charge,
+	     const int & particle2_charge,
+	     const std::string & particle1_type,
+	     const std::string & particle2_type)
+  : particle1_p4_(particle1_p4)
+  ,particle2_p4_(particle2_p4)
+  ,particle1_charge_(particle1_charge)
+  ,particle2_charge_(particle2_charge)
+  ,particle1_type_(particle1_type)
+  ,particle2_type_(particle2_type)
+{
+  deltaR12_ = deltaR(particle1_p4, particle2_p4);
+  //std::cout<< "Formed pair with deltaR12 " << deltaR12_ << std::endl;
+}
+
+~ParticlePair() {}
+
+const Particle::LorentzVector particle1_p4_;
+const Particle::LorentzVector particle2_p4_;
+const int particle1_charge_;
+const int particle2_charge_;
+const std::string particle1_type_;
+const std::string particle2_type_;
+double deltaR12_ = 0.;
+
+
+Particle::LorentzVector Get_particle1_p4() const
+  {
+    return particle1_p4_;
+  }
+
+
+Particle::LorentzVector Get_particle2_p4() const 
+  {
+    return particle2_p4_;
+  }
+
+double Get_deltaR12() const 
+  {
+    return deltaR12_;
+  }
+
+
+int Get_particle1_charge() const 
+  {
+    return particle1_charge_;
+  }
+
+int Get_particle2_charge() const 
+  {
+    return particle2_charge_;
+  }
+
+
+std::string Get_particle1_type() const 
+  {
+    return particle1_type_;
+  }
+
+std::string Get_particle2_type() const 
+  {
+    return particle2_type_;
+  }
+};
+
+bool dR_inc(const ParticlePair* p1, const ParticlePair* p2){
+  return p1->Get_deltaR12() < p2->Get_deltaR12();
+} 
+
+
+std::map<std::string, ParticlePair*>ComputeBoostPairs(const Particle::LorentzVector & lep1_p4,
+					       const int & lep1_charge,
+					       const Particle::LorentzVector & lep2_p4,
+					       const int & lep2_charge,
+					       const Particle::LorentzVector & tau1_p4,
+					       const int & tau1_charge,
+					       const Particle::LorentzVector & tau2_p4,
+					       const int & tau2_charge)
+{
+  std::vector<ParticlePair*> pair_vec;
+  ParticlePair* pair_lep1_tau1 = new ParticlePair(lep1_p4, tau1_p4, lep1_charge, tau1_charge, "lep1", "tau1");
+  pair_vec.push_back(pair_lep1_tau1);
+  ParticlePair* pair_lep1_tau2 = new ParticlePair(lep1_p4, tau2_p4, lep1_charge, tau2_charge, "lep1", "tau2");
+  pair_vec.push_back(pair_lep1_tau2);
+  ParticlePair* pair_lep2_tau1 = new ParticlePair(lep2_p4, tau1_p4, lep2_charge, tau1_charge,  "lep2", "tau1");
+  pair_vec.push_back(pair_lep2_tau1);
+  ParticlePair* pair_lep2_tau2 = new ParticlePair(lep2_p4, tau2_p4, lep2_charge, tau2_charge, "lep2", "tau2");
+  pair_vec.push_back(pair_lep2_tau2);
+  ParticlePair* pair_lep1_lep2 = new ParticlePair(lep1_p4, lep2_p4, lep1_charge, lep2_charge,  "lep1", "lep2");
+  pair_vec.push_back(pair_lep1_lep2);
+  ParticlePair* pair_tau1_tau2 = new ParticlePair(tau1_p4, tau2_p4, tau1_charge, tau2_charge, "tau1", "tau2");
+  pair_vec.push_back(pair_tau1_tau2);
+  
+  // sort by increasing order of deltaR12
+  std::sort(pair_vec.begin(), pair_vec.end(), dR_inc);
+  
+  int index = 0;
+  for(unsigned int i = 0; i < pair_vec.size();i++)
+    {
+      if( (pair_vec[i+1]->Get_particle1_type() != pair_vec[0]->Get_particle1_type()) 
+	  && (pair_vec[i+1]->Get_particle1_type() != pair_vec[0]->Get_particle2_type()) 
+	  && (pair_vec[i+1]->Get_particle2_type() != pair_vec[0]->Get_particle1_type()) 
+	  && (pair_vec[i+1]->Get_particle2_type() != pair_vec[0]->Get_particle2_type()) )
+	{
+	  std::cout<< "index " << i+1 << std::endl;
+	  index = i+1;
+	  break;
+	}
+    }
+
+  assert(index != 0);
+  //double dR_boost_pair1 = pair_vec[0]->Get_deltaR12();
+  //double dR_boost_pair2 = pair_vec[index]->Get_deltaR12();
+
+  std::map<std::string, ParticlePair*>boost_pair_map;
+  boost_pair_map["pair1"] = pair_vec[0];
+  boost_pair_map["pair2"] = pair_vec[index];
+
+  return boost_pair_map;
+}
+
+
+
 /**
  * @brief Produce datacard and control plots for 2l_2tau category of HH "multilepton" (HH->WWWW,WWtt,tttt) analysis.
  */
@@ -892,10 +1020,12 @@ int main(int argc, char* argv[])
       "tau1_pt", "tau1_eta", "tau1_mva", "tau1_phi",
       "tau2_pt", "tau2_eta", "tau2_mva", "tau2_phi",
       "dr_lep1_tau1", "dr_lep1_tau2", "dr_lep2_tau1", "dr_lep2_tau2",
-      "dr_leps", "dr_taus", "avg_dr_jet",
+      "dr_leps", "dr_taus", "avg_dr_jet", "min_dr_lep_tau", "max_dr_lep_tau", "max_lep_eta", 
+      "dR_BP1_OS", "dR_BP1_SS", "dR_BP2_OS", "dR_BP2_SS",
       "met", "mht", "met_LD", "HT", "STMET", "met_phi",
       "Smin_llMEt", "m_ll", "pT_ll", "pT_llMEt", "Smin_lltautau", "mTauTau",
       "mTauTauVis", "ptTauTauVis", "diHiggsVisMass", "diHiggsMass",
+      "mass_BP1_OS", "mass_BP1_SS", "mass_BP2_OS","mass_BP2_SS",
       "logTopness_publishedChi2", "logTopness_fixedChi2",
       "m_lep1_tau1", "m_lep2_tau1", "m_lep1_tau2", "m_lep2_tau2", "pt_HH_recoil",
       "deltaEta_lep1_lep2", "deltaEta_lep1_tau1", "deltaEta_lep1_tau2", "deltaEta_lep2_tau1", "deltaEta_lep2_tau2", "deltaEta_tau1_tau2",
@@ -907,7 +1037,7 @@ int main(int argc, char* argv[])
     bdt_filler->register_variable<int_type>(
       "nJet", "nBJet_loose", "nBJet_medium",
       "lep1_isElectron", "lep1_charge", "lep2_isElectron", "lep2_charge",
-      "nElectron", "nMuon"
+      "nElectron", "nMuon", "sum_lep_charge"
     );
     bdt_filler->bookTree(fs);
   }
@@ -1726,18 +1856,29 @@ int main(int argc, char* argv[])
 
         std::cout << '\n';
       }
-    } else { // Siddesh lines
-      for(const std::string & evt_cat_str: evt_cat_strs) {
-	if(evt_cat_str != default_cat_str)
-	  {
-	    continue;
-	  }
-	
-	reWeightMapHH[evt_cat_str] = evtWeightRecorder.get(central_or_shift_main);
-	std::cout << "\t evt_cat_str: " << evt_cat_str << ", reWeightMapHH: " << reWeightMapHH[evt_cat_str] << std::endl;
+    } 
+
+    for(const std::string & central_or_shift: central_or_shifts_local)
+    {
+      const double evtWeight = evtWeightRecorder.get(central_or_shift);
+      const bool skipFilling = central_or_shift != central_or_shift_main;
+      for(const std::string & evt_cat_str: evt_cat_strs)
+      {
+	if(skipFilling && evt_cat_str != default_cat_str)
+	{
+	  continue;
+	}
+	if(apply_HH_rwgt)
+	{
+	  reWeightMapHH[evt_cat_str] *= evtWeight;
+	}
+	else
+	{
+	  reWeightMapHH[evt_cat_str] = evtWeight;
+	}
       }
     }
-
+    
     std::cout<<"reWeightMapHH.size() " << reWeightMapHH.size() << std::endl;
 
     const Particle::LorentzVector tautau_p4 = selHadTau_lead->p4() + selHadTau_sublead->p4();
@@ -1777,7 +1918,7 @@ int main(int argc, char* argv[])
     const double m_lep2_tau1 = (selLepton_sublead->p4() + selHadTau_lead->p4()).mass();
     const double m_lep1_tau2 = (selLepton_lead->p4() + selHadTau_sublead->p4()).mass();
     const double m_lep2_tau2 = (selLepton_sublead->p4() + selHadTau_sublead->p4()).mass();
-    const double pt_HH_recoil = (selLepton_lead->p4() + selLepton_sublead->p4() + selHadTau_lead->p4() + selHadTau_sublead->p4() - met.p4()).pt();
+    const double pt_HH_recoil = (selLepton_lead->p4() + selLepton_sublead->p4() + selHadTau_lead->p4() + selHadTau_sublead->p4() + met.p4()).pt();
     const double mT_lep1 = comp_MT_met(selLepton_lead, met.pt(), met.phi());
     const double mT_lep2 = comp_MT_met(selLepton_sublead, met.pt(), met.phi());
     const double dr_lep1_tau1 = deltaR(selLepton_lead->p4(),    selHadTau_lead->p4());
@@ -1788,6 +1929,22 @@ int main(int argc, char* argv[])
     const double dr_lep1_tau1_tau2_max = std::max(dr_lep1_tau1, dr_lep1_tau2);
     const double dr_lep2_tau1_tau2_min = std::min(dr_lep2_tau1, dr_lep2_tau2);
     const double dr_lep2_tau1_tau2_max = std::max(dr_lep2_tau1, dr_lep2_tau2);
+
+    const double min_dr_lep1_taus = std::min(dr_lep1_tau1, dr_lep1_tau2);
+    const double min_dr_lep2_taus = std::min(dr_lep2_tau1, dr_lep2_tau2);
+    const double min_dr_lep_tau = std::min(min_dr_lep1_taus, min_dr_lep2_taus);
+
+    const double max_dr_lep1_taus = std::max(dr_lep1_tau1, dr_lep1_tau2);
+    const double max_dr_lep2_taus = std::max(dr_lep2_tau1, dr_lep2_tau2);
+    const double max_dr_lep_tau = std::max(max_dr_lep1_taus, max_dr_lep2_taus);
+
+    //const double lep1_eta = std::abs(selLepton_lead->eta());
+    //const double lep2_eta = std::abs(selLepton_sublead->eta());
+    const double max_lep_eta = std::max(std::abs(selLepton_lead->eta()), std::abs(selLepton_sublead->eta()));
+    const int lep1_charge = selLepton_lead->charge();
+    const int lep2_charge = selLepton_sublead->charge();
+    const int sum_lep_charge = lep1_charge + lep2_charge;
+
     double dr_lep_tau_min_OS = 0.;
     if(isCharge_lepton_OS){
       dr_lep_tau_min_OS = std::min(std::min(dr_lep1_tau1, dr_lep1_tau2), std::min(dr_lep2_tau1, dr_lep2_tau2));
@@ -1814,6 +1971,44 @@ int main(int argc, char* argv[])
     const std::vector<const RecoJet*> selBJets_btag_medium = jetSelectorBtagMedium(selJets_btag, isHigherPt);
     const RecoJet * selBJet_lead    = selJets_btag.size() > 0 ? selJets_btag.at(0) : nullptr;
     const RecoJet * selBJet_sublead = selJets_btag.size() > 1 ? selJets_btag.at(1) : nullptr;
+
+    //-------- Boosted pairs finding algorithm 
+    std::map<std::string, ParticlePair*> boost_pair_map = ComputeBoostPairs(selLepton_lead->p4(),
+								     selLepton_lead->charge(),
+								     selLepton_sublead->p4(),
+								     selLepton_sublead->charge(),
+								     selHadTau_lead->p4(),
+								     selHadTau_lead->charge(),
+								     selHadTau_sublead->p4(),
+								     selHadTau_sublead->charge());
+
+    const double mass_BP1_OS = ((boost_pair_map["pair1"])->Get_particle1_charge() 
+				* (boost_pair_map["pair1"])->Get_particle2_charge() < 0.) ? ((boost_pair_map["pair1"])->Get_particle1_p4() 
+				+ (boost_pair_map["pair1"])->Get_particle2_p4()).mass() : -1.0;
+
+    const double mass_BP1_SS = ((boost_pair_map["pair1"])->Get_particle1_charge() 
+				* (boost_pair_map["pair1"])->Get_particle2_charge() > 0.) ? ((boost_pair_map["pair1"])->Get_particle1_p4() 
+				+ (boost_pair_map["pair1"])->Get_particle2_p4()).mass() : -1.0;
+
+    const double mass_BP2_OS = ((boost_pair_map["pair2"])->Get_particle1_charge() 
+				* (boost_pair_map["pair2"])->Get_particle2_charge() < 0.) ? ((boost_pair_map["pair2"])->Get_particle1_p4() 
+				+ (boost_pair_map["pair2"])->Get_particle2_p4()).mass() : -1.0;
+
+    const double mass_BP2_SS = ((boost_pair_map["pair2"])->Get_particle1_charge() 
+				* (boost_pair_map["pair2"])->Get_particle2_charge() > 0.) ? ((boost_pair_map["pair2"])->Get_particle1_p4() 
+				+ (boost_pair_map["pair2"])->Get_particle2_p4()).mass() : -1.0;
+
+    const double dR_BP1_OS = ((boost_pair_map["pair1"])->Get_particle1_charge()
+			      * (boost_pair_map["pair1"])->Get_particle2_charge() < 0.) ? (boost_pair_map["pair1"])->Get_deltaR12() : -1.0;
+
+    const double dR_BP1_SS = ((boost_pair_map["pair1"])->Get_particle1_charge()
+			      * (boost_pair_map["pair1"])->Get_particle2_charge() > 0.) ? (boost_pair_map["pair1"])->Get_deltaR12() : -1.0;
+
+    const double dR_BP2_OS = ((boost_pair_map["pair2"])->Get_particle1_charge()
+			      * (boost_pair_map["pair2"])->Get_particle2_charge() < 0.) ? (boost_pair_map["pair2"])->Get_deltaR12() : -1.0;
+
+    const double dR_BP2_SS = ((boost_pair_map["pair2"])->Get_particle1_charge()
+			      * (boost_pair_map["pair2"])->Get_particle2_charge() > 0.) ? (boost_pair_map["pair2"])->Get_deltaR12() : -1.0;
 
     //--- reconstruct mass of tau-pair using SVfit algorithm
     //
@@ -1897,6 +2092,7 @@ int main(int argc, char* argv[])
     AllVars_Map["lep2_phi"] = selLepton_lead->phi();
     AllVars_Map["lep2_tth_mva"] = selLepton_sublead->mvaRawTTH();
     AllVars_Map["mT_lep2"] = mT_lep2;
+    AllVars_Map["max_lep_eta"] = max_lep_eta;
     AllVars_Map["tau1_pt"] = selHadTau_lead->pt();
     AllVars_Map["tau1_eta"] = selHadTau_lead->eta();
     AllVars_Map["tau1_phi"] = selHadTau_lead->phi();
@@ -1916,6 +2112,8 @@ int main(int argc, char* argv[])
     AllVars_Map["dr_leps"] = dr_leps;
     AllVars_Map["dr_taus"] = dr_taus;
     AllVars_Map["avg_dr_jet"] = avg_dr_jet;
+    AllVars_Map["min_dr_lep_tau"] = min_dr_lep_tau;
+    AllVars_Map["max_dr_lep_tau"] = max_dr_lep_tau;
     AllVars_Map["met"] = met.pt();
     AllVars_Map["met_phi"] = met.phi();
     AllVars_Map["mht"] = mht_p4.pt();
@@ -1943,6 +2141,15 @@ int main(int argc, char* argv[])
     AllVars_Map["lep1_charge"] = selLepton_lead->charge();
     AllVars_Map["lep2_isElectron"] = selLepton_sublead_type == kElectron;
     AllVars_Map["lep2_charge"] = selLepton_sublead->charge();
+    AllVars_Map["sum_lep_charge"] = sum_lep_charge;
+    AllVars_Map["mass_BP1_OS"] = mass_BP1_OS;
+    AllVars_Map["mass_BP1_SS"] = mass_BP1_SS;
+    AllVars_Map["mass_BP2_OS"] = mass_BP2_OS;
+    AllVars_Map["mass_BP2_SS"] = mass_BP2_SS;
+    AllVars_Map["dR_BP1_OS"] = dR_BP1_OS;
+    AllVars_Map["dR_BP1_SS"] = dR_BP1_SS;
+    AllVars_Map["dR_BP2_OS"] = dR_BP2_OS;
+    AllVars_Map["dR_BP2_SS"] = dR_BP2_SS;
     AllVars_Map["gen_mHH"] = 250.; // setting a Dummy value which will be reset depending on mass hypothesis 
 
     std::map<std::string, double> BDTInputs_SUM_spin2 = InitializeInputVarMap(AllVars_Map, BDTInputVariables_SUM_spin2);
@@ -2237,6 +2444,18 @@ int main(int argc, char* argv[])
           ("evtWeight",           evtWeight_BDT)
           ("nElectron",                selElectrons.size())
           ("nMuon",                    selMuons.size())
+	  ("max_dr_lep_tau", max_dr_lep_tau)
+	  ("max_lep_eta", max_lep_eta)
+	  ("min_dr_lep_tau", min_dr_lep_tau)
+	  ("sum_lep_charge", sum_lep_charge)
+	  ("mass_BP1_OS", mass_BP1_OS)
+	  ("mass_BP1_SS", mass_BP1_SS)
+	  ("mass_BP2_OS", mass_BP2_OS)
+	  ("mass_BP2_SS", mass_BP2_SS)
+	  ("dR_BP1_OS", dR_BP1_OS)
+	  ("dR_BP1_SS", dR_BP1_SS)
+	  ("dR_BP2_OS", dR_BP2_OS)
+	  ("dR_BP2_SS", dR_BP2_SS)
 	  (weightMapHH)
         .fill()
 	;
