@@ -82,7 +82,7 @@ compIntegralErr(const TH1 * histogram,
   return std::sqrt(sumBinErr2);
 }
 
-void dumpEventYields_Stage2()
+void dumpEventYields_Stage2_0l_4tau()
 {
   gROOT->SetBatch(true);
 
@@ -127,7 +127,7 @@ void dumpEventYields_Stage2()
 
 
   std::map<std::string, std::string> inputFileNames; // key = channel
-  inputFileNames["hh_0l_4tau"] = "hh_0l_4tau/histograms_harvested_stage2_hh_0l_4tau_Tight_OS.root";
+  inputFileNames["hh_0l_4tau"] = "hh_0l_4tau/hadd_stage2_Tight_OS.root";
 
 
   std::map<std::string, std::string> directories; // key = channel
