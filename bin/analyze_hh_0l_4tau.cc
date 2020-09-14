@@ -123,6 +123,36 @@
 #include <TMath.h>
 #include <Python.h>
 
+
+edm::ParameterSet
+makeHistManager_cfg(const std::string & process,
+                    const std::string & category,
+                    const std::string & era,
+                    const std::string & central_or_shift,
+                    const std::vector<double> & gen_mHH,
+                    int idx = -1)
+{
+  edm::ParameterSet cfg = makeHistManager_cfg(process, category, era, central_or_shift, idx);
+  cfg.addParameter<std::vector<double>>("gen_mHH", gen_mHH);
+  return cfg;
+}
+
+edm::ParameterSet
+makeHistManager_cfg(const std::string & process,
+                    const std::string & category,
+                    const std::string & era,
+                    const std::string & central_or_shift,
+                    const std::vector<double> & gen_mHH,
+                    const std::string & option,
+                    int idx = -1)
+{
+  edm::ParameterSet cfg = makeHistManager_cfg(process, category, era, central_or_shift, gen_mHH, idx);
+  cfg.addParameter<std::string>("option", option);
+  return cfg;
+}
+
+
+
 typedef math::PtEtaPhiMLorentzVector LV;
 typedef std::vector<std::string> vstring;
 typedef std::vector<double> vdouble;
@@ -700,7 +730,7 @@ int main(int argc, char* argv[])
         );
 
         selHistManager->evt_[evt_cat_str] = new EvtHistManager_hh_0l_4tau(makeHistManager_cfg(process_and_genMatchName,
-          Form("%s/sel/evt", histogramDir.data()), era_string, central_or_shift));
+          Form("%s/sel/evt", histogramDir.data()), era_string, central_or_shift, gen_mHH));
         selHistManager->evt_[evt_cat_str]->bookHistograms(fs);
         selHistManager->svFit4tau_woMassConstraint_[evt_cat_str] = new SVfit4tauHistManager_MarkovChain(makeHistManager_cfg(process_and_genMatchName,
           Form("%s/sel/svFit4tau_woMassConstraint", histogramDir.data()), era_string, central_or_shift));
@@ -733,7 +763,7 @@ int main(int argc, char* argv[])
             );
 
             selHistManager->evt_in_decayModes_[evt_cat_str][decayMode_evt] = new EvtHistManager_hh_0l_4tau(makeHistManager_cfg(decayMode_and_genMatchName,
-              Form("%s/sel/evt", histogramDir.data()), era_string, central_or_shift));
+              Form("%s/sel/evt", histogramDir.data()), era_string, central_or_shift, gen_mHH));
             selHistManager->evt_in_decayModes_[evt_cat_str][decayMode_evt]->bookHistograms(fs);
             selHistManager->svFit4tau_woMassConstraint_in_decayModes_[evt_cat_str][decayMode_evt] = new SVfit4tauHistManager_MarkovChain(makeHistManager_cfg(decayMode_and_genMatchName,
               Form("%s/sel/svFit4tau_woMassConstraint", histogramDir.data()), era_string, central_or_shift));
