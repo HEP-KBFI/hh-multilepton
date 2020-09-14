@@ -129,7 +129,6 @@ void dumpEventYields_Stage2()
   std::map<std::string, std::string> inputFileNames; // key = channel
   inputFileNames["hh_0l_4tau"] = "hh_0l_4tau/histograms_harvested_stage2_hh_0l_4tau_Tight_OS.root";
 
-  inputFileNames["hh_3l_1tau"] = "Tight_SS/hadd/hadd_stage2_Tight_SS.root";
 
   std::map<std::string, std::string> directories; // key = channel
   directories["hh_0l_4tau"] = "hh_0l_4tau_OS_Tight/sel/evt";
@@ -138,14 +137,14 @@ void dumpEventYields_Stage2()
 
 
   std::map<std::string, vstring> signal_processes; // key = channel
-  
-  signal_processes["hh_4l"].push_back("signal_ggf_spin0_400_hh_tttt");
-  signal_processes["hh_4l"].push_back("signal_ggf_spin0_400_hh_wwtt");
-  signal_processes["hh_4l"].push_back("signal_ggf_spin0_400_hh_wwww");
-  signal_processes["hh_4l"].push_back("signal_spin0_400_hh");
-  signal_processes["hh_4l"].push_back("signal_ggf_nonresonant_hh_wwww");
-  signal_processes["hh_4l"].push_back("signal_ggf_nonresonant_hh_wwtt");
-  signal_processes["hh_4l"].push_back("signal_ggf_nonresonant_hh_tttt");
+
+  signal_processes["hh_0l_4tau"].push_back("signal_ggf_spin0_400_hh_tttt");
+  signal_processes["hh_0l_4tau"].push_back("signal_ggf_spin0_400_hh_wwtt");
+  signal_processes["hh_0l_4tau"].push_back("signal_ggf_spin0_400_hh_wwww");
+  signal_processes["hh_0l_4tau"].push_back("signal_spin0_400_hh");
+  signal_processes["hh_0l_4tau"].push_back("signal_ggf_nonresonant_hh_wwww");
+  signal_processes["hh_0l_4tau"].push_back("signal_ggf_nonresonant_hh_wwtt");
+  signal_processes["hh_0l_4tau"].push_back("signal_ggf_nonresonant_hh_tttt");
 
 
   std::vector<std::string> signal_process_parts;
@@ -154,28 +153,28 @@ void dumpEventYields_Stage2()
   signal_process_parts.push_back("_fake");
   
   std::map<std::string, vstring> background_processes; // key = channel
-  background_processes["hh_4l"].push_back("VH");
-  background_processes["hh_4l"].push_back("TT");
-  background_processes["hh_4l"].push_back("ZZ");
-  background_processes["hh_4l"].push_back("WZ");
-  background_processes["hh_4l"].push_back("WW");
-  background_processes["hh_4l"].push_back("DY");
-  background_processes["hh_4l"].push_back("W");
-  background_processes["hh_4l"].push_back("TTWW");
-  background_processes["hh_4l"].push_back("TTW");
-  background_processes["hh_4l"].push_back("TTZ");
-  background_processes["hh_4l"].push_back("TTH");
-  background_processes["hh_4l"].push_back("TH");
-  background_processes["hh_4l"].push_back("qqH");
-  background_processes["hh_4l"].push_back("ggH");
-  background_processes["hh_4l"].push_back("XGamma");
-  background_processes["hh_4l"].push_back("Other");
-  background_processes["hh_4l"].push_back("Convs");
-  background_processes["hh_4l"].push_back("fakes_mc");
-  background_processes["hh_4l"].push_back("data_fakes");
-  background_processes["hh_4l"].push_back("flips_mc");
+  background_processes["hh_0l_4tau"].push_back("VH");
+  background_processes["hh_0l_4tau"].push_back("TT");
+  background_processes["hh_0l_4tau"].push_back("ZZ");
+  background_processes["hh_0l_4tau"].push_back("WZ");
+  background_processes["hh_0l_4tau"].push_back("WW");
+  background_processes["hh_0l_4tau"].push_back("DY");
+  background_processes["hh_0l_4tau"].push_back("W");
+  background_processes["hh_0l_4tau"].push_back("TTWW");
+  background_processes["hh_0l_4tau"].push_back("TTW");
+  background_processes["hh_0l_4tau"].push_back("TTZ");
+  background_processes["hh_0l_4tau"].push_back("TTH");
+  background_processes["hh_0l_4tau"].push_back("TH");
+  background_processes["hh_0l_4tau"].push_back("qqH");
+  background_processes["hh_0l_4tau"].push_back("ggH");
+  background_processes["hh_0l_4tau"].push_back("XGamma");
+  background_processes["hh_0l_4tau"].push_back("Other");
+  background_processes["hh_0l_4tau"].push_back("Convs");
+  background_processes["hh_0l_4tau"].push_back("fakes_mc");
+  background_processes["hh_0l_4tau"].push_back("data_fakes");
+  background_processes["hh_0l_4tau"].push_back("flips_mc");
   if(showDataYield){
-    background_processes["hh_4l"].push_back("data_obs");
+    background_processes["hh_0l_4tau"].push_back("data_obs");
   }
 
   std::vector<std::string> background_process_parts;
