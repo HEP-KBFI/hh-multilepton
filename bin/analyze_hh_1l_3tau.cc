@@ -470,9 +470,9 @@ int main(int argc, char* argv[])
   assert(fitFunctionFileName_spin2 != "");
   assert(fitFunctionFileName_spin0 != "");
   TMVAInterface* BDT_SUM_spin2 = new TMVAInterface(BDTFileName_odd_spin2, BDTFileName_even_spin2, BDTInputVariables_SUM_spin2, fitFunctionFileName_spin2);
-  BDT_SUM_spin2->enableBDTTransform();
+  BDT_SUM_spin2->disableBDTTransform();
   TMVAInterface* BDT_SUM_spin0 = new TMVAInterface(BDTFileName_odd_spin0, BDTFileName_even_spin0, BDTInputVariables_SUM_spin0, fitFunctionFileName_spin0);
-  BDT_SUM_spin0->enableBDTTransform();
+  BDT_SUM_spin0->disableBDTTransform();
   std::map<std::string, double> AllVars_Map;
   std::map<std::string, double> BDTOutput_SUM_Map_spin2;
   std::map<std::string, double> BDTOutput_SUM_Map_spin0;
@@ -874,7 +874,7 @@ int main(int argc, char* argv[])
           );
           
           selHistManager->evt_in_categories_[evt_cat_str][category] = new EvtHistManager_hh_1l_3tau(makeHistManager_cfg(process_and_genMatchName,
-            Form("%s/sel/evt", histogramDir_category.Data()), era_string, central_or_shift));
+            Form("%s/sel/evt", histogramDir_category.Data()), era_string, central_or_shift, gen_mHH));
           selHistManager->evt_in_categories_[evt_cat_str][category]->bookHistograms(fs);
           selHistManager->svFit4tau_woMassConstraint_in_categories_[evt_cat_str][category] = new SVfit4tauHistManager_MarkovChain(makeHistManager_cfg(process_and_genMatchName,
             Form("%s/sel/svFit4tau_woMassConstraint", histogramDir_category.Data()), era_string, central_or_shift));

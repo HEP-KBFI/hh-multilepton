@@ -211,20 +211,20 @@ EvtHistManager_hh_1l_3tau::fillHistograms(
     fillWithOverFlow(histogram_1e3tau_numTightTaus_,                     numTightHadTaus,                      evtWeight, evtWeightErr);
     fillWithOverFlow(histogram_1e3tau_numTightTaus_passingElecVeto_,     numTightHadTaus_passingElecVeto,      evtWeight, evtWeightErr);
     fillWithOverFlow(histogram_1e3tau_numTightLeptons_and_Taus_,         numTightLeptons + numTightHadTaus,    evtWeight, evtWeightErr);
-    if ( !isMC ) 
+    if ( !isMC )
     {
       fillWithOverFlow(histogram_1e3tau_evtWeight_,                      evtWeight,                            evtWeight, evtWeightErr);
     }
   }
   
-  if ( selLepton->is_muon() ) 
+  if ( selLepton->is_muon() )
   {
     fillWithOverFlow(histogram_1mu3tau_numTightLeptons_,                 numTightLeptons,                      evtWeight, evtWeightErr);
     fillWithOverFlow(histogram_1mu3tau_numFakeableTaus_passingElecVeto_, numFakeableHadTaus_passingElecVeto,   evtWeight, evtWeightErr);
     fillWithOverFlow(histogram_1mu3tau_numTightTaus_,                    numTightHadTaus,                      evtWeight, evtWeightErr);
     fillWithOverFlow(histogram_1mu3tau_numTightTaus_passingElecVeto_,    numTightHadTaus_passingElecVeto,      evtWeight, evtWeightErr);
     fillWithOverFlow(histogram_1mu3tau_numTightLeptons_and_Taus_,        numTightLeptons + numTightHadTaus,    evtWeight, evtWeightErr);
-    if ( !isMC ) 
+    if ( !isMC )
     {
       fillWithOverFlow(histogram_1mu3tau_evtWeight_,                     evtWeight,                            evtWeight, evtWeightErr);
     }
