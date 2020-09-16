@@ -127,7 +127,7 @@ void dumpEventYields_Stage2_0l_4tau()
 
 
   std::map<std::string, std::string> inputFileNames; // key = channel
-  inputFileNames["hh_0l_4tau"] = "hh_0l_4tau/hadd_stage2_Tight_OS.root";
+  inputFileNames["hh_0l_4tau"] = "Tight_OS/hadd/hadd_stage2_Tight_OS.root";
 
 
   std::map<std::string, std::string> directories; // key = channel
