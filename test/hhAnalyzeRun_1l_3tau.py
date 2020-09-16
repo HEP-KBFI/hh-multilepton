@@ -4,8 +4,9 @@ from hhAnalysis.multilepton.configs.analyzeConfig_hh_1l_3tau import analyzeConfi
 from tthAnalysis.HiggsToTauTau.jobTools import query_yes_no
 from tthAnalysis.HiggsToTauTau.analysisSettings import systematics, get_lumi
 from tthAnalysis.HiggsToTauTau.runConfig import tthAnalyzeParser, filter_samples
-from tthAnalysis.HiggsToTauTau.common import logging, load_samples_hh_multilepton as load_samples, load_samples_stitched
-
+from tthAnalysis.HiggsToTauTau.common import logging
+from tthAnalysis.HiggsToTauTau.common import load_samples_hh_multilepton as load_samples
+from tthAnalysis.HiggsToTauTau.common import load_samples_stitched
 import os
 import sys
 import getpass
@@ -170,11 +171,13 @@ if __name__ == '__main__':
     executable_addBackgroundJetToTauFakes = "addBackgroundLeptonFakes",
     histograms_to_fit                     = {
       "EventCounter"                      : {},
-      "numJets"                           : {},
-      "dihiggsVisMass"                    : {},
       "dihiggsMass"                       : {},
-      "HT"                                : {},
-      "STMET"                             : {}
+      "BDTOutput_300_hypo_spin0"          : {},
+      "BDTOutput_500_hypo_spin0"          : {},
+      "BDTOutput_800_hypo_spin0"          : {},
+      "BDTOutput_300_hypo_spin2"          : {},
+      "BDTOutput_500_hypo_spin2"          : {},
+      "BDTOutput_800_hypo_spin2"          : {}
     },
     select_rle_output                     = True,
     dry_run                               = dry_run,

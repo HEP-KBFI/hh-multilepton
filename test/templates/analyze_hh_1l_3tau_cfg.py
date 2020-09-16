@@ -131,6 +131,28 @@ process.analyze_hh_1l_3tau = cms.PSet(
     apply_LHE_nom = cms.bool(False),
     useObjectMultiplicity = cms.bool(False),
 
+    selectBDT = cms.bool(False), ## Set it to true for making BDT training Ntuples
+
+    gen_mHH = cms.vdouble(250,260,270,280,300,350,400,450,500,550,600,650,700,750,800,850,900,1000), ## Set the signal mass range used in the BDT .pkl/.xml/.pb files
+    mvaInfo_res = cms.PSet(
+        BDT_xml_FileName_even_spin2 = cms.string('hhAnalysis/multilepton/data/1l_3tau_odd_model_spin2.xml'), ## "BDT .xml -> Odd train:Even test" to be used for even evt no.
+        BDT_xml_FileName_odd_spin2 = cms.string('hhAnalysis/multilepton/data/1l_3tau_even_model_spin2.xml'), ## "BDT .xml -> Even train:Odd test" to be used for odd evt no.
+        fitFunctionFileName_spin2 = cms.string('hhAnalysis/multilepton/data/1l_3tau_TProfile_signal_fit_func_spin2.root'),  ## File contaning the fitted TF1s
+        inputVars_spin2 = cms.vstring(
+            'tau1_phi', 'tau2_eta', 'tau4_eta', 'diHiggsMass', 'met_phi', 'deltaEta_tau1_tau3', 'dr_tau1_tau3', 'dr_tau2_tau3',
+            'pt_bestTauHPair_m', 'dr_bestTauHPair_m', 'dr_bestTauHPair_dr', 'dr_bestTauHPair_dPhi', 'Zee_secondTauHPair_m',
+            'Zee_secondTauHPair_dEta', 'dr_secondTauHPair_dPhi', 'gen_mHH'
+        ),
+        BDT_xml_FileName_even_spin0 = cms.string('hhAnalysis/multilepton/data/1l_3tau_odd_model_spin0.xml'),
+        BDT_xml_FileName_odd_spin0 = cms.string('hhAnalysis/multilepton/data/1l_3tau_even_model_spin0.xml'),
+        fitFunctionFileName_spin0 = cms.string('hhAnalysis/multilepton/data/1l_3tau_TProfile_signal_fit_func_spin0.root'),
+        inputVars_spin0 = cms.vstring(
+            'tau1_eta', 'tau2_eta', 'tau4_eta', 'tau4_phi', 'diHiggsVisMass', 'diHiggsMass', 'met_LD',
+            'deltaPhi_tau1_tau3', 'dr_tau1_tau3', 'dr_tau2_tau3', 'dr_tau2_tau4', 'dr_tau3_tau4',
+            'dr_bestTauHPair_dPhi', 'Zee_secondTauHPair_m', 'gen_mHH'
+        ),
+    ),
+
     evtWeight = cms.PSet(
         apply = cms.bool(False),
         histogramFile = cms.string(''),

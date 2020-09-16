@@ -15,6 +15,14 @@
 #include "tthAnalysis/HiggsToTauTau/interface/RecoLepton.h"      // RecoLepton
 #include "tthAnalysis/HiggsToTauTau/interface/RecoHadTau.h"      // RecoHadTau
 
+#include "hhAnalysis/multilepton/interface/mySVfit4tauAuxFunctions.h" // SVfit4tauResult
+
+
+#include <vector>
+#include <map>
+
+using namespace std;
+
 class EvtHistManager_hh_1l_3tau
   : public HistManagerBase
 {
@@ -27,27 +35,31 @@ public:
   bookHistograms(TFileDirectory & dir) override;
 
   void
-  fillHistograms(int numElectrons,
-                 int numMuons,
-                 int numHadTaus,
-		 int numJets,
-		 int numJetsPtGt40,
-                 int numBJets_loose,
-                 int numBJets_medium,
-		 double dihiggsVisMass,
-		 double dihiggsMass,
-		 double HT,
-		 double STMET,
-                 const RecoLepton* selLepton,
-                 const RecoHadTau* selHadTau_lead,
-                 const RecoHadTau* selHadTau_sublead,
-                 const RecoHadTau* selHadTau_third,
-                 int numTightLeptons,    
-                 int numFakeableHadTaus_passingElecVeto,
-                 int numTightHadTaus,
-                 int numTightHadTaus_passingElecVeto,
-                 bool isMC,
-		 double evtWeight);
+  fillHistograms(
+          int numElectrons,
+          int numMuons,
+          int numHadTaus,
+          int numJets,
+          int numJetsPtGt40,
+          int numBJets_loose,
+          int numBJets_medium,
+          double dihiggsVisMass,
+          double dihiggsMass,
+          double HT,
+          double STMET,
+          std::map<std::string, double>& BDTOutput_SUM_Map_spin2,
+          std::map<std::string, double>& BDTOutput_SUM_Map_spin0,
+          const RecoLepton* selLepton,
+          const RecoHadTau* selHadTau_lead,
+          const RecoHadTau* selHadTau_sublead,
+          const RecoHadTau* selHadTau_third,
+          int numTightLeptons,
+          int numFakeableHadTaus_passingElecVeto,
+          int numTightHadTaus,
+          int numTightHadTaus_passingElecVeto,
+          bool isMC,
+          double evtWeight
+  );
 
   const TH1 *
   getHistogram_EventCounter() const;
@@ -68,6 +80,11 @@ public:
   TH1 * histogram_STMET_;
   
   TH1 * histogram_EventCounter_;
+  std::map<std::string, TH1*> histogram_Map_BDTOutput_SUM_spin2_;
+  std::map<std::string, TH1*> histogram_Map_BDTOutput_SUM_spin0_;
+
+  std::vector<string> labels_spin2_;
+  std::vector<string> labels_spin0_;
 
   // CV: plots specific to 1e+3tau category
   TH1 * histogram_1e3tau_tau1_OS_antiE_OS_matched_;

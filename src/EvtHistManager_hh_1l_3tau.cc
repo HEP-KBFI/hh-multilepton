@@ -3,6 +3,10 @@
 #include "tthAnalysis/HiggsToTauTau/interface/histogramAuxFunctions.h" // fillWithOverFlow(), fillWithOverFlow2d()
 #include "tthAnalysis/HiggsToTauTau/interface/analysisAuxFunctions.h"  // z_mass
 
+#include <string>
+#include <sstream>
+#include <map>
+
 EvtHistManager_hh_1l_3tau::EvtHistManager_hh_1l_3tau(const edm::ParameterSet & cfg)
   : HistManagerBase(cfg)
 {
@@ -40,6 +44,26 @@ EvtHistManager_hh_1l_3tau::EvtHistManager_hh_1l_3tau(const edm::ParameterSet & c
   central_or_shiftOptions_["1mu3tau_numTightLeptons_and_Taus"] = { "central" };
   central_or_shiftOptions_["1mu3tau_evtWeight"] = { "central" };
   central_or_shiftOptions_["EventCounter"] = { "*" };
+  central_or_shiftOptions_["EventNumber"] = { "*" };
+  std::vector<double> gen_mHH = cfg.getParameter<std::vector<double>>("gen_mHH");
+
+  for(unsigned int i=0;i<gen_mHH.size();i++){
+    unsigned int mass_int = (int)gen_mHH[i]; // Conversion from double to unsigned int
+    std::string key = "";
+    std::ostringstream temp;
+    temp << mass_int;
+    key = temp.str(); // Conversion from unsigned int to string
+    std::string key_final = "BDTOutput_" + key; // For the TMVAInterface
+    std::string key_final_spin2 = key_final + "_hypo_spin2";
+    std::string key_final_spin0 = key_final + "_hypo_spin0";
+    labels_spin2_.push_back(key_final_spin2);
+    labels_spin0_.push_back(key_final_spin0);
+  }
+
+  for(unsigned int i=0;i < labels_spin2_.size();i++){
+    central_or_shiftOptions_[labels_spin2_[i]] = { "*" };
+    central_or_shiftOptions_[labels_spin0_[i]] = { "*" };
+  }
 }
 
 const TH1 *
@@ -58,10 +82,8 @@ EvtHistManager_hh_1l_3tau::bookHistograms(TFileDirectory & dir)
   histogram_numJetsPtGt40_   = book1D(dir, "numJetsPtGt40",   "numJetsPtGt40",    20, -0.5, +19.5);
   histogram_numBJets_loose_  = book1D(dir, "numBJets_loose",  "numBJets_loose",   10, -0.5,  +9.5);
   histogram_numBJets_medium_ = book1D(dir, "numBJets_medium", "numBJets_medium",  10, -0.5,  +9.5);
-
   histogram_dihiggsVisMass_  = book1D(dir, "dihiggsVisMass",  "dihiggsVisMass",  150,  0., 1500.);
   histogram_dihiggsMass_     = book1D(dir, "dihiggsMass",     "dihiggsMass",     150,  0., 1500.);
-
   histogram_HT_              = book1D(dir, "HT",              "HT",              150,  0., 1500.);
   histogram_STMET_           = book1D(dir, "STMET",           "STMET",           150,  0., 1500.);
 
@@ -117,27 +139,29 @@ namespace
 }
 
 void
-EvtHistManager_hh_1l_3tau::fillHistograms(int numElectrons,
-					  int numMuons,
-					  int numHadTaus,
-					  int numJets,
-					  int numJetsPtGt40,
-					  int numBJets_loose,
-					  int numBJets_medium,
-					  double dihiggsVisMass,
-					  double dihiggsMass,
-					  double HT,
-					  double STMET,
-                                          const RecoLepton* selLepton,
-                                          const RecoHadTau* selHadTau_lead,
-                                          const RecoHadTau* selHadTau_sublead,
-                                          const RecoHadTau* selHadTau_third,
-                                          int numTightLeptons,    
-                                          int numFakeableHadTaus_passingElecVeto,
-                                          int numTightHadTaus,
-                                          int numTightHadTaus_passingElecVeto,
-                                          bool isMC,
-					  double evtWeight)
+EvtHistManager_hh_1l_3tau::fillHistograms(
+        int numElectrons,
+        int numMuons,
+        int numHadTaus,
+        int numJets,
+        int numJetsPtGt40,
+        int numBJets_loose,
+        int numBJets_medium,
+        double dihiggsVisMass,
+        double dihiggsMass,
+        double HT,
+        double STMET,
+        const RecoLepton* selLepton,
+        const RecoHadTau* selHadTau_lead,
+        const RecoHadTau* selHadTau_sublead,
+        const RecoHadTau* selHadTau_third,
+        int numTightLeptons,
+        int numFakeableHadTaus_passingElecVeto,
+        int numTightHadTaus,
+        int numTightHadTaus_passingElecVeto,
+        bool isMC,
+        double evtWeight
+)
 {
   const double evtWeightErr = 0.;
 
@@ -175,7 +199,7 @@ EvtHistManager_hh_1l_3tau::fillHistograms(int numElectrons,
       if ( selHadTau->charge()*selLepton->charge() < 0. )
       {
         double mass_etau = (selLepton->p4() + selHadTau->p4()).mass();
-	if ( mass_etau_OS_closestToZ == -1. || TMath::Abs(mass_etau - z_mass) < TMath::Abs(mass_etau_OS_closestToZ - z_mass) )
+             ( mass_etau_OS_closestToZ == -1. || TMath::Abs(mass_etau - z_mass) < TMath::Abs(mass_etau_OS_closestToZ - z_mass) )
         {
           mass_etau_OS_closestToZ = mass_etau;
         }

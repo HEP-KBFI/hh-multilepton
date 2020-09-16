@@ -825,11 +825,10 @@ int main(int argc, char* argv[])
         bdt_filler->register_variable<float_type>(Form(evt_cat_str.c_str()));
       }
     bdt_filler->register_variable<float_type>(
-      "tau1_pt", "tau1_eta", "tau1_raw", "tau1_phi",
-      "tau2_pt", "tau2_eta", "tau2_raw", "tau2_phi",
-      "tau3_pt", "tau3_eta", "tau3_raw", "tau3_phi",
-      "tau4_pt", "tau4_eta", "tau4_raw", "tau4_phi",
-      "tau1_mva", "tau2_mva", "tau3_mva", "tau4_mva",
+      "tau1_pt", "tau1_eta", "tau1_phi",
+      "tau2_pt", "tau2_eta", "tau2_phi",
+      "tau3_pt", "tau3_eta", "tau3_phi",
+      "tau4_pt", "tau4_eta", "tau4_phi",
       "diHiggsVisMass", "diHiggsMass", "mTauTau",
       "avg_dr_jet",
       "STMET", "HT", "met_LD", "mht", "met_phi", "met", "pt_HH_recoil",
@@ -1902,23 +1901,15 @@ int main(int argc, char* argv[])
     AllVars_Map["tau1_pt"] =  selHadTau_lead->pt();
     AllVars_Map["tau1_eta"] = selHadTau_lead->eta();
     AllVars_Map["tau1_phi"] = selHadTau_lead->phi();
-    AllVars_Map["tau1_raw"] = selHadTau_lead->raw_mva();
     AllVars_Map["tau2_pt"] = selHadTau_sublead->pt();
     AllVars_Map["tau2_eta"] =  selHadTau_sublead->eta();
     AllVars_Map["tau2_phi"] = selHadTau_lead->phi();
-    AllVars_Map["tau2_raw"] = selHadTau_sublead->raw_mva();
     AllVars_Map["tau3_pt"] = selHadTau_third->pt();
     AllVars_Map["tau3_eta"] = selHadTau_third->eta();
     AllVars_Map["tau3_phi"] = selHadTau_third->phi();
-    AllVars_Map["tau3_raw"] = selHadTau_third->raw_mva();
     AllVars_Map["tau4_pt"] = selHadTau_fourth->pt();
     AllVars_Map["tau4_eta"] = selHadTau_fourth->eta();
     AllVars_Map["tau4_phi"] = selHadTau_fourth->phi();
-    AllVars_Map["tau4_raw"] = selHadTau_fourth->raw_mva();
-    AllVars_Map["tau1_mva"] = tau1_mva;
-    AllVars_Map["tau2_mva"] = tau2_mva;
-    AllVars_Map["tau3_mva"] = tau3_mva;
-    AllVars_Map["tau4_mva"] = tau4_mva;
     AllVars_Map["diHiggsVisMass"] = dihiggsVisMass_sel;
     AllVars_Map["diHiggsMass"] = dihiggsMass;
     AllVars_Map["mTauTau"] = mTauTau;
@@ -2136,23 +2127,15 @@ int main(int argc, char* argv[])
             ("tau1_pt",                  selHadTau_lead->pt())
             ("tau1_eta",                 selHadTau_lead->eta())
             ("tau1_phi",                 selHadTau_lead->phi())
-            ("tau1_raw",                 selHadTau_lead->raw_mva())
             ("tau2_pt",                  selHadTau_sublead->pt())
             ("tau2_eta",                 selHadTau_sublead->eta())
             ("tau2_phi",                 selHadTau_lead->phi())
-            ("tau2_raw",                 selHadTau_sublead->raw_mva())
             ("tau3_pt",                  selHadTau_third->pt())
             ("tau3_eta",                 selHadTau_third->eta())
             ("tau3_phi",                 selHadTau_third->phi())
-            ("tau3_raw",                 selHadTau_third->raw_mva())
             ("tau4_pt",                  selHadTau_fourth->pt())
             ("tau4_eta",                 selHadTau_fourth->eta())
             ("tau4_phi",                 selHadTau_fourth->phi())
-            ("tau4_raw",                 selHadTau_fourth->raw_mva())
-            ("tau1_mva",                 tau1_mva)
-            ("tau2_mva",                 tau2_mva)
-            ("tau3_mva",                 tau3_mva)
-            ("tau4_mva",                 tau4_mva)
             ("diHiggsVisMass",           dihiggsVisMass_sel)
             ("diHiggsMass",              dihiggsMass)
             ("mTauTau",                  mTauTau)
