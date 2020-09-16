@@ -576,9 +576,12 @@ int main(int argc, char* argv[])
   assert(fitFunctionFileName_spin2 != "");
   assert(fitFunctionFileName_spin0 != "");
   TMVAInterface* BDT_SUM_spin2 = new TMVAInterface(BDTFileName_odd_spin2, BDTFileName_even_spin2, BDTInputVariables_SUM_spin2, fitFunctionFileName_spin2);
-  BDT_SUM_spin2->enableBDTTransform();
+  //BDT_SUM_spin2->enableBDTTransform();
+  BDT_SUM_spin2->disableBDTTransform();
+
   TMVAInterface* BDT_SUM_spin0 = new TMVAInterface(BDTFileName_odd_spin0, BDTFileName_even_spin0, BDTInputVariables_SUM_spin0, fitFunctionFileName_spin0);
-  BDT_SUM_spin0->enableBDTTransform();
+  //BDT_SUM_spin0->enableBDTTransform();
+  BDT_SUM_spin0->disableBDTTransform();
   std::map<std::string, double> AllVars_Map;
   std::map<std::string, double> BDTOutput_SUM_Map_spin2;
   std::map<std::string, double> BDTOutput_SUM_Map_spin0;
