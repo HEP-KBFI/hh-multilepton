@@ -1742,7 +1742,7 @@ int main(int argc, char* argv[])
     crackVetoHadTauSelector.getSelector().set_vertex(vertex);
 
     bool failsZeeVeto = false;
-    if ( selLepton->is_electron() ) 
+    if ( selLepton->is_electron() )
     { 
       for ( std::vector<const RecoHadTau*>::const_iterator selHadTau = selHadTaus.begin();
             selHadTau != selHadTaus.end(); ++selHadTau ) {
@@ -1870,6 +1870,54 @@ int main(int argc, char* argv[])
       svFit4tauResults_wMassConstraint[0].dihiggs_mass_ : -1.;
 
 
+    // CV: compute additional variables for bdt ntuple
+    Particle::LorentzVector p4_lep_tau1 = selLepton->p4() + selHadTau_lead->p4();
+    Particle::LorentzVector p4_lep_tau2 = selLepton->p4() + selHadTau_sublead->p4();
+    Particle::LorentzVector p4_lep_tau3 = selLepton->p4() + selHadTau_third->p4();
+
+    double dphi_lep_tau_OS_pair1 = -1.;
+    double dphi_lep_tau_OS_pair2 = -1.;
+    double dphi_tau_tau_OS_pair1 = -1.;
+    double dphi_tau_tau_OS_pair2 = -1.;
+    double dphi_HHvis1           = -1.;
+    double dphi_HHvis2           = -1.;
+    for ( std::vector<const RecoHadTau*>::const_iterator selHadTau1 = selHadTaus.begin();
+          selHadTau1 != selHadTaus.end(); ++selHadTau1 ) {
+      if ( (*selHadTau1)->charge()*selLepton->charge() > 0. ) continue;
+      for ( std::vector<const RecoHadTau*>::const_iterator selHadTau2 = selHadTaus.begin();
+            selHadTau2 != selHadTaus.end(); ++selHadTau2 ) {
+        if ( (*selHadTau2) == (*selHadTau1) ) continue;
+        for ( std::vector<const RecoHadTau*>::const_iterator selHadTau3 = selHadTau2 + 1;
+              selHadTau3 != selHadTaus.end(); ++selHadTau3 ) {
+          if ( (*selHadTau3) == (*selHadTau1) ) continue;
+          if ( (*selHadTau2)->charge()*(*selHadTau3)->charge() > 0. ) continue;
+          double dphi_lep_tau_OS = deltaPhi(selLepton->phi(), (*selHadTau1)->phi());
+          double dphi_tau_tau_OS = deltaPhi((*selHadTau2)->phi(), (*selHadTau3)->phi());
+          double dphi_HHvis      = deltaPhi((selLepton->p4() + (*selHadTau1)->p4()).phi(), ((*selHadTau2)->p4() + (*selHadTau3)->p4()).phi());
+          if ( dphi_lep_tau_OS_pair1 == -1. && dphi_tau_tau_OS_pair1 == -1. ) 
+          {
+            dphi_lep_tau_OS_pair1 = dphi_lep_tau_OS;
+            dphi_tau_tau_OS_pair1 = dphi_tau_tau_OS;
+            dphi_HHvis1           = dphi_HHvis;
+          }
+          else if ( dphi_lep_tau_OS_pair2 == -1. && dphi_tau_tau_OS_pair2 == -1. ) 
+          {
+            dphi_lep_tau_OS_pair2 = dphi_lep_tau_OS;
+            dphi_tau_tau_OS_pair2 = dphi_tau_tau_OS;
+            dphi_HHvis2           = dphi_HHvis;
+          }
+          else assert(0);
+        }
+      }
+    }
+    double dphi_lep_tau_OS_pair_max = std::max(dphi_lep_tau_OS_pair1, dphi_lep_tau_OS_pair2);
+    double dphi_lep_tau_OS_pair_min = std::min(dphi_lep_tau_OS_pair1, dphi_lep_tau_OS_pair2);
+    double dphi_tau_tau_OS_pair_max = std::max(dphi_tau_tau_OS_pair1, dphi_tau_tau_OS_pair2);
+    double dphi_tau_tau_OS_pair_min = std::min(dphi_tau_tau_OS_pair1, dphi_tau_tau_OS_pair2);
+    double dphi_HHvis_max           = std::max(dphi_HHvis1,   dphi_HHvis2);
+    double dphi_HHvis_min           = std::min(dphi_HHvis1,   dphi_HHvis2);
+
+
     AllVars_Map["lep_pt"] = selLepton->pt();
     AllVars_Map["lep_conePt"] = selLepton->cone_pt();
     AllVars_Map["lep_eta"] = selLepton->eta();
@@ -1885,7 +1933,7 @@ int main(int argc, char* argv[])
     AllVars_Map["tau3_eta"] = selHadTau_third->eta();
     AllVars_Map["tau3_phi"] = selHadTau_third->phi();
     AllVars_Map["met"] = met.pt();
-    AllVars_Map["mht"] = mht_p4.pt()
+    AllVars_Map["mht"] = mht_p4.pt();
     AllVars_Map["met_LD"] = met_LD;
     AllVars_Map["HT"] = HT;
     AllVars_Map["STMET"] = STMET;
@@ -2106,52 +2154,6 @@ int main(int argc, char* argv[])
       if(selHadTau_third->genHadTau()) hadTau3_genPt = selHadTau_third->genHadTau()->pt();
       else if ( selHadTau_third->genLepton()) hadTau3_genPt = selHadTau_third->genLepton()->pt();
 
-      // CV: compute additional variables for bdt ntuple
-      Particle::LorentzVector p4_lep_tau1 = selLepton->p4() + selHadTau_lead->p4();
-      Particle::LorentzVector p4_lep_tau2 = selLepton->p4() + selHadTau_sublead->p4();
-      Particle::LorentzVector p4_lep_tau3 = selLepton->p4() + selHadTau_third->p4();
-
-      double dphi_lep_tau_OS_pair1 = -1.;
-      double dphi_lep_tau_OS_pair2 = -1.;
-      double dphi_tau_tau_OS_pair1 = -1.;
-      double dphi_tau_tau_OS_pair2 = -1.;
-      double dphi_HHvis1           = -1.;
-      double dphi_HHvis2           = -1.;
-      for ( std::vector<const RecoHadTau*>::const_iterator selHadTau1 = selHadTaus.begin();
-            selHadTau1 != selHadTaus.end(); ++selHadTau1 ) {
-        if ( (*selHadTau1)->charge()*selLepton->charge() > 0. ) continue;
-        for ( std::vector<const RecoHadTau*>::const_iterator selHadTau2 = selHadTaus.begin();
-              selHadTau2 != selHadTaus.end(); ++selHadTau2 ) {
-          if ( (*selHadTau2) == (*selHadTau1) ) continue;
-          for ( std::vector<const RecoHadTau*>::const_iterator selHadTau3 = selHadTau2 + 1;
-                selHadTau3 != selHadTaus.end(); ++selHadTau3 ) {
-            if ( (*selHadTau3) == (*selHadTau1) ) continue;
-            if ( (*selHadTau2)->charge()*(*selHadTau3)->charge() > 0. ) continue;
-            double dphi_lep_tau_OS = deltaPhi(selLepton->phi(), (*selHadTau1)->phi());
-            double dphi_tau_tau_OS = deltaPhi((*selHadTau2)->phi(), (*selHadTau3)->phi());
-            double dphi_HHvis      = deltaPhi((selLepton->p4() + (*selHadTau1)->p4()).phi(), ((*selHadTau2)->p4() + (*selHadTau3)->p4()).phi());
-            if ( dphi_lep_tau_OS_pair1 == -1. && dphi_tau_tau_OS_pair1 == -1. ) 
-            {
-              dphi_lep_tau_OS_pair1 = dphi_lep_tau_OS;
-              dphi_tau_tau_OS_pair1 = dphi_tau_tau_OS;
-              dphi_HHvis1           = dphi_HHvis;
-            }
-            else if ( dphi_lep_tau_OS_pair2 == -1. && dphi_tau_tau_OS_pair2 == -1. ) 
-            {
-              dphi_lep_tau_OS_pair2 = dphi_lep_tau_OS;
-              dphi_tau_tau_OS_pair2 = dphi_tau_tau_OS;
-              dphi_HHvis2           = dphi_HHvis;
-            }
-            else assert(0);
-          }
-        }
-      }
-      double dphi_lep_tau_OS_pair_max = std::max(dphi_lep_tau_OS_pair1, dphi_lep_tau_OS_pair2);
-      double dphi_lep_tau_OS_pair_min = std::min(dphi_lep_tau_OS_pair1, dphi_lep_tau_OS_pair2);
-      double dphi_tau_tau_OS_pair_max = std::max(dphi_tau_tau_OS_pair1, dphi_tau_tau_OS_pair2);
-      double dphi_tau_tau_OS_pair_min = std::min(dphi_tau_tau_OS_pair1, dphi_tau_tau_OS_pair2);
-      double dphi_HHvis_max           = std::max(dphi_HHvis1,   dphi_HHvis2);
-      double dphi_HHvis_min           = std::min(dphi_HHvis1,   dphi_HHvis2);
 
       //FR weights for bdt ntuple
       double prob_fake_lepton_lead = evtWeightRecorder.get_jetToLepton_FR_lead(central_or_shift_main);

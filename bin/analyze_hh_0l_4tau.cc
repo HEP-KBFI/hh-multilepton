@@ -1469,18 +1469,18 @@ int main(int argc, char* argv[])
       const bool skipFilling = central_or_shift != central_or_shift_main;
       for(const std::string & evt_cat_str: evt_cat_strs)
       {
-	if(skipFilling && evt_cat_str != default_cat_str)
-	{
-	  continue;
-	}
-	if(apply_HH_rwgt)
-	{
-	  reWeightMapHH[evt_cat_str] *= evtWeight;
-	}
-	else
-	{
-	  reWeightMapHH[evt_cat_str] = evtWeight;
-	}
+    if(skipFilling && evt_cat_str != default_cat_str)
+    {
+      continue;
+    }
+    if(apply_HH_rwgt)
+    {
+      reWeightMapHH[evt_cat_str] *= evtWeight;
+    }
+    else
+    {
+      reWeightMapHH[evt_cat_str] = evtWeight;
+    }
       }
     }
 

@@ -151,6 +151,8 @@ EvtHistManager_hh_1l_3tau::fillHistograms(
         double dihiggsMass,
         double HT,
         double STMET,
+        std::map<std::string, double> & BDTOutput_SUM_Map_spin2,
+        std::map<std::string, double> & BDTOutput_SUM_Map_spin0,
         const RecoLepton* selLepton,
         const RecoHadTau* selHadTau_lead,
         const RecoHadTau* selHadTau_sublead,
@@ -199,7 +201,7 @@ EvtHistManager_hh_1l_3tau::fillHistograms(
       if ( selHadTau->charge()*selLepton->charge() < 0. )
       {
         double mass_etau = (selLepton->p4() + selHadTau->p4()).mass();
-             ( mass_etau_OS_closestToZ == -1. || TMath::Abs(mass_etau - z_mass) < TMath::Abs(mass_etau_OS_closestToZ - z_mass) )
+      if ( mass_etau_OS_closestToZ == -1. || TMath::Abs(mass_etau - z_mass) < TMath::Abs(mass_etau_OS_closestToZ - z_mass) )
         {
           mass_etau_OS_closestToZ = mass_etau;
         }
