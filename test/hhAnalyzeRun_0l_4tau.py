@@ -10,7 +10,7 @@ import os
 import sys
 import getpass
 
-# E.g.: ./test/hhAnalyzeRun_0l_4tau.py -v 2017Dec13 -m default -e 2017
+# E.g.: ./test/hhAnalyzeRun_0l_4tau.py -v 2017Dec13 -m default -e 2017 -t deepVSj
 
 mode_choices     = [ 'default', 'forBDTtraining' ]
 sys_choices      = [ 'full', 'internal' ] + systematics.an_opts_hh_multilepton
