@@ -167,11 +167,8 @@ if __name__ == '__main__':
       "EventCounter"                      : {},
       "dihiggsMass"                       : {},
       "BDTOutput_300_hypo_spin0"          : {},
-      "BDTOutput_500_hypo_spin0"          : {},
-      "BDTOutput_800_hypo_spin0"          : {},
-      "BDTOutput_300_hypo_spin2"          : {},
-      "BDTOutput_500_hypo_spin2"          : {},
-      "BDTOutput_800_hypo_spin2"          : {}
+      "BDTOutput_SM"                      : {},
+      "BDTOutput_BM1"                     : {},
     },
     select_rle_output                     = True,
     dry_run                               = dry_run,

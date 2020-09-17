@@ -1464,26 +1464,24 @@ int main(int argc, char* argv[])
     const std::vector<const RecoLepton*> tightLeptons = getIntersection(fakeableLeptons, tightLeptonsFull, isHigherConePt);
 
     std::vector<const RecoLepton*> selLeptons;
-    std::vector<const RecoMuon*> selMuons;
-    std::vector<const RecoElectron*> selElectrons;
     if(electronSelection == muonSelection)
     {
       // for SR, flip region and fake CR
       // doesn't matter if we supply electronSelection or muonSelection here
       selLeptons = selectObjects(muonSelection, preselLeptons, fakeableLeptons, tightLeptons);
-      selMuons = getIntersection(preselMuons, selLeptons, isHigherConePt);
-      selElectrons = getIntersection(preselElectrons, selLeptons, isHigherConePt);
     }
     else
     {
       // for MC closure
       // make sure that neither electron nor muon selections are loose
       assert(electronSelection != kLoose && muonSelection != kLoose);
-      selMuons = selectObjects(muonSelection, preselMuons, fakeableMuons, tightMuons);
-      selElectrons = selectObjects(electronSelection, preselElectrons, fakeableElectrons, tightElectrons);
+      std::vector<const RecoMuon*> selMuonsFull = selectObjects(muonSelection, preselMuons, fakeableMuons, tightMuons);
+      std::vector<const RecoElectron*> selElectronsFull = selectObjects(electronSelection, preselElectrons, fakeableElectrons, tightElectrons);
+      const std::vector<const RecoLepton*> selLeptonsFull = mergeLeptonCollections(selElectronsFull, selMuonsFull, isHigherConePt);
+      selLeptons = getIntersection(fakeableLeptons, selLeptonsFull, isHigherConePt);
     }
-    const std::vector<const RecoLepton*> selLeptons_full = mergeLeptonCollections(selElectrons, selMuons, isHigherConePt);
-    if(!(electronSelection == muonSelection)) selLeptons = getIntersection(fakeableLeptons, selLeptons_full, isHigherConePt);
+    std::vector<const RecoMuon*> selMuons = getIntersection(preselMuons, selLeptons, isHigherConePt);
+    std::vector<const RecoElectron*> selElectrons = getIntersection(preselElectrons, selLeptons, isHigherConePt);
 
     const std::vector<RecoHadTau> hadTaus = hadTauReader->read();
     const std::vector<const RecoHadTau*> hadTau_ptrs = convert_to_ptrs(hadTaus);
@@ -1504,8 +1502,8 @@ int main(int argc, char* argv[])
     const std::vector<const RecoJet*> jet_ptrs_ak4 = convert_to_ptrs(jets_ak4);
     const std::vector<const RecoJet*> cleanedJetsAK4_wrtLeptons = jetCleanerAK4_dR04(jet_ptrs_ak4, fakeableLeptons);
     const std::vector<const RecoJet*> cleanedJetsAK4 = jetCleaningByIndex ?
-      jetCleanerAK4_byIndex(jet_ptrs_ak4, selectBDT ? selLeptons_full : fakeableLeptonsFull, fakeableHadTaus) :
-      jetCleanerAK4_dR04   (jet_ptrs_ak4, selectBDT ? selLeptons_full : fakeableLeptonsFull, fakeableHadTaus)
+      jetCleanerAK4_byIndex(jet_ptrs_ak4, selectBDT ? selLeptons : fakeableLeptons, fakeableHadTaus) :
+      jetCleanerAK4_dR04   (jet_ptrs_ak4, selectBDT ? selLeptons : fakeableLeptons, fakeableHadTaus)
     ;
     const std::vector<const RecoJet*> selJetsAK4 = jetSelectorAK4(cleanedJetsAK4, isHigherPt);
     const std::vector<const RecoJet*> selBJetsAK4_loose = jetSelectorAK4_bTagLoose(cleanedJetsAK4, isHigherPt);
@@ -2337,8 +2335,8 @@ int main(int argc, char* argv[])
       if (abs(selLeptons[i]->pdgId()) == 13) nMu_3selLep++;
     }
     //std::cout << "nEle_3selLep: " << nEle_3selLep << ",  nMu_3selLep: " << nMu_3selLep << std::endl;
-    
-    
+
+
 
     // SS: Yet to implement this for hh->wwww
     double dihiggsVisMass_sel = -1., dihiggsMass = -1.;

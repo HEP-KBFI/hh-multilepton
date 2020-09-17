@@ -27,8 +27,9 @@ EvtHistManager_hh_2l_2tau::EvtHistManager_hh_2l_2tau(const edm::ParameterSet & c
   central_or_shiftOptions_["EventCounter"] = { "*" };
   central_or_shiftOptions_["EventNumber"] = { "*" };
   std::vector<double> gen_mHH = cfg.getParameter<std::vector<double>>("gen_mHH");
+  std::vector<double> nonRes_BMs = cfg.getParameter<std::vector<double>>("nonRes_BMs");
 
-  for(unsigned int i=0;i<gen_mHH.size();i++){
+  for(unsigned int i=0;i<gen_mHH.size();i++){ // Loop over signal masses (Resonant case)
     unsigned int mass_int = (int)gen_mHH[i]; // Conversion from double to unsigned int                                                                                                    
     std::string key = "";
     std::ostringstream temp;
@@ -42,9 +43,32 @@ EvtHistManager_hh_2l_2tau::EvtHistManager_hh_2l_2tau(const edm::ParameterSet & c
     labels_spin0_.push_back(key_final_spin0);
   }
 
+  for(unsigned int i=0;i<nonRes_BMs.size();i++){ // Loop over BM indices (Non Resonant case)
+    std::string key_final = "";
+    if(nonRes_BMs[i] == 0){ // For SM
+      key_final = "BDTOutput_SM"; // For the TMVAInterface
+    }else{
+      unsigned int bm_index_int = (int)nonRes_BMs[i]; // Conversion from double to unsigned int
+      std::string key = "";
+      std::ostringstream temp;
+      temp << bm_index_int;
+      key = temp.str(); // Conversion from unsigned int to string
+      key_final = "BDTOutput_BM" + key; // For the TMVAInterface
+    }
+    std::string key_final_nonres = key_final;
+    labels_nonres_.push_back(key_final_nonres);
+  }
+
   for(unsigned int i=0;i < labels_spin2_.size();i++){
     central_or_shiftOptions_[labels_spin2_[i]] = { "*" };
+  }
+
+  for(unsigned int i=0;i < labels_spin0_.size();i++){
     central_or_shiftOptions_[labels_spin0_[i]] = { "*" };
+  }
+
+  for(unsigned int i=0;i < labels_nonres_.size();i++){
+    central_or_shiftOptions_[labels_nonres_[i]] = { "*" };
   }
 
 }
@@ -86,6 +110,12 @@ EvtHistManager_hh_2l_2tau::bookHistograms(TFileDirectory & dir)
     TH1* histogram_BDT_output_spin0 = book1D(dir, labels_spin0_[i], labels_spin0_[i], 100, 0., 1.); 
     histogram_Map_BDTOutput_SUM_spin0_.insert(std::make_pair(labels_spin0_[i], histogram_BDT_output_spin0)); 
   }
+
+  for(unsigned int i=0;i < labels_nonres_.size();i++){ 
+    TH1* histogram_BDT_output_nonres = book1D(dir, labels_nonres_[i], labels_nonres_[i], 100, 0., 1.); 
+    histogram_Map_BDTOutput_SUM_nonres_.insert(std::make_pair(labels_nonres_[i], histogram_BDT_output_nonres)); 
+  }
+
 }
 
 void
@@ -105,6 +135,7 @@ EvtHistManager_hh_2l_2tau::fillHistograms(int numElectrons,
 					  double STMET,
 					  std::map<std::string, double> & BDTOutput_SUM_Map_spin2,
 					  std::map<std::string, double> & BDTOutput_SUM_Map_spin0,
+					  std::map<std::string, double> & BDTOutput_SUM_Map_nonres,
 					  unsigned int evt_number,
 					  double evtWeight)
 {
@@ -141,4 +172,9 @@ EvtHistManager_hh_2l_2tau::fillHistograms(int numElectrons,
   for(unsigned int i=0;i < labels_spin0_.size();i++){
     fillWithOverFlow(histogram_Map_BDTOutput_SUM_spin0_[labels_spin0_[i]], BDTOutput_SUM_Map_spin0[labels_spin0_[i]], evtWeight, evtWeightErr);
   }
+
+ for(unsigned int i=0;i < labels_nonres_.size();i++){
+    fillWithOverFlow(histogram_Map_BDTOutput_SUM_nonres_[labels_nonres_[i]], BDTOutput_SUM_Map_nonres[labels_nonres_[i]], evtWeight, evtWeightErr);
+  }
+
 }

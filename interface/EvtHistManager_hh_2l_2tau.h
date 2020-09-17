@@ -48,6 +48,7 @@ public:
 		 double STMET,
 		 std::map<std::string, double>& BDTOutput_SUM_Map_spin2,
 		 std::map<std::string, double>& BDTOutput_SUM_Map_spin0,
+		 std::map<std::string, double>& BDTOutput_SUM_Map_nonres,
 		 unsigned int evt_number,
                  double evtWeight);
 
@@ -78,9 +79,12 @@ public:
   TH1 * histogram_EventNumber_;
   std::map<std::string, TH1*> histogram_Map_BDTOutput_SUM_spin2_;
   std::map<std::string, TH1*> histogram_Map_BDTOutput_SUM_spin0_;
+  std::map<std::string, TH1*> histogram_Map_BDTOutput_SUM_nonres_;
 
   std::vector<string> labels_spin2_;
   std::vector<string> labels_spin0_;
+  std::vector<string> labels_nonres_;
+
 };
 
 #endif

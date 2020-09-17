@@ -132,7 +132,7 @@ process.analyze_hh_2l_2tau = cms.PSet(
     selectBDT = cms.bool(False), ## Set it to true for making BDT training Ntuples
 
     gen_mHH = cms.vdouble(250,260,270,280,300,350,400,450,500,550,600,650,700,750,800,850,900,1000), ## Set the signal mass range used in the BDT .pkl/.xml/.pb files
-    mvaInfo_res = cms.PSet(
+    mvaInfo_res = cms.PSet( ## [Default hyper-para.s used]
         BDT_xml_FileName_even_spin2 = cms.string('hhAnalysis/multilepton/data/odd_half_model_def_hyper_para_spin2.xml'), ## "BDT .xml -> Odd train:Even test" to be used for even evt no.
         BDT_xml_FileName_odd_spin2 = cms.string('hhAnalysis/multilepton/data/even_half_model_def_hyper_para_spin2.xml'), ## "BDT .xml -> Even train:Odd test" to be used for odd evt no.
         fitFunctionFileName_spin2 = cms.string('hhAnalysis/multilepton/data/TProfile_signal_fit_func_spin2.root'),  ## File contaning the fitted TF1s
@@ -141,6 +141,12 @@ process.analyze_hh_2l_2tau = cms.PSet(
         BDT_xml_FileName_odd_spin0 = cms.string('hhAnalysis/multilepton/data/even_half_model_def_hyper_para_spin0.xml'),
         fitFunctionFileName_spin0 = cms.string('hhAnalysis/multilepton/data/TProfile_signal_fit_func_spin0.root'),
         inputVars_spin0 = cms.vstring('tau1_eta', 'dr_leps', 'ptTauTauVis', 'met', 'dr_lep_tau_min_OS', 'diHiggsMass', 'mTauTauVis', 'Smin_lltautau', 'dr_lep1_tau1_tau2_min', 'Smin_llMEt', 'gen_mHH'),
+    ),
+    nonRes_BMs = cms.vdouble(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12),
+    mvaInfo_nonres = cms.PSet( ## [Laurits_Reso_Twaek hyp_para.s used]
+        BDT_xml_FileName_even_nonres = cms.string('hhAnalysis/multilepton/data/odd_half_model_def_hyper_para_nonres.xml'), ## "BDT .xml -> Odd train:Even test" to be used for even evt no. 
+        BDT_xml_FileName_odd_nonres = cms.string('hhAnalysis/multilepton/data/even_half_model_def_hyper_para_nonres.xml'), ## "BDT .xml -> Even train:Odd test" to be used for odd evt no.
+        inputVars_nonres = cms.vstring('lep1_pt', 'tau1_pt', 'dr_lep1_tau2', 'dr_leps', 'dr_taus', 'met', 'HT', 'Smin_llMEt', 'mTauTau', 'diHiggsMass'), ## No Need to add BM indices they will be added for the  non-reso case on the fly
     ),
 
     evtWeight = cms.PSet(
