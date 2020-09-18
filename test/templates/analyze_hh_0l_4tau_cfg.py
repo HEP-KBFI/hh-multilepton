@@ -132,6 +132,12 @@ process.analyze_hh_0l_4tau = cms.PSet(
             'Zee_secondTauHPair_m', 'pt_secondTauHPair_dPhi', 'dr_secondTauHPair_dr', 'gen_mHH'
         ),
     ),
+    nonRes_BMs = cms.vdouble(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12),
+    mvaInfo_nonres = cms.PSet( ## [Laurits_Reso_Twaek hyp_para.s used]
+        BDT_xml_FileName_even_nonres = cms.string('hhAnalysis/multilepton/data/odd_half_model_def_hyper_para_nonres.xml'), ## "BDT .xml -> Odd train:Even test" to be used for even evt no. 
+        BDT_xml_FileName_odd_nonres = cms.string('hhAnalysis/multilepton/data/even_half_model_def_hyper_para_nonres.xml'), ## "BDT .xml -> Even train:Odd test" to be used for odd evt no.
+        inputVars_nonres = cms.vstring('lep1_pt', 'tau1_pt', 'dr_lep1_tau2', 'dr_leps', 'dr_taus', 'met', 'HT', 'Smin_llMEt', 'mTauTau', 'diHiggsMass'), ## No Need to add BM indices they will be added for the  non-reso case on the fly
+    ),
 
     evtWeight = cms.PSet(
         apply = cms.bool(False),

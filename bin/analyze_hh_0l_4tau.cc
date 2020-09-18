@@ -130,10 +130,12 @@ makeHistManager_cfg(const std::string & process,
                     const std::string & era,
                     const std::string & central_or_shift,
                     const std::vector<double> & gen_mHH,
+                    const std::vector<double> & nonRes_BMs,
                     int idx = -1)
 {
   edm::ParameterSet cfg = makeHistManager_cfg(process, category, era, central_or_shift, idx);
   cfg.addParameter<std::vector<double>>("gen_mHH", gen_mHH);
+  cfg.addParameter<std::vector<double>>("nonRes_BMs", nonRes_BMs);
   return cfg;
 }
 
@@ -143,10 +145,11 @@ makeHistManager_cfg(const std::string & process,
                     const std::string & era,
                     const std::string & central_or_shift,
                     const std::vector<double> & gen_mHH,
+                    const std::vector<double> & nonRes_BMs,
                     const std::string & option,
                     int idx = -1)
 {
-  edm::ParameterSet cfg = makeHistManager_cfg(process, category, era, central_or_shift, gen_mHH, idx);
+  edm::ParameterSet cfg = makeHistManager_cfg(process, category, era, central_or_shift, gen_mHH, nonRes_BMs idx);
   cfg.addParameter<std::string>("option", option);
   return cfg;
 }
@@ -388,6 +391,7 @@ int main(int argc, char* argv[])
 
   const bool selectBDT = cfg_analyze.exists("selectBDT") ? cfg_analyze.getParameter<bool>("selectBDT") : false;
 
+  // Resonant info
   const edm::ParameterSet mvaInfo_res = cfg_analyze.getParameter<edm::ParameterSet>("mvaInfo_res");
   std::vector<double> gen_mHH = cfg_analyze.getParameter<std::vector<double>>("gen_mHH");
   std::string BDTFileName_even_spin2  = mvaInfo_res.getParameter<std::string>("BDT_xml_FileName_even_spin2");
@@ -399,16 +403,37 @@ int main(int argc, char* argv[])
   std::string fitFunctionFileName_spin0 = mvaInfo_res.getParameter<std::string>("fitFunctionFileName_spin0");
   std::vector<std::string> BDTInputVariables_SUM_spin0 = mvaInfo_res.getParameter<std::vector<std::string>>("inputVars_spin0");
 
+  // Non-res info
+  const edm::ParameterSet mvaInfo_nonres = cfg_analyze.getParameter<edm::ParameterSet>("mvaInfo_nonres");
+  std::vector<double> nonRes_BMs = cfg_analyze.getParameter<std::vector<double>>("nonRes_BMs");
+  std::string BDTFileName_even_nonres  = mvaInfo_nonres.getParameter<std::string>("BDT_xml_FileName_even_nonres");
+  std::string BDTFileName_odd_nonres   = mvaInfo_nonres.getParameter<std::string>("BDT_xml_FileName_odd_nonres");
+  std::vector<std::string> BDTInputVariables_SUM_nonres = mvaInfo_nonres.getParameter<std::vector<std::string>>("inputVars_nonres"); // Include all Input Var.s except BM indices
 
-  assert(fitFunctionFileName_spin2 != "");
+  assert(BDTFileName_odd_spin0 != "");
+  assert(BDTFileName_even_spin0 != "");
   assert(fitFunctionFileName_spin0 != "");
-  TMVAInterface* BDT_SUM_spin2 = new TMVAInterface(BDTFileName_odd_spin2, BDTFileName_even_spin2, BDTInputVariables_SUM_spin2, fitFunctionFileName_spin2);
-  BDT_SUM_spin2->disableBDTTransform();
+  assert(BDTInputVariables_SUM_spin0.size() != 0);
   TMVAInterface* BDT_SUM_spin0 = new TMVAInterface(BDTFileName_odd_spin0, BDTFileName_even_spin0, BDTInputVariables_SUM_spin0, fitFunctionFileName_spin0);
   BDT_SUM_spin0->disableBDTTransform();
-  std::map<std::string, double> AllVars_Map;
-  std::map<std::string, double> BDTOutput_SUM_Map_spin2;
   std::map<std::string, double> BDTOutput_SUM_Map_spin0;
+
+  assert(BDTFileName_odd_spin2 != "");
+  assert(BDTFileName_even_spin2 != "");
+  assert(fitFunctionFileName_spin2 != "");
+  assert(BDTInputVariables_SUM_spin2.size() != 0);
+  TMVAInterface* BDT_SUM_spin2 = new TMVAInterface(BDTFileName_odd_spin2, BDTFileName_even_spin2, BDTInputVariables_SUM_spin2, fitFunctionFileName_spin2);
+  BDT_SUM_spin2->disableBDTTransform();
+  std::map<std::string, double> BDTOutput_SUM_Map_spin2;
+
+  assert(BDTFileName_odd_nonres != "");
+  assert(BDTFileName_even_nonres != "");
+  assert(BDTInputVariables_SUM_nonres.size() != 0);
+  TMVAInterface* BDT_SUM_nonres = new TMVAInterface(BDTFileName_odd_nonres, BDTFileName_even_nonres, BDTInputVariables_SUM_nonres);
+  BDT_SUM_nonres->disableBDTTransform();
+  std::map<std::string, double> BDTOutput_SUM_Map_nonres;
+
+  std::map<std::string, double> AllVars_Map;
 
 
   std::string selEventsFileName_input = cfg_analyze.getParameter<std::string>("selEventsFileName_input");
@@ -730,7 +755,7 @@ int main(int argc, char* argv[])
         );
 
         selHistManager->evt_[evt_cat_str] = new EvtHistManager_hh_0l_4tau(makeHistManager_cfg(process_and_genMatchName,
-          Form("%s/sel/evt", histogramDir.data()), era_string, central_or_shift, gen_mHH));
+          Form("%s/sel/evt", histogramDir.data()), era_string, central_or_shift, gen_mHH, nonRes_BMs));
         selHistManager->evt_[evt_cat_str]->bookHistograms(fs);
         selHistManager->svFit4tau_woMassConstraint_[evt_cat_str] = new SVfit4tauHistManager_MarkovChain(makeHistManager_cfg(process_and_genMatchName,
           Form("%s/sel/svFit4tau_woMassConstraint", histogramDir.data()), era_string, central_or_shift));
@@ -763,7 +788,7 @@ int main(int argc, char* argv[])
             );
 
             selHistManager->evt_in_decayModes_[evt_cat_str][decayMode_evt] = new EvtHistManager_hh_0l_4tau(makeHistManager_cfg(decayMode_and_genMatchName,
-              Form("%s/sel/evt", histogramDir.data()), era_string, central_or_shift, gen_mHH));
+              Form("%s/sel/evt", histogramDir.data()), era_string, central_or_shift, gen_mHH, nonRes_BMs));
             selHistManager->evt_in_decayModes_[evt_cat_str][decayMode_evt]->bookHistograms(fs);
             selHistManager->svFit4tau_woMassConstraint_in_decayModes_[evt_cat_str][decayMode_evt] = new SVfit4tauHistManager_MarkovChain(makeHistManager_cfg(decayMode_and_genMatchName,
               Form("%s/sel/svFit4tau_woMassConstraint", histogramDir.data()), era_string, central_or_shift));
@@ -1981,13 +2006,15 @@ int main(int argc, char* argv[])
     AllVars_Map["nJet"] = selJets.size();
     AllVars_Map["nBJet_loose"] = selBJets_btag_loose.size();
     AllVars_Map["nBJet_medium"] =  selBJets_btag_medium.size();
-    AllVars_Map["gen_mHH"] = 250.; // setting a Dummy value which will be reset depending on mass hypothesis 
+    AllVars_Map["gen_mHH"] = 250.; // setting a Dummy value which will be reset depending on mass hypothesis
 
     std::map<std::string, double> BDTInputs_SUM_spin2 = InitializeInputVarMap(AllVars_Map, BDTInputVariables_SUM_spin2, false);
     std::map<std::string, double> BDTInputs_SUM_spin0 = InitializeInputVarMap(AllVars_Map, BDTInputVariables_SUM_spin0, false);
+    std::map<std::string, double> BDTInputs_SUM_nonres = InitializeInputVarMap(AllVars_Map, BDTInputVariables_SUM_nonres, true); // Include all Input Var.s except BM indices
 
     BDTOutput_SUM_Map_spin2 = CreateBDTOutputMap(gen_mHH, BDT_SUM_spin2, BDTInputs_SUM_spin2, eventInfo.event, false, "_hypo_spin2");
     BDTOutput_SUM_Map_spin0 = CreateBDTOutputMap(gen_mHH, BDT_SUM_spin0, BDTInputs_SUM_spin0, eventInfo.event, false, "_hypo_spin0");
+    BDTOutput_SUM_Map_nonres = CreateBDTOutputMap(nonRes_BMs, BDT_SUM_nonres, BDTInputs_SUM_nonres, eventInfo.event, true, "");
     // -------------------------------
 
 
@@ -2034,6 +2061,7 @@ int main(int argc, char* argv[])
             STMET,
             BDTOutput_SUM_Map_spin2,
             BDTOutput_SUM_Map_spin0,
+            BDTOutput_SUM_Map_nonres,
             eventInfo.event,
             kv.second
           );
@@ -2057,6 +2085,7 @@ int main(int argc, char* argv[])
                 STMET,
                 BDTOutput_SUM_Map_spin2,
                 BDTOutput_SUM_Map_spin0,
+                BDTOutput_SUM_Map_nonres,
                 eventInfo.event,
                 kv.second
               );
