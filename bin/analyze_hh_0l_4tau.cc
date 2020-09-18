@@ -149,7 +149,7 @@ makeHistManager_cfg(const std::string & process,
                     const std::string & option,
                     int idx = -1)
 {
-  edm::ParameterSet cfg = makeHistManager_cfg(process, category, era, central_or_shift, gen_mHH, nonRes_BMs idx);
+  edm::ParameterSet cfg = makeHistManager_cfg(process, category, era, central_or_shift, gen_mHH, nonRes_BMs, idx);
   cfg.addParameter<std::string>("option", option);
   return cfg;
 }
