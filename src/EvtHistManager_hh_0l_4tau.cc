@@ -149,10 +149,10 @@ EvtHistManager_hh_0l_4tau::fillHistograms(
   fillWithOverFlow(histogram_EventCounter_,    0.,              evtWeight, evtWeightErr);
 
   if(evt_number % 2){// Odd Event Number case
-    fillWithOverFlow(histogram_EventNumber_,  0., evtWeight, evtWeightErr);                                                                                                                         
-  }else{ // Even Event Number case                                                                                                                                                        
-    fillWithOverFlow(histogram_EventNumber_,  1., evtWeight, evtWeightErr);     
-  }      
+    fillWithOverFlow(histogram_EventNumber_,  0., evtWeight, evtWeightErr);
+  }else{ // Even Event Number case
+    fillWithOverFlow(histogram_EventNumber_,  1., evtWeight, evtWeightErr);
+  }
 
   for(unsigned int i=0;i < labels_spin2_.size();i++){
     fillWithOverFlow(histogram_Map_BDTOutput_SUM_spin2_[labels_spin2_[i]], BDTOutput_SUM_Map_spin2[labels_spin2_[i]], evtWeight, evtWeightErr);

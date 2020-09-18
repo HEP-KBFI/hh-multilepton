@@ -152,6 +152,16 @@ process.analyze_hh_1l_3tau = cms.PSet(
             'pt_HH_recoil', 'dphi_tau_tau_OS_pair_max', 'mT_lep', 'gen_mHH'
         ),
     ),
+    nonRes_BMs = cms.vdouble(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12),
+    mvaInfo_nonres = cms.PSet(
+        BDT_xml_FileName_even_nonres = cms.string('hhAnalysis/multilepton/data/1l_3tau_odd_model_nonres.xml'),
+        BDT_xml_FileName_odd_nonres = cms.string('hhAnalysis/multilepton/data/1l_3tau_even_model_nonres.xml'),
+        inputVars_nonres = cms.vstring(
+            'lep_pt', 'lep_phi', 'tau1_pt', 'tau2_pt', 'tau3_pt', 'met', 'diHiggsVisMass',
+            'diHiggsMass', 'dr_lep_tau3', 'dr_tau1_tau2', 'dr_tau1_tau3', 'dr_tau2_tau3',
+            'm_lep_tau1', 'pt_HH_recoil', 'mT_lep'
+        ), ## No Need to add BM indices they will be added for the  non-reso case on the fly
+    ),
 
     evtWeight = cms.PSet(
         apply = cms.bool(False),
