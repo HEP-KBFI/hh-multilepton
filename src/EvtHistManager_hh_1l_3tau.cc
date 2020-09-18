@@ -141,9 +141,6 @@ EvtHistManager_hh_1l_3tau::bookHistograms(TFileDirectory & dir)
 
   histogram_EventCounter_                            = book1D(dir, "EventCounter", "EventCounter", 1, -0.5, +0.5);
 
-  histogram_EventNumber_->GetXaxis()->SetBinLabel(1,"Odd");
-  histogram_EventNumber_->GetXaxis()->SetBinLabel(2,"Even");
-
   for(unsigned int i=0;i < labels_spin2_.size();i++){ 
     TH1* histogram_BDT_output_spin2 = book1D(dir, labels_spin2_[i], labels_spin2_[i], 100, 0., 1.); 
     histogram_Map_BDTOutput_SUM_spin2_.insert(std::make_pair(labels_spin2_[i], histogram_BDT_output_spin2)); 
@@ -280,12 +277,6 @@ EvtHistManager_hh_1l_3tau::fillHistograms(
   }
   
   fillWithOverFlow(histogram_EventCounter_, 0., evtWeight, evtWeightErr);
-
-  if(evt_number % 2){// Odd Event Number case
-    fillWithOverFlow(histogram_EventNumber_,  0., evtWeight, evtWeightErr);
-  }else{ // Even Event Number case
-    fillWithOverFlow(histogram_EventNumber_,  1., evtWeight, evtWeightErr);
-  }
 
   for(unsigned int i=0;i < labels_spin2_.size();i++){
     fillWithOverFlow(histogram_Map_BDTOutput_SUM_spin2_[labels_spin2_[i]], BDTOutput_SUM_Map_spin2[labels_spin2_[i]], evtWeight, evtWeightErr);
