@@ -1,9 +1,9 @@
-#include "hhAnalysis/multilepton/interface/RecoElectronCollectionSelectorFakeable_hh_multilepton.h" // RecoElectronSelectorFakeable_hh_multilepton
+#include "hhAnalysis/multilepton/interface/RecoElectronCollectionSelectorFakeable_hh_multilepton_Dynamic.h" // RecoElectronSelectorFakeable_hh_multilepton_Dynamic
 
 #include "tthAnalysis/HiggsToTauTau/interface/analysisAuxFunctions.h" // Era::k*
 #include "tthAnalysis/HiggsToTauTau/interface/cmsException.h"         // cmsException(), assert()
 
-RecoElectronSelectorFakeable_hh_multilepton::RecoElectronSelectorFakeable_hh_multilepton(Era era,
+RecoElectronSelectorFakeable_hh_multilepton_Dynamic::RecoElectronSelectorFakeable_hh_multilepton_Dynamic(Era era,
                                                            int index,
                                                            bool debug,
                                                            bool set_selection_flags)
@@ -23,9 +23,9 @@ RecoElectronSelectorFakeable_hh_multilepton::RecoElectronSelectorFakeable_hh_mul
   , max_sigmaEtaEta_trig_(0.019) // F
   , max_HoE_trig_(0.10) // F
   , min_OoEminusOoP_trig_(-0.04) // F
-  , min_jetPtRatio_(1.0 / (1.0 + 0.7)) // F  
-  , max_jetBtagCSV_forTight_(get_BtagWP(era_, Btag::kDeepJet, BtagWP::kMedium)) // F
-  , max_jetBtagCSV_forFakeableNotTight_(get_BtagWP(era_, Btag::kDeepJet, BtagWP::kTight)) // F  
+  , min_jetPtRatio_(1. / 2.9) // F   // default 1. / 1.7
+  , max_jetBtagCSV_forFakeable_(get_BtagWP(era_, Btag::kDeepJet, BtagWP::kTight)) // F
+  , max_jetBtagCSV_forTight_(get_BtagWP(era_, Btag::kDeepJet, BtagWP::kMedium)) // F        
   , apply_conversionVeto_(true) // F
   , max_nLostHits_(0) // F
   , useAssocJetBtag_(false)
@@ -35,67 +35,67 @@ RecoElectronSelectorFakeable_hh_multilepton::RecoElectronSelectorFakeable_hh_mul
 }
 
 void
-RecoElectronSelectorFakeable_hh_multilepton::enable_offline_e_trigger_cuts()
+RecoElectronSelectorFakeable_hh_multilepton_Dynamic::enable_offline_e_trigger_cuts()
 {
   apply_offline_e_trigger_cuts_ = true;
 }
 
 void
-RecoElectronSelectorFakeable_hh_multilepton::disable_offline_e_trigger_cuts()
+RecoElectronSelectorFakeable_hh_multilepton_Dynamic::disable_offline_e_trigger_cuts()
 {
   apply_offline_e_trigger_cuts_ = false;
 }
 
 void
-RecoElectronSelectorFakeable_hh_multilepton::set_min_lepton_pt(double min_lepton_pt)
+RecoElectronSelectorFakeable_hh_multilepton_Dynamic::set_min_lepton_pt(double min_lepton_pt)
 {
   min_lepton_pt_ = min_lepton_pt;
 }
 
 void
-RecoElectronSelectorFakeable_hh_multilepton::set_min_cone_pt(double min_cone_pt)
+RecoElectronSelectorFakeable_hh_multilepton_Dynamic::set_min_cone_pt(double min_cone_pt)
 {
   min_cone_pt_ = min_cone_pt;
 }
 
 void
-RecoElectronSelectorFakeable_hh_multilepton::set_max_absEta(double max_absEta)
+RecoElectronSelectorFakeable_hh_multilepton_Dynamic::set_max_absEta(double max_absEta)
 {
   max_absEta_ = max_absEta;
 }
 
 void
-RecoElectronSelectorFakeable_hh_multilepton::set_selection_flags(bool selection_flags)
+RecoElectronSelectorFakeable_hh_multilepton_Dynamic::set_selection_flags(bool selection_flags)
 {
   set_selection_flags_ = selection_flags;
 }
 
 void
-RecoElectronSelectorFakeable_hh_multilepton::set_assocJetBtag(bool flag)
+RecoElectronSelectorFakeable_hh_multilepton_Dynamic::set_assocJetBtag(bool flag)
 {
   useAssocJetBtag_ = flag;
 }
 
 double
-RecoElectronSelectorFakeable_hh_multilepton::get_min_lepton_pt() const
+RecoElectronSelectorFakeable_hh_multilepton_Dynamic::get_min_lepton_pt() const
 {
   return min_lepton_pt_;
 }
 
 double
-RecoElectronSelectorFakeable_hh_multilepton::get_min_cone_pt() const
+RecoElectronSelectorFakeable_hh_multilepton_Dynamic::get_min_cone_pt() const
 {
   return min_cone_pt_;
 }
 
 double
-RecoElectronSelectorFakeable_hh_multilepton::get_max_absEta() const
+RecoElectronSelectorFakeable_hh_multilepton_Dynamic::get_max_absEta() const
 {
   return max_absEta_;
 }
 
 bool
-RecoElectronSelectorFakeable_hh_multilepton::operator()(const RecoElectron & electron) const
+RecoElectronSelectorFakeable_hh_multilepton_Dynamic::operator()(const RecoElectron & electron) const
 {
   if(debug_)
   {
@@ -191,9 +191,8 @@ RecoElectronSelectorFakeable_hh_multilepton::operator()(const RecoElectron & ele
     return false;
   }
 
-  if (electron.mvaRawTTH() > electron.mvaRawTTH_cut())
-  {
-    if (electron.jetBtagCSV(useAssocJetBtag_) > max_jetBtagCSV_forTight_)
+  if(electron.mvaRawTTH() > electron.mvaRawTTH_cut()) {
+    if(electron.jetBtagCSV(useAssocJetBtag_) > max_jetBtagCSV_forTight_)
     {
       if(debug_)
       {
@@ -205,15 +204,14 @@ RecoElectronSelectorFakeable_hh_multilepton::operator()(const RecoElectron & ele
 
   if(electron.mvaRawTTH() <= electron.mvaRawTTH_cut())
   {
-    if (electron.jetBtagCSV(useAssocJetBtag_) > max_jetBtagCSV_forFakeableNotTight_)
+    if(electron.jetBtagCSV(useAssocJetBtag_) > max_jetBtagCSV_forFakeable_)
     {
       if(debug_)
       {
-	std::cout << "FAILS jetBtagCSV = " << electron.jetBtagCSV(useAssocJetBtag_) << " <= " << max_jetBtagCSV_forFakeableNotTight_ << " fakeable cut\n";
+	std::cout << "FAILS jetBtagCSV = " << electron.jetBtagCSV(useAssocJetBtag_) << " <= " << max_jetBtagCSV_forFakeable_ << " fakeable cut\n";
       }
       return false;
-    }
-    
+    }    
     if(electron.jetPtRatio() < min_jetPtRatio_)
     {
       if(debug_)
@@ -223,7 +221,15 @@ RecoElectronSelectorFakeable_hh_multilepton::operator()(const RecoElectron & ele
       return false;
     }
     
-    if(! electron.mvaID_POG(EGammaWP::WP90))
+    bool passPOG_WP_forFakeable = false;
+    if      (pod_wp_forFakeable_.compare("WP-L")  == 0) {
+      passPOG_WP_forFakeable = electron.mvaID_POG(EGammaWP::WPL);
+    } else if (pod_wp_forFakeable_.compare("WP-90") == 0) {
+      passPOG_WP_forFakeable = electron.mvaID_POG(EGammaWP::WP90);
+    } else if (pod_wp_forFakeable_.compare("WP-80") == 0) {
+      passPOG_WP_forFakeable = electron.mvaID_POG(EGammaWP::WP80);
+    }    
+    if(! passPOG_WP_forFakeable)
     {
       if(debug_)
       {
@@ -272,23 +278,92 @@ RecoElectronSelectorFakeable_hh_multilepton::operator()(const RecoElectron & ele
   return true;
 }
 
-RecoElectronCollectionSelectorFakeable_hh_multilepton::RecoElectronCollectionSelectorFakeable_hh_multilepton(Era era,
+
+
+
+void
+RecoElectronSelectorFakeable_hh_multilepton_Dynamic::set_POGID_forFakeable(std::string pog_wp) {
+  pod_wp_forFakeable_ = pog_wp; // "WP-L", "WP-90", "WP-80"
+  std::cout << "RecoElectronSelectorFakeable_hh_multilepton_Dynamic::set_POGID_forFakeable() pod_wp_forFakeable_: " << pod_wp_forFakeable_ << std::endl;
+}
+
+
+void
+RecoElectronSelectorFakeable_hh_multilepton_Dynamic::set_jetBtagCSV_ID_forFakeable(std::string sjetBtagCSV_ID_forFakeable) {
+  std::string jetBtagCSV_ID_forFakeable_ = sjetBtagCSV_ID_forFakeable;
+  
+  if (jetBtagCSV_ID_forFakeable_.compare("WP-L") == 0) {
+    max_jetBtagCSV_forFakeable_ = (get_BtagWP(era_, Btag::kDeepJet, BtagWP::kLoose));
+  }
+  if (jetBtagCSV_ID_forFakeable_.compare("WP-M") == 0) {
+    max_jetBtagCSV_forFakeable_ = (get_BtagWP(era_, Btag::kDeepJet, BtagWP::kMedium));
+  }
+  if (jetBtagCSV_ID_forFakeable_.compare("WP-T") == 0) {
+    max_jetBtagCSV_forFakeable_ = (get_BtagWP(era_, Btag::kDeepJet, BtagWP::kTight));
+  }
+  if (jetBtagCSV_ID_forFakeable_.compare("WP-NoCut") == 0) {
+    max_jetBtagCSV_forFakeable_ = 1.0;
+  }
+  std::cout << "RecoElectronSelectorFakeable_hh_multilepton_Dynamic::set_jetBtagCSV_ID_forFakeable():: jetBtagCSV_ID_forFakeable_: " << jetBtagCSV_ID_forFakeable_
+	    << ", max_jetBtagCSV_forFakeable_: " << max_jetBtagCSV_forFakeable_
+	    << std::endl;
+}
+
+
+void
+RecoElectronSelectorFakeable_hh_multilepton_Dynamic::set_jetRelIso_cut(double jetRelIso_cut) {
+  min_jetPtRatio_ = 1.0 / (1.0 + jetRelIso_cut);
+  std::cout << "RecoElectronSelectorFakeable_hh_multilepton_Dynamic::set_jetRelIso_cut():: jetRelIso_cut: " << jetRelIso_cut << ",  min_jetPtRatio_: " << min_jetPtRatio_ << std::endl;
+}
+
+
+void
+RecoElectronSelectorFakeable_hh_multilepton_Dynamic::print_fakeable_consitions() {
+  std::cout << "RecoElectronSelectorFakeable_hh_multilepton_Dynamic::print_fakeable_consitions()::  pod_wp_forFakeable_: " << pod_wp_forFakeable_     
+	    << ", max_jetBtagCSV_forFakeable_: " << max_jetBtagCSV_forFakeable_
+	    << ", min_jetPtRatio_: " << min_jetPtRatio_
+	    << std::endl;    
+}
+
+
+RecoElectronCollectionSelectorFakeable_hh_multilepton_Dynamic::RecoElectronCollectionSelectorFakeable_hh_multilepton_Dynamic(Era era,
                                                                                int index,
                                                                                bool debug,
                                                                                bool set_selection_flags)
-  : ParticleCollectionSelector<RecoElectron, RecoElectronSelectorFakeable_hh_multilepton>(era, index, debug)
+  : ParticleCollectionSelector<RecoElectron, RecoElectronSelectorFakeable_hh_multilepton_Dynamic>(era, index, debug)
 {
   selector_.set_selection_flags(set_selection_flags);
 }
 
 void
-RecoElectronCollectionSelectorFakeable_hh_multilepton::enable_offline_e_trigger_cuts()
+RecoElectronCollectionSelectorFakeable_hh_multilepton_Dynamic::enable_offline_e_trigger_cuts()
 {
   selector_.enable_offline_e_trigger_cuts();
 }
 
 void
-RecoElectronCollectionSelectorFakeable_hh_multilepton::disable_offline_e_trigger_cuts()
+RecoElectronCollectionSelectorFakeable_hh_multilepton_Dynamic::disable_offline_e_trigger_cuts()
 {
   selector_.disable_offline_e_trigger_cuts();
+}
+
+
+void
+RecoElectronCollectionSelectorFakeable_hh_multilepton_Dynamic::set_POGID_forFakeable(std::string pog_wp) {
+  selector_.set_POGID_forFakeable(pog_wp);
+}
+
+void
+RecoElectronCollectionSelectorFakeable_hh_multilepton_Dynamic::set_jetBtagCSV_ID_forFakeable(std::string sjetBtagCSV_ID_forFakeable) {
+  selector_.set_jetBtagCSV_ID_forFakeable(sjetBtagCSV_ID_forFakeable);
+}
+
+void
+RecoElectronCollectionSelectorFakeable_hh_multilepton_Dynamic::set_jetRelIso_cut(double jetRelIso_cut) {
+  selector_.set_jetRelIso_cut(jetRelIso_cut);
+}
+
+void
+RecoElectronCollectionSelectorFakeable_hh_multilepton_Dynamic::print_fakeable_consitions() {
+  selector_.print_fakeable_consitions();
 }

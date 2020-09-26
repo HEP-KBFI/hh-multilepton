@@ -15,9 +15,8 @@ EvtWeightRecorderHH::EvtWeightRecorderHH()
 
 EvtWeightRecorderHH::EvtWeightRecorderHH(const std::vector<std::string> & central_or_shifts,
                                          const std::string & central_or_shift,
-                                         bool isMC, 
-                                         bool isDEBUG)
-  : EvtWeightRecorder(central_or_shifts, central_or_shift, isMC, isDEBUG)
+                                         bool isMC)
+  : EvtWeightRecorder(central_or_shifts, central_or_shift, isMC)
 {}
 
 double

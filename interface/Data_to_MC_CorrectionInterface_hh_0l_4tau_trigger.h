@@ -15,14 +15,14 @@ public:
   // (to be called once per event, before calling any of the getSF.. functions)
 
   void
-  setHadTaus(int hadTau1_genPdgId, double hadTau1_pt, double hadTau1_eta, int hadTau1_decayMode,
-             int hadTau2_genPdgId, double hadTau2_pt, double hadTau2_eta, int hadTau2_decayMode);
+  setHadTaus(const RecoHadTau * const hadTau1,
+             const RecoHadTau * const hadTau2);
 
   void
-  setHadTaus(double hadTau1_pt, double hadTau1_eta, double hadTau1_phi, int hadTau1_decayMode,
-             double hadTau2_pt, double hadTau2_eta, double hadTau2_phi, int hadTau2_decayMode,
-             double hadTau3_pt, double hadTau3_eta, double hadTau3_phi, int hadTau3_decayMode,
-             double hadTau4_pt, double hadTau4_eta, double hadTau4_phi, int hadTau4_decayMode);
+  setHadTaus(const RecoHadTau * const hadTau1,
+             const RecoHadTau * const hadTau2,
+             const RecoHadTau * const hadTau3,
+             const RecoHadTau * const hadTau4);
   //-----------------------------------------------------------------------------
 
   //-----------------------------------------------------------------------------

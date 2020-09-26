@@ -132,23 +132,46 @@ process.analyze_hh_2l_2tau = cms.PSet(
     selectBDT = cms.bool(False), ## Set it to true for making BDT training Ntuples
 
     gen_mHH = cms.vdouble(250,260,270,280,300,350,400,450,500,550,600,650,700,750,800,850,900,1000), ## Set the signal mass range used in the BDT .pkl/.xml/.pb files
-    mvaInfo_res = cms.PSet( ## [Default hyper-para.s used]
-        BDT_xml_FileName_even_spin2 = cms.string('hhAnalysis/multilepton/data/odd_half_model_def_hyper_para_spin2.xml'), ## "BDT .xml -> Odd train:Even test" to be used for even evt no.
-        BDT_xml_FileName_odd_spin2 = cms.string('hhAnalysis/multilepton/data/even_half_model_def_hyper_para_spin2.xml'), ## "BDT .xml -> Even train:Odd test" to be used for odd evt no.
-        fitFunctionFileName_spin2 = cms.string('hhAnalysis/multilepton/data/TProfile_signal_fit_func_spin2.root'),  ## File contaning the fitted TF1s
-        inputVars_spin2 = cms.vstring('tau1_eta', 'dr_leps', 'met', 'dr_lep_tau_min_OS', 'diHiggsMass', 'mTauTauVis', 'Smin_lltautau', 'dr_taus', 'Smin_llMEt', 'gen_mHH'),
-        BDT_xml_FileName_even_spin0 = cms.string('hhAnalysis/multilepton/data/odd_half_model_def_hyper_para_spin0.xml'),
-        BDT_xml_FileName_odd_spin0 = cms.string('hhAnalysis/multilepton/data/even_half_model_def_hyper_para_spin0.xml'),
-        fitFunctionFileName_spin0 = cms.string('hhAnalysis/multilepton/data/TProfile_signal_fit_func_spin0.root'),
-        inputVars_spin0 = cms.vstring('tau1_eta', 'dr_leps', 'ptTauTauVis', 'met', 'dr_lep_tau_min_OS', 'diHiggsMass', 'mTauTauVis', 'Smin_lltautau', 'dr_lep1_tau1_tau2_min', 'Smin_llMEt', 'gen_mHH'),
+    ## -------- USE THIS FOR XGBInterface -----------------##
+    mvaInfo_res = cms.PSet( ## [Tweaked hyper-para.s used]                                                                                                                                                                                                               
+        BDT_xml_FileName_even_spin2 = cms.string('hhAnalysis/multilepton/data/odd_half_model_tweaked_hyper_para_spin2_XGBClassifier.pkl'), ## "BDT .xml -> Odd train:Even test" to be used for even evt no.
+        BDT_xml_FileName_odd_spin2 = cms.string('hhAnalysis/multilepton/data/even_half_model_tweaked_hyper_para_spin2_XGBClassifier.pkl'), ## "BDT .xml -> Even train:Odd test" to be used for odd evt no.
+        fitFunctionFileName_spin2 = cms.string('hhAnalysis/multilepton/data/TProfile_signal_fit_func_tweaked_hyper_para_spin2.root'),  ## File contaning the fitted TF1s
+        inputVars_spin2 = cms.vstring('dr_leps', 'dr_taus', 'HT', 'Smin_lltautau', 'mTauTau', 'diHiggsMass', 'dr_lep1_tau1_tau2_min', 'dr_lep_tau_min_OS', 'mass_BP2_OS', 'gen_mHH'), ## log file order
+        #inputVars_spin2 = cms.vstring('mass_BP2_OS', 'dr_leps', 'mTauTau', 'HT', 'dr_lep_tau_min_OS', 'diHiggsMass', 'Smin_lltautau', 'dr_lep1_tau1_tau2_min', 'dr_taus', 'gen_mHH'),
+        BDT_xml_FileName_even_spin0 = cms.string('hhAnalysis/multilepton/data/odd_half_model_tweaked_hyper_para_spin0_XGBClassifier.pkl'),
+        BDT_xml_FileName_odd_spin0 = cms.string('hhAnalysis/multilepton/data/even_half_model_tweaked_hyper_para_spin0_XGBClassifier.pkl'),
+        fitFunctionFileName_spin0 = cms.string('hhAnalysis/multilepton/data/TProfile_signal_fit_func_tweaked_hyper_para_spin0.root'),
+        inputVars_spin0 = cms.vstring('tau1_pt', 'dr_leps', 'dr_taus', 'mht', 'Smin_llMEt', 'Smin_lltautau', 'mTauTau', 'diHiggsMass', 'dr_lep_tau_min_OS', 'mass_BP2_OS', 'gen_mHH'), ## log file order
+        #inputVars_spin0 = cms.vstring('mass_BP2_OS', 'dr_leps', 'tau1_pt', 'mTauTau', 'dr_lep_tau_min_OS', 'diHiggsMass', 'Smin_lltautau', 'mht', 'dr_taus', 'Smin_llMEt', 'gen_mHH'),
     ),
     nonRes_BMs = cms.vdouble(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12),
-    mvaInfo_nonres = cms.PSet( ## [Laurits_Reso_Twaek hyp_para.s used]
-        BDT_xml_FileName_even_nonres = cms.string('hhAnalysis/multilepton/data/odd_half_model_def_hyper_para_nonres.xml'), ## "BDT .xml -> Odd train:Even test" to be used for even evt no. 
-        BDT_xml_FileName_odd_nonres = cms.string('hhAnalysis/multilepton/data/even_half_model_def_hyper_para_nonres.xml'), ## "BDT .xml -> Even train:Odd test" to be used for odd evt no.
-        inputVars_nonres = cms.vstring('lep1_pt', 'tau1_pt', 'dr_lep1_tau2', 'dr_leps', 'dr_taus', 'met', 'HT', 'Smin_llMEt', 'mTauTau', 'diHiggsMass'), ## No Need to add BM indices they will be added for the  non-reso case on the fly
+    mvaInfo_nonres = cms.PSet( ## [Tweaked hyper-para.s used]
+        BDT_xml_FileName_even_nonres = cms.string('hhAnalysis/multilepton/data/odd_half_model_tweaked_hyper_para_nonres_XGBClassifier.pkl'), ## "BDT .xml -> Odd train:Even test" to be used for even evt no.
+        BDT_xml_FileName_odd_nonres = cms.string('hhAnalysis/multilepton/data/even_half_model_tweaked_hyper_para_nonres_XGBClassifier.pkl'), ## "BDT .xml -> Even train:Odd test" to be used for odd evt no.
+        inputVars_nonres = cms.vstring('lep1_pt', 'tau1_pt', 'dr_lep1_tau2', 'dr_leps', 'dr_taus', 'met', 'HT', 'Smin_llMEt', 'mTauTau', 'diHiggsMass',
+                                       'SM', 'BM1', 'BM2', 'BM3', 'BM4', 'BM5', 'BM6', 'BM7', 'BM8', 'BM9', 'BM10', 'BM11', 'BM12'), ## log file order
+        #inputVars_nonres = cms.vstring('diHiggsMass', 'dr_leps', 'HT', 'lep1_pt', 'dr_taus', 'Smin_llMEt', 'dr_lep1_tau2', 'BM10', 'BM11',                                                                                                                             
+        #                               'BM12', 'BM2', 'met', 'BM1', 'BM6', 'BM7', 'BM4', 'BM5', 'BM8', 'BM9', 'BM3', 'tau1_pt', 'mTauTau', 'SM'),
     ),
-
+    ## -------- USE THIS FOR TMVAInterface (after changing it in the .cc file) -----------------##
+    #mvaInfo_res = cms.PSet( ## [Tweaked hyper-para.s used]
+    #    BDT_xml_FileName_even_spin2 = cms.string('hhAnalysis/multilepton/data/odd_half_model_tweaked_hyper_para_spin2.xml'), ## "BDT .xml -> Odd train:Even test" to be used for even evt no.
+    #    BDT_xml_FileName_odd_spin2 = cms.string('hhAnalysis/multilepton/data/even_half_model_tweaked_hyper_para_spin2.xml'), ## "BDT .xml -> Even train:Odd test" to be used for odd evt no.
+    #    fitFunctionFileName_spin2 = cms.string('hhAnalysis/multilepton/data/TProfile_signal_fit_func_tweaked_hyper_para_spin2.root'),  ## File contaning the fitted TF1s
+    #    inputVars_spin2 = cms.vstring('dr_leps', 'dr_taus', 'HT', 'Smin_lltautau', 'mTauTau', 'diHiggsMass', 'dr_lep1_tau1_tau2_min', 'dr_lep_tau_min_OS', 'mass_BP2_OS', 'gen_mHH'),
+    #    BDT_xml_FileName_even_spin0 = cms.string('hhAnalysis/multilepton/data/odd_half_model_tweaked_hyper_para_spin0.xml'),
+    #    BDT_xml_FileName_odd_spin0 = cms.string('hhAnalysis/multilepton/data/even_half_model_tweaked_hyper_para_spin0.xml'),
+    #    fitFunctionFileName_spin0 = cms.string('hhAnalysis/multilepton/data/TProfile_signal_fit_func_tweaked_hyper_para_spin0.root'),
+    #    inputVars_spin0 = cms.vstring('tau1_pt', 'dr_leps', 'dr_taus', 'mht', 'Smin_llMEt', 'Smin_lltautau', 'mTauTau', 'diHiggsMass', 'dr_lep_tau_min_OS', 'mass_BP2_OS', 'gen_mHH'),
+    #),
+    #nonRes_BMs = cms.vdouble(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12),
+    #mvaInfo_nonres = cms.PSet( ## [Tweaked hyper-para.s used]
+    #    BDT_xml_FileName_even_nonres = cms.string('hhAnalysis/multilepton/data/odd_half_model_tweaked_hyper_para_nonres.xml'), ## "BDT .xml -> Odd train:Even test" to be used for even evt no. 
+    #    BDT_xml_FileName_odd_nonres = cms.string('hhAnalysis/multilepton/data/even_half_model_tweaked_hyper_para_nonres.xml'), ## "BDT .xml -> Even train:Odd test" to be used for odd evt no.
+    #    inputVars_nonres = cms.vstring('lep1_pt', 'tau1_pt', 'dr_lep1_tau2', 'dr_leps', 'dr_taus', 'met', 'HT', 'Smin_llMEt', 'mTauTau', 'diHiggsMass',
+    #                                   'SM', 'BM1', 'BM2', 'BM3', 'BM4', 'BM5', 'BM6', 'BM7', 'BM8', 'BM9', 'BM10', 'BM11', 'BM12'),
+    #),
     evtWeight = cms.PSet(
         apply = cms.bool(False),
         histogramFile = cms.string(''),

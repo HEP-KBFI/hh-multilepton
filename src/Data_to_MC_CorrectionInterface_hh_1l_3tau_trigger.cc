@@ -43,41 +43,31 @@ Data_to_MC_CorrectionInterface_hh_1l_3tau_trigger::setTriggerBits(bool isTrigger
 }
 
 void
-Data_to_MC_CorrectionInterface_hh_1l_3tau_trigger::setLeptons(int lepton_type,
-                                                              double lepton_pt,
-                                                              double lepton_eta)
-{
-  lepton_type_ = lepton_type;
-  lepton_pt_   = lepton_pt;
-  lepton_eta_  = lepton_eta;
-}
-
-void
-Data_to_MC_CorrectionInterface_hh_1l_3tau_trigger::setHadTaus(int hadTau1_genPdgId, double hadTau1_pt, double hadTau1_eta, int hadTau1_decayMode,
-                                                              int hadTau2_genPdgId, double hadTau2_pt, double hadTau2_eta, int hadTau2_decayMode)
+Data_to_MC_CorrectionInterface_hh_1l_3tau_trigger::setHadTaus(const RecoHadTau * const __attribute__((unused)) hadTau1,
+                                                              const RecoHadTau * const __attribute__((unused)) hadTau2)
 {
   throw cmsException(this, __func__, __LINE__) << "Invalid call";
 }
 
 void
-Data_to_MC_CorrectionInterface_hh_1l_3tau_trigger::setHadTaus(double hadTau1_pt, double hadTau1_eta, double hadTau1_phi, int hadTau1_decayMode,
-                                                              double hadTau2_pt, double hadTau2_eta, double hadTau2_phi, int hadTau2_decayMode,
-                                                              double hadTau3_pt, double hadTau3_eta, double hadTau3_phi, int hadTau3_decayMode)
+Data_to_MC_CorrectionInterface_hh_1l_3tau_trigger::setHadTaus(const RecoHadTau * const hadTau1,
+                                                              const RecoHadTau * const hadTau2,
+                                                              const RecoHadTau * const hadTau3)
 {
-  hadTau1_pt_        = hadTau1_pt;
-  hadTau1_eta_       = hadTau1_eta;
-  hadTau1_phi_       = hadTau1_phi;
-  hadTau1_decayMode_ = hadTau1_decayMode;
+  hadTau1_pt_        = hadTau1->pt();
+  hadTau1_eta_       = hadTau1->eta();
+  hadTau1_phi_       = hadTau1->phi();
+  hadTau1_decayMode_ = hadTau1->decayMode();
 
-  hadTau2_pt_        = hadTau2_pt;
-  hadTau2_eta_       = hadTau2_eta;
-  hadTau2_phi_       = hadTau2_phi;
-  hadTau2_decayMode_ = hadTau2_decayMode;
+  hadTau2_pt_        = hadTau2->pt();
+  hadTau2_eta_       = hadTau2->eta();
+  hadTau2_phi_       = hadTau2->phi();
+  hadTau2_decayMode_ = hadTau2->decayMode();
 
-  hadTau3_pt_        = hadTau3_pt;
-  hadTau3_eta_       = hadTau3_eta;
-  hadTau3_phi_       = hadTau3_phi;
-  hadTau3_decayMode_ = hadTau3_decayMode;
+  hadTau3_pt_        = hadTau3->pt();
+  hadTau3_eta_       = hadTau3->eta();
+  hadTau3_phi_       = hadTau3->phi();
+  hadTau3_decayMode_ = hadTau3->decayMode();
 }
 
 double

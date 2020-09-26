@@ -1,19 +1,19 @@
-#ifndef tthAnalysis_HiggsToTauTau_RecoElectronCollectionSelectorFakeable_hh_multilepton_h
-#define tthAnalysis_HiggsToTauTau_RecoElectronCollectionSelectorFakeable_hh_multilepton_h
+#ifndef tthAnalysis_HiggsToTauTau_RecoElectronCollectionSelectorFakeable_hh_multilepton_Dynamic_h
+#define tthAnalysis_HiggsToTauTau_RecoElectronCollectionSelectorFakeable_hh_multilepton_Dynamic_h
 
 #include "tthAnalysis/HiggsToTauTau/interface/ParticleCollectionSelector.h" // ParticleCollectionSelector
 #include "tthAnalysis/HiggsToTauTau/interface/RecoElectron.h"               // RecoElectron
 #include "tthAnalysis/HiggsToTauTau/interface/analysisAuxFunctions.h"       // Era
 
-class RecoElectronSelectorFakeable_hh_multilepton
+class RecoElectronSelectorFakeable_hh_multilepton_Dynamic
 {
 public:
   explicit
-  RecoElectronSelectorFakeable_hh_multilepton(Era era,
+  RecoElectronSelectorFakeable_hh_multilepton_Dynamic(Era era,
                                int index = -1,
                                bool debug = false,
                                bool set_selection_flags = true);
-  ~RecoElectronSelectorFakeable_hh_multilepton() {}
+  ~RecoElectronSelectorFakeable_hh_multilepton_Dynamic() {}
 
   // enable/disable cuts on electron ID variables to mimic electron ID cuts applied by single electron trigger 
   void enable_offline_e_trigger_cuts();
@@ -27,6 +27,11 @@ public:
 
   void set_assocJetBtag(bool flag);
 
+  void set_POGID_forFakeable(std::string pog_wp);
+  void set_jetBtagCSV_ID_forFakeable(std::string sjetBtagCSV_ID_forFakeable);
+  void set_jetRelIso_cut(double jetRelIso_cut);
+  void print_fakeable_consitions();
+  
   /**
    * @brief Get cut thresholds
    */
@@ -65,9 +70,11 @@ protected:
 //-------------------------------------------------------------------------------
 //--- define cuts that dependent on lepton MVA of ttH multilepton analysis 
 //    format: electron fails / passes loose cut on lepton MVA value
-  const Double_t min_jetPtRatio_;           ///< lower cut on ratio of lepton pT to pT of nearby jet
+  Double_t min_jetPtRatio_;           ///< lower cut on ratio of lepton pT to pT of nearby jet
+  Double_t max_jetBtagCSV_forFakeable_;           ///< upper cut threshold on CSV b-tagging discriminator value of nearby jet
   const Double_t max_jetBtagCSV_forTight_;           ///< upper cut threshold on CSV b-tagging discriminator value of nearby jet
-  const Double_t max_jetBtagCSV_forFakeableNotTight_;           ///< upper cut threshold on CSV b-tagging discriminator value of nearby jet
+  std::string pod_wp_forFakeable_;
+  
 //-------------------------------------------------------------------------------
   const bool apply_conversionVeto_;         ///< apply (True) or do not apply (False) conversion veto
   const Int_t max_nLostHits_;               ///< upper cut threshold on lost hits in the innermost layer of the tracker (electrons with lost_hits equal to cut threshold pass)
@@ -75,20 +82,26 @@ protected:
   bool useAssocJetBtag_;                    ///< if true, use finalJets instead of updatedJets
 };
 
-class RecoElectronCollectionSelectorFakeable_hh_multilepton
-  : public ParticleCollectionSelector<RecoElectron, RecoElectronSelectorFakeable_hh_multilepton>
+class RecoElectronCollectionSelectorFakeable_hh_multilepton_Dynamic
+  : public ParticleCollectionSelector<RecoElectron, RecoElectronSelectorFakeable_hh_multilepton_Dynamic>
 {
 public:
   explicit
-  RecoElectronCollectionSelectorFakeable_hh_multilepton(Era era,
+  RecoElectronCollectionSelectorFakeable_hh_multilepton_Dynamic(Era era,
                                          int index = -1,
                                          bool debug = false,
                                          bool set_selection_flags = true);
-  ~RecoElectronCollectionSelectorFakeable_hh_multilepton() {}
+  ~RecoElectronCollectionSelectorFakeable_hh_multilepton_Dynamic() {}
 
   void enable_offline_e_trigger_cuts();
   void disable_offline_e_trigger_cuts();
+
+  void set_POGID_forFakeable(std::string pog_wp);
+  void set_jetBtagCSV_ID_forFakeable(std::string sjetBtagCSV_ID_forFakeable);
+  void set_jetRelIso_cut(double jetRelIso_cut);
+  void print_fakeable_consitions();
+
 };
 
-#endif // tthAnalysis_HiggsToTauTau_RecoElectronCollectionSelectorFakeable_hh_multilepton_h
+#endif // tthAnalysis_HiggsToTauTau_RecoElectronCollectionSelectorFakeable_hh_multilepton_Dynamic_h
 
