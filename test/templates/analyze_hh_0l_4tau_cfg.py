@@ -138,7 +138,7 @@ process.analyze_hh_0l_4tau = cms.PSet(
         BDT_xml_FileName_odd_nonres = cms.string('hhAnalysis/multilepton/data/0l_4tau_even_model_nonres.xml'),
         inputVars_nonres = cms.vstring(
             'tau1_pt', 'tau1_eta', 'tau1_phi', 'tau2_pt', 'tau3_pt', 'tau4_pt',
-            'diHiggsMass', 'mTauT', 'STMET', 'met_LD', 'pt_HH_recoil', 'Zee_bestTauHPair_dEta',
+            'diHiggsMass', 'mTauTau', 'STMET', 'met_LD', 'pt_HH_recoil', 'Zee_bestTauHPair_dEta',
             'dr_bestTauHPair_m', 'Zee_secondTauHPair_m', 'dr_secondTauHPair_m',
             'SM', 'BM1', 'BM2', 'BM3', 'BM4', 'BM5', 'BM6', 'BM7', 'BM8', 'BM9', 'BM10', 'BM11', 'BM12'
         ), ## No Need to add BM indices they will be added for the  non-reso case on the fly
