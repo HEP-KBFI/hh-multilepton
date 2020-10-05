@@ -110,7 +110,7 @@ void dumpEventYields_Stage2_1l_3tau()
   std::cout << "scaling (Era: "<< Era  << ")  signal and background yields to L=" << lumi_projection_2017 << "fb^-1 @ 13 TeV." << std::endl;
 
   /*
-  int Era = 2018; 
+  int Era = 2018;
   double lumi_datacard_2018 = 59.7;
   double lumi_projection_2018 = 59.7;
   double lumi_SF = lumi_projection_2018/lumi_datacard_2018;
@@ -118,79 +118,86 @@ void dumpEventYields_Stage2_1l_3tau()
   */
 
   // 1l 3 tau file path 
-  //std::string inputFilePath = "/hdfs/local/acwarden/hhAnalysis/2017/2020July7_Loose/histograms/hh_1l_3tau/";
-  //std::string inputFilePath = "/hdfs/local/acwarden/hhAnalysis/2017/2020July8_VLoose/histograms/hh_1l_3tau/";
+  // std::string inputFilePath = "/hdfs/local/acwarden/hhAnalysis/2017/2020July7_Loose/histograms/hh_1l_3tau/";
+  // std::string inputFilePath = "/hdfs/local/acwarden/hhAnalysis/2017/2020July8_VLoose/histograms/hh_1l_3tau/";
   //  std::string inputFilePath = "/hdfs/local/acwarden/hhAnalysis/2017/2020June11_Med/histograms/hh_1l_3tau/";
   //  std::string inputFilePath = "/hdfs/local/acwarden/hhAnalysis/2017/2020June19_VVLoose/histograms/hh_1l_3tau/";
-  std::string inputFilePath = "/hdfs/local/acwarden/hhAnalysis/2017/2020Jul19_VL_addplots/histograms/hh_1l_3tau/";
+  // std::string inputFilePath = "/hdfs/local/acwarden/hhAnalysis/2017/2020Jul19_VL_addplots/histograms/hh_1l_3tau/";
+
+  // std::string inputFilePath = "/hdfs/local/veelken/hhAnalysis/2016/2020Sep29_deepVsjLoose/histograms/hh_1l_3tau";
+  std::string inputFilePath = "/hdfs/local/veelken/hhAnalysis/2017/2020Sep29_deepVsjLoose/histograms/hh_1l_3tau/";
+  // std::string inputFilePath = "/hdfs/local/veelken/hhAnalysis/2018/2020Sep29_deepVsjLoose/histograms/hh_1l_3tau";
+
+
   // SS file paths 
-  //  std::string inputFilePath = "/hdfs/local/acwarden/hhAnalysis/2017/2020June22_SS_L/histograms/hh_1l_3tau/";
+  // std::string inputFilePath = "/hdfs/local/acwarden/hhAnalysis/2017/2020June22_SS_L/histograms/hh_1l_3tau/";
 
 
-  //std::string Tau_ID = "deepVSjMedium (2016)";
-  //std::string Tau_ID = "deepVSjLoose (2016)";
-  //std::string Tau_ID = "deepVSjVLoose (2016)";
-  //std::string Tau_ID = "deepVSjVVLoose (2016)";
-  //std::string Tau_ID = "dR03MVAMedium (2017)";
-  //   std::string Tau_ID = "deepVSjMedium (2017)";
-  //  std::string Tau_ID = "deepVSjLoose (2017)";
-  std::string Tau_ID = "deepVSjVLoose (2017)";
-  //std::string Tau_ID = "deepVSjVVLoose (2017)";
+  // std::string Tau_ID = "deepVSjMedium (2016)";
+  // std::string Tau_ID = "deepVSjLoose (2016)";
+  // std::string Tau_ID = "deepVSjVLoose (2016)";
+  // std::string Tau_ID = "deepVSjVVLoose (2016)";
+  // std::string Tau_ID = "dR03MVAMedium (2017)";
+  // std::string Tau_ID = "deepVSjMedium (2017)";
+  std::string Tau_ID = "deepVSjLoose (2017)";
+  // std::string Tau_ID = "deepVSjVLoose (2017)";
+  // std::string Tau_ID = "deepVSjVVLoose (2017)";
 
 
 
   std::map<std::string, std::string> inputFileNames; // key = channel
-  //  inputFileNames["hh_1l_3tau"] = "Tight_OS/hadd/hadd_stage2_Tight_OS.root";
-  //  inputFileNames["hh_1l_3tau"] = "Tight_SS/hadd/hadd_stage2_Tight_SS.root";
-  //inputFileNames["hh_1e_3tau"] = "Fakeable_wFakeRateWeights_OS/hadd/hadd_stage2_Fakeable_wFakeRateWeights_OS.root";
-  //inputFileNames["hh_1mu_3tau"] = "Fakeable_wFakeRateWeights_OS/hadd/hadd_stage2_Fakeable_wFakeRateWeights_OS.root";
+  // inputFileNames["hh_1l_3tau"] = "Tight_OS/hadd/hadd_stage2_Tight_OS.root";
+  // inputFileNames["hh_1l_3tau"] = "Tight_SS/hadd/hadd_stage2_Tight_SS.root";
+  // inputFileNames["hh_1e_3tau"] = "Fakeable_wFakeRateWeights_OS/hadd/hadd_stage2_Fakeable_wFakeRateWeights_OS.root";
+  // inputFileNames["hh_1mu_3tau"] = "Fakeable_wFakeRateWeights_OS/hadd/hadd_stage2_Fakeable_wFakeRateWeights_OS.root";
   inputFileNames["hh_1e_3tau"] = "Tight_OS/hadd/hadd_stage2_Tight_OS.root";
-  //inputFileNames["hh_1mu_3tau"] = "Tight_OS/hadd/hadd_stage2_Tight_OS.root";
+  // inputFileNames["hh_1mu_3tau"] = "Tight_OS/hadd/hadd_stage2_Tight_OS.root";
   
   std::map<std::string, std::string> directories; // key = channel
   //  directories["hh_1l_3tau"] = "hh_1l_3tau_OS_Tight/sel/evt";
-  //directories["hh_1l_3tau"] = "hh_1l_3tau_SS_Tight/sel/evt";
-  //directories["hh_1e_3tau"] = "hh_1e_3tau_OS_Fakeable_wFakeRateWeights/sel/evt";
-  //directories["hh_1mu_3tau"] = "hh_1mu_3tau_OS_Fakeable_wFakeRateWeights/sel/evt";
+  // directories["hh_1l_3tau"] = "hh_1l_3tau_SS_Tight/sel/evt";
+  // directories["hh_1e_3tau"] = "hh_1e_3tau_OS_Fakeable_wFakeRateWeights/sel/evt";
+  // directories["hh_1mu_3tau"] = "hh_1mu_3tau_OS_Fakeable_wFakeRateWeights/sel/evt";
   directories["hh_1e_3tau"] = "hh_1e_3tau_OS_Tight/sel/evt";
-  //directories["hh_1mu_3tau"] = "hh_1mu_3tau_OS_Tight/sel/evt";
+  // directories["hh_1mu_3tau"] = "hh_1mu_3tau_OS_Tight/sel/evt";
   
   std::map<std::string, vstring> signal_processes; // key = channel
-  /*  signal_processes["hh_1l_3tau"].push_back("signal_ggf_spin0_400_hh_tttt");
+
+  signal_processes["hh_1l_3tau"].push_back("signal_ggf_spin0_400_hh_tttt");
   signal_processes["hh_1l_3tau"].push_back("signal_ggf_spin0_400_hh_wwtt");
   signal_processes["hh_1l_3tau"].push_back("signal_ggf_spin0_400_hh_wwww");
   signal_processes["hh_1l_3tau"].push_back("signal_spin0_400_hh");
   signal_processes["hh_1l_3tau"].push_back("signal_ggf_nonresonant_hh_wwww");
   signal_processes["hh_1l_3tau"].push_back("signal_ggf_nonresonant_hh_wwtt");
   signal_processes["hh_1l_3tau"].push_back("signal_ggf_nonresonant_hh_tttt");
-  */
-  
-  signal_processes["hh_1e_3tau"].push_back("signal_ggf_spin0_400_hh_tttt");
-  signal_processes["hh_1e_3tau"].push_back("signal_ggf_spin0_400_hh_wwtt");
-  signal_processes["hh_1e_3tau"].push_back("signal_ggf_spin0_400_hh_wwww");
-  signal_processes["hh_1e_3tau"].push_back("signal_spin0_400_hh");
-  signal_processes["hh_1e_3tau"].push_back("signal_ggf_nonresonant_hh_wwww");
-  signal_processes["hh_1e_3tau"].push_back("signal_ggf_nonresonant_hh_wwtt");
-  signal_processes["hh_1e_3tau"].push_back("signal_ggf_nonresonant_hh_tttt");
- 
-  /*
-  signal_processes["hh_1mu_3tau"].push_back("signal_ggf_spin0_400_hh_tttt");
-  signal_processes["hh_1mu_3tau"].push_back("signal_ggf_spin0_400_hh_wwtt");
-  signal_processes["hh_1mu_3tau"].push_back("signal_ggf_spin0_400_hh_wwww");
-  signal_processes["hh_1mu_3tau"].push_back("signal_spin0_400_hh");
-  signal_processes["hh_1mu_3tau"].push_back("signal_ggf_nonresonant_hh_wwww");
-  signal_processes["hh_1mu_3tau"].push_back("signal_ggf_nonresonant_hh_wwtt");
-  signal_processes["hh_1mu_3tau"].push_back("signal_ggf_nonresonant_hh_tttt");
-  */
+
+
+  // signal_processes["hh_1e_3tau"].push_back("signal_ggf_spin0_400_hh_tttt");
+  // signal_processes["hh_1e_3tau"].push_back("signal_ggf_spin0_400_hh_wwtt");
+  // signal_processes["hh_1e_3tau"].push_back("signal_ggf_spin0_400_hh_wwww");
+  // signal_processes["hh_1e_3tau"].push_back("signal_spin0_400_hh");
+  // signal_processes["hh_1e_3tau"].push_back("signal_ggf_nonresonant_hh_wwww");
+  // signal_processes["hh_1e_3tau"].push_back("signal_ggf_nonresonant_hh_wwtt");
+  // signal_processes["hh_1e_3tau"].push_back("signal_ggf_nonresonant_hh_tttt");
+
+
+  // signal_processes["hh_1mu_3tau"].push_back("signal_ggf_spin0_400_hh_tttt");
+  // signal_processes["hh_1mu_3tau"].push_back("signal_ggf_spin0_400_hh_wwtt");
+  // signal_processes["hh_1mu_3tau"].push_back("signal_ggf_spin0_400_hh_wwww");
+  // signal_processes["hh_1mu_3tau"].push_back("signal_spin0_400_hh");
+  // signal_processes["hh_1mu_3tau"].push_back("signal_ggf_nonresonant_hh_wwww");
+  // signal_processes["hh_1mu_3tau"].push_back("signal_ggf_nonresonant_hh_wwtt");
+  // signal_processes["hh_1mu_3tau"].push_back("signal_ggf_nonresonant_hh_tttt");
+
 
 
   std::vector<std::string> signal_process_parts;
   signal_process_parts.push_back("");
   signal_process_parts.push_back("_Convs");
   signal_process_parts.push_back("_fake");
-  
+
   std::map<std::string, vstring> background_processes; // key = channel
-  /*
+
   background_processes["hh_1l_3tau"].push_back("VH");
   background_processes["hh_1l_3tau"].push_back("TT");
   background_processes["hh_1l_3tau"].push_back("ZZ");
@@ -214,32 +221,33 @@ void dumpEventYields_Stage2_1l_3tau()
   if(showDataYield){
     background_processes["hh_1l_3tau"].push_back("data_obs");
   }
-  */
-  
-  background_processes["hh_1e_3tau"].push_back("VH");
-  background_processes["hh_1e_3tau"].push_back("TT");
-  background_processes["hh_1e_3tau"].push_back("ZZ");
-  background_processes["hh_1e_3tau"].push_back("WZ");
-  background_processes["hh_1e_3tau"].push_back("WW");
-  background_processes["hh_1e_3tau"].push_back("DY");
-  background_processes["hh_1e_3tau"].push_back("W");
-  background_processes["hh_1e_3tau"].push_back("TTWW");
-  background_processes["hh_1e_3tau"].push_back("TTW");
-  background_processes["hh_1e_3tau"].push_back("TTZ");
-  background_processes["hh_1e_3tau"].push_back("TTH");
-  background_processes["hh_1e_3tau"].push_back("TH");
-  background_processes["hh_1e_3tau"].push_back("qqH");
-  background_processes["hh_1e_3tau"].push_back("ggH");
-  background_processes["hh_1e_3tau"].push_back("XGamma");
-  background_processes["hh_1e_3tau"].push_back("Other");
-  background_processes["hh_1e_3tau"].push_back("Convs");
-  background_processes["hh_1e_3tau"].push_back("fakes_mc");
-  background_processes["hh_1e_3tau"].push_back("data_fakes");
-  background_processes["hh_1e_3tau"].push_back("flips_mc");
-  if(showDataYield){
-    background_processes["hh_1e_3tau"].push_back("data_obs");
-  }
-  
+
+
+  // background_processes["hh_1e_3tau"].push_back("VH");
+  // background_processes["hh_1e_3tau"].push_back("TT");
+  // background_processes["hh_1e_3tau"].push_back("ZZ");
+  // background_processes["hh_1e_3tau"].push_back("WZ");
+  // background_processes["hh_1e_3tau"].push_back("WW");
+  // background_processes["hh_1e_3tau"].push_back("DY");
+  // background_processes["hh_1e_3tau"].push_back("W");
+  // background_processes["hh_1e_3tau"].push_back("TTWW");
+  // background_processes["hh_1e_3tau"].push_back("TTW");
+  // background_processes["hh_1e_3tau"].push_back("TTZ");
+  // background_processes["hh_1e_3tau"].push_back("TTH");
+  // background_processes["hh_1e_3tau"].push_back("TH");
+  // background_processes["hh_1e_3tau"].push_back("qqH");
+  // background_processes["hh_1e_3tau"].push_back("ggH");
+  // background_processes["hh_1e_3tau"].push_back("XGamma");
+  // background_processes["hh_1e_3tau"].push_back("Other");
+  // background_processes["hh_1e_3tau"].push_back("Convs");
+  // background_processes["hh_1e_3tau"].push_back("fakes_mc");
+  // background_processes["hh_1e_3tau"].push_back("data_fakes");
+  // background_processes["hh_1e_3tau"].push_back("flips_mc");
+  // if(showDataYield){
+  //   background_processes["hh_1e_3tau"].push_back("data_obs");
+  // }
+
+
   /*
   background_processes["hh_1mu_3tau"].push_back("VH");
   background_processes["hh_1mu_3tau"].push_back("TT");
@@ -272,7 +280,7 @@ void dumpEventYields_Stage2_1l_3tau()
   background_process_parts.push_back("_fake");
 
   for ( vstring::const_iterator channel = channels.begin();
-	channel != channels.end(); ++channel ) {
+        channel != channels.end(); ++channel ) {
     std::cout << "channel = " << (*channel) << std::endl;
 
     TString inputFileName_full = inputFilePath.data();
@@ -296,36 +304,36 @@ void dumpEventYields_Stage2_1l_3tau()
     std::cout << "\\resizebox{0.60\\textwidth}{!}{\\begin{tabular}{|l|c|c|c|c|}\\hline " << std::endl;
     std::cout << "Process   & Total & Non Fakes & Fakes & Conversions \\\\ \\hline" << std::endl; 
     for ( vstring::const_iterator signal_process = signal_processes[*channel].begin();
-	  signal_process != signal_processes[*channel].end(); ++signal_process ) {
+          signal_process != signal_processes[*channel].end(); ++signal_process ) {
       std::map<std::string, double> integral_parts;
       std::map<std::string, double> integralErr_parts;
       double integral_sum = 0.;
       double integralErr2_sum = 0.;
       double Unwt_evts = 0.;
       for ( std::vector<std::string>::const_iterator signal_process_part = signal_process_parts.begin();
-	    signal_process_part != signal_process_parts.end(); ++signal_process_part ) {
-	std::string histogramName = Form("%s/%s%s/EventCounter", 
+            signal_process_part != signal_process_parts.end(); ++signal_process_part ) {
+        std::string histogramName = Form("%s/%s%s/EventCounter", 
           directories[*channel].data(), signal_process->data(), signal_process_part->data());
-	TH1* histogram = loadHistogram(inputFile, histogramName);
+        TH1* histogram = loadHistogram(inputFile, histogramName);
 
-	if ( histogram ) {
-	  Unwt_evts += histogram->GetEntries();
-	  histogram->Scale(lumi_SF);
-	  double integral = compIntegral(histogram);
-	  integral_parts[*signal_process_part] = integral;
-	  integral_sum += integral;
-	  double integralErr = compIntegralErr(histogram);
-	  integralErr_parts[*signal_process_part] = integralErr;
-	  integralErr2_sum += square(integralErr); 
-	}
+        if ( histogram ) {
+          Unwt_evts += histogram->GetEntries();
+          histogram->Scale(lumi_SF);
+          double integral = compIntegral(histogram);
+          integral_parts[*signal_process_part] = integral;
+          integral_sum += integral;
+          double integralErr = compIntegralErr(histogram);
+          integralErr_parts[*signal_process_part] = integralErr;
+          integralErr2_sum += square(integralErr); 
+        }
       }
       /*
       double integralErr_sum = TMath::Sqrt(integralErr2_sum);
       std::cout << (*signal_process) << ": " << integral_sum << " +/- " << integralErr_sum << std::endl;
       if ( integral_parts.size() > 1 ) {
-	std::cout << " (non-fake = " << integral_parts[""] << " +/- " << integralErr_parts[""] << ","
-		  << " fake = " << integral_parts["_fake"] << " +/- " << integralErr_parts["_fake"] << ","
-		  << " conversion = " << integral_parts["_Convs"] << " +/- " << integralErr_parts["_Convs"] << ")" << std::endl;
+        std::cout << " (non-fake = " << integral_parts[""] << " +/- " << integralErr_parts[""] << ","
+                  << " fake = " << integral_parts["_fake"] << " +/- " << integralErr_parts["_fake"] << ","
+                  << " conversion = " << integral_parts["_Convs"] << " +/- " << integralErr_parts["_Convs"] << ")" << std::endl;
       }
       */
 
@@ -351,50 +359,50 @@ void dumpEventYields_Stage2_1l_3tau()
     double Fake = 0;
     double Conversion = 0;
     for ( vstring::const_iterator background_process = background_processes[*channel].begin();
-	  background_process != background_processes[*channel].end(); ++background_process ) {
+          background_process != background_processes[*channel].end(); ++background_process ) {
       std::map<std::string, double> integral_parts;
       std::map<std::string, double> integralErr_parts;
       double integral_sum = 0.;
       double integralErr2_sum = 0.;
       double Unwt_evts = 0.;
       for ( std::vector<std::string>::const_iterator background_process_part = background_process_parts.begin();
-	    background_process_part != background_process_parts.end(); ++background_process_part ) {
-	std::string histogramName = Form("%s/%s%s/EventCounter", 
+            background_process_part != background_process_parts.end(); ++background_process_part ) {
+        std::string histogramName = Form("%s/%s%s/EventCounter", 
           directories[*channel].data(), background_process->data(), background_process_part->data());
-	TH1* histogram = loadHistogram(inputFile, histogramName);
-	if ( histogram ) {
-	  Unwt_evts += histogram->GetEntries();
-	  histogram->Scale(lumi_SF);
-	  double integral = compIntegral(histogram);
-	  integral_parts[*background_process_part] = integral;
-	  integral_sum += integral;
-	  double integralErr = compIntegralErr(histogram);
-	  integralErr_parts[*background_process_part] = integralErr;
-	  integralErr2_sum += square(integralErr); 
-	}
+        TH1* histogram = loadHistogram(inputFile, histogramName);
+        if ( histogram ) {
+          Unwt_evts += histogram->GetEntries();
+          histogram->Scale(lumi_SF);
+          double integral = compIntegral(histogram);
+          integral_parts[*background_process_part] = integral;
+          integral_sum += integral;
+          double integralErr = compIntegralErr(histogram);
+          integralErr_parts[*background_process_part] = integralErr;
+          integralErr2_sum += square(integralErr); 
+        }
       }
       /*
       double integralErr_sum = TMath::Sqrt(integralErr2_sum);
       std::cout << (*background_process) << ": " << integral_sum << " +/- " << integralErr_sum << std::endl;
       if ( integral_parts.size() > 1 ) {
-	std::cout << " (non-fake = " << integral_parts[""] << " +/- " << integralErr_parts[""] << ","
-		  << " fake = " << integral_parts["_fake"] << " +/- " << integralErr_parts["_fake"] << ","
-		  << " conversion = " << integral_parts["_Convs"] << " +/- " << integralErr_parts["_Convs"] << ")" << std::endl;
+        std::cout << " (non-fake = " << integral_parts[""] << " +/- " << integralErr_parts[""] << ","
+                  << " fake = " << integral_parts["_fake"] << " +/- " << integralErr_parts["_fake"] << ","
+                  << " conversion = " << integral_parts["_Convs"] << " +/- " << integralErr_parts["_Convs"] << ")" << std::endl;
       }
       */
 
       std::string ProcessName = (std::string)(*background_process);
 
       if( !( (ProcessName == "fakes_mc") || (ProcessName == "Convs") || (ProcessName == "data_fakes") || (ProcessName == "flips_mc") || ( ProcessName == "data_obs")) ){
-	boost::replace_all(ProcessName, "_", "\\_");
-	std::cout << std::fixed;
-	std::cout << std::setprecision(2);
-	std::cout << ProcessName << " & " << integral_sum << "(" << Unwt_evts << ")" << " & " << integral_parts[""] << " & " << integral_parts["_fake"] << " & " << integral_parts["_Convs"] << " \\\\ \\hline" << std::endl;
+        boost::replace_all(ProcessName, "_", "\\_");
+        std::cout << std::fixed;
+        std::cout << std::setprecision(2);
+        std::cout << ProcessName << " & " << integral_sum << "(" << Unwt_evts << ")" << " & " << integral_parts[""] << " & " << integral_parts["_fake"] << " & " << integral_parts["_Convs"] << " \\\\ \\hline" << std::endl;
       }else{
-	boost::replace_all(ProcessName, "_", "\\_");
-	std::cout << std::fixed;
-	std::cout << std::setprecision(2);
-	std::cout << ProcessName << " & " << integral_sum << " & " << integral_parts[""] << " & " << integral_parts["_fake"] << " & " << integral_parts["_Convs"] << " \\\\ \\hline" << std::endl;
+        boost::replace_all(ProcessName, "_", "\\_");
+        std::cout << std::fixed;
+        std::cout << std::setprecision(2);
+        std::cout << ProcessName << " & " << integral_sum << " & " << integral_parts[""] << " & " << integral_parts["_fake"] << " & " << integral_parts["_Convs"] << " \\\\ \\hline" << std::endl;
 
       }
 
