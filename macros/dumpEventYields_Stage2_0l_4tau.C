@@ -16,6 +16,8 @@
 
 using namespace std;
 
+// Example call:
+// root "dumpEventYields_Stage2_0l_4tau.C(2017, \"deepVSjMedium\")"
 
 void eraseSubStr(std::string & mainStr, const std::string & toErase)
 {
@@ -82,48 +84,66 @@ compIntegralErr(const TH1 * histogram,
   return std::sqrt(sumBinErr2);
 }
 
-void dumpEventYields_Stage2_0l_4tau()
+void dumpEventYields_Stage2_0l_4tau(int Era, const char* tauID)
 {
   gROOT->SetBatch(true);
 
+  std::string channel = "hh_0l_4tau";
+
+  std::cout << "Channel: " << channel << std::endl;
+  std::cout << "Era: " << Era << std::endl;
+  std::cout << "tauID: " << tauID << std::endl;
+
   TH1::AddDirectory(false);
-  
+
   bool showDataYield = false;
   typedef std::vector<std::string> vstring;
   vstring channels;
-  channels.push_back("hh_0l_4tau");
-  //channels.push_back("hh_1l_3tau");
-  //channels.push_back("hh_2l_2tau");
-  //channels.push_back("hh_3l_1tau");
-  // channels.push_back("hh_4l");
-  //channels.push_back("hh_2lss");
+  channels.push_back(channel);
 
-  /*
-  int Era = 2016; 
-  double lumi_datacard_2016 = 35.9;
-  double lumi_projection_2016 = 35.9;
-  double lumi_SF = lumi_projection_2016/lumi_datacard_2016;
-  std::cout << "scaling (Era: "<< Era  << ")  signal and background yields to L=" << lumi_projection_2016 << "fb^-1 @ 13 TeV." << std::endl;
-  */
+  double lumi_SF;
+  std::string inputFilePath;
 
-  int Era = 2017; 
-  double lumi_datacard_2017 = 41.5;
-  double lumi_projection_2017 = 41.5;
-  double lumi_SF = lumi_projection_2017/lumi_datacard_2017;
-  std::cout << "scaling (Era: "<< Era  << ")  signal and background yields to L=" << lumi_projection_2017 << "fb^-1 @ 13 TeV." << std::endl;
+  if(Era == 2016) {
+    double lumi_datacard_2016 = 35.9;
+    double lumi_projection_2016 = 35.9;
+    lumi_SF = lumi_projection_2016/lumi_datacard_2016;
+    std::cout << "scaling (Era: "<< Era  << ")  signal and background yields to L=" << lumi_projection_2016 << "fb^-1 @ 13 TeV." << std::endl;
+  }
 
-  /*
-  int Era = 2018; 
-  double lumi_datacard_2018 = 59.7;
-  double lumi_projection_2018 = 59.7;
-  double lumi_SF = lumi_projection_2018/lumi_datacard_2018;
-  std::cout << "scaling (Era: "<< Era  << ")  signal and background yields to L=" << lumi_projection_2018 << "fb^-1 @ 13 TeV." << std::endl;
-  */
-
-  std::string inputFilePath = "/hdfs/local/laurits/hhAnalysis/2017/Medium_default/histograms/hh_0l_4tau/";
+  if(Era == 2017) {
+    double lumi_datacard_2017 = 41.5;
+    double lumi_projection_2017 = 41.5;
+    lumi_SF = lumi_projection_2017/lumi_datacard_2017;
+    std::cout << "scaling (Era: "<< Era  << ")  signal and background yields to L=" << lumi_projection_2017 << "fb^-1 @ 13 TeV." << std::endl;
+  }
 
 
-  std::string Tau_ID = "deepVSjMedium (2017)";
+  if(Era == 2018) {
+    double lumi_datacard_2018 = 59.7;
+    double lumi_projection_2018 = 59.7;
+    lumi_SF = lumi_projection_2018/lumi_datacard_2018;
+    std::cout << "scaling (Era: "<< Era  << ")  signal and background yields to L=" << lumi_projection_2018 << "fb^-1 @ 13 TeV." << std::endl;
+  }
+
+
+  if(Era == 2016) {
+    inputFilePath = "/hdfs/local/laurits/hhAnalysis/2016/0l_4tau_VLoose_default/histograms/hh_0l_4tau/"; // placeholder
+  }
+
+  if(Era == 2017) {
+    if(strcmp(tauID, "deepVSjVLoose") == 0){
+      // inputFilePath = "/hdfs/local/laurits/hhAnalysis/2017/0l_4tau_VLoose_default/histograms/hh_0l_4tau/";
+      inputFilePath = "/hdfs/local/laurits/hhAnalysis/2017/VLoose_0l_4tau_sb_enabled/histograms/hh_0l_4tau/";
+    }
+    if(strcmp(tauID, "deepVSjMedium") == 0){
+      inputFilePath = "/hdfs/local/laurits/hhAnalysis/2017/0l_4tau_Medium_defaul/histograms/hh_0l_4tau/";
+    }
+  }
+
+  if(Era == 2018) {
+    inputFilePath = "/hdfs/local/laurits/hhAnalysis/2018/0l_4tau_VLoose_default/histograms/hh_0l_4tau/"; // placeholder
+  }
 
 
   std::map<std::string, std::string> inputFileNames; // key = channel
@@ -186,6 +206,8 @@ void dumpEventYields_Stage2_0l_4tau()
     channel != channels.end(); ++channel ) {
     std::cout << "channel = " << (*channel) << std::endl;
 
+  std::cout << "filename" << inputFileNames[*channel].data() << std::endl;
+
     TString inputFileName_full = inputFilePath.data();
     if ( !inputFileName_full.EndsWith("/") ) inputFileName_full.Append("/");
     inputFileName_full.Append(inputFileNames[*channel].data());
@@ -196,16 +218,16 @@ void dumpEventYields_Stage2_0l_4tau()
       assert(0);
 
     }
-    std::cout<< "\\begin{frame}{ Event Yields: " <<  Tau_ID <<  "} " << std::endl;
+    std::cout<< "\\begin{frame}{ Event Yields: " <<  tauID << "(" << Era << ")" << "} " << std::endl;
     std::cout<< "\\fontsize{7pt}{8}\\selectfont  " << std::endl;
-    std::cout << " \\begin{table}[htbp]" << std::endl;
+    std::cout << "\\begin{table}[htbp]" << std::endl;
     std::string category_name = directories[*channel];
     eraseSubStr(category_name, "/sel/evt");
     boost::replace_all(category_name, "_", "\\_");
     std::cout << "\\caption{" << category_name << "}" << std::endl;
     std::cout << "\\centering" << std::endl;
     std::cout << "\\resizebox{0.60\\textwidth}{!}{\\begin{tabular}{|l|c|c|c|c|}\\hline " << std::endl;
-    std::cout << "Process   & Total & Non Fakes & Fakes & Conversions \\\\ \\hline" << std::endl; 
+    std::cout << "Process & Total & Non Fakes & Fakes & Conversions \\\\ \\hline" << std::endl; 
     for ( vstring::const_iterator signal_process = signal_processes[*channel].begin();
       signal_process != signal_processes[*channel].end(); ++signal_process ) {
       std::map<std::string, double> integral_parts;
@@ -320,9 +342,9 @@ void dumpEventYields_Stage2_0l_4tau()
     }
     std::cout << "Total Bg (MC only): " << " & " << Total << " & " << Non_Fake << " & " << Fake << " & " << Conversion << " \\\\ " << " \\hline " << std::endl;
     std::cout << "Total Bg (w data\\_fakes): " << " & " << (Total-Fake+data_fakes) << " & " << Non_Fake << " & " << data_fakes << " & " << Conversion << " \\\\ " << " \\hline " << std::endl;
-    std::cout << " \\end{tabular}} " << std::endl;
-    std::cout << " \\end{table} " << std::endl;
-    std::cout << " \\end{frame} " << std::endl;
+    std::cout << "\\end{tabular}} " << std::endl;
+    std::cout << "\\end{table} " << std::endl;
+    std::cout << "\\end{frame} " << std::endl;
        
 
 

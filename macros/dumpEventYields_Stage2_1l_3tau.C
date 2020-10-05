@@ -16,6 +16,9 @@
 
 using namespace std;
 
+// Example call:
+// root "dumpEventYields_Stage2_1l_3tau.C(\"hh_1l_3tau\", 2017, \"deepVSjLoose\")"
+
 
 void eraseSubStr(std::string & mainStr, const std::string & toErase)
 {
@@ -82,67 +85,64 @@ compIntegralErr(const TH1 * histogram,
   return std::sqrt(sumBinErr2);
 }
 
-void dumpEventYields_Stage2_1l_3tau()
+void dumpEventYields_Stage2_1l_3tau(const char* channel, int Era, const char* tauID)
 {
   gROOT->SetBatch(true);
 
+  std::cout << "Channel: " << channel << std::endl;
+  std::cout << "Era: " << Era << std::endl;
+  std::cout << "tauID: " << tauID << std::endl;
   TH1::AddDirectory(false);
-  
+
   bool showDataYield = false;
   typedef std::vector<std::string> vstring;
   vstring channels;
-  channels.push_back("hh_1l_3tau");
-  // channels.push_back("hh_1e_3tau");
-  // channels.push_back("hh_1mu_3tau");
-  
-  /*
-  int Era = 2016; 
-  double lumi_datacard_2016 = 35.9;
-  double lumi_projection_2016 = 35.9;
-  double lumi_SF = lumi_projection_2016/lumi_datacard_2016;
-  std::cout << "scaling (Era: "<< Era  << ")  signal and background yields to L=" << lumi_projection_2016 << "fb^-1 @ 13 TeV." << std::endl;
-  */
 
-  int Era = 2017; 
-  double lumi_datacard_2017 = 41.5;
-  double lumi_projection_2017 = 41.5;
-  double lumi_SF = lumi_projection_2017/lumi_datacard_2017;
-  std::cout << "scaling (Era: "<< Era  << ")  signal and background yields to L=" << lumi_projection_2017 << "fb^-1 @ 13 TeV." << std::endl;
+  channels.push_back(channel);
 
-  /*
-  int Era = 2018;
-  double lumi_datacard_2018 = 59.7;
-  double lumi_projection_2018 = 59.7;
-  double lumi_SF = lumi_projection_2018/lumi_datacard_2018;
-  std::cout << "scaling (Era: "<< Era  << ")  signal and background yields to L=" << lumi_projection_2018 << "fb^-1 @ 13 TeV." << std::endl;
-  */
+  double lumi_SF;
+  std::string inputFilePath;
 
-  // 1l 3 tau file path 
-  // std::string inputFilePath = "/hdfs/local/acwarden/hhAnalysis/2017/2020July7_Loose/histograms/hh_1l_3tau/";
-  // std::string inputFilePath = "/hdfs/local/acwarden/hhAnalysis/2017/2020July8_VLoose/histograms/hh_1l_3tau/";
-  //  std::string inputFilePath = "/hdfs/local/acwarden/hhAnalysis/2017/2020June11_Med/histograms/hh_1l_3tau/";
-  //  std::string inputFilePath = "/hdfs/local/acwarden/hhAnalysis/2017/2020June19_VVLoose/histograms/hh_1l_3tau/";
-  // std::string inputFilePath = "/hdfs/local/acwarden/hhAnalysis/2017/2020Jul19_VL_addplots/histograms/hh_1l_3tau/";
+  if(Era == 2016) {
+    double lumi_datacard_2016 = 35.9;
+    double lumi_projection_2016 = 35.9;
+    lumi_SF = lumi_projection_2016/lumi_datacard_2016;
+    std::cout << "scaling (Era: "<< Era  << ")  signal and background yields to L=" << lumi_projection_2016 << "fb^-1 @ 13 TeV." << std::endl;
+  }
 
-  // std::string inputFilePath = "/hdfs/local/veelken/hhAnalysis/2016/2020Sep29_deepVsjLoose/histograms/hh_1l_3tau/";
-  std::string inputFilePath = "/hdfs/local/veelken/hhAnalysis/2017/2020Sep29_deepVsjLoose/histograms/hh_1l_3tau/";
-  // std::string inputFilePath = "/hdfs/local/veelken/hhAnalysis/2018/2020Sep29_deepVsjLoose/histograms/hh_1l_3tau/";
+  if(Era == 2017) {
+    double lumi_datacard_2017 = 41.5;
+    double lumi_projection_2017 = 41.5;
+    lumi_SF = lumi_projection_2017/lumi_datacard_2017;
+    std::cout << "scaling (Era: "<< Era  << ")  signal and background yields to L=" << lumi_projection_2017 << "fb^-1 @ 13 TeV." << std::endl;
+  }
 
+
+  if(Era == 2018) {
+    double lumi_datacard_2018 = 59.7;
+    double lumi_projection_2018 = 59.7;
+    lumi_SF = lumi_projection_2018/lumi_datacard_2018;
+    std::cout << "scaling (Era: "<< Era  << ")  signal and background yields to L=" << lumi_projection_2018 << "fb^-1 @ 13 TeV." << std::endl;
+  }
+
+
+  // 1l_3tau file path
+
+  if(Era == 2016) {
+    inputFilePath = "/hdfs/local/veelken/hhAnalysis/2016/2020Sep29_deepVsjLoose/histograms/hh_1l_3tau/";
+  }
+
+  if(Era == 2017) {
+    inputFilePath = "/hdfs/local/veelken/hhAnalysis/2017/2020Sep29_deepVsjLoose/histograms/hh_1l_3tau/";
+  }
+
+  if(Era == 2018) {
+    inputFilePath = "/hdfs/local/veelken/hhAnalysis/2018/2020Sep29_deepVsjLoose/histograms/hh_1l_3tau/";
+  }
 
   // SS file paths 
   // std::string inputFilePath = "/hdfs/local/acwarden/hhAnalysis/2017/2020June22_SS_L/histograms/hh_1l_3tau/";
-
-
-  // std::string Tau_ID = "deepVSjMedium (2016)";
-  // std::string Tau_ID = "deepVSjLoose (2016)";
-  // std::string Tau_ID = "deepVSjVLoose (2016)";
-  // std::string Tau_ID = "deepVSjVVLoose (2016)";
-  // std::string Tau_ID = "dR03MVAMedium (2017)";
-  // std::string Tau_ID = "deepVSjMedium (2017)";
-  std::string Tau_ID = "deepVSjLoose (2017)";
-  // std::string Tau_ID = "deepVSjVLoose (2017)";
-  // std::string Tau_ID = "deepVSjVVLoose (2017)";
-
+  std::string strEra = std::to_string(Era);
 
 
   std::map<std::string, std::string> inputFileNames; // key = channel
@@ -163,32 +163,35 @@ void dumpEventYields_Stage2_1l_3tau()
   
   std::map<std::string, vstring> signal_processes; // key = channel
 
-  signal_processes["hh_1l_3tau"].push_back("signal_ggf_spin0_400_hh_tttt");
-  signal_processes["hh_1l_3tau"].push_back("signal_ggf_spin0_400_hh_wwtt");
-  signal_processes["hh_1l_3tau"].push_back("signal_ggf_spin0_400_hh_wwww");
-  signal_processes["hh_1l_3tau"].push_back("signal_spin0_400_hh");
-  signal_processes["hh_1l_3tau"].push_back("signal_ggf_nonresonant_hh_wwww");
-  signal_processes["hh_1l_3tau"].push_back("signal_ggf_nonresonant_hh_wwtt");
-  signal_processes["hh_1l_3tau"].push_back("signal_ggf_nonresonant_hh_tttt");
+  if(strcmp(channel, "hh_1l_3tau") == 0){
+    signal_processes["hh_1l_3tau"].push_back("signal_ggf_spin0_400_hh_tttt");
+    signal_processes["hh_1l_3tau"].push_back("signal_ggf_spin0_400_hh_wwtt");
+    signal_processes["hh_1l_3tau"].push_back("signal_ggf_spin0_400_hh_wwww");
+    signal_processes["hh_1l_3tau"].push_back("signal_spin0_400_hh");
+    signal_processes["hh_1l_3tau"].push_back("signal_ggf_nonresonant_hh_wwww");
+    signal_processes["hh_1l_3tau"].push_back("signal_ggf_nonresonant_hh_wwtt");
+    signal_processes["hh_1l_3tau"].push_back("signal_ggf_nonresonant_hh_tttt");
+  }
 
+  if(strcmp(channel, "hh_1e_3tau") == 0){
+    signal_processes["hh_1e_3tau"].push_back("signal_ggf_spin0_400_hh_tttt");
+    signal_processes["hh_1e_3tau"].push_back("signal_ggf_spin0_400_hh_wwtt");
+    signal_processes["hh_1e_3tau"].push_back("signal_ggf_spin0_400_hh_wwww");
+    signal_processes["hh_1e_3tau"].push_back("signal_spin0_400_hh");
+    signal_processes["hh_1e_3tau"].push_back("signal_ggf_nonresonant_hh_wwww");
+    signal_processes["hh_1e_3tau"].push_back("signal_ggf_nonresonant_hh_wwtt");
+    signal_processes["hh_1e_3tau"].push_back("signal_ggf_nonresonant_hh_tttt");
+  }
 
-  // signal_processes["hh_1e_3tau"].push_back("signal_ggf_spin0_400_hh_tttt");
-  // signal_processes["hh_1e_3tau"].push_back("signal_ggf_spin0_400_hh_wwtt");
-  // signal_processes["hh_1e_3tau"].push_back("signal_ggf_spin0_400_hh_wwww");
-  // signal_processes["hh_1e_3tau"].push_back("signal_spin0_400_hh");
-  // signal_processes["hh_1e_3tau"].push_back("signal_ggf_nonresonant_hh_wwww");
-  // signal_processes["hh_1e_3tau"].push_back("signal_ggf_nonresonant_hh_wwtt");
-  // signal_processes["hh_1e_3tau"].push_back("signal_ggf_nonresonant_hh_tttt");
-
-
-  // signal_processes["hh_1mu_3tau"].push_back("signal_ggf_spin0_400_hh_tttt");
-  // signal_processes["hh_1mu_3tau"].push_back("signal_ggf_spin0_400_hh_wwtt");
-  // signal_processes["hh_1mu_3tau"].push_back("signal_ggf_spin0_400_hh_wwww");
-  // signal_processes["hh_1mu_3tau"].push_back("signal_spin0_400_hh");
-  // signal_processes["hh_1mu_3tau"].push_back("signal_ggf_nonresonant_hh_wwww");
-  // signal_processes["hh_1mu_3tau"].push_back("signal_ggf_nonresonant_hh_wwtt");
-  // signal_processes["hh_1mu_3tau"].push_back("signal_ggf_nonresonant_hh_tttt");
-
+  if(strcmp(channel, "hh_1mu_3tau") == 0){
+    signal_processes["hh_1mu_3tau"].push_back("signal_ggf_spin0_400_hh_tttt");
+    signal_processes["hh_1mu_3tau"].push_back("signal_ggf_spin0_400_hh_wwtt");
+    signal_processes["hh_1mu_3tau"].push_back("signal_ggf_spin0_400_hh_wwww");
+    signal_processes["hh_1mu_3tau"].push_back("signal_spin0_400_hh");
+    signal_processes["hh_1mu_3tau"].push_back("signal_ggf_nonresonant_hh_wwww");
+    signal_processes["hh_1mu_3tau"].push_back("signal_ggf_nonresonant_hh_wwtt");
+    signal_processes["hh_1mu_3tau"].push_back("signal_ggf_nonresonant_hh_tttt");
+  }
 
 
   std::vector<std::string> signal_process_parts;
@@ -198,81 +201,83 @@ void dumpEventYields_Stage2_1l_3tau()
 
   std::map<std::string, vstring> background_processes; // key = channel
 
-  background_processes["hh_1l_3tau"].push_back("VH");
-  background_processes["hh_1l_3tau"].push_back("TT");
-  background_processes["hh_1l_3tau"].push_back("ZZ");
-  background_processes["hh_1l_3tau"].push_back("WZ");
-  background_processes["hh_1l_3tau"].push_back("WW");
-  background_processes["hh_1l_3tau"].push_back("DY");
-  background_processes["hh_1l_3tau"].push_back("W");
-  background_processes["hh_1l_3tau"].push_back("TTWW");
-  background_processes["hh_1l_3tau"].push_back("TTW");
-  background_processes["hh_1l_3tau"].push_back("TTZ");
-  background_processes["hh_1l_3tau"].push_back("TTH");
-  background_processes["hh_1l_3tau"].push_back("TH");
-  background_processes["hh_1l_3tau"].push_back("qqH");
-  background_processes["hh_1l_3tau"].push_back("ggH");
-  background_processes["hh_1l_3tau"].push_back("XGamma");
-  background_processes["hh_1l_3tau"].push_back("Other");
-  background_processes["hh_1l_3tau"].push_back("Convs");
-  background_processes["hh_1l_3tau"].push_back("fakes_mc");
-  background_processes["hh_1l_3tau"].push_back("data_fakes");
-  background_processes["hh_1l_3tau"].push_back("flips_mc");
-  if(showDataYield){
-    background_processes["hh_1l_3tau"].push_back("data_obs");
+  if(strcmp(channel, "hh_1l_3tau") == 0){
+    background_processes["hh_1l_3tau"].push_back("VH");
+    background_processes["hh_1l_3tau"].push_back("TT");
+    background_processes["hh_1l_3tau"].push_back("ZZ");
+    background_processes["hh_1l_3tau"].push_back("WZ");
+    background_processes["hh_1l_3tau"].push_back("WW");
+    background_processes["hh_1l_3tau"].push_back("DY");
+    background_processes["hh_1l_3tau"].push_back("W");
+    background_processes["hh_1l_3tau"].push_back("TTWW");
+    background_processes["hh_1l_3tau"].push_back("TTW");
+    background_processes["hh_1l_3tau"].push_back("TTZ");
+    background_processes["hh_1l_3tau"].push_back("TTH");
+    background_processes["hh_1l_3tau"].push_back("TH");
+    background_processes["hh_1l_3tau"].push_back("qqH");
+    background_processes["hh_1l_3tau"].push_back("ggH");
+    background_processes["hh_1l_3tau"].push_back("XGamma");
+    background_processes["hh_1l_3tau"].push_back("Other");
+    background_processes["hh_1l_3tau"].push_back("Convs");
+    background_processes["hh_1l_3tau"].push_back("fakes_mc");
+    background_processes["hh_1l_3tau"].push_back("data_fakes");
+    background_processes["hh_1l_3tau"].push_back("flips_mc");
+    if(showDataYield){
+      background_processes["hh_1l_3tau"].push_back("data_obs");
+    }
   }
 
-
-  // background_processes["hh_1e_3tau"].push_back("VH");
-  // background_processes["hh_1e_3tau"].push_back("TT");
-  // background_processes["hh_1e_3tau"].push_back("ZZ");
-  // background_processes["hh_1e_3tau"].push_back("WZ");
-  // background_processes["hh_1e_3tau"].push_back("WW");
-  // background_processes["hh_1e_3tau"].push_back("DY");
-  // background_processes["hh_1e_3tau"].push_back("W");
-  // background_processes["hh_1e_3tau"].push_back("TTWW");
-  // background_processes["hh_1e_3tau"].push_back("TTW");
-  // background_processes["hh_1e_3tau"].push_back("TTZ");
-  // background_processes["hh_1e_3tau"].push_back("TTH");
-  // background_processes["hh_1e_3tau"].push_back("TH");
-  // background_processes["hh_1e_3tau"].push_back("qqH");
-  // background_processes["hh_1e_3tau"].push_back("ggH");
-  // background_processes["hh_1e_3tau"].push_back("XGamma");
-  // background_processes["hh_1e_3tau"].push_back("Other");
-  // background_processes["hh_1e_3tau"].push_back("Convs");
-  // background_processes["hh_1e_3tau"].push_back("fakes_mc");
-  // background_processes["hh_1e_3tau"].push_back("data_fakes");
-  // background_processes["hh_1e_3tau"].push_back("flips_mc");
-  // if(showDataYield){
-  //   background_processes["hh_1e_3tau"].push_back("data_obs");
-  // }
-
-
-  /*
-  background_processes["hh_1mu_3tau"].push_back("VH");
-  background_processes["hh_1mu_3tau"].push_back("TT");
-  background_processes["hh_1mu_3tau"].push_back("ZZ");
-  background_processes["hh_1mu_3tau"].push_back("WZ");
-  background_processes["hh_1mu_3tau"].push_back("WW");
-  background_processes["hh_1mu_3tau"].push_back("DY");
-  background_processes["hh_1mu_3tau"].push_back("W");
-  background_processes["hh_1mu_3tau"].push_back("TTWW");
-  background_processes["hh_1mu_3tau"].push_back("TTW");
-  background_processes["hh_1mu_3tau"].push_back("TTZ");
-  background_processes["hh_1mu_3tau"].push_back("TTH");
-  background_processes["hh_1mu_3tau"].push_back("TH");
-  background_processes["hh_1mu_3tau"].push_back("qqH");
-  background_processes["hh_1mu_3tau"].push_back("ggH");
-  background_processes["hh_1mu_3tau"].push_back("XGamma");
-  background_processes["hh_1mu_3tau"].push_back("Other");
-  background_processes["hh_1mu_3tau"].push_back("Convs");
-  background_processes["hh_1mu_3tau"].push_back("fakes_mc");
-  background_processes["hh_1mu_3tau"].push_back("data_fakes");
-  background_processes["hh_1mu_3tau"].push_back("flips_mc");
-  if(showDataYield){
-    background_processes["hh_1mu_3tau"].push_back("data_obs");
+  if(strcmp(channel, "hh_1e_3tau") == 0){
+    background_processes["hh_1e_3tau"].push_back("VH");
+    background_processes["hh_1e_3tau"].push_back("TT");
+    background_processes["hh_1e_3tau"].push_back("ZZ");
+    background_processes["hh_1e_3tau"].push_back("WZ");
+    background_processes["hh_1e_3tau"].push_back("WW");
+    background_processes["hh_1e_3tau"].push_back("DY");
+    background_processes["hh_1e_3tau"].push_back("W");
+    background_processes["hh_1e_3tau"].push_back("TTWW");
+    background_processes["hh_1e_3tau"].push_back("TTW");
+    background_processes["hh_1e_3tau"].push_back("TTZ");
+    background_processes["hh_1e_3tau"].push_back("TTH");
+    background_processes["hh_1e_3tau"].push_back("TH");
+    background_processes["hh_1e_3tau"].push_back("qqH");
+    background_processes["hh_1e_3tau"].push_back("ggH");
+    background_processes["hh_1e_3tau"].push_back("XGamma");
+    background_processes["hh_1e_3tau"].push_back("Other");
+    background_processes["hh_1e_3tau"].push_back("Convs");
+    background_processes["hh_1e_3tau"].push_back("fakes_mc");
+    background_processes["hh_1e_3tau"].push_back("data_fakes");
+    background_processes["hh_1e_3tau"].push_back("flips_mc");
+    if(showDataYield){
+      background_processes["hh_1e_3tau"].push_back("data_obs");
+    }
   }
-  */
+
+  if(strcmp(channel, "hh_1mu_3tau") == 0){
+    background_processes["hh_1mu_3tau"].push_back("VH");
+    background_processes["hh_1mu_3tau"].push_back("TT");
+    background_processes["hh_1mu_3tau"].push_back("ZZ");
+    background_processes["hh_1mu_3tau"].push_back("WZ");
+    background_processes["hh_1mu_3tau"].push_back("WW");
+    background_processes["hh_1mu_3tau"].push_back("DY");
+    background_processes["hh_1mu_3tau"].push_back("W");
+    background_processes["hh_1mu_3tau"].push_back("TTWW");
+    background_processes["hh_1mu_3tau"].push_back("TTW");
+    background_processes["hh_1mu_3tau"].push_back("TTZ");
+    background_processes["hh_1mu_3tau"].push_back("TTH");
+    background_processes["hh_1mu_3tau"].push_back("TH");
+    background_processes["hh_1mu_3tau"].push_back("qqH");
+    background_processes["hh_1mu_3tau"].push_back("ggH");
+    background_processes["hh_1mu_3tau"].push_back("XGamma");
+    background_processes["hh_1mu_3tau"].push_back("Other");
+    background_processes["hh_1mu_3tau"].push_back("Convs");
+    background_processes["hh_1mu_3tau"].push_back("fakes_mc");
+    background_processes["hh_1mu_3tau"].push_back("data_fakes");
+    background_processes["hh_1mu_3tau"].push_back("flips_mc");
+    if(showDataYield){
+      background_processes["hh_1mu_3tau"].push_back("data_obs");
+    }
+  }
 
   std::vector<std::string> background_process_parts;
   background_process_parts.push_back("");
@@ -293,16 +298,16 @@ void dumpEventYields_Stage2_1l_3tau()
       assert(0);
 
     }
-    std::cout<< "\\begin{frame}{ Event Yields: " <<  Tau_ID <<  "} " << std::endl;
+    std::cout<< "\\begin{frame}{ Event Yields: " << tauID << "(" << Era << ")" "} " << std::endl;
     std::cout<< "\\fontsize{7pt}{8}\\selectfont  " << std::endl;
-    std::cout << " \\begin{table}[htbp]" << std::endl;
+    std::cout << "\\begin{table}[htbp]" << std::endl;
     std::string category_name = directories[*channel];
     eraseSubStr(category_name, "/sel/evt");
     boost::replace_all(category_name, "_", "\\_");
     std::cout << "\\caption{" << category_name << "}" << std::endl;
     std::cout << "\\centering" << std::endl;
     std::cout << "\\resizebox{0.60\\textwidth}{!}{\\begin{tabular}{|l|c|c|c|c|}\\hline " << std::endl;
-    std::cout << "Process   & Total & Non Fakes & Fakes & Conversions \\\\ \\hline" << std::endl; 
+    std::cout << "Process & Total & Non Fakes & Fakes & Conversions \\\\ \\hline" << std::endl; 
     for ( vstring::const_iterator signal_process = signal_processes[*channel].begin();
           signal_process != signal_processes[*channel].end(); ++signal_process ) {
       std::map<std::string, double> integral_parts;
@@ -415,11 +420,11 @@ void dumpEventYields_Stage2_1l_3tau()
       Fake += integral_parts["_fake"];
       Conversion += integral_parts["_Convs"];
     }
-    std::cout << "Total Bg (MC only): " << " & " << Total << " & " << Non_Fake << " & " << Fake << " & " << Conversion << " \\\\ " << " \\hline " << std::endl;
-    std::cout << "Total Bg (w data\\_fakes): " << " & " << (Total-Fake+data_fakes) << " & " << Non_Fake << " & " << data_fakes << " & " << Conversion << " \\\\ " << " \\hline " << std::endl;
-    std::cout << " \\end{tabular}} " << std::endl;
-    std::cout << " \\end{table} " << std::endl;
-    std::cout << " \\end{frame} " << std::endl;
+    std::cout << "Total Bg (MC only): " << " & " << Total << " & " << Non_Fake << " & " << Fake << " & " << Conversion << " \\\\ " << "\\hline " << std::endl;
+    std::cout << "Total Bg (w data\\_fakes): " << " & " << (Total-Fake+data_fakes) << " & " << Non_Fake << " & " << data_fakes << " & " << Conversion << " \\\\ " << "\\hline " << std::endl;
+    std::cout << "\\end{tabular}} " << std::endl;
+    std::cout << "\\end{table} " << std::endl;
+    std::cout << "\\end{frame} " << std::endl;
        
 
 
