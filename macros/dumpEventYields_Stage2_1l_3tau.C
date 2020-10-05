@@ -146,19 +146,19 @@ void dumpEventYields_Stage2_1l_3tau()
 
 
   std::map<std::string, std::string> inputFileNames; // key = channel
-  // inputFileNames["hh_1l_3tau"] = "Tight_OS/hadd/hadd_stage2_Tight_OS.root";
+  inputFileNames["hh_1l_3tau"] = "Tight_OS/hadd/hadd_stage2_Tight_OS.root";
   // inputFileNames["hh_1l_3tau"] = "Tight_SS/hadd/hadd_stage2_Tight_SS.root";
   // inputFileNames["hh_1e_3tau"] = "Fakeable_wFakeRateWeights_OS/hadd/hadd_stage2_Fakeable_wFakeRateWeights_OS.root";
   // inputFileNames["hh_1mu_3tau"] = "Fakeable_wFakeRateWeights_OS/hadd/hadd_stage2_Fakeable_wFakeRateWeights_OS.root";
-  inputFileNames["hh_1e_3tau"] = "Tight_OS/hadd/hadd_stage2_Tight_OS.root";
+  // inputFileNames["hh_1e_3tau"] = "Tight_OS/hadd/hadd_stage2_Tight_OS.root";
   // inputFileNames["hh_1mu_3tau"] = "Tight_OS/hadd/hadd_stage2_Tight_OS.root";
   
   std::map<std::string, std::string> directories; // key = channel
-  //  directories["hh_1l_3tau"] = "hh_1l_3tau_OS_Tight/sel/evt";
-  // directories["hh_1l_3tau"] = "hh_1l_3tau_SS_Tight/sel/evt";
   // directories["hh_1e_3tau"] = "hh_1e_3tau_OS_Fakeable_wFakeRateWeights/sel/evt";
   // directories["hh_1mu_3tau"] = "hh_1mu_3tau_OS_Fakeable_wFakeRateWeights/sel/evt";
-  directories["hh_1e_3tau"] = "hh_1e_3tau_OS_Tight/sel/evt";
+  directories["hh_1l_3tau"] = "hh_1l_3tau_OS_Tight/sel/evt";
+  // directories["hh_1l_3tau"] = "hh_1l_3tau_SS_Tight/sel/evt";
+  // directories["hh_1e_3tau"] = "hh_1e_3tau_OS_Tight/sel/evt";
   // directories["hh_1mu_3tau"] = "hh_1mu_3tau_OS_Tight/sel/evt";
   
   std::map<std::string, vstring> signal_processes; // key = channel
