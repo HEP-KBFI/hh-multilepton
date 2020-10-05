@@ -67,8 +67,8 @@ square(double x)
 
 double
 compIntegralErr(const TH1 * histogram,
-		bool includeUnderflowBin = false,
-		bool includeOverflowBin = false)
+    bool includeUnderflowBin = false,
+    bool includeOverflowBin = false)
 {
   const int numBins  = histogram->GetNbinsX();
   const int firstBin = includeUnderflowBin ? 0           : 1;
@@ -91,9 +91,9 @@ void dumpEventYields_Stage2_1l_3tau()
   bool showDataYield = false;
   typedef std::vector<std::string> vstring;
   vstring channels;
-  //  channels.push_back("hh_1l_3tau");
-  channels.push_back("hh_1e_3tau");
-  //channels.push_back("hh_1mu_3tau");
+  channels.push_back("hh_1l_3tau");
+  // channels.push_back("hh_1e_3tau");
+  // channels.push_back("hh_1mu_3tau");
   
   /*
   int Era = 2016; 
@@ -124,9 +124,9 @@ void dumpEventYields_Stage2_1l_3tau()
   //  std::string inputFilePath = "/hdfs/local/acwarden/hhAnalysis/2017/2020June19_VVLoose/histograms/hh_1l_3tau/";
   // std::string inputFilePath = "/hdfs/local/acwarden/hhAnalysis/2017/2020Jul19_VL_addplots/histograms/hh_1l_3tau/";
 
-  // std::string inputFilePath = "/hdfs/local/veelken/hhAnalysis/2016/2020Sep29_deepVsjLoose/histograms/hh_1l_3tau";
+  // std::string inputFilePath = "/hdfs/local/veelken/hhAnalysis/2016/2020Sep29_deepVsjLoose/histograms/hh_1l_3tau/";
   std::string inputFilePath = "/hdfs/local/veelken/hhAnalysis/2017/2020Sep29_deepVsjLoose/histograms/hh_1l_3tau/";
-  // std::string inputFilePath = "/hdfs/local/veelken/hhAnalysis/2018/2020Sep29_deepVsjLoose/histograms/hh_1l_3tau";
+  // std::string inputFilePath = "/hdfs/local/veelken/hhAnalysis/2018/2020Sep29_deepVsjLoose/histograms/hh_1l_3tau/";
 
 
   // SS file paths 
