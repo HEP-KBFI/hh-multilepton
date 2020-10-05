@@ -104,6 +104,8 @@
 #include "TauAnalysis/ClassicSVfit/interface/svFitAuxFunctions.h" // aux functions
 #include "TauAnalysis/ClassicSVfit/interface/ClassicSVfit.h" // SVFit for 2 taus
 
+#include "hhAnalysis/multilepton/interface/RecoElectronCollectionSelectorFakeable_hh_multilepton.h" 
+#include "hhAnalysis/multilepton/interface/RecoMuonCollectionSelectorFakeable_hh_multilepton.h" 
 
 #include <boost/math/special_functions/sign.hpp> // boost::math::sign()
 #include <boost/algorithm/string/predicate.hpp> // boost::starts_with()
@@ -546,7 +548,8 @@ int main(int argc, char* argv[])
   inputTree -> registerReader(muonReader);
   RecoMuonCollectionGenMatcher muonGenMatcher;
   RecoMuonCollectionSelectorLoose preselMuonSelector(era, -1, isDEBUG);
-  RecoMuonCollectionSelectorFakeable fakeableMuonSelector(era, -1, isDEBUG);
+  //RecoMuonCollectionSelectorFakeable fakeableMuonSelector(era, -1, isDEBUG);
+  RecoMuonCollectionSelectorFakeable_hh_multilepton fakeableMuonSelector(era, -1, isDEBUG);
   RecoMuonCollectionSelectorTight tightMuonSelector(era, -1, isDEBUG);
   muonReader->set_mvaTTH_wp(lep_mva_cut_mu);
 
@@ -555,7 +558,8 @@ int main(int argc, char* argv[])
   RecoElectronCollectionGenMatcher electronGenMatcher;
   RecoElectronCollectionCleaner electronCleaner(0.3, isDEBUG);
   RecoElectronCollectionSelectorLoose preselElectronSelector(era, -1, isDEBUG);
-  RecoElectronCollectionSelectorFakeable fakeableElectronSelector(era, -1, isDEBUG);
+  //RecoElectronCollectionSelectorFakeable fakeableElectronSelector(era, -1, isDEBUG);
+  RecoElectronCollectionSelectorFakeable_hh_multilepton fakeableElectronSelector(era, -1, isDEBUG);
   RecoElectronCollectionSelectorTight tightElectronSelector(era, -1, isDEBUG);
   electronReader->set_mvaTTH_wp(lep_mva_cut_e);
 
@@ -1302,23 +1306,8 @@ int main(int argc, char* argv[])
         evtWeightRecorder.record_ewk_bjet(selBJets_medium);
       }
 
-      int selHadTau_lead_genPdgId = getHadTau_genPdgId(selHadTau_lead);
-      int selHadTau_sublead_genPdgId = getHadTau_genPdgId(selHadTau_sublead);
-      int selHadTau_third_genPdgId = getHadTau_genPdgId(selHadTau_third);
-      int selHadTau_fourth_genPdgId = getHadTau_genPdgId(selHadTau_fourth);
-
-      dataToMCcorrectionInterface->setHadTaus(
-        selHadTau_lead_genPdgId, selHadTau_lead->pt(), selHadTau_lead->eta(), 
-        selHadTau_sublead_genPdgId, selHadTau_sublead->pt(), selHadTau_sublead->eta(), 
-        selHadTau_third_genPdgId, selHadTau_third->pt(), selHadTau_third->eta(), 
-        selHadTau_fourth_genPdgId, selHadTau_fourth->pt(), selHadTau_fourth->eta()
-      );
-      dataToMCcorrectionInterface_hh_0l_4tau_trigger->setHadTaus(
-        selHadTau_lead->pt(),    selHadTau_lead->eta(),    selHadTau_lead->phi(),    selHadTau_lead->decayMode(),
-        selHadTau_sublead->pt(), selHadTau_sublead->eta(), selHadTau_sublead->phi(), selHadTau_sublead->decayMode(),
-        selHadTau_third->pt(),   selHadTau_third->eta(),   selHadTau_third->phi(),   selHadTau_third->decayMode(),
-        selHadTau_fourth->pt(),  selHadTau_fourth->eta(),  selHadTau_fourth->phi(),  selHadTau_fourth->decayMode()
-      );
+      dataToMCcorrectionInterface->setHadTaus({ selHadTau_lead, selHadTau_sublead, selHadTau_third, selHadTau_fourth });
+      dataToMCcorrectionInterface_hh_0l_4tau_trigger->setHadTaus(selHadTau_lead, selHadTau_sublead, selHadTau_third,selHadTau_fourth);
       dataToMCcorrectionInterface_hh_0l_4tau_trigger->setTriggerBits(isTriggered_2tau);
 
 //--- apply data/MC corrections for trigger efficiency
@@ -2270,6 +2259,10 @@ int main(int argc, char* argv[])
       selectedEntries_weighted_byGenMatchType[central_or_shift][process_and_genMatch] += evtWeightRecorder.get(central_or_shift);
     }
     histogram_selectedEntries->Fill(0.);
+    if(isDEBUG)
+    {
+      std::cout << evtWeightRecorder << '\n';
+    }
   }
 
   std::cout << "max num. Entries = " << inputTree -> getCumulativeMaxEventCount()

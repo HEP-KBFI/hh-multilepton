@@ -22,7 +22,7 @@ parser.add_modes(mode_choices)
 parser.add_sys(sys_choices)
 parser.add_preselect()
 parser.add_rle_select()
-parser.add_lep_mva_wp(default_wp = 'default') # alternative: hh_multilepton
+parser.add_lep_mva_wp(default_wp = 'hh_multilepton') # alternative: hh_multilepton
 parser.add_nonnominal()
 parser.add_tau_id_wp()
 parser.add_hlt_filter()

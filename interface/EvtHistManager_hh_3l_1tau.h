@@ -93,6 +93,35 @@ public:
 		 double m_OS_ltau_closestToZ,
 		 double tau_antiElectron_matched,
 		 double tau_antiElectron_unmatched,
+		 double dR_smartpair1,
+		 double dR_smartpair2,
+		 double dR_smartpair_ll,
+		 double dR_smartpair_ltau,
+		 double dPhi_smartpair1,
+		 double dPhi_smartpair2,
+		 double dPhi_smartpair_ll,
+		 double dPhi_smartpair_ltau,
+		 double dEta_smartpair1,
+		 double dEta_smartpair2,
+		 double dEta_smartpair_ll,
+		 double dEta_smartpair_ltau,
+		 double pT_smartpair1,
+		 double pT_smartpair2,
+		 double pT_smartpair_ll,
+		 double pT_smartpair_ltau,
+		 double pTSum_smartpair1,
+		 double pTSum_smartpair2,
+		 double pTSum_smartpair_ll,
+		 double pTSum_smartpair_ltau,
+		 double pTDiff_smartpair1,
+		 double pTDiff_smartpair2,
+		 double pTDiff_smartpair_ll,
+		 double pTDiff_smartpair_ltau,
+		 int nSFOS,
+		 double mZ_tau,
+		 double dPhi_nonZlMET,
+		 double mindPhiLepMET,
+		 double pT4l,
 		 std::map<std::string, double>& BDTOutput_SUM_Map,
 		 std::map<std::string, double>& BDTOutput_nonRes_SUM_Map,
 		 //std::map<std::string, double>& XGBOutput_SUM_Map,
@@ -169,6 +198,35 @@ public:
   TH1 * histogram_m_OS_ltau_closestToZ_;
   TH1 * histogram_tau_antiElectron_matched_;
   TH1 * histogram_tau_antiElectron_unmatched_;
+  TH1 * histogram_dR_smartpair1_;
+  TH1 * histogram_dR_smartpair2_;
+  TH1 * histogram_dR_smartpair_ll_;
+  TH1 * histogram_dR_smartpair_ltau_;
+  TH1 * histogram_dPhi_smartpair1_;
+  TH1 * histogram_dPhi_smartpair2_;
+  TH1 * histogram_dPhi_smartpair_ll_;
+  TH1 * histogram_dPhi_smartpair_ltau_;
+  TH1 * histogram_dEta_smartpair1_;
+  TH1 * histogram_dEta_smartpair2_;
+  TH1 * histogram_dEta_smartpair_ll_;
+  TH1 * histogram_dEta_smartpair_ltau_;
+  TH1 * histogram_pT_smartpair1_;
+  TH1 * histogram_pT_smartpair2_;
+  TH1 * histogram_pT_smartpair_ll_;
+  TH1 * histogram_pT_smartpair_ltau_;
+  TH1 * histogram_pTSum_smartpair1_;
+  TH1 * histogram_pTSum_smartpair2_;
+  TH1 * histogram_pTSum_smartpair_ll_;
+  TH1 * histogram_pTSum_smartpair_ltau_;
+  TH1 * histogram_pTDiff_smartpair1_;
+  TH1 * histogram_pTDiff_smartpair2_;
+  TH1 * histogram_pTDiff_smartpair_ll_;
+  TH1 * histogram_pTDiff_smartpair_ltau_;
+  TH1 * histogram_nSFOS_;
+  TH1 * histogram_mZ_tau_;
+  TH1 * histogram_dPhi_nonZlMET_;
+  TH1 * histogram_mindPhiLepMET_;
+  TH1 * histogram_pT4l_;
   TH1 * histogram_EventNumber_;
   std::map<std::string, TH1*> histogram_Map_BDTOutput_SUM_;
   std::map<std::string, TH1*> histogram_Map_BDTOutput_nonRes_SUM_;

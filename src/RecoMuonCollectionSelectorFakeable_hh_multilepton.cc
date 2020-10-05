@@ -19,7 +19,7 @@ RecoMuonSelectorFakeable_hh_multilepton::RecoMuonSelectorFakeable_hh_multilepton
   , max_sip3d_(8.) // L
   , apply_looseIdPOG_(true) // L
   , apply_mediumIdPOG_(false) // L
-  , min_jetPtRatio_(2. / 3) // F
+  , min_jetPtRatio_(1.0 / (1.0 + 0.8)) // F  // 2 / 3 default
   , min_jetBtagCSV_(get_BtagWP(era_, Btag::kDeepJet, BtagWP::kLoose)) // F
   , max_jetBtagCSV_(get_BtagWP(era_, Btag::kDeepJet, BtagWP::kMedium)) // F
   , smoothBtagCut_minPt_(20.)
@@ -158,26 +158,48 @@ RecoMuonSelectorFakeable_hh_multilepton::operator()(const RecoMuon & muon) const
     return false;
   }
 
-  if(muon.mvaRawTTH() > muon.mvaRawTTH_cut()) {
-    if(muon.jetBtagCSV(useAssocJetBtag_) > max_jetBtagCSV_)
-      {
-	if(debug_)
-	  {
-	    std::cout << "FAILS jetBtagCSV = " << muon.jetBtagCSV(useAssocJetBtag_) << " <= " << max_jetBtagCSV_ << " fakeable cut\n";
-	  }
-	return false;
-      }
-
-    if(! muon.passesMediumIdPOG() )
-      {
-	if(debug_)
-	  {
-	    std::cout << "FAILS medium POG fakeable cut\n";
-	  }
-	return false;
-      }
+  if(! muon.passesMediumIdPOG() && apply_mediumIdPOG_)
+  {
+    if(debug_)
+    {
+      std::cout << "FAILS medium POG fakeable cut\n";
+    }
+    return false;
+  }
+  if(muon.jetBtagCSV(useAssocJetBtag_) > max_jetBtagCSV_)
+  {
+    if(debug_)
+    {
+      std::cout << "FAILS jetBtagCSV = " << muon.jetBtagCSV(useAssocJetBtag_) << " <= " << max_jetBtagCSV_ << " fakeable cut\n";
+    }
+    return false;
   }
 
+  if(muon.mvaRawTTH() <= muon.mvaRawTTH_cut())
+  {
+    if(muon.jetPtRatio() < min_jetPtRatio_)
+    {
+      if(debug_)
+      {
+        std::cout << "FAILS jetPtRatio = " << muon.jetPtRatio() << " >= " << min_jetPtRatio_ << " fakeable cut\n";
+      }
+      return false;
+    }
+
+    const double max_jetBtagCSV = smoothBtagCut(muon.assocJet_pt());
+    if(debug_)
+    {
+      std::cout << get_human_line(this, __func__) << ": smooth jetBtagCSV cut = " << max_jetBtagCSV << '\n';
+    }
+    if(muon.jetBtagCSV(useAssocJetBtag_) > max_jetBtagCSV)
+    {
+      if(debug_)
+      {
+        std::cout << "FAILS smooth jetBtagCSV = " << muon.jetBtagCSV(useAssocJetBtag_) << " <= " << max_jetBtagCSV << " fakeable cut\n";
+      }
+      return false;
+    }
+  }
 
   if(set_selection_flags_)
   {

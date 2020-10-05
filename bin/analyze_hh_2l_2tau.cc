@@ -112,6 +112,9 @@
 #include "TauAnalysis/ClassicSVfit/interface/svFitHistogramAdapter.h"
 #include "TauAnalysis/ClassicSVfit/interface/svFitAuxFunctions.h"
 
+#include "hhAnalysis/multilepton/interface/RecoElectronCollectionSelectorFakeable_hh_multilepton.h"
+#include "hhAnalysis/multilepton/interface/RecoMuonCollectionSelectorFakeable_hh_multilepton.h"
+
 #include <boost/range/algorithm/copy.hpp> // boost::copy()
 #include <boost/range/adaptor/map.hpp> // boost::adaptors::map_keys
 #include <boost/math/special_functions/sign.hpp> // boost::math::sign()
@@ -583,13 +586,14 @@ int main(int argc, char* argv[])
   std::string BDTFileName_odd_nonres   = mvaInfo_nonres.getParameter<std::string>("BDT_xml_FileName_odd_nonres");
   std::vector<std::string> BDTInputVariables_SUM_nonres = mvaInfo_nonres.getParameter<std::vector<std::string>>("inputVars_nonres"); // Include all Input Var.s except BM indices
 
-
   assert(BDTFileName_odd_spin2 != "");
   assert(BDTFileName_even_spin2 != "");
   assert(fitFunctionFileName_spin2 != "");
   assert(BDTInputVariables_SUM_spin2.size() != 0);
   TMVAInterface* BDT_SUM_spin2 = new TMVAInterface(BDTFileName_odd_spin2, BDTFileName_even_spin2, BDTInputVariables_SUM_spin2, fitFunctionFileName_spin2);
-  BDT_SUM_spin2->disableBDTTransform();
+  //BDT_SUM_spin2->disableBDTTransform();
+  BDT_SUM_spin2->enableBDTTransform();
+  //XGBInterface* BDT_SUM_spin2 = new XGBInterface(BDTFileName_odd_spin2, BDTFileName_even_spin2, fitFunctionFileName_spin2, BDTInputVariables_SUM_spin2);
   std::map<std::string, double> BDTOutput_SUM_Map_spin2;
 
   assert(BDTFileName_odd_spin0 != "");
@@ -597,19 +601,21 @@ int main(int argc, char* argv[])
   assert(fitFunctionFileName_spin0 != "");
   assert(BDTInputVariables_SUM_spin0.size() != 0);
   TMVAInterface* BDT_SUM_spin0 = new TMVAInterface(BDTFileName_odd_spin0, BDTFileName_even_spin0, BDTInputVariables_SUM_spin0, fitFunctionFileName_spin0);
-  BDT_SUM_spin0->disableBDTTransform();
+  //BDT_SUM_spin0->disableBDTTransform();
+  BDT_SUM_spin0->enableBDTTransform();
+  //XGBInterface* BDT_SUM_spin0 = new XGBInterface(BDTFileName_odd_spin0, BDTFileName_even_spin0, fitFunctionFileName_spin0, BDTInputVariables_SUM_spin0);
   std::map<std::string, double> BDTOutput_SUM_Map_spin0;
 
   assert(BDTFileName_odd_nonres != "");
   assert(BDTFileName_even_nonres != "");
   assert(BDTInputVariables_SUM_nonres.size() != 0);
   TMVAInterface* BDT_SUM_nonres = new TMVAInterface(BDTFileName_odd_nonres, BDTFileName_even_nonres, BDTInputVariables_SUM_nonres);
-  BDT_SUM_nonres->disableBDTTransform();
+  //BDT_SUM_nonres->disableBDTTransform();
+  BDT_SUM_nonres->enableBDTTransform();
+  //XGBinterface* BDT_SUM_nonres = new XGBInterface(BDTFileName_odd_nonres, BDTFileName_even_nonres, BDTInputVariables_SUM_nonres);
   std::map<std::string, double> BDTOutput_SUM_Map_nonres;
 
-
   std::map<std::string, double> AllVars_Map;
-
 
   std::string selEventsFileName_input = cfg_analyze.getParameter<std::string>("selEventsFileName_input");
   std::cout << "selEventsFileName_input = " << selEventsFileName_input << std::endl;
@@ -719,7 +725,8 @@ int main(int argc, char* argv[])
   inputTree->registerReader(muonReader);
   RecoMuonCollectionGenMatcher muonGenMatcher;
   RecoMuonCollectionSelectorLoose preselMuonSelector(era, -1, isDEBUG);
-  RecoMuonCollectionSelectorFakeable fakeableMuonSelector(era, -1, isDEBUG);
+  //RecoMuonCollectionSelectorFakeable fakeableMuonSelector(era, -1, isDEBUG);
+  RecoMuonCollectionSelectorFakeable_hh_multilepton fakeableMuonSelector(era, -1, isDEBUG);
   RecoMuonCollectionSelectorTight tightMuonSelector(era, -1, isDEBUG);
   muonReader->set_mvaTTH_wp(lep_mva_cut_mu);
 
@@ -728,7 +735,8 @@ int main(int argc, char* argv[])
   RecoElectronCollectionGenMatcher electronGenMatcher;
   RecoElectronCollectionCleaner electronCleaner(0.3, isDEBUG);
   RecoElectronCollectionSelectorLoose preselElectronSelector(era, -1, isDEBUG);
-  RecoElectronCollectionSelectorFakeable fakeableElectronSelector(era, -1, isDEBUG);
+  //RecoElectronCollectionSelectorFakeable fakeableElectronSelector(era, -1, isDEBUG);
+  RecoElectronCollectionSelectorFakeable_hh_multilepton fakeableElectronSelector(era, -1, isDEBUG);
   RecoElectronCollectionSelectorTight tightElectronSelector(era, -1, isDEBUG);
   electronReader->set_mvaTTH_wp(lep_mva_cut_e);
 
@@ -1694,41 +1702,25 @@ int main(int argc, char* argv[])
         evtWeightRecorder.record_ewk_bjet(selBJets_medium);
       }
 
-      dataToMCcorrectionInterface->setLeptons(
-        selLepton_lead_type, selLepton_lead->pt(), selLepton_lead->cone_pt(), selLepton_lead->eta(),
-        selLepton_sublead_type, selLepton_sublead->pt(), selLepton_sublead->cone_pt(), selLepton_sublead->eta()
-      );
+      dataToMCcorrectionInterface->setLeptons({ selLepton_lead, selLepton_sublead });
 
 //--- apply data/MC corrections for trigger efficiency
       evtWeightRecorder.record_leptonTriggerEff(dataToMCcorrectionInterface);
 
 //--- apply data/MC corrections for efficiencies for lepton to pass loose identification and isolation criteria
       evtWeightRecorder.record_leptonIDSF_recoToLoose(dataToMCcorrectionInterface);
-
+      
 //--- apply data/MC corrections for efficiencies of leptons passing the loose identification and isolation criteria
 //    to also pass the tight identification and isolation criteria
-      if(electronSelection == kFakeable && muonSelection == kFakeable)
+      if(electronSelection >= kFakeable && muonSelection >= kFakeable)
       {
-        evtWeightRecorder.record_leptonSF(dataToMCcorrectionInterface->getSF_leptonID_and_Iso_fakeable_to_loose());
-      }
-      else if(electronSelection >= kFakeable && muonSelection >= kFakeable)
-      {
-        // apply loose-to-tight lepton ID SFs if either of the following is true:
-        // 1) both electron and muon selections are tight -> corresponds to SR
-        // 2) electron selection is relaxed to fakeable and muon selection is kept as tight -> corresponds to MC closure w/ relaxed e selection
-        // 3) muon selection is relaxed to fakeable and electron selection is kept as tight -> corresponds to MC closure w/ relaxed mu selection
-        // we allow (2) and (3) so that the MC closure regions would more compatible w/ the SR (1) in comparison
+        // apply looseToTight SF to leptons matched to generator-level prompt leptons and passing Tight selection conditions
         evtWeightRecorder.record_leptonIDSF_looseToTight(dataToMCcorrectionInterface);
       }
 
 //--- apply data/MC corrections for hadronic tau identification efficiency
 //    and for e->tau and mu->tau misidentification rates
-      int selHadTau_lead_genPdgId = getHadTau_genPdgId(selHadTau_lead);
-      int selHadTau_sublead_genPdgId = getHadTau_genPdgId(selHadTau_sublead);
-      dataToMCcorrectionInterface->setHadTaus(
-        selHadTau_lead_genPdgId, selHadTau_lead->pt(), selHadTau_lead->eta(),
-        selHadTau_sublead_genPdgId, selHadTau_sublead->pt(), selHadTau_sublead->eta()
-      );
+      dataToMCcorrectionInterface->setHadTaus({ selHadTau_lead, selHadTau_sublead });
       evtWeightRecorder.record_hadTauID_and_Iso(dataToMCcorrectionInterface);
       evtWeightRecorder.record_eToTauFakeRate(dataToMCcorrectionInterface);
       evtWeightRecorder.record_muToTauFakeRate(dataToMCcorrectionInterface);
@@ -1906,7 +1898,7 @@ int main(int argc, char* argv[])
       }
     }
     
-    std::cout<<"reWeightMapHH.size() " << reWeightMapHH.size() << std::endl;
+    //std::cout<<"reWeightMapHH.size() " << reWeightMapHH.size() << std::endl;
 
     const Particle::LorentzVector tautau_p4 = selHadTau_lead->p4() + selHadTau_sublead->p4();
     const double mTauTauVis_sel = tautau_p4.mass();
@@ -2178,7 +2170,7 @@ int main(int argc, char* argv[])
     AllVars_Map["dR_BP2_OS"] = dR_BP2_OS;
     AllVars_Map["dR_BP2_SS"] = dR_BP2_SS;
     AllVars_Map["gen_mHH"] = 250.; // setting a Dummy value which will be reset depending on mass hypothesis 
-
+    
     std::map<std::string, double> BDTInputs_SUM_spin2 = InitializeInputVarMap(AllVars_Map, BDTInputVariables_SUM_spin2, false);
     std::map<std::string, double> BDTInputs_SUM_spin0 = InitializeInputVarMap(AllVars_Map, BDTInputVariables_SUM_spin0, false);
     std::map<std::string, double> BDTInputs_SUM_nonres = InitializeInputVarMap(AllVars_Map, BDTInputVariables_SUM_nonres, true); // Include all Input Var.s except BM indices
@@ -2506,6 +2498,10 @@ int main(int argc, char* argv[])
       selectedEntries_weighted_byGenMatchType[central_or_shift][process_and_genMatch] += evtWeightRecorder.get(central_or_shift);
     }
     histogram_selectedEntries->Fill(0.);
+    if(isDEBUG)
+    {
+      std::cout << evtWeightRecorder << '\n';
+    }
   }
 
   std::cout << "max num. Entries = " << inputTree -> getCumulativeMaxEventCount()

@@ -67,6 +67,39 @@ EvtHistManager_hh_3l_1tau::EvtHistManager_hh_3l_1tau(const edm::ParameterSet & c
   central_or_shiftOptions_["m_OS_ltau_closestTo"] = { "central" };
   central_or_shiftOptions_["tau_antiElectron_matched"] = { "central" };
   central_or_shiftOptions_["tau_antiElectron_unmatched"] = { "central" };
+  central_or_shiftOptions_["dR_smartpair1"] = { "central" };
+  central_or_shiftOptions_["dEta_smartpair1"] = { "central" };
+  central_or_shiftOptions_["dPhi_smartpair1"] = { "central" };
+  central_or_shiftOptions_["m_smartpair1"] = { "central" };
+  central_or_shiftOptions_["pT_smartpair1"] = { "central" };
+  central_or_shiftOptions_["pTSum_smartpair1"] = { "central" };
+  central_or_shiftOptions_["pTDiff_smartpair1"] = { "central" };
+  central_or_shiftOptions_["dR_smartpair2"] = { "central" };
+  central_or_shiftOptions_["dEta_smartpair2"] = { "central" };
+  central_or_shiftOptions_["dPhi_smartpair2"] = { "central" };
+  central_or_shiftOptions_["m_smartpair2"] = { "central" };
+  central_or_shiftOptions_["pT_smartpair2"] = { "central" };
+  central_or_shiftOptions_["pTSum_smartpair2"] = { "central" };
+  central_or_shiftOptions_["pTDiff_smartpair2"] = { "central" };
+  central_or_shiftOptions_["dR_smartpair_ll"] = { "central" };
+  central_or_shiftOptions_["dEta_smartpair_ll"] = { "central" };
+  central_or_shiftOptions_["dPhi_smartpair_ll"] = { "central" };
+  central_or_shiftOptions_["m_smartpair_ll"] = { "central" };
+  central_or_shiftOptions_["pT_smartpair_ll"] = { "central" };
+  central_or_shiftOptions_["pTSum_smartpair_ll"] = { "central" };
+  central_or_shiftOptions_["pTDiff_smartpair_ll"] = { "central" };
+  central_or_shiftOptions_["dR_smartpair_ltau"] = { "central" };
+  central_or_shiftOptions_["dEta_smartpair_ltau"] = { "central" };
+  central_or_shiftOptions_["dPhi_smartpair_ltau"] = { "central" };
+  central_or_shiftOptions_["m_smartpair_ltau"] = { "central" };
+  central_or_shiftOptions_["pT_smartpair_ltau"] = { "central" };
+  central_or_shiftOptions_["pTSum_smartpair_ltau"] = { "central" };
+  central_or_shiftOptions_["pTDiff_smartpair_ltau"] = { "central" };
+  central_or_shiftOptions_["nSFOS"] = { "central" };
+  central_or_shiftOptions_["mZ_tau"] = { "central" };
+  central_or_shiftOptions_["dPhi_nonZlMET"] = { "central" };
+  central_or_shiftOptions_["mindPhiLepMET"] = { "central" };
+  central_or_shiftOptions_["pT4l"] = { "central" };
   std::vector<double> gen_mHH = cfg.getParameter<std::vector<double>>("gen_mHH");
 
 
@@ -188,7 +221,35 @@ EvtHistManager_hh_3l_1tau::bookHistograms(TFileDirectory & dir)
   histogram_m_ltau_closestToZ_= book1D(dir, "m_ltau_closestToZ",  "m_ltau_closestToZ",          100,  0.,200);
   histogram_tau_antiElectron_matched_= book1D(dir, "tau_antiElectron_matched",  "tau_antiElectron_matched",          10,  -1.5,8.5);
   histogram_tau_antiElectron_unmatched_= book1D(dir, "tau_antiElectron_unmatched",  "tau_antiElectron_unmatched",          10,  -1.5,8.5);
-
+  histogram_dR_smartpair1_= book1D(dir, "dR_smartpair1",                     "dR_smartpair1",          35,  0.,3.5);
+  histogram_dR_smartpair2_= book1D(dir, "dR_smartpair2",                     "dR_smartpair2",          35,  0.,3.5);
+  histogram_dR_smartpair_ll_= book1D(dir, "dR_smartpair_ll",                     "dR_smartpair_ll",          35,  0.,3.5);
+  histogram_dR_smartpair_ltau_= book1D(dir, "dR_smartpair_ltau",                     "dR_smartpair_ltau",          35,  0.,3.5);
+  histogram_dPhi_smartpair1_= book1D(dir, "dPhi_smartpair1",                     "dPhi_smartpair1",          35,  -3.5,3.5);
+  histogram_dPhi_smartpair2_= book1D(dir, "dPhi_smartpair2",                     "dPhi_smartpair2",          35,  -3.5,3.5);
+  histogram_dPhi_smartpair_ll_= book1D(dir, "dPhi_smartpair_ll",                     "dPhi_smartpair_ll",          35,  -3.5,3.5);
+  histogram_dPhi_smartpair_ltau_= book1D(dir, "dPhi_smartpair_ltau",                     "dPhi_smartpair_ltau",          35,  -3.5,3.5);
+  histogram_dEta_smartpair1_= book1D(dir, "dEta_smartpair1",                     "dEta_smartpair1",          50,  -5,5);
+  histogram_dEta_smartpair2_= book1D(dir, "dEta_smartpair2",                     "dEta_smartpair2",          50,  -5,5);
+  histogram_dEta_smartpair_ll_= book1D(dir, "dEta_smartpair_ll",                     "dEta_smartpair_ll",          50,  -5,5);
+  histogram_dEta_smartpair_ltau_= book1D(dir, "dEta_smartpair_ltau",                     "dEta_smartpair_ltau",          50,  -5,5);
+  histogram_pT_smartpair1_= book1D(dir, "pT_smartpair1",                     "pT_smartpair1",          40,  0.,200);
+  histogram_pT_smartpair2_= book1D(dir, "pT_smartpair2",                     "pT_smartpair2",          40,  0.,200);
+  histogram_pT_smartpair_ll_= book1D(dir, "pT_smartpair_ll",                     "pT_smartpair_ll",          40,  0.,200);
+  histogram_pT_smartpair_ltau_= book1D(dir, "pT_smartpair_ltau",                     "pT_smartpair_ltau",          40,  0.,200);
+  histogram_pTSum_smartpair1_= book1D(dir, "pTSum_smartpair1",                     "pTSum_smartpair1",          30,  0.,300);
+  histogram_pTSum_smartpair2_= book1D(dir, "pTSum_smartpair2",                     "pTSum_smartpair2",          30,  0.,300);
+  histogram_pTSum_smartpair_ll_= book1D(dir, "pTSum_smartpair_ll",                     "pTSum_smartpair_ll",          30,  0.,300);
+  histogram_pTSum_smartpair_ltau_= book1D(dir, "pTSum_smartpair_ltau",                     "pTSum_smartpair_ltau",          30,  0.,300);
+  histogram_pTDiff_smartpair1_= book1D(dir, "pTDiff_smartpair1",                     "pTDiff_smartpair1",          40,  0.,200);
+  histogram_pTDiff_smartpair2_= book1D(dir, "pTDiff_smartpair2",                     "pTDiff_smartpair2",          40,  0.,200);
+  histogram_pTDiff_smartpair_ll_= book1D(dir, "pTDiff_smartpair_ll",                     "pTDiff_smartpair_ll",          40,  0.,200);
+  histogram_pTDiff_smartpair_ltau_= book1D(dir, "pTDiff_smartpair_ltau",                     "pTDiff_smartpair_ltau",          40,  0.,200);
+  histogram_nSFOS_= book1D(dir, "nSFOS",                     "nSFOS",          5,  0,5);
+  histogram_mZ_tau_= book1D(dir, "mZ_tau",                     "mZ_tau",          25,  0.,250);
+  histogram_dPhi_nonZlMET_= book1D(dir, "dPhi_nonZlMET",                     "dPhi_nonZlMET",          35,  -3.5,3.5);  
+  histogram_mindPhiLepMET_= book1D(dir, "mindPhiLepMET",                     "mindPhiLepMET",          35,  -3.5,3.5);
+  histogram_pT4l_= book1D(dir, "pT4l",                     "pT4l",          25,  0.,250);
 }
 
 void
@@ -254,6 +315,35 @@ EvtHistManager_hh_3l_1tau::fillHistograms(int numElectrons,
 					  double m_OS_ltau_closestToZ,
 					  double tau_antiElectron_matched,
 					  double tau_antiElectron_unmatched,
+					  double dR_smartpair1,
+					  double dR_smartpair2,
+					  double dR_smartpair_ll,
+					  double dR_smartpair_ltau,
+					  double dPhi_smartpair1,
+					  double dPhi_smartpair2,
+					  double dPhi_smartpair_ll,
+					  double dPhi_smartpair_ltau,
+					  double dEta_smartpair1,
+					  double dEta_smartpair2,
+					  double dEta_smartpair_ll,
+					  double dEta_smartpair_ltau,
+					  double pT_smartpair1,
+					  double pT_smartpair2,
+					  double pT_smartpair_ll,
+					  double pT_smartpair_ltau,
+					  double pTSum_smartpair1,
+					  double pTSum_smartpair2,
+					  double pTSum_smartpair_ll,
+					  double pTSum_smartpair_ltau,
+					  double pTDiff_smartpair1,
+					  double pTDiff_smartpair2,
+					  double pTDiff_smartpair_ll,
+					  double pTDiff_smartpair_ltau,
+					  int nSFOS,
+					  double mZ_tau,
+					  double dPhi_nonZlMET,
+					  double mindPhiLepMET,
+					  double pT4l,
 					  std::map<std::string, double> & BDTOutput_SUM_Map,
 					  std::map<std::string, double> & BDTOutput_nonRes_SUM_Map,
 					  unsigned int evt_number					 
@@ -328,7 +418,36 @@ EvtHistManager_hh_3l_1tau::fillHistograms(int numElectrons,
   fillWithOverFlow(histogram_m_OS_ltau_closestToZ_,m_OS_ltau_closestToZ       ,            evtWeight,     evtWeightErr);
   fillWithOverFlow(histogram_tau_antiElectron_matched_,tau_antiElectron_matched       ,            evtWeight,     evtWeightErr);
   fillWithOverFlow(histogram_tau_antiElectron_unmatched_,tau_antiElectron_unmatched       ,            evtWeight,     evtWeightErr);
-  fillWithOverFlow(histogram_EventCounter_,  0., evtWeight, evtWeightErr);
+  fillWithOverFlow(histogram_dR_smartpair1_, dR_smartpair1, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_dR_smartpair2_, dR_smartpair2, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_dR_smartpair_ll_, dR_smartpair_ll, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_dPhi_smartpair_ltau_, dR_smartpair_ltau, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_dPhi_smartpair1_, dPhi_smartpair1, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_dPhi_smartpair2_, dPhi_smartpair2, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_dPhi_smartpair_ll_, dPhi_smartpair_ll, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_dPhi_smartpair_ltau_, dPhi_smartpair_ltau, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_dEta_smartpair1_, dEta_smartpair1, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_dEta_smartpair2_, dEta_smartpair2, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_dEta_smartpair_ll_, dEta_smartpair_ll, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_dEta_smartpair_ltau_, dEta_smartpair_ltau, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_pT_smartpair1_, pT_smartpair1, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_pT_smartpair2_, pT_smartpair2, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_pT_smartpair_ll_, pT_smartpair_ll, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_pT_smartpair_ltau_, pT_smartpair_ltau, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_pTSum_smartpair1_, pTSum_smartpair1, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_pTSum_smartpair2_, pTSum_smartpair2, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_pTSum_smartpair_ll_, pTSum_smartpair_ll, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_pTSum_smartpair_ltau_, pTSum_smartpair_ltau, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_pTDiff_smartpair1_, pTDiff_smartpair1, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_pTDiff_smartpair2_, pTDiff_smartpair2, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_pTDiff_smartpair_ll_, pTDiff_smartpair_ll, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_pTDiff_smartpair_ltau_, pTDiff_smartpair_ltau, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_nSFOS_, nSFOS, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_mZ_tau_, mZ_tau, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_dPhi_nonZlMET_, dPhi_nonZlMET, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_mindPhiLepMET_, mindPhiLepMET, evtWeight,     evtWeightErr);
+  fillWithOverFlow(histogram_pT4l_, pT4l, evtWeight,     evtWeightErr);
+
   if(evt_number % 2){// ODD EVENT NUMBER CASE                                                                                                                                                    
     fillWithOverFlow(histogram_EventNumber_,  0., evtWeight, evtWeightErr);                                                                                                                         
   }else{ // EVEN EVENT NUMBER CASE                                                                                                                                                                   

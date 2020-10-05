@@ -14,8 +14,7 @@ public:
   EvtWeightRecorderHH();
   EvtWeightRecorderHH(const std::vector<std::string> & central_or_shifts,
                       const std::string & central_or_shift,
-                      bool isMC, 
-                      bool isDEBUG = false);
+                      bool isMC);
 
   double
   get_tauSF(const std::string & central_or_shift) const override;

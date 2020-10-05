@@ -102,17 +102,17 @@ EvtHistManager_hh_2l_2tau::bookHistograms(TFileDirectory & dir)
   histogram_EventNumber_->GetXaxis()->SetBinLabel(2,"Even");
 
   for(unsigned int i=0;i < labels_spin2_.size();i++){ 
-    TH1* histogram_BDT_output_spin2 = book1D(dir, labels_spin2_[i], labels_spin2_[i], 100, 0., 1.); 
+    TH1* histogram_BDT_output_spin2 = book1D(dir, labels_spin2_[i], labels_spin2_[i], 200, -1., 1.); 
     histogram_Map_BDTOutput_SUM_spin2_.insert(std::make_pair(labels_spin2_[i], histogram_BDT_output_spin2)); 
   }
 
   for(unsigned int i=0;i < labels_spin0_.size();i++){ 
-    TH1* histogram_BDT_output_spin0 = book1D(dir, labels_spin0_[i], labels_spin0_[i], 100, 0., 1.); 
+    TH1* histogram_BDT_output_spin0 = book1D(dir, labels_spin0_[i], labels_spin0_[i], 200, -1., 1.); 
     histogram_Map_BDTOutput_SUM_spin0_.insert(std::make_pair(labels_spin0_[i], histogram_BDT_output_spin0)); 
   }
 
   for(unsigned int i=0;i < labels_nonres_.size();i++){ 
-    TH1* histogram_BDT_output_nonres = book1D(dir, labels_nonres_[i], labels_nonres_[i], 100, 0., 1.); 
+    TH1* histogram_BDT_output_nonres = book1D(dir, labels_nonres_[i], labels_nonres_[i], 200, -1., 1.); 
     histogram_Map_BDTOutput_SUM_nonres_.insert(std::make_pair(labels_nonres_[i], histogram_BDT_output_nonres)); 
   }
 

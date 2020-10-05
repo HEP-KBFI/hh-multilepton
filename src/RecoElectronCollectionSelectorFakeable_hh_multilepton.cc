@@ -23,8 +23,9 @@ RecoElectronSelectorFakeable_hh_multilepton::RecoElectronSelectorFakeable_hh_mul
   , max_sigmaEtaEta_trig_(0.019) // F
   , max_HoE_trig_(0.10) // F
   , min_OoEminusOoP_trig_(-0.04) // F
-  , min_jetPtRatio_(1. / 1.7) // F
-  , max_jetBtagCSV_(get_BtagWP(era_, Btag::kDeepJet, BtagWP::kMedium)) // F
+  , min_jetPtRatio_(1.0 / (1.0 + 0.7)) // F  
+  , max_jetBtagCSV_forTight_(get_BtagWP(era_, Btag::kDeepJet, BtagWP::kMedium)) // F
+  , max_jetBtagCSV_forFakeableNotTight_(get_BtagWP(era_, Btag::kDeepJet, BtagWP::kTight)) // F  
   , apply_conversionVeto_(true) // F
   , max_nLostHits_(0) // F
   , useAssocJetBtag_(false)
@@ -190,19 +191,48 @@ RecoElectronSelectorFakeable_hh_multilepton::operator()(const RecoElectron & ele
     return false;
   }
 
-
-  if (electron.mvaRawTTH() > electron.mvaRawTTH_cut()) {
-    if(electron.jetBtagCSV(useAssocJetBtag_) > max_jetBtagCSV_)
+  if (electron.mvaRawTTH() > electron.mvaRawTTH_cut())
+  {
+    if (electron.jetBtagCSV(useAssocJetBtag_) > max_jetBtagCSV_forTight_)
+    {
+      if(debug_)
       {
-	if(debug_)
-	  {
-	    std::cout << "FAILS jetBtagCSV = " << electron.jetBtagCSV(useAssocJetBtag_) << " <= " << max_jetBtagCSV_ << " fakeable cut\n";
-	  }
-	return false;
+	std::cout << "FAILS jetBtagCSV = " << electron.jetBtagCSV(useAssocJetBtag_) << " <= " << max_jetBtagCSV_forTight_ << " fakeable cut\n";
       }
+      return false;
+    }
   }
 
-  
+  if(electron.mvaRawTTH() <= electron.mvaRawTTH_cut())
+  {
+    if (electron.jetBtagCSV(useAssocJetBtag_) > max_jetBtagCSV_forFakeableNotTight_)
+    {
+      if(debug_)
+      {
+	std::cout << "FAILS jetBtagCSV = " << electron.jetBtagCSV(useAssocJetBtag_) << " <= " << max_jetBtagCSV_forFakeableNotTight_ << " fakeable cut\n";
+      }
+      return false;
+    }
+    
+    if(electron.jetPtRatio() < min_jetPtRatio_)
+    {
+      if(debug_)
+      {
+        std::cout << "FAILS jetPtRatio = " << electron.jetPtRatio() << " >= " << min_jetPtRatio_ << " fakeable cut\n";
+      }
+      return false;
+    }
+    
+    if(! electron.mvaID_POG(EGammaWP::WP90))
+    {
+      if(debug_)
+      {
+        std::cout << "FAILS 80% EGamma POG MVA fakeable cut\n";
+      }
+      return false;
+    }
+  }
+
   if(apply_offline_e_trigger_cuts_)
   {
     const double max_sigmaEtaEta_trig = min_sigmaEtaEta_trig_ +

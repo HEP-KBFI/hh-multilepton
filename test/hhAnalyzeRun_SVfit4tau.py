@@ -12,7 +12,7 @@ import getpass
 
 parser = tthAnalyzeParser()
 parser.add_tau_id()
-parser.add_lep_mva_wp(default_wp = 'default') # alternative: hh_multilepton
+parser.add_lep_mva_wp(default_wp = 'hh_multilepton') # alternative: hh_multilepton
 parser.add_jet_cleaning()
 parser.add_gen_matching()
 args = parser.parse_args()

@@ -66,7 +66,8 @@ protected:
 //--- define cuts that dependent on lepton MVA of ttH multilepton analysis 
 //    format: electron fails / passes loose cut on lepton MVA value
   const Double_t min_jetPtRatio_;           ///< lower cut on ratio of lepton pT to pT of nearby jet
-  const Double_t max_jetBtagCSV_;           ///< upper cut threshold on CSV b-tagging discriminator value of nearby jet
+  const Double_t max_jetBtagCSV_forTight_;           ///< upper cut threshold on CSV b-tagging discriminator value of nearby jet
+  const Double_t max_jetBtagCSV_forFakeableNotTight_;           ///< upper cut threshold on CSV b-tagging discriminator value of nearby jet
 //-------------------------------------------------------------------------------
   const bool apply_conversionVeto_;         ///< apply (True) or do not apply (False) conversion veto
   const Int_t max_nLostHits_;               ///< upper cut threshold on lost hits in the innermost layer of the tracker (electrons with lost_hits equal to cut threshold pass)

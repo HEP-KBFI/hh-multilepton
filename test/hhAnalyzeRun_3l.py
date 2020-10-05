@@ -22,7 +22,7 @@ parser.add_modes(mode_choices)
 parser.add_sys(sys_choices)
 parser.add_preselect()
 parser.add_rle_select()
-parser.add_lep_mva_wp(default_wp = 'default') # alternative: hh_multilepton
+parser.add_lep_mva_wp(default_wp = 'hh_multilepton') # alternative: hh_multilepton
 parser.add_nonnominal()
 parser.add_hlt_filter()
 parser.add_files_per_job()
@@ -118,6 +118,8 @@ hadTau_selection_veto = tau_id + hadTauWP_veto_map[tau_id]
 for sample_name, sample_info in samples.items():
   if sample_name == 'sum_events': continue
   if sample_name.startswith('/Tau/Run'):
+    sample_info["use_it"] = False
+  if sample_info["sample_category"] != "TT":
     sample_info["use_it"] = False
 
 if __name__ == '__main__':

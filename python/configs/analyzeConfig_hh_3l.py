@@ -94,7 +94,7 @@ class analyzeConfig_hh_3l(analyzeConfig_hh):
       num_parallel_jobs         = num_parallel_jobs,
       histograms_to_fit         = histograms_to_fit,
       triggers                  = [ '1e', '1mu', '2e', '2mu', '1e1mu', '3e', '3mu', '1e2mu', '2e1mu' ],
-      lep_mva_wp                = lep_mva_wp,
+      lep_mva_wp                = lep_mva_wp,                             
       executable_prep_dcard     = executable_prep_dcard,
       executable_add_syst_dcard = executable_add_syst_dcard,
       do_sync                   = do_sync,
@@ -174,6 +174,7 @@ class analyzeConfig_hh_3l(analyzeConfig_hh):
     if self.category_inclusive not in self.categories:
       self.categories.append(self.category_inclusive)
 
+
   def set_BDT_training(self):
     """Run analysis with loose selection criteria for leptons,
        for the purpose of preparing event list files for BDT training.
@@ -211,17 +212,12 @@ class analyzeConfig_hh_3l(analyzeConfig_hh):
     jobOptions['histogramDir'] = getHistogramDir(self.category_inclusive, lepton_selection, lepton_frWeight, jobOptions['leptonChargeSelection'])
     if 'mcClosure' in lepton_selection:
       self.mcClosure_dir['%s_%s' % (lepton_selection, jobOptions['leptonChargeSelection'])] = jobOptions['histogramDir']
-
+    
     self.set_leptonFakeRateWeightHistogramNames(jobOptions['central_or_shift'], lepton_selection)
-    ## Original
     jobOptions['leptonFakeRateWeight.inputFileName'] = self.leptonFakeRateWeight_inputFile  
     jobOptions['leptonFakeRateWeight.histogramName_e'] = self.leptonFakeRateWeight_histogramName_e
     jobOptions['leptonFakeRateWeight.histogramName_mu'] = self.leptonFakeRateWeight_histogramName_mu
-    ## Edit Siddhesh for lepton fake-rates MC closure
-    #jobOptions['leptonFakeRateWeight.inputFileName'] = "tthAnalysis/HiggsToTauTau/data/fakeRate_LeptonLooser_Ram/FR_lep_hh_lepLoose_Ram_20200626.root"
-    #jobOptions['leptonFakeRateWeight.histogramName_e'] = "FR_mva080_el_data_comb"
-    #jobOptions['leptonFakeRateWeight.histogramName_mu'] = "FR_mva085_mu_data_comb"
-    
+
 
     lines = super(analyzeConfig_hh_3l, self).createCfg_analyze(jobOptions, sample_info)
     create_cfg(self.cfgFile_analyze, jobOptions['cfgFile_modified'], lines)
