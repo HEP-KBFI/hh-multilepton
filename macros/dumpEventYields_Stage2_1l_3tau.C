@@ -125,19 +125,33 @@ void dumpEventYields_Stage2_1l_3tau(const char* channel, int Era, const char* ta
     std::cout << "scaling (Era: "<< Era  << ")  signal and background yields to L=" << lumi_projection_2018 << "fb^-1 @ 13 TeV." << std::endl;
   }
 
-
   // 1l_3tau file path
 
   if(Era == 2016) {
-    inputFilePath = "/hdfs/local/veelken/hhAnalysis/2016/2020Sep29_deepVsjLoose/histograms/hh_1l_3tau/";
+    if (strcmp(tauID, "deepVSjLoose") == 0){
+      inputFilePath = "/hdfs/local/veelken/hhAnalysis/2016/2020Sep29_deepVsjLoose/histograms/hh_1l_3tau/";
+    }
+    if (strcmp(tauID, "deepVSjMedium") == 0){
+      inputFilePath = "/hdfs/local/veelken/hhAnalysis/2016/2020Oct02_deepVsjMedium/histograms/hh_1l_3tau/";
+    }
   }
 
   if(Era == 2017) {
-    inputFilePath = "/hdfs/local/veelken/hhAnalysis/2017/2020Sep29_deepVsjLoose/histograms/hh_1l_3tau/";
+    if (strcmp(tauID, "deepVSjLoose") == 0){
+      inputFilePath = "/hdfs/local/veelken/hhAnalysis/2017/2020Sep29_deepVsjLoose/histograms/hh_1l_3tau/";
+    }
+    if (strcmp(tauID, "deepVSjMedium") == 0){
+      inputFilePath = "/hdfs/local/veelken/hhAnalysis/2017/2020Oct02_deepVsjMedium/histograms/hh_1l_3tau/";
+    }
   }
 
   if(Era == 2018) {
-    inputFilePath = "/hdfs/local/veelken/hhAnalysis/2018/2020Sep29_deepVsjLoose/histograms/hh_1l_3tau/";
+    if (strcmp(tauID, "deepVSjLoose") == 0){
+      inputFilePath = "/hdfs/local/veelken/hhAnalysis/2018/2020Sep29_deepVsjLoose/histograms/hh_1l_3tau/";
+    }
+    if (strcmp(tauID, "deepVSjMedium") == 0){
+      inputFilePath = "/hdfs/local/veelken/hhAnalysis/2018/2020Oct02_deepVsjMedium/histograms/hh_1l_3tau/";
+    }
   }
 
   // SS file paths 

@@ -128,21 +128,41 @@ void dumpEventYields_Stage2_0l_4tau(int Era, const char* tauID)
 
 
   if(Era == 2016) {
-    inputFilePath = "/hdfs/local/laurits/hhAnalysis/2016/0l_4tau_VLoose_default/histograms/hh_0l_4tau/"; // placeholder
+    if(strcmp(tauID, "deepVSjMedium") == 0){
+      inputFilePath = "/hdfs/local/laurits/hhAnalysis/2016/0l_4tau_Medium/histograms/hh_0l_4tau/";
+    }
+    if(strcmp(tauID, "deepVSjLoose") == 0){
+      inputFilePath = "/hdfs/local/laurits/hhAnalysis/2016/0l_4tau_Loose/histograms/hh_0l_4tau/"; // placeholder
+    }
+    if(strcmp(tauID, "deepVSjVLoose") == 0){
+      inputFilePath = "/hdfs/local/laurits/hhAnalysis/2016/0l_4tau_VLoose/histograms/hh_0l_4tau/"; // placeholder
+    }
   }
 
   if(Era == 2017) {
-    if(strcmp(tauID, "deepVSjVLoose") == 0){
-      // inputFilePath = "/hdfs/local/laurits/hhAnalysis/2017/0l_4tau_VLoose_default/histograms/hh_0l_4tau/";
-      inputFilePath = "/hdfs/local/laurits/hhAnalysis/2017/VLoose_0l_4tau_sb_enabled/histograms/hh_0l_4tau/";
-    }
     if(strcmp(tauID, "deepVSjMedium") == 0){
-      inputFilePath = "/hdfs/local/laurits/hhAnalysis/2017/0l_4tau_Medium_defaul/histograms/hh_0l_4tau/";
+      inputFilePath = "/hdfs/local/laurits/hhAnalysis/2017/0l_4tau_Medium/histograms/hh_0l_4tau/";
+    }
+    if(strcmp(tauID, "deepVSjLoose") == 0){
+      inputFilePath = "/hdfs/local/laurits/hhAnalysis/2017/0l_4tau_Loose/histograms/hh_0l_4tau/"; // placeholder
+    }
+    if(strcmp(tauID, "deepVSjVLoose") == 0){
+      inputFilePath = "/hdfs/local/laurits/hhAnalysis/2017/0l_4tau_VLoose/histograms/hh_0l_4tau/";
+      // inputFilePath = "/hdfs/local/laurits/hhAnalysis/2017/VLoose_0l_4tau_sb_enabled/histograms/hh_0l_4tau/";
     }
   }
 
   if(Era == 2018) {
-    inputFilePath = "/hdfs/local/laurits/hhAnalysis/2018/0l_4tau_VLoose_default/histograms/hh_0l_4tau/"; // placeholder
+    if(strcmp(tauID, "deepVSjMedium") == 0){
+      inputFilePath = "/hdfs/local/laurits/hhAnalysis/2018/0l_4tau_Medium/histograms/hh_0l_4tau/";
+    }
+    if(strcmp(tauID, "deepVSjLoose") == 0){
+      inputFilePath = "/hdfs/local/laurits/hhAnalysis/2018/0l_4tau_Loose/histograms/hh_0l_4tau/"; // placeholder
+    }
+    if(strcmp(tauID, "deepVSjVLoose") == 0){
+      inputFilePath = "/hdfs/local/laurits/hhAnalysis/2018/0l_4tau_VLoose/histograms/hh_0l_4tau/";
+      // inputFilePath = "/hdfs/local/laurits/hhAnalysis/2017/VLoose_0l_4tau_sb_enabled/histograms/hh_0l_4tau/";
+    }
   }
 
 
@@ -237,7 +257,7 @@ void dumpEventYields_Stage2_0l_4tau(int Era, const char* tauID)
       double Unwt_evts = 0.;
       for ( std::vector<std::string>::const_iterator signal_process_part = signal_process_parts.begin();
         signal_process_part != signal_process_parts.end(); ++signal_process_part ) {
-    std::string histogramName = Form("%s/%s%s/EventCounter", 
+    std::string histogramName = Form("%s/%s%s/EventCounter",
           directories[*channel].data(), signal_process->data(), signal_process_part->data());
     TH1* histogram = loadHistogram(inputFile, histogramName);
 
@@ -292,7 +312,7 @@ void dumpEventYields_Stage2_0l_4tau(int Era, const char* tauID)
       double Unwt_evts = 0.;
       for ( std::vector<std::string>::const_iterator background_process_part = background_process_parts.begin();
         background_process_part != background_process_parts.end(); ++background_process_part ) {
-    std::string histogramName = Form("%s/%s%s/EventCounter", 
+    std::string histogramName = Form("%s/%s%s/EventCounter",
           directories[*channel].data(), background_process->data(), background_process_part->data());
     TH1* histogram = loadHistogram(inputFile, histogramName);
     if ( histogram ) {
@@ -340,8 +360,8 @@ void dumpEventYields_Stage2_0l_4tau(int Era, const char* tauID)
       Fake += integral_parts["_fake"];
       Conversion += integral_parts["_Convs"];
     }
-    std::cout << "Total Bg (MC only): " << " & " << Total << " & " << Non_Fake << " & " << Fake << " & " << Conversion << " \\\\ " << " \\hline " << std::endl;
-    std::cout << "Total Bg (w data\\_fakes): " << " & " << (Total-Fake+data_fakes) << " & " << Non_Fake << " & " << data_fakes << " & " << Conversion << " \\\\ " << " \\hline " << std::endl;
+    std::cout << "Total Bg (MC only): " << " & " << Total << " & " << Non_Fake << " & " << Fake << " & " << Conversion << " \\\\ " << "\\hline " << std::endl;
+    std::cout << "Total Bg (w data\\_fakes): " << " & " << (Total-Fake+data_fakes) << " & " << Non_Fake << " & " << data_fakes << " & " << Conversion << " \\\\" << " \\hline " << std::endl;
     std::cout << "\\end{tabular}} " << std::endl;
     std::cout << "\\end{table} " << std::endl;
     std::cout << "\\end{frame} " << std::endl;
