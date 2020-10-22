@@ -1476,8 +1476,8 @@ int main(int argc, char* argv[])
         {
           std::cout << "line = " <<kv.first << "; Weight = " <<  kv.second << '\n';
         }
-        std::cout << "Calculated " << reWeightMapHH_base.size() << " scan reweights\n";
-        for(const auto & kv:reWeightMapHH_base)
+        std::cout << "Calculated " << reWeightMapHH.size() << " scan reweights\n";
+        for(const auto & kv:reWeightMapHH)
         {
           std::cout << "line = " <<kv.first << "; Weight = " <<  kv.second << '\n';
         }
