@@ -749,7 +749,7 @@ int main(int argc, char* argv[])
 
       for(const std::string & evt_cat_str: evt_cat_strs)
       {
-        if(skipBooking && evt_cat_str != default_cat_str)
+        if(( skipBooking && !apply_HH_rwgt ) && evt_cat_str != default_cat_str)
         {
           continue;
         }
@@ -1455,6 +1455,7 @@ int main(int argc, char* argv[])
 
     std::map<std::string, double> weightMapHH;
     std::map<std::string, double> reWeightMapHH;
+    std::map<std::string, std::map<std::string, double>> reWeightMapsHH;
     double HHWeight = 1.0; // X: for the SM point -- the point explicited on this code
 
     if(apply_HH_rwgt)
@@ -1469,36 +1470,40 @@ int main(int argc, char* argv[])
       {
         std::cout << "mhh = " << eventInfo.gen_mHH          << " : "
           "cost "             << eventInfo.gen_cosThetaStar << " : "
-          "weight = "         << HHWeight                   << '\n'
-          ;
+          "weight = "         << HHWeight                   << '\n';
         std::cout << "Calculated " << weightMapHH.size() << " scan weights\n";
         for(const auto & kv: weightMapHH)
         {
           std::cout << "line = " <<kv.first << "; Weight = " <<  kv.second << '\n';
         }
-
+        std::cout << "Calculated " << reWeightMapHH_base.size() << " scan reweights\n";
+        for(const auto & kv:reWeightMapHH_base)
+        {
+          std::cout << "line = " <<kv.first << "; Weight = " <<  kv.second << '\n';
+        }
         std::cout << '\n';
       }
     }
     
     for(const std::string & central_or_shift: central_or_shifts_local)
     {
+      reWeightMapsHH[central_or_shift] = reWeightMapHH;
       const double evtWeight = evtWeightRecorder.get(central_or_shift);
       const bool skipFilling = central_or_shift != central_or_shift_main;
       for(const std::string & evt_cat_str: evt_cat_strs)
       {
-    if(skipFilling && evt_cat_str != default_cat_str)
-    {
-      continue;
-    }
-    if(apply_HH_rwgt)
-    {
-      reWeightMapHH[evt_cat_str] *= evtWeight;
-    }
-    else
-    {
-      reWeightMapHH[evt_cat_str] = evtWeight;
-    }
+        if(skipFilling && evt_cat_str != default_cat_str)
+        {
+          continue;
+        }
+        if(apply_HH_rwgt)
+        {
+          reWeightMapsHH[central_or_shift][evt_cat_str] *= evtWeight;
+        }
+        else
+        {
+          reWeightMapsHH[central_or_shift][evt_cat_str] = evtWeight;
+        }
       }
     }
 
@@ -2038,7 +2043,7 @@ int main(int argc, char* argv[])
           selHistManager->met_->fillHistograms(met, mht_p4, met_LD, evtWeight);
           selHistManager->metFilters_->fillHistograms(metFilters, evtWeight);
         }
-        for(const auto & kv: reWeightMapHH)
+        for(const auto & kv: reWeightMapsHH[central_or_shift])
         {
           selHistManager->evt_[kv.first]->fillHistograms(
             preselElectrons.size(),
