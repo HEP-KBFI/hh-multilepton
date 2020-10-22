@@ -6,7 +6,7 @@ import re
 RR_PRODUCTION_MODE = 'production_mode'
 RR_SPIN            = 'spin'
 RR_MASS_POINT      = 'mass_point'
-RR_DECAY_CHANNEL   = 'decay_channel'
+RR_DECAY_CHANNEL   = 'decay_channel' #NB! https://github.com/HEP-KBFI/hh-multilepton/issues/21
 RESONANT_REGEX_PATTERN = r'signal_(?P<%s>[ggf|vbf]+)_spin(?P<%s>[0|2]{1})_(?P<%s>\d+)_hh_(?P<%s>[0-9A-Za-z]+)' % (
   RR_PRODUCTION_MODE, RR_SPIN, RR_MASS_POINT, RR_DECAY_CHANNEL
 )

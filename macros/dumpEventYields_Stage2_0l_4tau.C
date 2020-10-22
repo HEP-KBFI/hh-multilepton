@@ -61,7 +61,7 @@ compIntegral(const TH1 * histogram,
   return sumBinContent;
 }
 
-double 
+double
 square(double x)
 {
   return x*x;
@@ -360,8 +360,13 @@ void dumpEventYields_Stage2_0l_4tau(int Era, const char* tauID)
       Fake += integral_parts["_fake"];
       Conversion += integral_parts["_Convs"];
     }
+<<<<<<< HEAD
     std::cout << "Total Bg (MC only): " << " & " << Total << " & " << Non_Fake << " & " << Fake << " & " << Conversion << " \\\\ " << "\\hline " << std::endl;
     std::cout << "Total Bg (w data\\_fakes): " << " & " << (Total-Fake+data_fakes) << " & " << Non_Fake << " & " << data_fakes << " & " << Conversion << " \\\\" << " \\hline " << std::endl;
+=======
+    std::cout << "Total Bg (MC only): " << " & " << Total << " & " << Non_Fake << " & " << Fake << " & " << Conversion << " \\\\ " << " \\hline " << std::endl;
+    std::cout << "Total Bg (w data\\_fakes): " << " & " << (Total-Fake+data_fakes) << " & " << Non_Fake << " & " << data_fakes << " & " << Conversion << " \\\\ " << " \\hline " << std::endl;
+>>>>>>> master
     std::cout << "\\end{tabular}} " << std::endl;
     std::cout << "\\end{table} " << std::endl;
     std::cout << "\\end{frame} " << std::endl;

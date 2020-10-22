@@ -3,6 +3,7 @@ import os
 
 from tthAnalysis.HiggsToTauTau.configs.recommendedMEtFilters_cfi import *
 from tthAnalysis.HiggsToTauTau.configs.EvtYieldHistManager_cfi import *
+from tthAnalysis.HiggsToTauTau.configs.hhWeight_cfi import hhWeight
 from tthAnalysis.HiggsToTauTau.analysisSettings import *
 
 process = cms.PSet()
@@ -86,6 +87,7 @@ process.analyze_hh_3l_1tau = cms.PSet(
     isMC = cms.bool(True),
     central_or_shift = cms.string(''),
     lumiScale = cms.VPSet(),
+    ref_genWeight = cms.double(0.),
     apply_genWeight = cms.bool(True),
     apply_DYMCReweighting = cms.bool(False),
     apply_DYMCNormScaleFactors = cms.bool(False),
@@ -131,19 +133,25 @@ process.analyze_hh_3l_1tau = cms.PSet(
     apply_LHE_nom = cms.bool(False),
     useObjectMultiplicity = cms.bool(False),
 
-    ## "BDT .xml -> Odd train:Even test" to be used for even evt no.  
-    BDT_xml_FileName_even = cms.string("hhAnalysis/multilepton/data/3l_1tau_XGB_testVars_allMasses_evtLevelSUM_HH_3l_1tau_res_InputVars46_train_Even_train_Odd_test_looseLep.pkl"),
-
-    ## "BDT .xml -> Even train:Odd test" to be used for odd evt no.  
-    BDT_xml_FileName_odd = cms.string("hhAnalysis/multilepton/data/3l_1tau_XGB_testVars_allMasses_evtLevelSUM_HH_3l_1tau_res_InputVars46_train_Odd_train_Even_test_looseLep.pkl"),
-
-    BDT_nonRes_xml_FileName_even = cms.string("hhAnalysis/multilepton/data/3l_1tau_nonRes_XGB_testVars_allNodes_evtLevelSUM_HH_3l_1tau_nonres_InputVars19_train_Odd_train_Even_test.pkl"),
-    BDT_nonRes_xml_FileName_odd = cms.string("hhAnalysis/multilepton/data/3l_1tau_nonRes_XGB_testVars_allNodes_evtLevelSUM_HH_3l_1tau_nonres_InputVars19_train_Even_train_Odd_test.pkl"),
-
-
-    fitFunctionFileName = cms.string('hhAnalysis/multilepton/data/TProfile_signal_fit_func_InputVar_AllMassTraining_v1_3l_1tau.root'),
-
-    gen_mHH = cms.vdouble(250,260,270,280,300,350,400,450,500,550,600,650,700,750,800,850,900,1000), ## Set the signal mass range used in the BDT .pkl/.xml/.pb files
+    gen_mHH = cms.vdouble(250,260,270,280,300, 320,350,400,450,500,550,600,650,700,750,800,850,900,1000), ## Set the signal mass range used in the BDT .pkl/.xml/.pb files
+    ## -------- USE THIS FOR TMVAInterface (after changing it in the .cc file) -----------------##
+    mvaInfo_res = cms.PSet( 
+        BDT_xml_FileName_spin0_even = cms.string('hhAnalysis/multilepton/data/3l_1tau_spin0_oddTrainedModel_opt10Vars_defaultHyp.xml'),
+        BDT_xml_FileName_spin0_odd = cms.string('hhAnalysis/multilepton/data/3l_1tau_spin0_evenTrainedModel_opt10Vars_defaultHyp.xml'),
+        fitFunctionFileName_spin0 = cms.string('hhAnalysis/multilepton/data/3l_1tau_spin0_fitFuncs_opt10Vars.root'), 
+        inputVars_spin0 = cms.vstring('mT_SSlepdR', 'met_LD', 'diHiggsVisMass', 'diHiggsMass', 'mllOS_closestToZ', 'dR_smartpair_ltau', 'm_smartpair_ltau', 'dR_smartpair_ll', 'm_smartpair_ll', 'maxdZ_lep', 'gen_mHH'),
+        BDT_xml_FileName_spin2_even = cms.string('hhAnalysis/multilepton/data/3l_1tau_spin2_oddTrainedModel_opt10Vars_defaultHyp.xml'),
+        BDT_xml_FileName_spin2_odd = cms.string('hhAnalysis/multilepton/data/3l_1tau_spin2_evenTrainedModel_opt10Vars_defaultHyp.xml'),
+        fitFunctionFileName_spin2 = cms.string('hhAnalysis/multilepton/data/3l_1tau_spin2_fitFuncs_opt10Vars.root'), 
+        inputVars_spin2 = cms.vstring('mT_SSlepdR', 'met_LD', 'diHiggsVisMass', 'diHiggsMass', 'mllOS_closestToZ', 'dR_smartpair_ltau', 'm_smartpair_ltau', 'dR_smartpair_ll', 'm_smartpair_ll', 'maxdZ_lep', 'gen_mHH'),
+    ),
+    nonRes_BMs = cms.vdouble(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12),
+    mvaInfo_nonRes = cms.PSet( ## [Tweaked hyper-para.s used]
+        BDT_xml_FileName_nonRes_even = cms.string('hhAnalysis/multilepton/data/3l_1tau_nonRes_oddTrainedModel_opt12Vars_defaultHyp.xml'),
+        BDT_xml_FileName_nonRes_odd = cms.string('hhAnalysis/multilepton/data/3l_1tau_nonRes_evenTrainedModel_opt12Vars_defaultHyp.xml'),
+        inputVars_nonRes = cms.vstring('lep1_pt', 'mT_SSlepdR', 'met_LD', 'HT', 'diHiggsVisMass', 'diHiggsMass', 'mllOS_closestToZ', 'dR_smartpair_ltau', 'm_smartpair_ltau', 'dR_smartpair_ll', 'm_smartpair_ll', 'mindPhiLepMET',
+                                       'SM', 'BM1', 'BM2', 'BM3', 'BM4', 'BM5', 'BM6', 'BM7', 'BM8', 'BM9', 'BM10', 'BM11', 'BM12'),
+    ),
 
     evtWeight = cms.PSet(
         apply = cms.bool(False),
@@ -155,18 +163,5 @@ process.analyze_hh_3l_1tau = cms.PSet(
         branchTypeYaxis = cms.string(''),
     ),
     tHweights = cms.VPSet(),
-    hhWeight_cfg = cms.PSet(
-        denominator_file = cms.string(''),
-        klScan_file = cms.string(''),
-        ktScan_file = cms.string(''),
-        c2Scan_file = cms.string(''),
-        cgScan_file = cms.string(''),
-        c2gScan_file = cms.string(''),
-        coefFile = cms.string('HHStatAnalysis/AnalyticalModels/data/coefficientsByBin_extended_3M_costHHSim_19-4.txt'),
-        histtitle = cms.string(''),
-        isDEBUG = cms.bool(False),
-        do_scan = cms.bool(True),
-        do_ktscan = cms.bool(False),
-        apply_rwgt = cms.bool(False),
-    ),
+    hhWeight_cfg = hhWeight,
 )

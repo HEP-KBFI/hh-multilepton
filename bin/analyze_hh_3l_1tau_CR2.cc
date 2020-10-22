@@ -1701,7 +1701,7 @@ int main(int argc, char* argv[])
     cutFlowHistManager->fillHistograms("sel lepton+tau charge", evtWeightRecorder.get(central_or_shift_main));
     // Z-veto (or invertedinverted) 
     const bool failsZbosonMassVeto = isfailsZbosonMassVeto(preselLeptonsFull);
-    if ( failsZbosonMassVeto ) {
+    if ( !failsZbosonMassVeto ) {
       if ( run_lumi_eventSelector ) {
     	std::cout << "event " << eventInfo.str() << " FAILS Z-boson veto." << std::endl;
       }
@@ -2400,8 +2400,8 @@ int main(int argc, char* argv[])
 	  }
           selHistManager->svFit4tau_woMassConstraint_[kv.first]->fillHistograms(svFit4tauResults_woMassConstraint, kv.second);
           selHistManager->svFit4tau_wMassConstraint_[kv.first]->fillHistograms(svFit4tauResults_wMassConstraint, kv.second);
-        }
 
+        }
         if(! skipFilling)
         {
           selHistManager->evtYield_->fillHistograms(eventInfo, evtWeight);
@@ -2431,6 +2431,7 @@ int main(int argc, char* argv[])
         }
       }
     }
+
     if ( selEventsFile ) {
       (*selEventsFile) << eventInfo.run << ':' << eventInfo.lumi << ':' << eventInfo.event << '\n';
     }

@@ -83,6 +83,24 @@
   <use   name="boost"/>
   <Flags CXXFLAGS="-g -Wshadow -Werror"/>
 </bin>
+<bin file="analyze_hh_3l_1tau_CR2.cc" name="analyze_hh_3l_1tau_CR2">
+  <use   name="FWCore/FWLite"/>
+  <use   name="FWCore/ParameterSet"/>
+  <use   name="FWCore/ParameterSetReader"/>
+  <use   name="FWCore/PythonParameterSet"/>
+  <use   name="FWCore/Utilities"/>
+  <use   name="DataFormats/FWLite"/>
+  <use   name="DataFormats/Math"/>
+  <use   name="PhysicsTools/FWLite"/>
+  <use   name="tthAnalysis/HiggsToTauTau"/>
+  <use   name="hhAnalysis/multilepton"/>
+  <use   name="TauAnalysis/ClassicSVfit4tau"/>
+  <use   name="root"/>
+  <use   name="roottmva"/>
+  <use   name="boost"/>
+  <Flags CXXFLAGS="-g -Wshadow -Werror"/>
+</bin>
+
 <bin file="analyze_hh_4l.cc" name="analyze_hh_4l">
   <use   name="FWCore/FWLite"/>
   <use   name="FWCore/ParameterSet"/>

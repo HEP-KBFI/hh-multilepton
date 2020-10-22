@@ -21,7 +21,7 @@ systematics.internal = systematics.an_internal_no_mem
 parser = tthAnalyzeParser()
 parser.add_modes(mode_choices)
 parser.add_sys(sys_choices)
-parser.add_preselect()
+parser.add_preselect(use_preselected = False)
 parser.add_rle_select()
 parser.add_lep_mva_wp(default_wp = 'hh_multilepton') # alternative: hh_multilepton
 parser.add_nonnominal()
@@ -100,8 +100,8 @@ else:
 
 hadTauWP_map = {
   'dR03mva' : 'Loose',
-  ##'deepVSj' : 'VLoose', # CV: use for datacard production
-  'deepVSj' : 'Loose',
+  ##'deepVSj' : 'Loose', # CV: use for datacard production
+  'deepVSj' : 'Medium', # CV: use for datacard production
 }
 hadTau_selection = tau_id + hadTauWP_map[tau_id]
 
@@ -117,7 +117,6 @@ elif mode == "forBDTtraining":
 
   hadTauWP_map_relaxed = {
     'dR03mva' : 'VLoose',
-    #'deepVSj' : 'VLoose', # CV: use for datacard production
     'deepVSj' : 'VVVLoose', # CV: use for BDT training
   }
   if args.tau_id_wp:

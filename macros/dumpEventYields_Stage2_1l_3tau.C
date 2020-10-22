@@ -125,6 +125,7 @@ void dumpEventYields_Stage2_1l_3tau(const char* channel, int Era, const char* ta
     std::cout << "scaling (Era: "<< Era  << ")  signal and background yields to L=" << lumi_projection_2018 << "fb^-1 @ 13 TeV." << std::endl;
   }
 
+
   // 1l_3tau file path
 
   if(Era == 2016) {

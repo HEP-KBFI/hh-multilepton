@@ -112,7 +112,6 @@
 #include "hhAnalysis/multilepton/interface/RecoElectronCollectionSelectorFakeable_hh_multilepton.h"
 #include "hhAnalysis/multilepton/interface/RecoMuonCollectionSelectorFakeable_hh_multilepton.h"
 
-#include <boost/math/special_functions/sign.hpp> // boost::math::sign()
 #include <boost/algorithm/string/predicate.hpp> // boost::starts_with()
 #include <boost/algorithm/string/replace.hpp> // boost::replace_all_copy()
 
@@ -274,6 +273,7 @@ int main(int argc, char* argv[])
 
   const double lep_mva_cut_mu = cfg_analyze.getParameter<double>("lep_mva_cut_mu");
   const double lep_mva_cut_e  = cfg_analyze.getParameter<double>("lep_mva_cut_e");
+  const std::string lep_mva_wp = cfg_analyze.getParameter<std::string>("lep_mva_wp");
 
   bool apply_hadTauGenMatching = cfg_analyze.getParameter<bool>("apply_hadTauGenMatching");
   std::vector<hadTauGenMatchEntry> hadTauGenMatch_definitions = getHadTauGenMatch_definitions_3tau(true);
@@ -361,6 +361,7 @@ int main(int argc, char* argv[])
   cfg_dataToMCcorrectionInterface.addParameter<int>("hadTauSelection_antiElectron_sublead", hadTauSelection_antiElectron);
   cfg_dataToMCcorrectionInterface.addParameter<int>("hadTauSelection_antiMuon_sublead", hadTauSelection_antiMuon);
   cfg_dataToMCcorrectionInterface.addParameter<bool>("isDEBUG", isDEBUG);
+  cfg_dataToMCcorrectionInterface.addParameter<std::string>("lep_mva_wp", lep_mva_wp);
   Data_to_MC_CorrectionInterface_Base * dataToMCcorrectionInterface = nullptr;
   switch(era)
   {
@@ -542,6 +543,11 @@ int main(int argc, char* argv[])
 
 //--- declare event-level variables
   EventInfo eventInfo(isMC, isSignal, isHH_rwgt_allowed, apply_topPtReweighting);
+  if(isMC)
+  {
+    const double ref_genWeight = cfg_analyze.getParameter<double>("ref_genWeight");
+    eventInfo.set_refGetWeight(ref_genWeight);
+  }
   const std::string default_cat_str = "default";
   std::vector<std::string> evt_cat_strs = { default_cat_str };
   std::vector<std::string> HHWeightNames;
@@ -824,7 +830,7 @@ int main(int argc, char* argv[])
 
       for(const std::string & evt_cat_str: evt_cat_strs)
       {
-        if(skipBooking && evt_cat_str != default_cat_str)
+        if((skipBooking && !apply_HH_rwgt) && evt_cat_str != default_cat_str)
         {
           continue;
         }
@@ -1010,13 +1016,13 @@ int main(int argc, char* argv[])
     "object multiplicity",
     "trigger",
     "1 presel lepton",
-    "presel lepton trigger match",
     ">= 3 fakeable taus",
     "b-jet veto",
     "1 sel lepton",
     "<= 1 tight leptons",
     ">= 3 sel taus",
-    "fakeable lepton trigger match",
+    "trigger & fakeable lepton flavor matching",
+    "trigger & dataset matching",
     "HLT filter matching",
     "m(ll) > 12 GeV",
     Form("sel lepton pT > %.0f(e)/%.0f(mu) GeV", minPt_ele, minPt_mu),
@@ -1128,7 +1134,7 @@ int main(int argc, char* argv[])
 
     if(isMC)
     {
-      if(apply_genWeight)         evtWeightRecorder.record_genWeight(boost::math::sign(eventInfo.genWeight));
+      if(apply_genWeight)         evtWeightRecorder.record_genWeight(eventInfo);
       if(eventWeightManager)      evtWeightRecorder.record_auxWeight(eventWeightManager);
       if(l1PreFiringWeightReader) evtWeightRecorder.record_l1PrefireWeight(l1PreFiringWeightReader);
       if(apply_topPtReweighting)  evtWeightRecorder.record_toppt_rwgt(eventInfo.topPtRwgtSF);
@@ -1195,38 +1201,6 @@ int main(int argc, char* argv[])
                   << ", selTrigger_2tau = " << selTrigger_2tau << ")" << std::endl;
       }
       continue;
-    }
-
-//--- Rank triggers by priority and ignore triggers of lower priority if a trigger of higher priority has fired for given event;
-//    the ranking of the triggers is as follows: 1mu || 1mu1tau, 1e || 1e1tau
-// CV: This logic is necessary to avoid that the same event is selected multiple times when processing different primary datasets.
-//     The mu+tau (e+tau) cross trigger is stored in the same primary dataset as the single muon (single electron) trigger during the 2017 data-taking period!!
-    if ( !isMC && !isDEBUG ) {
-      bool isTriggered_SingleElectron = isTriggered_1e || isTriggered_1e1tau;
-      bool isTriggered_SingleMuon = isTriggered_1mu || isTriggered_1mu1tau;
-      //bool isTriggered_Tau = isTriggered_2tau;
-
-      bool selTrigger_SingleElectron = selTrigger_1e || selTrigger_1e1tau;
-      //bool selTrigger_SingleMuon = selTrigger_1mu || selTrigger_1mu1tau;
-      bool selTrigger_Tau = selTrigger_2tau;
-
-      if ( selTrigger_SingleElectron && isTriggered_SingleMuon ) {
-        if ( run_lumi_eventSelector ) {
-          std::cout << "event " << eventInfo.str() << " FAILS trigger selection." << std::endl;
-          std::cout << " (selTrigger_SingleElectron = " << selTrigger_SingleElectron
-                    << ", isTriggered_SingleMuon = " << isTriggered_SingleMuon << ")" << std::endl;
-        }
-        continue;
-      }
-      if ( selTrigger_Tau && (isTriggered_SingleMuon || isTriggered_SingleElectron) ) {
-        if ( run_lumi_eventSelector ) {
-          std::cout << "event " << eventInfo.str() << " FAILS trigger selection." << std::endl;
-          std::cout << " (selTrigger_Tau = " << selTrigger_Tau
-                    << ", isTriggered_SingleMuon = " << isTriggered_SingleMuon
-                    << ", isTriggered_SingleElectron = " << isTriggered_SingleElectron << ")" << std::endl;
-        }
-        continue;
-      }
     }
     cutFlowTable.update("trigger", evtWeightRecorder.get(central_or_shift_main));
     cutFlowHistManager->fillHistograms("trigger", evtWeightRecorder.get(central_or_shift_main));
@@ -1420,24 +1394,6 @@ int main(int argc, char* argv[])
     cutFlowTable.update(">= 1 presel lepton", evtWeightRecorder.get(central_or_shift_main));
     cutFlowHistManager->fillHistograms(">= 1 presel lepton", evtWeightRecorder.get(central_or_shift_main));
 
-    // require that trigger paths match event category (with event category based on preselLeptons)
-    if ( !((preselElectrons.size() >= 1 && (selTrigger_1e  || selTrigger_1e1tau )) ||
-           (preselMuons.size()     >= 1 && (selTrigger_1mu || selTrigger_1mu1tau)) ||
-                                                              selTrigger_2tau   )) {
-      if ( run_lumi_eventSelector ) {
-        std::cout << "event " << eventInfo.str() << " FAILS trigger selection for given preselLepton multiplicity." << std::endl;
-        std::cout << " (#preselElectrons = " << preselElectrons.size()
-                  << ", #preselMuons = " << preselMuons.size()
-                  << ", selTrigger_1mu = " << selTrigger_1mu
-                  << ", selTrigger_1mu1tau = " << selTrigger_1mu1tau
-                  << ", selTrigger_1e = " << selTrigger_1e
-                  << ", selTrigger_1e1tau = " << selTrigger_1e1tau 
-                  << ", selTrigger_2tau = " << selTrigger_2tau << ")" << std::endl;
-      }
-      continue;
-    }
-    cutFlowTable.update("presel lepton trigger match", evtWeightRecorder.get(central_or_shift_main));
-    cutFlowHistManager->fillHistograms("presel lepton trigger match", evtWeightRecorder.get(central_or_shift_main));
 
     // require presence of at least three hadronic taus passing fakeable preselection criteria
     // (do not veto events with more than three fakeable selected hadronic tau candidates,
@@ -1464,7 +1420,7 @@ int main(int argc, char* argv[])
     cutFlowTable.update(">= 1 sel lepton", evtWeightRecorder.get(central_or_shift_main));
     cutFlowHistManager->fillHistograms(">= 1 sel lepton", evtWeightRecorder.get(central_or_shift_main));
     const RecoLepton* selLepton = selLeptons[0];
-    int selLepton_type = getLeptonType(selLepton->pdgId());
+    //int selLepton_type = getLeptonType(selLepton->pdgId());
     const leptonGenMatchEntry& selLepton_genMatch = getLeptonGenMatch(leptonGenMatch_definitions, selLepton);
 
     // require exactly one lepton passing tight selection criteria, to avoid overlap with other channels
@@ -1495,7 +1451,7 @@ int main(int argc, char* argv[])
     const RecoHadTau* selHadTau_third = selHadTaus[2];
     const hadTauGenMatchEntry& selHadTau_genMatch = getHadTauGenMatch(hadTauGenMatch_definitions, selHadTau_lead, selHadTau_sublead, selHadTau_third);
 
-    // require that trigger paths match event category (with event category based on fakeableLeptons)
+    // require that trigger paths match lepton flavor (for fakeable leptons)
     if ( !((fakeableElectrons.size() >= 1 && (selTrigger_1e  || selTrigger_1e1tau )) ||
            (fakeableMuons.size()     >= 1 && (selTrigger_1mu || selTrigger_1mu1tau)) ||
                                               selTrigger_2tau) ) {
@@ -1511,8 +1467,43 @@ int main(int argc, char* argv[])
       }
       continue;
     }
-    cutFlowTable.update("fakeable lepton trigger match", evtWeightRecorder.get(central_or_shift_main));
-    cutFlowHistManager->fillHistograms("fakeable lepton trigger match", evtWeightRecorder.get(central_or_shift_main));
+
+    // Require that trigger paths match primary datasets,
+    // to avoid that the same event is selected multiple times when processing different primary datasets (PD).
+    // In case the same event passes the triggers paths for more than one primary datasets,
+    // the event is selected in the PD of highest priority only. 
+    // The ranking of the PDs is as follows: SingleMuon, SingleElectron, Tau.
+    // The mu+tau (e+tau) cross trigger is stored in the same PD as the single muon (single electron) trigger
+    if ( !isMC && !isDEBUG ) 
+    {
+      bool isTriggered_SingleElectron = (isTriggered_1e || isTriggered_1e1tau) && fakeableElectrons.size() >= 1;
+      bool isTriggered_SingleMuon = (isTriggered_1mu || isTriggered_1mu1tau) && fakeableMuons.size() >= 1;
+      //bool isTriggered_Tau = isTriggered_2tau;
+
+      bool selTrigger_SingleElectron = selTrigger_1e || selTrigger_1e1tau;
+      //bool selTrigger_SingleMuon = selTrigger_1mu || selTrigger_1mu1tau;
+      bool selTrigger_Tau = selTrigger_2tau;
+
+      if ( selTrigger_SingleElectron && isTriggered_SingleMuon ) {
+      if ( run_lumi_eventSelector ) {
+          std::cout << "event " << eventInfo.str() << " FAILS trigger selection." << std::endl;
+        std::cout << " (selTrigger_SingleElectron = " << selTrigger_SingleElectron
+              << ", isTriggered_SingleMuon = " << isTriggered_SingleMuon << ")" << std::endl;
+      }
+      continue;
+      }
+      if ( selTrigger_Tau && (isTriggered_SingleMuon || isTriggered_SingleElectron) ) {
+      if ( run_lumi_eventSelector ) {
+          std::cout << "event " << eventInfo.str() << " FAILS trigger selection." << std::endl;
+        std::cout << " (selTrigger_Tau = " << selTrigger_Tau
+              << ", isTriggered_SingleMuon = " << isTriggered_SingleMuon
+              << ", isTriggered_SingleElectron = " << isTriggered_SingleElectron << ")" << std::endl;
+      }
+      continue;
+      }
+    }
+    cutFlowTable.update("trigger & dataset matching", evtWeightRecorder.get(central_or_shift_main));
+    cutFlowHistManager->fillHistograms("trigger & dataset matching", evtWeightRecorder.get(central_or_shift_main));
 
 //--- apply HLT filter
     if(apply_hlt_filter)
@@ -1620,7 +1611,7 @@ int main(int argc, char* argv[])
       evtWeightRecorder.record_jetToLepton_FR_lead(leptonFakeRateInterface, selLepton);
     }
 
-    if(!selectBDT){    
+    if(!selectBDT){
       if(applyFakeRateWeights == kFR_4L)
       {
         bool passesTight_lepton = isMatched(*selLepton, tightElectrons) || isMatched(*selLepton, tightMuons);
@@ -1825,14 +1816,15 @@ int main(int argc, char* argv[])
     }
 
     std::map<std::string, double> weightMapHH;
-    std::map<std::string, double> reWeightMapHH;
+    std::map<std::string, double> reWeightMapHH_base;
+    std::map<std::string, std::map<std::string, double>> reWeightMapsHH;
     double HHWeight = 1.0; // X: for the SM point -- the point explicited on this code
 
     if(apply_HH_rwgt)
     {
       assert(HHWeight_calc);
       weightMapHH = HHWeight_calc->getWeightMap(eventInfo.gen_mHH, eventInfo.gen_cosThetaStar, isDEBUG);
-      reWeightMapHH = HHWeight_calc->getReWeightMap(eventInfo.gen_mHH, eventInfo.gen_cosThetaStar, isDEBUG);
+      reWeightMapHH_base = HHWeight_calc->getReWeightMap(eventInfo.gen_mHH, eventInfo.gen_cosThetaStar, isDEBUG);
       HHWeight = weightMapHH["Weight_SM"];
       evtWeightRecorder.record_bm(HHWeight); // SM by default
 
@@ -1842,18 +1834,22 @@ int main(int argc, char* argv[])
           "cost "             << eventInfo.gen_cosThetaStar << " : "
           "weight = "         << HHWeight                   << '\n'
           ;
-
         std::cout << "Calculated " << weightMapHH.size() << " scan weights\n";
         for(const auto & kv: weightMapHH)
+        {
+          std::cout << "line = " <<kv.first << "; Weight = " <<  kv.second << '\n';
+        }
+        std::cout << "Calculated " << reWeightMapHH_base.size() << " scan reweights\n";
+        for(const auto & kv:reWeightMapHH_base)
         {
           std::cout << "line = " <<kv.first << "; Weight = " <<  kv.second << '\n';
         }
         std::cout << '\n';
       }
     }
-
     for(const std::string & central_or_shift: central_or_shifts_local)
     {
+      reWeightMapsHH[central_or_shift] = reWeightMapHH_base;
       const double evtWeight = evtWeightRecorder.get(central_or_shift);
       const bool skipFilling = central_or_shift != central_or_shift_main;
       for(const std::string & evt_cat_str: evt_cat_strs)
@@ -1864,11 +1860,11 @@ int main(int argc, char* argv[])
         }
         if(apply_HH_rwgt)
         {
-          reWeightMapHH[evt_cat_str] *= evtWeight;
+          reWeightMapsHH[central_or_shift][evt_cat_str] *= evtWeight;
         }
         else
         {
-          reWeightMapHH[evt_cat_str] = evtWeight;
+          reWeightMapsHH[central_or_shift][evt_cat_str] = evtWeight;
         }
       }
     }
@@ -2024,7 +2020,8 @@ int main(int argc, char* argv[])
           selHistManager->met_->fillHistograms(met, mht_p4, met_LD, evtWeight);
           selHistManager->metFilters_->fillHistograms(metFilters, evtWeight);
         }
-        for(const auto & kv: reWeightMapHH)
+
+        for(const auto & kv: reWeightMapsHH[central_or_shift])
         {
           selHistManager->evt_[kv.first]->fillHistograms(
             selElectrons.size(),
@@ -2105,7 +2102,7 @@ int main(int argc, char* argv[])
         else if ( selElectrons.size() >= 1 ) category = "1e_3tau";
         else assert(0);
 
-        for(const auto & kv: reWeightMapHH)
+        for(const auto & kv: reWeightMapsHH[central_or_shift])
         {
           selHistManager->evt_in_categories_[kv.first][category]->fillHistograms(
             selElectrons.size(),
