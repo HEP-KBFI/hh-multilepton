@@ -27,6 +27,10 @@ Plotter_HH::Plotter_HH(const TFile* inputFile, const edm::ParameterSet& cfg)
   {
     legendEntriesSignal_ = cfg.getParameter<vstring>("legendEntriesSignal");
   }
+  else
+  {
+    legendEntriesSignal_ = {legendEntrySignal_};
+  }
 
   if (cfg.exists("optionToNormalizeSignalDistributions"))
   {
@@ -61,6 +65,7 @@ void Plotter_HH::makePlot(double canvasSizeX, double canvasSizeY,
   {
     histogramSignal = histogramsSignal[0]->histogram_;
 
+    std::cout << "histogramsSignal.size(): " << histogramsSignal.size() << ", legendEntriesSignal_.size(): " << legendEntriesSignal_.size() << std::endl;
     if (histogramsSignal.size() != legendEntriesSignal_.size())
     {
       std::cout << "Mismatch in signal processes and signal-legends.. \nTerminating\n " << std::endl;
