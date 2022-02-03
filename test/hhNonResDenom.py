@@ -52,6 +52,7 @@ check_output_files = not args.not_check_input_files
 sample_filter      = args.filter
 num_parallel_jobs  = args.num_parallel_jobs
 running_method     = args.running_method
+keep_logs          = args.keep_logs
 
 # Additional arguments
 mode          = args.mode
@@ -91,8 +92,9 @@ if __name__ == '__main__':
   if 'sum_events' in samples:
     del samples['sum_events']
 
-  configDir = os.path.join("/home",       getpass.getuser(), "hhDenomProduction", era, version)
-  outputDir = os.path.join("/hdfs/local", getpass.getuser(), "hhDenomProduction", era, version)
+  configDir = os.path.join("/scratch-persistent", getpass.getuser(), "hhDenomProduction", era, version)
+  localDir  = os.path.join("/home",               getpass.getuser(), "hhDenomProduction", era, version)
+  outputDir = os.path.join("/hdfs/local",         getpass.getuser(), "hhDenomProduction", era, version)
 
   if validate:
     validation_result = validate_denom(os.path.join(outputDir, output_file), samples)
@@ -100,6 +102,7 @@ if __name__ == '__main__':
 
   denomHistogramProduction = denomHistogramConfig(
     configDir          = configDir,
+    localDir           = localDir,
     outputDir          = outputDir,
     output_file        = output_file,
     executable         = "denomHistogramProducer.sh",
@@ -113,6 +116,7 @@ if __name__ == '__main__':
     num_parallel_jobs  = num_parallel_jobs,
     dry_run            = dry_run,
     use_home           = use_home,
+    keep_logs          = keep_logs,
     submission_cmd     = sys.argv,
   )
 

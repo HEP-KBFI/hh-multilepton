@@ -82,6 +82,8 @@ class analyzeConfig_hh(analyzeConfig):
     lines.append("  )")
     lines.append(")")
     lines.append("process.makePlots.intLumiData = cms.double(%.1f)" % (self.lumi / 1000))
+    if 'processSignal' in jobOptions:
+      lines.append("process.makePlots.processSignal = cms.string('%s')" %jobOptions['processSignal'])
     create_cfg(self.cfgFile_make_plots, jobOptions['cfgFile_modified'], lines)
 
   def createCfg_makePlots_mcClosure(self, jobOptions): #TODO

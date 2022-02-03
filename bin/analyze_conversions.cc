@@ -688,6 +688,7 @@ int main(int argc, char* argv[])
   // refer analyze_hh_bb1l.cc macro
   RecoJetReaderAK8* jetReaderAK8_Wjj = new RecoJetReaderAK8(era, isMC, branchName_jets_ak8_Wjj, branchName_subjets_ak8_Wjj);
   jetReaderAK8_Wjj->set_central_or_shift(fatJetPt_option);
+  jetReaderAK8_Wjj->ignoreSys(kFatJetNone);
   inputTree->registerReader(jetReaderAK8_Wjj);
   RecoJetCollectionCleanerAK8 jetCleanerAK8_dR08(0.8, isDEBUG);
   RecoJetCollectionCleanerAK8 jetCleanerAK8_dR12(1.2, isDEBUG);

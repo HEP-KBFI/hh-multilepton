@@ -47,6 +47,7 @@ debug              = args.debug
 sample_filter      = args.filter
 num_parallel_jobs  = args.num_parallel_jobs
 running_method     = args.running_method
+keep_logs          = args.keep_logs
 
 # Additional arguments
 mode              = args.mode
@@ -144,8 +145,9 @@ if __name__ == '__main__':
     samples = filter_samples(samples, sample_filter)
 
   analysis = analyzeConfig_Zjetsctrl_fakes(
-    configDir = os.path.join("/home",       getpass.getuser(), "hhAnalysis", era, version),
-    outputDir = os.path.join("/hdfs/local", getpass.getuser(), "hhAnalysis", era, version),
+    configDir = os.path.join("/scratch-persistent", getpass.getuser(), "hhAnalysis", era, version),
+    localDir  = os.path.join("/home",               getpass.getuser(), "hhAnalysis", era, version),
+    outputDir = os.path.join("/hdfs/local",         getpass.getuser(), "hhAnalysis", era, version),
     executable_analyze                    = "analyze_Zjetsctrl_fakes",
     cfgFile_analyze                       = "analyze_Zjetsctrl_fakes_cfg.py",
     samples                               = samples,
@@ -191,6 +193,7 @@ if __name__ == '__main__':
     use_nonnominal                        = use_nonnominal,
     hlt_filter                            = hlt_filter,
     use_home                              = use_home,
+    keep_logs                             = keep_logs,
     submission_cmd                        = sys.argv,
   )
 

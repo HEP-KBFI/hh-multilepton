@@ -498,11 +498,12 @@ int main(int argc, char* argv[])
   std::vector<std::string> HHBMNames;
   if(apply_HH_rwgt_lo || apply_HH_rwgt_nlo)
   {
+    HHWeightNames = hhWeight_couplings->get_weight_names();
+    HHBMNames = hhWeight_couplings->get_bm_names();
+
     if(apply_HH_rwgt_lo)
     {
       HHWeightLO_calc = new HHWeightInterfaceLO(hhWeight_couplings, hhWeight_cfg);
-      HHWeightNames = hhWeight_couplings->get_weight_names();
-      HHBMNames = hhWeight_couplings->get_bm_names();
     }
 
     if(apply_HH_rwgt_nlo)
@@ -612,6 +613,7 @@ int main(int argc, char* argv[])
 
   RecoJetReaderAK8* jetReaderAK8 = new RecoJetReaderAK8(era, isMC, branchName_jets_ak8, branchName_subjets_ak8);
   jetReaderAK8->set_central_or_shift(fatJetPt_option);
+  jetReaderAK8->ignoreSys(kFatJetNone);
   inputTree->registerReader(jetReaderAK8);
   RecoJetCollectionCleanerAK8 jetCleanerAK8_dR08(0.8, isDEBUG);
   RecoJetCollectionCleanerAK8 jetCleanerAK8_dR12(1.2, isDEBUG);
@@ -976,7 +978,7 @@ int main(int argc, char* argv[])
     bdt_filler = new std::remove_pointer<decltype(bdt_filler)>::type(
      makeHistManager_cfg(process_string, Form("%s/sel/evtntuple", histogramDir.data()), era_string, central_or_shift_main)
     );
-    if(apply_HH_rwgt_lo)
+    if(apply_HH_rwgt_lo || apply_HH_rwgt_nlo)
     {
       for(auto bmName : HHWeightNames)
       {
@@ -1510,9 +1512,9 @@ int main(int argc, char* argv[])
     cutFlowTable.update(">= 2 sel leptons", evtWeightRecorder.get(central_or_shift_main));
     cutFlowHistManager->fillHistograms(">= 2 sel leptons", evtWeightRecorder.get(central_or_shift_main));
     const RecoLepton* selLepton_lead = selLeptons[0];
-    const Particle::LorentzVector& selLeptonP4_lead = selLepton_lead->p4();
+    const Particle::LorentzVector& selLeptonP4_lead = selLepton_lead->cone_p4();
     const RecoLepton* selLepton_sublead = selLeptons[1];
-    const Particle::LorentzVector& selLeptonP4_sublead = selLepton_sublead->p4();
+    const Particle::LorentzVector& selLeptonP4_sublead = selLepton_sublead->cone_p4();
     const leptonChargeFlipGenMatchEntry& selLepton_genMatch = getLeptonChargeFlipGenMatch(leptonGenMatch_definitions, selLepton_lead, selLepton_sublead);
 
     // require exactly two leptons passing tight selection criteria, to avoid overlap with other channels
@@ -1973,10 +1975,10 @@ int main(int argc, char* argv[])
     }
 
     // compute signal extraction observables
-    double dihiggsVisMass_sel = (selJetP4 + selLepton_lead->p4() + selLepton_sublead->p4()).mass();
-    double dihiggsMass_wMet_sel = (selJetP4 + selLepton_lead->p4() + selLepton_sublead->p4() + met.p4()).mass();
+    double dihiggsVisMass_sel = (selJetP4 + selLepton_lead->cone_p4() + selLepton_sublead->cone_p4()).mass();
+    double dihiggsMass_wMet_sel = (selJetP4 + selLepton_lead->cone_p4() + selLepton_sublead->cone_p4() + met.p4()).mass();
     double jetMass_sel = mass_jj_W;
-    double leptonPairMass_sel = (selLepton_lead->p4() + selLepton_sublead->p4()).mass();
+    double leptonPairMass_sel = (selLepton_lead->cone_p4() + selLepton_sublead->cone_p4()).mass();
     double leptonPairCharge_sel = selLepton_lead->charge() + selLepton_sublead->charge();
 
     //--- compute variables BDTs used to discriminate . . .

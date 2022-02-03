@@ -548,11 +548,12 @@ int main(int argc, char* argv[])
   std::vector<std::string> HHBMNames;
   if(apply_HH_rwgt_lo || apply_HH_rwgt_nlo)
   {
+    HHWeightNames = hhWeight_couplings->get_weight_names();
+    HHBMNames = hhWeight_couplings->get_bm_names();
+
     if(apply_HH_rwgt_lo)
     {
       HHWeightLO_calc = new HHWeightInterfaceLO(hhWeight_couplings, hhWeight_cfg);
-      HHWeightNames = hhWeight_couplings->get_weight_names();
-      HHBMNames = hhWeight_couplings->get_bm_names();
     }
 
     if(apply_HH_rwgt_nlo)
@@ -888,7 +889,7 @@ int main(int argc, char* argv[])
     bdt_filler = new std::remove_pointer<decltype(bdt_filler)>::type(
       makeHistManager_cfg(process_string, Form("%s/sel/evtntuple", histogramDir.data()), era_string, central_or_shift_main)
     );
-    if(apply_HH_rwgt_lo)
+    if(apply_HH_rwgt_lo || apply_HH_rwgt_nlo)
     {
       for(auto bmName : HHWeightNames)
       {
@@ -1771,14 +1772,14 @@ int main(int argc, char* argv[])
     std::vector<SVfit4tauResult> svFit4tauResults_wMassConstraint = compSVfit4tau(
       *selLepton, *selHadTau_lead, *selHadTau_sublead, *selHadTau_third, met, chargeSumSelection_string, rnd, 125., 2.);
         
-    double dihiggsVisMass_sel = (selLepton->p4() + selHadTau_lead->p4() + selHadTau_sublead->p4() + selHadTau_third->p4()).mass();
+    double dihiggsVisMass_sel = (selLepton->cone_p4() + selHadTau_lead->p4() + selHadTau_sublead->p4() + selHadTau_third->p4()).mass();
     double dihiggsMass = ( svFit4tauResults_wMassConstraint.size() >= 1 && svFit4tauResults_wMassConstraint[0].isValidSolution_ ) ? 
       svFit4tauResults_wMassConstraint[0].dihiggs_mass_ : -1.;
 
     // CV: compute additional variables for BDT training Ntuple
-    Particle::LorentzVector p4_lep_tau1 = selLepton->p4() + selHadTau_lead->p4();
-    Particle::LorentzVector p4_lep_tau2 = selLepton->p4() + selHadTau_sublead->p4();
-    Particle::LorentzVector p4_lep_tau3 = selLepton->p4() + selHadTau_third->p4();
+    Particle::LorentzVector p4_lep_tau1 = selLepton->cone_p4() + selHadTau_lead->p4();
+    Particle::LorentzVector p4_lep_tau2 = selLepton->cone_p4() + selHadTau_sublead->p4();
+    Particle::LorentzVector p4_lep_tau3 = selLepton->cone_p4() + selHadTau_third->p4();
 
     double dphi_lep_tau_OS_pair1 = -1.;
     double dphi_lep_tau_OS_pair2 = -1.;
@@ -1798,7 +1799,7 @@ int main(int argc, char* argv[])
           if ( (*selHadTau2)->charge()*(*selHadTau3)->charge() > 0. ) continue;
           double dphi_lep_tau_OS = deltaPhi(selLepton->phi(), (*selHadTau1)->phi());
           double dphi_tau_tau_OS = deltaPhi((*selHadTau2)->phi(), (*selHadTau3)->phi());
-          double dphi_HHvis      = deltaPhi((selLepton->p4() + (*selHadTau1)->p4()).phi(), ((*selHadTau2)->p4() + (*selHadTau3)->p4()).phi());
+          double dphi_HHvis      = deltaPhi((selLepton->cone_p4() + (*selHadTau1)->p4()).phi(), ((*selHadTau2)->p4() + (*selHadTau3)->p4()).phi());
           if ( dphi_lep_tau_OS_pair1 == -1. && dphi_tau_tau_OS_pair1 == -1. ) 
           {
             dphi_lep_tau_OS_pair1 = dphi_lep_tau_OS;

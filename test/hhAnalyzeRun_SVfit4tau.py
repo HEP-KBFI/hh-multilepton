@@ -32,6 +32,7 @@ running_method       = args.running_method
 tau_id               = args.tau_id
 jet_cleaning         = args.jet_cleaning
 gen_matching         = args.gen_matching
+keep_logs            = args.keep_logs
 
 # Use the arguments
 max_job_resubmission = 3;
@@ -63,8 +64,9 @@ if __name__ == '__main__':
   )
 
   analysis = analyzeConfig_SVfit4tau(
-    configDir = os.path.join("/home",       getpass.getuser(), "hhAnalysis", era, version),
-    outputDir = os.path.join("/hdfs/local", getpass.getuser(), "hhAnalysis", era, version),
+    configDir = os.path.join("/scratch-persistent", getpass.getuser(), "hhAnalysis", era, version),
+    localDir  = os.path.join("/home",               getpass.getuser(), "hhAnalysis", era, version),
+    outputDir = os.path.join("/hdfs/local",         getpass.getuser(), "hhAnalysis", era, version),
     executable_analyze              = "analyze_SVfit4tau",
     cfgFile_analyze                 = "analyze_SVfit4tau_cfg.py",
     samples                         = samples,
@@ -87,6 +89,7 @@ if __name__ == '__main__':
     num_parallel_jobs               = 100, # KE: run up to 100 'hadd' jobs in parallel on batch system
     dry_run                         = dry_run,
     isDebug                         = debug,
+    keep_logs                       = keep_logs,
     submission_cmd                  = sys.argv,
   )
 

@@ -19,6 +19,8 @@
 #include <string>
 #include <vector>
 #include <map>
+//#include<boost/any.hpp>
+#include<boost/variant.hpp>
 
 using namespace std;
 
@@ -32,7 +34,7 @@ class DatacardHistManagerBase_hh
                              const HHWeightInterfaceLO * HHWeightLO_calc,
                              const HHWeightInterfaceNLO * HHWeightNLO_calc,
                              bool isDEBUG = false,
-                             bool fillHistograms_nonresonant = true, bool fillHistograms_resonant_spin0 = true, bool fillHistograms_resonant_spin2 = true, bool overlap=false);
+                             bool fillHistograms_nonresonant = true, bool fillHistograms_resonant_spin0 = true, bool fillHistograms_resonant_spin2 = true, bool overlap=false, bool use2d=false);
   DatacardHistManagerBase_hh(const edm::ParameterSet & cfg,
                              const AnalysisConfig_hh & analysisConfig, 
                              const EventInfo & eventInfo, 
@@ -40,7 +42,7 @@ class DatacardHistManagerBase_hh
                              const HHWeightInterfaceNLO * HHWeightNLO_calc,
                              const EventCategoryBase * eventCategoryBase,
                              bool isDEBUG = false,
-                             bool fillHistograms_nonresonant = true, bool fillHistograms_resonant_spin0 = true, bool fillHistograms_resonant_spin2 = true, bool overlap = false);
+                             bool fillHistograms_nonresonant = true, bool fillHistograms_resonant_spin0 = true, bool fillHistograms_resonant_spin2 = true, bool overlap = false, bool use2d=false);
   ~DatacardHistManagerBase_hh() {}
 
   /// book histograms
@@ -87,15 +89,16 @@ class DatacardHistManagerBase_hh
   struct categoryEntryType
   {
     // key = prduction and decay mode ("*" for data and background), histogramName
-    std::map<std::string, std::map<std::string, std::map<std::string, TH1*>>> histograms_mvaOutput_resonant_spin2_; // keys = productionMode, decayMode, gen_mHH + "_spin2"
-    std::map<std::string, std::map<std::string, std::map<std::string, TH1*>>> histograms_mvaOutput_resonant_spin0_; // keys = productionMode, decayMode, gen_mHH + "_spin0"
-    std::map<std::string, std::map<std::string, std::map<std::string, TH1*>>> histograms_mvaOutput_nonresonant_;    // keys = productionMode, decayMode, bmName
+    std::map<std::string, std::map<std::string, std::map<std::string, boost::variant<TH1*, TH2*>>>> histograms_mvaOutput_resonant_spin2_; // keys = productionMode, decayMode, gen_mHH + "_spin2"
+    std::map<std::string, std::map<std::string, std::map<std::string, boost::variant<TH1*, TH2*>>>> histograms_mvaOutput_resonant_spin0_; // keys = productionMode, decayMode, gen_mHH + "_spin0"
+    std::map<std::string, std::map<std::string, std::map<std::string, boost::variant<TH1*, TH2*>>>> histograms_mvaOutput_nonresonant_;    // keys = productionMode, decayMode, bmName
     std::map<std::string, std::map<std::string, TH1*>> histograms_mvaOutput_nonresonant_allBMs_;                    // keys = productionMode, decayMode
     int category_;
   };
   std::vector<categoryEntryType> histograms_in_categories_;
 
   bool overlap_;
+  bool use2d_;
   bool isDEBUG_;
 };
 

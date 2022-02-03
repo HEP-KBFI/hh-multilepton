@@ -682,11 +682,12 @@ const HHWeightInterfaceCouplings * const hhWeight_couplings = new HHWeightInterf
   std::vector<std::string> HHBMNames;
   if(apply_HH_rwgt_lo || apply_HH_rwgt_nlo)
   {
+    HHWeightNames = hhWeight_couplings->get_weight_names();
+    HHBMNames = hhWeight_couplings->get_bm_names();
+
     if(apply_HH_rwgt_lo)
     {
       HHWeightLO_calc = new HHWeightInterfaceLO(hhWeight_couplings, hhWeight_cfg);
-      HHWeightNames = hhWeight_couplings->get_weight_names();
-      HHBMNames = hhWeight_couplings->get_bm_names();
     }
 
     if(apply_HH_rwgt_nlo)
@@ -1049,7 +1050,7 @@ const HHWeightInterfaceCouplings * const hhWeight_couplings = new HHWeightInterf
     bdt_filler = new std::remove_pointer<decltype(bdt_filler)>::type(
       makeHistManager_cfg(process_string, Form("%s/sel/evtntuple", histogramDir.data()), era_string, central_or_shift_main)
     );
-    if(apply_HH_rwgt_lo)
+    if(apply_HH_rwgt_lo || apply_HH_rwgt_nlo)
     {
       for(auto bmName : HHWeightNames)
       {
@@ -1932,29 +1933,29 @@ const HHWeightInterfaceCouplings * const hhWeight_couplings = new HHWeightInterf
     std::vector<SVfit4tauResult> svFit4tauResults_wMassConstraint = compSVfit4tau(
       *selLepton_lead, *selLepton_sublead, *selHadTau_lead, *selHadTau_sublead, met, chargeSumSelection_string, rnd, 125., 2.);
 
-    double dihiggsVisMass_sel = (selLepton_lead->p4() + selLepton_sublead->p4() + selHadTau_lead->p4() + selHadTau_sublead->p4()).mass();
+    double dihiggsVisMass_sel = (selLepton_lead->cone_p4() + selLepton_sublead->cone_p4() + selHadTau_lead->p4() + selHadTau_sublead->p4()).mass();
     
     double dihiggsMass = ( svFit4tauResults_wMassConstraint.size() >= 1 && svFit4tauResults_wMassConstraint[0].isValidSolution_ ) ?
       svFit4tauResults_wMassConstraint[0].dihiggs_mass_ : -1.;
 
     // pre-compute BDT variables-1
-    const double deltaEta_lep1_lep2 = (selLepton_lead->p4() - selLepton_sublead->p4()).eta();
-    const double deltaEta_lep1_tau1 = (selLepton_lead->p4() - selHadTau_lead->p4()).eta();
-    const double deltaEta_lep1_tau2 = (selLepton_lead->p4() - selHadTau_sublead->p4()).eta();
-    const double deltaEta_lep2_tau1 = (selLepton_sublead->p4() - selHadTau_lead->p4()).eta();
-    const double deltaEta_lep2_tau2 = (selLepton_sublead->p4() - selHadTau_sublead->p4()).eta();
+    const double deltaEta_lep1_lep2 = (selLepton_lead->cone_p4() - selLepton_sublead->cone_p4()).eta();
+    const double deltaEta_lep1_tau1 = (selLepton_lead->cone_p4() - selHadTau_lead->p4()).eta();
+    const double deltaEta_lep1_tau2 = (selLepton_lead->cone_p4() - selHadTau_sublead->p4()).eta();
+    const double deltaEta_lep2_tau1 = (selLepton_sublead->cone_p4() - selHadTau_lead->p4()).eta();
+    const double deltaEta_lep2_tau2 = (selLepton_sublead->cone_p4() - selHadTau_sublead->p4()).eta();
     const double deltaEta_tau1_tau2 = (selHadTau_lead->p4() - selHadTau_sublead->p4()).eta();
-    const double deltaPhi_lep1_lep2 = (selLepton_lead->p4() - selLepton_sublead->p4()).phi();
-    const double deltaPhi_lep1_tau1 = (selLepton_lead->p4() - selHadTau_lead->p4()).phi();
-    const double deltaPhi_lep1_tau2 = (selLepton_lead->p4() - selHadTau_sublead->p4()).phi();
-    const double deltaPhi_lep2_tau1 = (selLepton_sublead->p4() - selHadTau_lead->p4()).phi();
-    const double deltaPhi_lep2_tau2 = (selLepton_sublead->p4() - selHadTau_sublead->p4()).phi();
+    const double deltaPhi_lep1_lep2 = (selLepton_lead->cone_p4() - selLepton_sublead->cone_p4()).phi();
+    const double deltaPhi_lep1_tau1 = (selLepton_lead->cone_p4() - selHadTau_lead->p4()).phi();
+    const double deltaPhi_lep1_tau2 = (selLepton_lead->cone_p4() - selHadTau_sublead->p4()).phi();
+    const double deltaPhi_lep2_tau1 = (selLepton_sublead->cone_p4() - selHadTau_lead->p4()).phi();
+    const double deltaPhi_lep2_tau2 = (selLepton_sublead->cone_p4() - selHadTau_sublead->p4()).phi();
     const double deltaPhi_tau1_tau2 = (selHadTau_lead->p4() - selHadTau_sublead->p4()).phi();
-    const double m_lep1_tau1 = (selLepton_lead->p4() + selHadTau_lead->p4()).mass();
-    const double m_lep2_tau1 = (selLepton_sublead->p4() + selHadTau_lead->p4()).mass();
-    const double m_lep1_tau2 = (selLepton_lead->p4() + selHadTau_sublead->p4()).mass();
-    const double m_lep2_tau2 = (selLepton_sublead->p4() + selHadTau_sublead->p4()).mass();
-    const double pt_HH_recoil = (selLepton_lead->p4() + selLepton_sublead->p4() + selHadTau_lead->p4() + selHadTau_sublead->p4() + met.p4()).pt();
+    const double m_lep1_tau1 = (selLepton_lead->cone_p4() + selHadTau_lead->p4()).mass();
+    const double m_lep2_tau1 = (selLepton_sublead->cone_p4() + selHadTau_lead->p4()).mass();
+    const double m_lep1_tau2 = (selLepton_lead->cone_p4() + selHadTau_sublead->p4()).mass();
+    const double m_lep2_tau2 = (selLepton_sublead->cone_p4() + selHadTau_sublead->p4()).mass();
+    const double pt_HH_recoil = (selLepton_lead->cone_p4() + selLepton_sublead->cone_p4() + selHadTau_lead->p4() + selHadTau_sublead->p4() + met.p4()).pt();
     const double mT_lep1 = comp_MT_met(selLepton_lead, met.pt(), met.phi());
     const double mT_lep2 = comp_MT_met(selLepton_sublead, met.pt(), met.phi());
     const double dr_lep1_tau1 = deltaR(selLepton_lead->p4(),    selHadTau_lead->p4());
@@ -1996,7 +1997,7 @@ const HHWeightInterfaceCouplings * const hhWeight_couplings = new HHWeightInterf
     const double dr_leps = deltaR(selLepton_lead->p4(), selLepton_sublead->p4());
     const double dr_taus = deltaR(selHadTau_lead->p4(), selHadTau_sublead->p4());
     const double avg_dr_jet = comp_avg_dr_jet(selJets);
-    const Particle::LorentzVector ll_p4 = selLepton_lead->p4() + selLepton_sublead->p4();
+    const Particle::LorentzVector ll_p4 = selLepton_lead->cone_p4() + selLepton_sublead->cone_p4();
     const double Smin_llMEt = comp_Smin(ll_p4, met.p4().px(), met.p4().py());
     const double ptTauTauVis_sel = (selHadTau_lead->p4() + selHadTau_sublead->p4()).pt();
     const Particle::LorentzVector lltautau_p4 = ll_p4 + tautau_p4;
@@ -2009,9 +2010,9 @@ const HHWeightInterfaceCouplings * const hhWeight_couplings = new HHWeightInterf
     const RecoJet * selBJet_sublead = selJets_btag.size() > 1 ? selJets_btag.at(1) : nullptr;
 
     //-------- Boosted pairs finding algorithm 
-    std::map<std::string, ParticlePair*> boost_pair_map = ComputeBoostPairs(selLepton_lead->p4(),
+    std::map<std::string, ParticlePair*> boost_pair_map = ComputeBoostPairs(selLepton_lead->cone_p4(),
 								     selLepton_lead->charge(),
-								     selLepton_sublead->p4(),
+                                                                     selLepton_sublead->cone_p4(),
 								     selLepton_sublead->charge(),
 								     selHadTau_lead->p4(),
 								     selHadTau_lead->charge(),
@@ -2075,7 +2076,7 @@ const HHWeightInterfaceCouplings * const hhWeight_couplings = new HHWeightInterf
     if(selBJet_lead && selBJet_sublead)
     {
       topness_publishedChi2.fit(
-        selLepton_lead->p4(), selLepton_sublead->p4(),
+        selLepton_lead->cone_p4(), selLepton_sublead->cone_p4(),
         selBJet_lead->p4(),   selBJet_sublead->p4(),
         met.p4().px(),        met.p4().py()
       );
@@ -2087,7 +2088,7 @@ const HHWeightInterfaceCouplings * const hhWeight_couplings = new HHWeightInterf
     if(selBJet_lead && selBJet_sublead)
     {
       topness_fixedChi2.fit(
-        selLepton_lead->p4(), selLepton_sublead->p4(),
+        selLepton_lead->cone_p4(), selLepton_sublead->cone_p4(),
         selBJet_lead->p4(),   selBJet_sublead->p4(),
         met.p4().px(),        met.p4().py()
       );

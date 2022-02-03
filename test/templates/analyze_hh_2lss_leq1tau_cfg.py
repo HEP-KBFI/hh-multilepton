@@ -147,50 +147,50 @@ process.analyze_hh_2lss_leq1tau = cms.PSet(
 
 
     #### spin0, spin2, nonres: v6
-    gen_mHH = cms.vdouble(), ## Set the signal mass range used in the BDT .pkl/.xml/.pb files
-    ## -------- USE THIS FOR TMVAInterface (after changing it in the .cc file) -----------------##
-    mvaInfo_res = cms.PSet( 
-        BDT_xml_FileName_spin0_even = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/res_spin0_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_odd_half_model_spin0.xml'),
-        BDT_xml_FileName_spin0_odd  = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/res_spin0_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_even_half_model_spin0.xml'),
-        fitFunctionFileName_spin0   = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/res_spin0_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_TProfile_signal_fit_func_spin0.root'), 
-        inputVars_spin0 = cms.vstring('leptonPairMass_sel', 'dihiggsVisMass_sel', 'met_LD', 'dR_ll', 'dR_l_Wjets_min', 'dR_l_leadWjet_min', 'dR_l_Wjets_max', 'dR_l_leadWjet_max', 'dR_2j_fromW1', 'mT_lep1', 'gen_mHH'),
-        
-        BDT_xml_FileName_spin2_even = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/res_spin2_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_odd_half_model_spin2.xml'),
-        BDT_xml_FileName_spin2_odd  = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/res_spin2_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_even_half_model_spin2.xml'),
-        fitFunctionFileName_spin2   = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/res_spin2_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_TProfile_signal_fit_func_spin2.root'), 
-        inputVars_spin2 = cms.vstring('leptonPairMass_sel', 'dihiggsVisMass_sel', 'met_LD', 'dR_ll', 'dR_l_Wjets_min', 'dR_l_leadWjet_min', 'dR_l_Wjets_max', 'dR_l_leadWjet_max', 'dR_2j_fromW1', 'mT_lep1', 'gen_mHH'),
-    ),
-    nonRes_BMs = cms.vstring(),
-    mvaInfo_nonRes = cms.PSet( ## [Tweaked hyper-para.s used]
-        BDT_xml_FileName_nonRes_even = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/nonres_default_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_odd_half_model_nonres_default.xml'),
-        BDT_xml_FileName_nonRes_odd  = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/nonres_default_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_even_half_model_nonres_default.xml'),
-        inputVars_nonRes = cms.vstring('leptonPairMass_sel', 'dihiggsVisMass_sel', 'met_LD', 'dR_ll', 'dR_l_Wjets_min', 'dR_l_leadWjet_min', 'dR_l_Wjets_max', 'dR_l_leadWjet_max', 'dR_2j_fromW1', 'mT_lep1', 
-                                       'SM', 'BM1', 'BM2', 'BM3', 'BM4', 'BM5', 'BM6', 'BM7', 'BM8', 'BM9', 'BM10', 'BM11', 'BM12'),
-    ),
+    # gen_mHH = cms.vdouble(), ## Set the signal mass range used in the BDT .pkl/.xml/.pb files
+    # ## -------- USE THIS FOR TMVAInterface (after changing it in the .cc file) -----------------##
+    # mvaInfo_res = cms.PSet(
+    #     BDT_xml_FileName_spin0_even = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/res_spin0_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_odd_half_model_spin0.xml'),
+    #     BDT_xml_FileName_spin0_odd  = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/res_spin0_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_even_half_model_spin0.xml'),
+    #     fitFunctionFileName_spin0   = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/res_spin0_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_TProfile_signal_fit_func_spin0.root'),
+    #     inputVars_spin0 = cms.vstring('leptonPairMass_sel', 'dihiggsVisMass_sel', 'met_LD', 'dR_ll', 'dR_l_Wjets_min', 'dR_l_leadWjet_min', 'dR_l_Wjets_max', 'dR_l_leadWjet_max', 'dR_2j_fromW1', 'mT_lep1', 'gen_mHH'),
+    #
+    #     BDT_xml_FileName_spin2_even = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/res_spin2_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_odd_half_model_spin2.xml'),
+    #     BDT_xml_FileName_spin2_odd  = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/res_spin2_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_even_half_model_spin2.xml'),
+    #     fitFunctionFileName_spin2   = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/res_spin2_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_TProfile_signal_fit_func_spin2.root'),
+    #     inputVars_spin2 = cms.vstring('leptonPairMass_sel', 'dihiggsVisMass_sel', 'met_LD', 'dR_ll', 'dR_l_Wjets_min', 'dR_l_leadWjet_min', 'dR_l_Wjets_max', 'dR_l_leadWjet_max', 'dR_2j_fromW1', 'mT_lep1', 'gen_mHH'),
+    # ),
+    # nonRes_BMs = cms.vstring(),
+    # mvaInfo_nonRes = cms.PSet( ## [Tweaked hyper-para.s used]
+    #     BDT_xml_FileName_nonRes_even = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/nonres_default_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_odd_half_model_nonres_default.xml'),
+    #     BDT_xml_FileName_nonRes_odd  = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/nonres_default_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_even_half_model_nonres_default.xml'),
+    #     inputVars_nonRes = cms.vstring('leptonPairMass_sel', 'dihiggsVisMass_sel', 'met_LD', 'dR_ll', 'dR_l_Wjets_min', 'dR_l_leadWjet_min', 'dR_l_Wjets_max', 'dR_l_leadWjet_max', 'dR_2j_fromW1', 'mT_lep1',
+    #                                    'SM', 'BM1', 'BM2', 'BM3', 'BM4', 'BM5', 'BM6', 'BM7', 'BM8', 'BM9', 'BM10', 'BM11', 'BM12'),
+    # ),
 
 
    
     #### spin0, spin2: v6,    nonres: v7p2 (This BDT has different input variables than v6, 1.3% better area under ROC curve and 10% better limits at |kl|=10)
-    #gen_mHH = cms.vdouble(), ## Set the signal mass range used in the BDT .pkl/.xml/.pb files
-    ## -------- USE THIS FOR TMVAInterface (after changing it in the .cc file) -----------------##
-    #mvaInfo_res = cms.PSet( 
-    #    BDT_xml_FileName_spin0_even = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/res_spin0_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_odd_half_model_spin0.xml'),
-    #    BDT_xml_FileName_spin0_odd  = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/res_spin0_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_even_half_model_spin0.xml'),
-    #    fitFunctionFileName_spin0   = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/res_spin0_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_TProfile_signal_fit_func_spin0.root'), 
-    #    inputVars_spin0 = cms.vstring('leptonPairMass_sel', 'dihiggsVisMass_sel', 'met_LD', 'dR_ll', 'dR_l_Wjets_min', 'dR_l_leadWjet_min', 'dR_l_Wjets_max', 'dR_l_leadWjet_max', 'dR_2j_fromW1', 'mT_lep1', 'gen_mHH'),
+    gen_mHH = cms.vdouble(), ## Set the signal mass range used in the BDT .pkl/.xml/.pb files
+    # -------- USE THIS FOR TMVAInterface (after changing it in the .cc file) -----------------##
+    mvaInfo_res = cms.PSet(
+       BDT_xml_FileName_spin0_even = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/res_spin0_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_odd_half_model_spin0.xml'),
+       BDT_xml_FileName_spin0_odd  = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/res_spin0_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_even_half_model_spin0.xml'),
+       fitFunctionFileName_spin0   = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/res_spin0_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_TProfile_signal_fit_func_spin0.root'),
+       inputVars_spin0 = cms.vstring('leptonPairMass_sel', 'dihiggsVisMass_sel', 'met_LD', 'dR_ll', 'dR_l_Wjets_min', 'dR_l_leadWjet_min', 'dR_l_Wjets_max', 'dR_l_leadWjet_max', 'dR_2j_fromW1', 'mT_lep1', 'gen_mHH'),
         
-    #    BDT_xml_FileName_spin2_even = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/res_spin2_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_odd_half_model_spin2.xml'),
-    #    BDT_xml_FileName_spin2_odd  = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/res_spin2_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_even_half_model_spin2.xml'),
-    #    fitFunctionFileName_spin2   = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/res_spin2_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_TProfile_signal_fit_func_spin2.root'), 
-    #    inputVars_spin2 = cms.vstring('leptonPairMass_sel', 'dihiggsVisMass_sel', 'met_LD', 'dR_ll', 'dR_l_Wjets_min', 'dR_l_leadWjet_min', 'dR_l_Wjets_max', 'dR_l_leadWjet_max', 'dR_2j_fromW1', 'mT_lep1', 'gen_mHH'),
-    #),
-    #nonRes_BMs = cms.vstring(),
-    #mvaInfo_nonRes = cms.PSet( ## [Tweaked hyper-para.s used]
-    #    BDT_xml_FileName_nonRes_even = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/nonres_default_v7p2_BDT_wtrainVarOptNew_sortedSignificance_SMNLO/2lss_leq1tau_odd_half_model_nonres_default.xml'),
-    #    BDT_xml_FileName_nonRes_odd  = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/nonres_default_v7p2_BDT_wtrainVarOptNew_sortedSignificance_SMNLO/2lss_leq1tau_even_half_model_nonres_default.xml'),
-    #    inputVars_nonRes = cms.vstring('leptonPairMass_sel', 'dR_ll',  'lep1_conePt', 'lep2_conePt', 'mindr_lep1_jet', 'HT', 'mindr_lep2_jet', 'dR_l_Wjets_min', 'mht', 'mass_2j_fromW1',
-    #                                   'SM', 'BM1', 'BM2', 'BM3', 'BM4', 'BM5', 'BM6', 'BM7', 'BM8', 'BM9', 'BM10', 'BM11', 'BM12'),
-    #),
+       BDT_xml_FileName_spin2_even = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/res_spin2_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_odd_half_model_spin2.xml'),
+       BDT_xml_FileName_spin2_odd  = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/res_spin2_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_even_half_model_spin2.xml'),
+       fitFunctionFileName_spin2   = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/res_spin2_v6_fixNonresHHrewgt_wCorrectBkYields/2lss_leq1tau_TProfile_signal_fit_func_spin2.root'),
+       inputVars_spin2 = cms.vstring('leptonPairMass_sel', 'dihiggsVisMass_sel', 'met_LD', 'dR_ll', 'dR_l_Wjets_min', 'dR_l_leadWjet_min', 'dR_l_Wjets_max', 'dR_l_leadWjet_max', 'dR_2j_fromW1', 'mT_lep1', 'gen_mHH'),
+    ),
+    nonRes_BMs = cms.vstring(),
+    mvaInfo_nonRes = cms.PSet( ## [Tweaked hyper-para.s used]
+       BDT_xml_FileName_nonRes_even = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/nonres_default_v7p2_BDT_wtrainVarOptNew_sortedSignificance_SMNLO/2lss_leq1tau_odd_half_model_nonres_default.xml'),
+       BDT_xml_FileName_nonRes_odd  = cms.string('hhAnalysis/multilepton/data/BDT_2lss_leq1tau/nonres_default_v7p2_BDT_wtrainVarOptNew_sortedSignificance_SMNLO/2lss_leq1tau_even_half_model_nonres_default.xml'),
+       inputVars_nonRes = cms.vstring('leptonPairMass_sel', 'dR_ll',  'lep1_conePt', 'lep2_conePt', 'mindr_lep1_jet', 'HT', 'mindr_lep2_jet', 'dR_l_Wjets_min', 'mht', 'mass_2j_fromW1',
+                                      'SM', 'BM1', 'BM2', 'BM3', 'BM4', 'BM5', 'BM6', 'BM7', 'BM8', 'BM9', 'BM10', 'BM11', 'BM12'),
+    ),
     
     
    

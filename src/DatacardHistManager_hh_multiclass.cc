@@ -3,6 +3,7 @@
 #include "tthAnalysis/HiggsToTauTau/interface/cmsException.h"          // cmsException
 #include "tthAnalysis/HiggsToTauTau/interface/histogramAuxFunctions.h" // fillWithOverFlow()
 #include "tthAnalysis/HiggsToTauTau/interface/generalAuxFunctions.h"   // format_vdouble(), format_vstring()
+#include<boost/variant.hpp>
 
 DatacardHistManager_hh_multiclass::DatacardHistManager_hh_multiclass(const edm::ParameterSet & cfg,
                                                                      const AnalysisConfig_hh & analysisConfig, 
@@ -11,10 +12,11 @@ DatacardHistManager_hh_multiclass::DatacardHistManager_hh_multiclass(const edm::
                                                                      const HHWeightInterfaceNLO * HHWeightNLO_calc,
                                                                      const std::vector<std::string> & classes,
                                                                      bool isDEBUG,
-                                                                     bool fillHistograms_nonresonant, bool fillHistograms_resonant_spin0, bool fillHistograms_resonant_spin2, bool overlap)
+                                                                     bool fillHistograms_nonresonant, bool fillHistograms_resonant_spin0, bool fillHistograms_resonant_spin2, bool overlap, bool use2d)
   : DatacardHistManagerBase_hh(
       cfg, analysisConfig, eventInfo, HHWeightLO_calc, HHWeightNLO_calc, isDEBUG, 
-      fillHistograms_nonresonant, fillHistograms_resonant_spin0, fillHistograms_resonant_spin2, overlap
+      fillHistograms_nonresonant, fillHistograms_resonant_spin0, fillHistograms_resonant_spin2, overlap,
+      use2d
     )
 {
   // CV: define one event category for each class;
@@ -37,10 +39,11 @@ DatacardHistManager_hh_multiclass::DatacardHistManager_hh_multiclass(const edm::
                                                                      const HHWeightInterfaceNLO * HHWeightNLO_calc,
                                                                      const EventCategory_multiclass * eventCategory,
                                                                      bool isDEBUG,
-                                                                     bool fillHistograms_nonresonant, bool fillHistograms_resonant_spin0, bool fillHistograms_resonant_spin2, bool overlap)
+                                                                     bool fillHistograms_nonresonant, bool fillHistograms_resonant_spin0, bool fillHistograms_resonant_spin2, bool overlap, bool use2d)
   : DatacardHistManagerBase_hh(
       cfg, analysisConfig, eventInfo, HHWeightLO_calc, HHWeightNLO_calc, eventCategory, isDEBUG,
-      fillHistograms_nonresonant, fillHistograms_resonant_spin0, fillHistograms_resonant_spin2, overlap
+      fillHistograms_nonresonant, fillHistograms_resonant_spin0, fillHistograms_resonant_spin2, overlap,
+      use2d
     )
   , eventCategory_(eventCategory)
 {
@@ -105,7 +108,8 @@ void
 DatacardHistManager_hh_multiclass::fillHistograms(const std::map<std::string, std::map<std::string, double>> & mvaOutputs_resonant_spin2,
                                                   const std::map<std::string, std::map<std::string, double>> & mvaOutputs_resonant_spin0,
                                                   const std::map<std::string, std::map<std::string, double>> & mvaOutputs_nonresonant,
-                                                  const std::map<std::string, double> & mvaOutputs_nonresonant_allBMs, 
+                                                  const std::map<std::string, double> & mvaOutputs_nonresonant_allBMs,
+                                                  double mhh_analytic,
                                                   double evtWeight)
 {
   const double evtWeightErr = 0.;
@@ -139,7 +143,7 @@ DatacardHistManager_hh_multiclass::fillHistograms(const std::map<std::string, st
           for ( std::map<std::string, std::string>::const_iterator histogramName = histogramNames_mvaOutput_resonant_spin2_.begin();
                 histogramName != histogramNames_mvaOutput_resonant_spin2_.end(); ++histogramName ) {
             const std::string & key_resonant_spin2 = histogramName->first;
-            TH1* histogram = categoryEntry->histograms_mvaOutput_resonant_spin2_[productionMode][decayMode][key_resonant_spin2];
+            boost::variant<TH1*, TH2*> histogram = categoryEntry->histograms_mvaOutput_resonant_spin2_[productionMode][decayMode][key_resonant_spin2];
             std::map<std::string, std::pair<std::string, double>>::const_iterator mvaOutput = mvaOutputs_resonant_spin2_unpacked.find(key_resonant_spin2);
             if ( mvaOutput == mvaOutputs_resonant_spin2_unpacked.end() )
               throw cmsException(this, __func__, __LINE__)
@@ -148,7 +152,14 @@ DatacardHistManager_hh_multiclass::fillHistograms(const std::map<std::string, st
             const std::string & for_class = mvaOutput->second.first;
             if ( isSelected(categoryEntry->category_, for_class, false) )
             {
-              fillWithOverFlow(histogram, mvaOutput->second.second, evtWeight, evtWeightErr);
+              if(for_class.find("HH") !=std::string::npos && use2d_) {
+                TH2* histogram_2d = boost::get<TH2*>(histogram);
+                fillWithOverFlow2d(histogram_2d, mvaOutput->second.second, mhh_analytic, evtWeight, evtWeightErr);
+              }
+              else {
+                TH1* histogram_1d = boost::get<TH1*>(histogram);
+                fillWithOverFlow(histogram_1d, mvaOutput->second.second, evtWeight, evtWeightErr);
+              }
             }
           }
         }
@@ -157,7 +168,7 @@ DatacardHistManager_hh_multiclass::fillHistograms(const std::map<std::string, st
           for ( std::map<std::string, std::string>::const_iterator histogramName = histogramNames_mvaOutput_resonant_spin0_.begin();
                 histogramName != histogramNames_mvaOutput_resonant_spin0_.end(); ++histogramName ) {
             const std::string & key_resonant_spin0 = histogramName->first;
-            TH1* histogram = categoryEntry->histograms_mvaOutput_resonant_spin0_[productionMode][decayMode][key_resonant_spin0];
+            boost::variant<TH1*, TH2*> histogram = categoryEntry->histograms_mvaOutput_resonant_spin0_[productionMode][decayMode][key_resonant_spin0];
             std::map<std::string, std::pair<std::string, double>>::const_iterator mvaOutput = mvaOutputs_resonant_spin0_unpacked.find(key_resonant_spin0);
             if ( mvaOutput == mvaOutputs_resonant_spin0_unpacked.end() )
               throw cmsException(this, __func__, __LINE__)
@@ -166,7 +177,14 @@ DatacardHistManager_hh_multiclass::fillHistograms(const std::map<std::string, st
             const std::string & for_class = mvaOutput->second.first;
             if ( isSelected(categoryEntry->category_, for_class, false) )
             {
-              fillWithOverFlow(histogram, mvaOutput->second.second, evtWeight, evtWeightErr);
+              if(for_class.find("HH") !=std::string::npos && use2d_) {
+                TH2* histogram_2d = boost::get<TH2*>(histogram);
+                fillWithOverFlow2d(histogram_2d, mvaOutput->second.second, mhh_analytic, evtWeight, evtWeightErr);
+              }
+              else {
+                TH1* histogram_1d = boost::get<TH1*>(histogram);
+                fillWithOverFlow(histogram_1d, mvaOutput->second.second, evtWeight, evtWeightErr);
+              }
             }
           }
         }
@@ -175,7 +193,8 @@ DatacardHistManager_hh_multiclass::fillHistograms(const std::map<std::string, st
           for ( std::map<std::string, std::string>::const_iterator histogramName = histogramNames_mvaOutput_nonresonant_.begin();
                 histogramName != histogramNames_mvaOutput_nonresonant_.end(); ++histogramName ) {
             const std::string & key_nonresonant = histogramName->first;
-            TH1* histogram = categoryEntry->histograms_mvaOutput_nonresonant_[productionMode][decayMode][key_nonresonant];
+            boost::variant<TH1*, TH2*> histogram = categoryEntry->histograms_mvaOutput_nonresonant_[productionMode][decayMode][key_nonresonant];
+            TH1* histogram_boost = boost::get<TH1*>(histogram);
             std::map<std::string, std::pair<std::string, double>>::const_iterator mvaOutput = mvaOutputs_nonresonant_unpacked.find(key_nonresonant);
             if ( mvaOutput == mvaOutputs_nonresonant_unpacked.end() )
               throw cmsException(this, __func__, __LINE__)
@@ -194,7 +213,7 @@ DatacardHistManager_hh_multiclass::fillHistograms(const std::map<std::string, st
                 evtWeight_reweighted *= HHReweight->second;
                 evtWeightErr_reweighted *= HHReweight->second;
               }
-              fillWithOverFlow(histogram, mvaOutput->second.second, evtWeight_reweighted, evtWeightErr_reweighted);
+              fillWithOverFlow(histogram_boost, mvaOutput->second.second, evtWeight_reweighted, evtWeightErr_reweighted);
             }
           }
           const std::string & for_class = mvaOutput_nonresonant_allBMs_unpacked.first;

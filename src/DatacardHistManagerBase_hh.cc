@@ -20,7 +20,8 @@ DatacardHistManagerBase_hh::DatacardHistManagerBase_hh(const edm::ParameterSet &
                                                        bool fillHistograms_nonresonant,
                                                        bool fillHistograms_resonant_spin0,
                                                        bool fillHistograms_resonant_spin2,
-                                                       bool overlap)
+                                                       bool overlap,
+                                                       bool use2d)
   : HistManagerBase(cfg)
   , analysisConfig_(analysisConfig)
   , eventInfo_(eventInfo)
@@ -36,8 +37,14 @@ DatacardHistManagerBase_hh::DatacardHistManagerBase_hh(const edm::ParameterSet &
   , xMin_(0.)
   , xMax_(1.) // 1.
   , overlap_(overlap)
+  , use2d_(use2d)
   , isDEBUG_(isDEBUG)
-{}
+{
+  if ( use2d_ )
+  {
+    numBinsX_ =50;
+  }
+}
 
 DatacardHistManagerBase_hh::DatacardHistManagerBase_hh(const edm::ParameterSet & cfg,
                                                        const AnalysisConfig_hh & analysisConfig, 
@@ -49,7 +56,8 @@ DatacardHistManagerBase_hh::DatacardHistManagerBase_hh(const edm::ParameterSet &
                                                        bool fillHistograms_nonresonant,
                                                        bool fillHistograms_resonant_spin0,
                                                        bool fillHistograms_resonant_spin2,
-                                                       bool overlap)
+                                                       bool overlap,
+                                                       bool use2d)
   : HistManagerBase(cfg)
   , analysisConfig_(analysisConfig)
   , eventInfo_(eventInfo)
@@ -65,8 +73,14 @@ DatacardHistManagerBase_hh::DatacardHistManagerBase_hh(const edm::ParameterSet &
   , xMin_(0.) // 0.
   , xMax_(1.) // 1. 
   , overlap_(overlap)
+  , use2d_(use2d)
   , isDEBUG_(isDEBUG)
-{}
+{
+  if ( use2d_ )
+  {
+    numBinsX_ =50;
+  }
+}
 
 void
 DatacardHistManagerBase_hh::initialize()
@@ -270,16 +284,30 @@ DatacardHistManagerBase_hh::bookHistograms(TFileDirectory & dir)
         {
           for ( std::map<std::string, std::string>::const_iterator histogramName = histogramNames_mvaOutput_resonant_spin2_.begin();
                 histogramName != histogramNames_mvaOutput_resonant_spin2_.end(); ++histogramName ) {
-            TH1* histogram = book1D(dir, histogramName->second, histogramName->second, numBinsX_, xMin_, xMax_);
-            categoryEntry.histograms_mvaOutput_resonant_spin2_[productionMode][decayMode][histogramName->first] = histogram;
+            boost::variant<TH1*, TH2*> histogram;
+            if(process_.find("HH") != std::string::npos && use2d_) {
+              histogram = book2D(dir, histogramName->second, histogramName->second, numBinsX_, xMin_, xMax_, 40, 150, 1500);
+              categoryEntry.histograms_mvaOutput_resonant_spin2_[productionMode][decayMode][histogramName->first] = histogram;
+            }
+            else {
+              histogram = book1D(dir, histogramName->second, histogramName->second, numBinsX_, xMin_, xMax_);
+              categoryEntry.histograms_mvaOutput_resonant_spin2_[productionMode][decayMode][histogramName->first] = histogram;
+            }
           }
         }
         if ( fillHistograms_resonant_spin0_ )
         {
           for ( std::map<std::string, std::string>::const_iterator histogramName = histogramNames_mvaOutput_resonant_spin0_.begin();
                 histogramName != histogramNames_mvaOutput_resonant_spin0_.end(); ++histogramName ) {
-            TH1* histogram = book1D(dir, histogramName->second, histogramName->second, numBinsX_, xMin_, xMax_);
-            categoryEntry.histograms_mvaOutput_resonant_spin0_[productionMode][decayMode][histogramName->first] = histogram;
+            boost::variant<TH1*, TH2*> histogram;
+            if(process_.find("HH") != std::string::npos && use2d_) {
+              histogram = book2D(dir, histogramName->second, histogramName->second, numBinsX_, xMin_, xMax_, 40, 150, 1500);
+              categoryEntry.histograms_mvaOutput_resonant_spin0_[productionMode][decayMode][histogramName->first] = histogram;
+            }
+            else {
+              histogram = book1D(dir, histogramName->second, histogramName->second, numBinsX_, xMin_, xMax_);
+              categoryEntry.histograms_mvaOutput_resonant_spin0_[productionMode][decayMode][histogramName->first] = histogram;
+            }
           }
         }
 

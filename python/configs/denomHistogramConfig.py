@@ -94,6 +94,7 @@ class denomHistogramConfig:
     """
     def __init__(self,
             configDir,
+            localDir,
             outputDir,
             output_file,
             executable,
@@ -109,10 +110,12 @@ class denomHistogramConfig:
             verbose  = False,
             dry_run  = False,
             use_home = False,
+            keep_logs = False,
             submission_cmd = None,
           ):
 
         self.configDir             = configDir
+        self.localDir              = localDir
         self.outputDir             = outputDir
         self.executable            = executable
         self.max_num_jobs          = 200000
@@ -125,13 +128,14 @@ class denomHistogramConfig:
         self.verbose               = verbose
         self.dry_run               = dry_run
         self.use_home              = use_home
+        self.keep_logs             = keep_logs
         if running_method.lower() not in ["sbatch", "makefile"]:
           raise ValueError("Invalid running method: %s" % running_method)
 
         self.running_method    = running_method
         self.is_sbatch         = self.running_method.lower() == "sbatch"
         self.is_makefile       = not self.is_sbatch
-        self.makefile          = os.path.join(self.configDir, "Makefile_nonResDenom")
+        self.makefile          = os.path.join(self.localDir, "Makefile_nonResDenom")
         self.num_parallel_jobs = num_parallel_jobs
         self.pool_id           = pool_id if pool_id else uuid.uuid4()
 
@@ -143,19 +147,20 @@ class denomHistogramConfig:
         logging.info("Templates directory is: %s" % self.template_dir)
 
         create_if_not_exists(self.configDir)
+        create_if_not_exists(self.localDir)
         create_if_not_exists(self.outputDir)
         self.output_file      = os.path.join(self.outputDir, output_file)
-        self.stdout_file_path = os.path.join(self.configDir, "stdout_nonResDenom.log")
-        self.stderr_file_path = os.path.join(self.configDir, "stderr_nonResDenom.log")
-        self.sw_ver_file_cfg  = os.path.join(self.configDir, "VERSION_nonResDenom.log")
+        self.stdout_file_path = os.path.join(self.localDir, "stdout_nonResDenom.log")
+        self.stderr_file_path = os.path.join(self.localDir, "stderr_nonResDenom.log")
+        self.sw_ver_file_cfg  = os.path.join(self.localDir, "VERSION_nonResDenom.log")
         self.sw_ver_file_out  = os.path.join(self.outputDir, "VERSION_nonResDenom.log")
-        self.submission_out   = os.path.join(self.configDir, "SUBMISSION_nonResDenom.log")
+        self.submission_out   = os.path.join(self.localDir, "SUBMISSION_nonResDenom.log")
         self.stdout_file_path, self.stderr_file_path, self.sw_ver_file_cfg, self.sw_ver_file_out, self.submission_out = get_log_version((
             self.stdout_file_path, self.stderr_file_path, self.sw_ver_file_cfg, self.sw_ver_file_out, self.submission_out
         ))
         check_submission_cmd(self.submission_out, submission_cmd)
 
-        self.sbatchFile_nonResDenom = os.path.join(self.configDir, "sbatch_nonResDenom.py")
+        self.sbatchFile_nonResDenom = os.path.join(self.localDir, "sbatch_nonResDenom.py")
         self.cfgFiles_nonResDenom    = {}
         self.logFiles_nonResDenom    = {}
         self.scriptFiles_nonResDenom = {}
@@ -166,7 +171,7 @@ class denomHistogramConfig:
         self.outputFiles     = {}
 
         self.phoniesToAdd = []
-        self.filesToClean = []
+        self.filesToClean = [ self.configDir ]
         self.targets = []
 
         self.dirs = {}
@@ -199,12 +204,16 @@ class denomHistogramConfig:
                     continue
                 initDict(self.dirs, [ key_dir, dir_type ])
                 if dir_type in cfg_dirs:
-                    self.dirs[key_dir][dir_type] = os.path.join(self.configDir, dir_type, process_name)
+                    dir_choice = self.configDir if dir_type == DKEY_CFGS else self.localDir
+                    self.dirs[key_dir][dir_type] = os.path.join(dir_choice, dir_type, process_name)
                 else:
                     self.dirs[key_dir][dir_type] = os.path.join(self.outputDir, dir_type, process_name)
         for dir_type in cfg_dirs:
             initDict(self.dirs, [ dir_type ])
-            self.dirs[dir_type] = os.path.join(self.configDir, dir_type)
+            dir_choice = self.configDir if dir_type == DKEY_CFGS else self.localDir
+            self.dirs[dir_type] = os.path.join(dir_choice, dir_type)
+            if dir_choice != self.configDir:
+                self.filesToClean.append(self.dirs[dir_type])
 
         self.cvmfs_error_log = {}
         self.num_jobs = {
@@ -247,6 +256,7 @@ class denomHistogramConfig:
             output_file_names       = { key: value[key_output_file] for key, value in jobOptions.items() },
             script_file_names       = { key: value[key_script_file] for key, value in jobOptions.items() },
             log_file_names          = { key: value[key_log_file]    for key, value in jobOptions.items() },
+            keep_logs               = self.keep_logs,
             working_dir             = self.workingDir,
             max_num_jobs            = self.max_num_jobs,
             cvmfs_error_log         = self.cvmfs_error_log,
@@ -313,7 +323,6 @@ class denomHistogramConfig:
                     "\t%s" % ":",
                     "",
                 ])
-            self.filesToClean.append(output_file)
         self.phoniesToAdd.append(MAKEFILE_TARGET)
 
     def addToMakefile_hadd(self, lines_makefile):
@@ -343,7 +352,6 @@ class denomHistogramConfig:
                 "\tpython %s" % scriptFiles[key],
                 "",
             ])
-            self.filesToClean.append(cfg['outputFile'])
 
     def addToMakefile_plot(self, lines_makefile):
         cmd_string = "plot_from_histogram.py -i %s -j %s -o %s -x 'm_{HH}' " \
@@ -377,7 +385,6 @@ class denomHistogramConfig:
             plot_files = [
                 jobOptions[key]['jobs'][plot_type]['outputFile'] for plot_type in jobOptions[key]['jobs']
             ]
-            self.filesToClean.extend(plot_files)
             self.targets.extend(plot_files)
 
         for cfg in jobOptions.values():
@@ -414,7 +421,6 @@ class denomHistogramConfig:
                 "",
             ])
             self.num_jobs['hadd'] += 1
-        self.filesToClean.append(self.output_file)
         self.targets.append(self.output_file)
 
     def createMakefile(self, lines_makefile):

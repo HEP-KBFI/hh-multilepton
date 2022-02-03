@@ -41,6 +41,7 @@ class analyzeConfig_Zjetsctrl_fakes(analyzeConfig_hh):
   """
   def __init__(self,
         configDir,
+        localDir,
         outputDir,
         executable_analyze,
         cfgFile_analyze,
@@ -75,10 +76,12 @@ class analyzeConfig_Zjetsctrl_fakes(analyzeConfig_hh):
         use_nonnominal            = False,
         hlt_filter                = False,
         use_home                  = False,
+        keep_logs                 = False,
         submission_cmd            = None,
       ):
     analyzeConfig_hh.__init__(self,
       configDir                 = configDir,
+      localDir                  = localDir,
       outputDir                 = outputDir,
       executable_analyze        = executable_analyze,
       channel                   = "Zjetsctrl_fakes",
@@ -104,6 +107,7 @@ class analyzeConfig_Zjetsctrl_fakes(analyzeConfig_hh):
       dry_run                   = dry_run,
       isDebug                   = isDebug,
       use_home                  = use_home,
+      keep_logs                 = keep_logs,
       template_dir              = os.path.join(os.getenv('CMSSW_BASE'), 'src', 'hhAnalysis', 'multilepton', 'test', 'templates'),
       submission_cmd            = submission_cmd,
       use_dymumu_tau_fr         = True,
@@ -259,7 +263,7 @@ class analyzeConfig_Zjetsctrl_fakes(analyzeConfig_hh):
                     continue
                   initDict(self.dirs, [ key_dir, dir_type ])
                   if dir_type in [ DKEY_CFGS, DKEY_LOGS ]:
-                    self.dirs[key_dir][dir_type] = os.path.join(self.configDir, dir_type, self.channel,
+                    self.dirs[key_dir][dir_type] = os.path.join(self.get_dir_type(dir_type), dir_type, self.channel,
                       "_".join([ lepton_selection_and_frWeight, leptonChargeSelection ]), process_name_or_dummy, central_or_shift_or_dummy)
                   else:
                     self.dirs[key_dir][dir_type] = os.path.join(self.outputDir, dir_type, self.channel,
@@ -269,7 +273,7 @@ class analyzeConfig_Zjetsctrl_fakes(analyzeConfig_hh):
       for dir_type in [ DKEY_CFGS, DKEY_HIST, DKEY_LOGS, DKEY_DCRD, DKEY_PLOT ]:
         initDict(self.dirs, [ key_dir, dir_type ])
         if dir_type in [ DKEY_CFGS, DKEY_LOGS, DKEY_DCRD, DKEY_PLOT ]:
-          self.dirs[key_dir][dir_type] = os.path.join(self.configDir, dir_type, self.channel, subdirectory)
+          self.dirs[key_dir][dir_type] = os.path.join(self.get_dir_type(dir_type), dir_type, self.channel, subdirectory)
         else:
           self.dirs[key_dir][dir_type] = os.path.join(self.outputDir, dir_type, self.channel, subdirectory)                    
     for dir_type in [ DKEY_CFGS, DKEY_SCRIPTS, DKEY_HIST, DKEY_LOGS, DKEY_DCRD, DKEY_PLOT, DKEY_HADD_RT, DKEY_SYNC ]:
@@ -277,7 +281,7 @@ class analyzeConfig_Zjetsctrl_fakes(analyzeConfig_hh):
         continue
       initDict(self.dirs, [ dir_type ])
       if dir_type in [ DKEY_CFGS, DKEY_SCRIPTS, DKEY_LOGS, DKEY_DCRD, DKEY_PLOT, DKEY_HADD_RT ]:
-        self.dirs[dir_type] = os.path.join(self.configDir, dir_type, self.channel)
+        self.dirs[dir_type] = os.path.join(self.get_dir_type(dir_type), dir_type, self.channel)
       else:
         self.dirs[dir_type] = os.path.join(self.outputDir, dir_type, self.channel)
 

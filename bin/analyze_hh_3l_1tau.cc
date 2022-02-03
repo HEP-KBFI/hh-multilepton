@@ -38,7 +38,6 @@
 #include "tthAnalysis/HiggsToTauTau/interface/RecoMuonReader.h" // RecoMuonReader
 #include "tthAnalysis/HiggsToTauTau/interface/RecoHadTauReader.h" // RecoHadTauReader
 #include "tthAnalysis/HiggsToTauTau/interface/RecoJetReader.h" // RecoJetReader
-#include "tthAnalysis/HiggsToTauTau/interface/RecoJetReaderAK8.h" // RecoJetReaderAK8
 #include "tthAnalysis/HiggsToTauTau/interface/RecoMEtReader.h" // RecoMEtReader
 #include "tthAnalysis/HiggsToTauTau/interface/MEtFilterReader.h" // MEtFilterReader
 #include "tthAnalysis/HiggsToTauTau/interface/GenLeptonReader.h" // GenLeptonReader
@@ -520,11 +519,12 @@ int main(int argc, char* argv[])
   std::vector<std::string> HHBMNames;
   if(apply_HH_rwgt_lo || apply_HH_rwgt_nlo)
   {
+    HHWeightNames = hhWeight_couplings->get_weight_names();
+    HHBMNames = hhWeight_couplings->get_bm_names();
+
     if(apply_HH_rwgt_lo)
     {
       HHWeightLO_calc = new HHWeightInterfaceLO(hhWeight_couplings, hhWeight_cfg);
-      HHWeightNames = hhWeight_couplings->get_weight_names();
-      HHBMNames = hhWeight_couplings->get_bm_names();
     }
 
     if(apply_HH_rwgt_nlo)
@@ -865,7 +865,7 @@ int main(int argc, char* argv[])
     bdt_filler = new std::remove_pointer<decltype(bdt_filler)>::type(
       makeHistManager_cfg(process_string, Form("%s/sel/evtntuple", histogramDir.data()), era_string, central_or_shift_main)
     );
-    if(apply_HH_rwgt_lo)
+    if(apply_HH_rwgt_lo || apply_HH_rwgt_nlo)
     {
       for(auto bmName : HHWeightNames)
       {
@@ -1774,7 +1774,7 @@ int main(int argc, char* argv[])
     //std::vector<SVfit4tauResult> svFit4tauResults_wMassConstraint_Z = compSVfit4tau(
     //  *selLepton_lead, *selLepton_sublead, *selLepton_third, *selHadTau, met, chargeSumSelection_string, rnd, 91.2, 2.);
 
-    double dihiggsVisMass_sel = (selLepton_lead->p4() + selLepton_sublead->p4() + selLepton_third->p4() + selHadTau->p4()).mass();
+    double dihiggsVisMass_sel = (selLepton_lead->cone_p4() + selLepton_sublead->cone_p4() + selLepton_third->cone_p4() + selHadTau->p4()).mass();
     //double dihiggsMass = ( svFit4tauResults_wMassConstraint.size() >= 1 && svFit4tauResults_wMassConstraint[0].isValidSolution_ ) ? 
     //  svFit4tauResults_wMassConstraint[0].dihiggs_mass_ : -1.;
 
@@ -1820,9 +1820,9 @@ int main(int argc, char* argv[])
     //--- retrieve gen-matching flags
     std::vector<const GenMatchEntry*> genMatches = genMatchInterface.getGenMatch(selLeptons, selHadTaus);
     //---additional evt variables
-    TLorentzVector lep1LV(selLepton_lead->p4().px(),selLepton_lead->p4().py(),selLepton_lead->p4().pz(),selLepton_lead->p4().energy());
-    TLorentzVector lep2LV(selLepton_sublead->p4().px(),selLepton_sublead->p4().py(),selLepton_sublead->p4().pz(),selLepton_sublead->p4().energy());
-    TLorentzVector lep3LV(selLepton_third->p4().px(),selLepton_third->p4().py(),selLepton_third->p4().pz(),selLepton_third->p4().energy());
+    TLorentzVector lep1LV(selLepton_lead->cone_p4().px(),selLepton_lead->cone_p4().py(),selLepton_lead->cone_p4().pz(),selLepton_lead->cone_p4().energy());
+    TLorentzVector lep2LV(selLepton_sublead->cone_p4().px(),selLepton_sublead->cone_p4().py(),selLepton_sublead->cone_p4().pz(),selLepton_sublead->cone_p4().energy());
+    TLorentzVector lep3LV(selLepton_third->cone_p4().px(),selLepton_third->cone_p4().py(),selLepton_third->cone_p4().pz(),selLepton_third->cone_p4().energy());
     TLorentzVector tau1LV(selHadTau->p4().px(),selHadTau->p4().py(),selHadTau->p4().pz(),selHadTau->p4().energy());
     TLorentzVector metLV(met.p4().px(),met.p4().py(),met.p4().pz(),met.p4().energy());
     double mT_nonZlepMET = -1;
@@ -1842,21 +1842,21 @@ int main(int argc, char* argv[])
       nSFOS = nSFOS + 1;
     }
     if( ((selLepton_lead->charge()*selLepton_sublead->charge())< 0.)&&(selLepton_lead_type==selLepton_sublead_type)){
-      mllOS_closestToZ = (selLepton_lead->p4()+selLepton_sublead->p4()).mass();
+      mllOS_closestToZ = (selLepton_lead->cone_p4()+selLepton_sublead->cone_p4()).mass();
       mT_nonZlepMET = comp_MT_met(selLepton_third, met.pt(), met.phi());
       TLorentzVector temppair = tau1LV+lep3LV;
       mZ_tau = std::sqrt(2. * temppair.Pt() * met.pt() * (1. - std::cos(temppair.Phi() - met.phi())));
       dPhi_nonZlMET = TMath::Abs(metLV.DeltaPhi(lep3LV));
     }
     if( ( (selLepton_lead->charge()*selLepton_third->charge()) < 0. ) &&(selLepton_lead_type==selLepton_third_type)&& ( (mllOS_closestToZ <0) || ( TMath::Abs((selLepton_lead->p4()+selLepton_third->p4()).mass()-91.1876)< TMath::Abs(mllOS_closestToZ-91.1876) )) ){
-      mllOS_closestToZ = ((selLepton_lead->p4()+selLepton_third->p4()).mass());
+      mllOS_closestToZ = ((selLepton_lead->cone_p4()+selLepton_third->cone_p4()).mass());
       mT_nonZlepMET = comp_MT_met(selLepton_sublead, met.pt(), met.phi());
       TLorentzVector temppair = tau1LV+lep2LV;
       mZ_tau = std::sqrt(2. * temppair.Pt() * met.pt() * (1. - std::cos(temppair.Phi() - met.phi())));
       dPhi_nonZlMET = TMath::Abs(metLV.DeltaPhi(lep2LV));
     }
     if( ( (selLepton_sublead->charge()*selLepton_third->charge()) < 0. ) &&(selLepton_sublead_type==selLepton_third_type)&& ( (mllOS_closestToZ <0) || ( TMath::Abs((selLepton_sublead->p4()+selLepton_third->p4()).mass()-91.1876)< TMath::Abs(mllOS_closestToZ-91.1876) )) ){
-      mllOS_closestToZ = ((selLepton_sublead->p4()+selLepton_third->p4()).mass());
+      mllOS_closestToZ = ((selLepton_sublead->cone_p4()+selLepton_third->cone_p4()).mass());
       mT_nonZlepMET = comp_MT_met(selLepton_lead, met.pt(), met.phi());
       TLorentzVector temppair = tau1LV+lep1LV;
       mZ_tau = std::sqrt(2. * temppair.Pt() * met.pt() * (1. - std::cos(temppair.Phi() - met.phi())));
@@ -1891,7 +1891,7 @@ int main(int argc, char* argv[])
     }
     TLorentzVector temppair_hh = tau1LV+lep1LV+lep2LV+lep3LV;
     double mHHT_construct = std::sqrt(2. * temppair_hh.Pt() * met.pt() * (1. - std::cos(temppair_hh.Phi() - met.phi())));
-    double mHH_contruct =(selLepton_lead->p4()+selLepton_sublead->p4()+selLepton_third->p4()+ selHadTau->p4()+met.p4()).mass();
+    double mHH_contruct =(selLepton_lead->cone_p4()+selLepton_sublead->cone_p4()+selLepton_third->cone_p4()+ selHadTau->p4()+met.p4()).mass();
 
     double dR_ltau_minltaupair = -1;
     double dEta_ltau_minltaupair = -1;
@@ -2148,12 +2148,12 @@ int main(int argc, char* argv[])
       pTDiff_smartpair1 = TMath::Abs(p2_p1LV.Pt()-p2_p2LV.Pt());
     }
 
-    double mlll = (selLepton_lead->p4()+selLepton_sublead->p4()+selLepton_third->p4()).mass();
-    double mAll = (selLepton_lead->p4()+selLepton_sublead->p4()+selLepton_third->p4()+ selHadTau->p4()).mass();
-    //    double pT4l = (selLepton_lead->p4()+selLepton_sublead->p4()+selLepton_third->p4()+ selHadTau->p4()).pt(); 
+    double mlll = (selLepton_lead->cone_p4()+selLepton_sublead->cone_p4()+selLepton_third->cone_p4()).mass();
+    double mAll = (selLepton_lead->cone_p4()+selLepton_sublead->cone_p4()+selLepton_third->cone_p4()+ selHadTau->p4()).mass();
+    //    double pT4l = (selLepton_lead->cone_p4()+selLepton_sublead->cone_p4()+selLepton_third->cone_p4()+ selHadTau->p4()).pt();
     TLorentzVector allLep = lep1LV+lep2LV+lep3LV+tau1LV;
 
-    Particle::LorentzVector p4l = selLepton_lead->p4()+selLepton_sublead->p4()+selLepton_third->p4()+selHadTau->p4();
+    Particle::LorentzVector p4l = selLepton_lead->cone_p4()+selLepton_sublead->cone_p4()+selLepton_third->cone_p4()+selHadTau->p4();
     TVector3 pt4lVetor(p4l.px(),p4l.py(),0);
     TVector3 metVector(met.p4().px(),met.p4().py(),0);
     TVector3 hadTVector = -metVector-pt4lVetor;
@@ -2208,9 +2208,9 @@ int main(int argc, char* argv[])
       //tau_antiElectron_unmatched=selHadTau->antiElectron();
     //}
     
-    double m_l1tau = (selLepton_lead->p4()+selHadTau->p4()).mass();
-    double m_l2tau = (selLepton_sublead->p4()+selHadTau->p4()).mass();
-    double m_l3tau = (selLepton_third->p4()+selHadTau->p4()).mass();
+    double m_l1tau = (selLepton_lead->cone_p4()+selHadTau->p4()).mass();
+    double m_l2tau = (selLepton_sublead->cone_p4()+selHadTau->p4()).mass();
+    double m_l3tau = (selLepton_third->cone_p4()+selHadTau->p4()).mass();
     double m_ltau_closestToZ = m_l1tau;
     double m_OS_ltau_closestToZ = -1;
     if(selLepton_lead->charge()!=selHadTau->charge()) m_OS_ltau_closestToZ = m_l1tau;
@@ -2486,21 +2486,21 @@ int main(int argc, char* argv[])
 	  }
 	}
       }
-      const double deltaEta_lep1_lep2 = (selLepton_lead->p4() - selLepton_sublead->p4()).eta();
-      const double deltaEta_lep1_tau1 = (selLepton_lead->p4() - selHadTau->p4()).eta();
-      const double deltaEta_lep2_tau1 = (selLepton_sublead->p4() - selHadTau->p4()).eta();
-      const double deltaEta_lep1_lep3 = (selLepton_lead->p4() - selLepton_third->p4()).eta();
-      const double deltaEta_lep2_lep3 = (selLepton_sublead->p4() - selLepton_third->p4()).eta();
-      const double deltaEta_lep3_tau1 = (selLepton_third->p4() - selHadTau->p4()).eta();
+      const double deltaEta_lep1_lep2 = (selLepton_lead->cone_p4() - selLepton_sublead->cone_p4()).eta();
+      const double deltaEta_lep1_tau1 = (selLepton_lead->cone_p4() - selHadTau->p4()).eta();
+      const double deltaEta_lep2_tau1 = (selLepton_sublead->cone_p4() - selHadTau->p4()).eta();
+      const double deltaEta_lep1_lep3 = (selLepton_lead->cone_p4() - selLepton_third->cone_p4()).eta();
+      const double deltaEta_lep2_lep3 = (selLepton_sublead->cone_p4() - selLepton_third->cone_p4()).eta();
+      const double deltaEta_lep3_tau1 = (selLepton_third->cone_p4() - selHadTau->p4()).eta();
       const double deltaPhi_lep1_lep2 = lep1LV.DeltaPhi(lep2LV);
       const double deltaPhi_lep1_tau1 = lep1LV.DeltaPhi(tau1LV);
       const double deltaPhi_lep2_tau1 = lep2LV.DeltaPhi(tau1LV);
       const double deltaPhi_lep1_lep3 = lep1LV.DeltaPhi(lep3LV);
       const double deltaPhi_lep2_lep3 = lep2LV.DeltaPhi(lep3LV);
       const double deltaPhi_lep3_tau1 = lep3LV.DeltaPhi(tau1LV);
-      const double m_lep1_tau1 = (selLepton_lead->p4() + selHadTau->p4()).mass();
-      const double m_lep2_tau1 = (selLepton_sublead->p4() + selHadTau->p4()).mass();
-      const double m_lep3_tau1 = (selLepton_third->p4() + selHadTau->p4()).mass();
+      const double m_lep1_tau1 = (selLepton_lead->cone_p4() + selHadTau->p4()).mass();
+      const double m_lep2_tau1 = (selLepton_sublead->cone_p4() + selHadTau->p4()).mass();
+      const double m_lep3_tau1 = (selLepton_third->cone_p4() + selHadTau->p4()).mass();
       const double dr_lep1_tau1 = deltaR(selLepton_lead->p4(),    selHadTau->p4());
       const double dr_lep2_tau1 = deltaR(selLepton_sublead->p4(), selHadTau->p4());
       const double dr_lep3_tau1 = deltaR(selLepton_third->p4(), selHadTau->p4());

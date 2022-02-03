@@ -481,11 +481,12 @@ int main(int argc, char* argv[])
   std::vector<std::string> HHBMNames;
   if(apply_HH_rwgt_lo || apply_HH_rwgt_nlo)
   {
+    HHWeightNames = hhWeight_couplings->get_weight_names();
+    HHBMNames = hhWeight_couplings->get_bm_names();
+
     if(apply_HH_rwgt_lo)
     {
       HHWeightLO_calc = new HHWeightInterfaceLO(hhWeight_couplings, hhWeight_cfg);
-      HHWeightNames = hhWeight_couplings->get_weight_names();
-      HHBMNames = hhWeight_couplings->get_bm_names();
     }
 
     if(apply_HH_rwgt_nlo)
@@ -787,7 +788,7 @@ int main(int argc, char* argv[])
     bdt_filler = new std::remove_pointer<decltype(bdt_filler)>::type(
       makeHistManager_cfg(process_string, Form("%s/sel/evtntuple", histogramDir.data()), era_string, central_or_shift_main)
     );
-    if(apply_HH_rwgt_lo)
+    if(apply_HH_rwgt_lo || apply_HH_rwgt_lo)
     {
       for(auto bmName : HHWeightNames)
       {
@@ -1439,7 +1440,7 @@ int main(int argc, char* argv[])
     double lep2_dz = selLepton_sublead->dz();
     double lep3_dz = selLepton_third->dz();
     double lep4_dz = selLepton_fourth->dz();
-    Particle::LorentzVector p4l = selLepton_lead->p4()+selLepton_sublead->p4()+selLepton_third->p4()+selLepton_fourth->p4();
+    Particle::LorentzVector p4l = selLepton_lead->cone_p4()+selLepton_sublead->cone_p4()+selLepton_third->cone_p4()+selLepton_fourth->cone_p4();
     TVector3 pt4lVetor(p4l.px(),p4l.py(),0);
     TVector3 metVector(met.p4().px(),met.p4().py(),0);
     TVector3 hadTVector = -metVector-pt4lVetor;
@@ -1486,30 +1487,30 @@ int main(int argc, char* argv[])
         nSFOS++;
     }
 
-    Particle::LorentzVector maxPtSum_pair1lep1 = selLepton_lead->p4();
-    Particle::LorentzVector maxPtSum_pair2lep1 = selLepton_sublead->p4();
-    Particle::LorentzVector maxPtSum_pair1lep2 = selLepton_third->p4();
-    Particle::LorentzVector maxPtSum_pair2lep2 = selLepton_fourth->p4();
+    Particle::LorentzVector maxPtSum_pair1lep1 = selLepton_lead->cone_p4();
+    Particle::LorentzVector maxPtSum_pair2lep1 = selLepton_sublead->cone_p4();
+    Particle::LorentzVector maxPtSum_pair1lep2 = selLepton_third->cone_p4();
+    Particle::LorentzVector maxPtSum_pair2lep2 = selLepton_fourth->cone_p4();
 
-    Particle::LorentzVector maxSubleadPt_pair1lep1 = selLepton_lead->p4();
-    Particle::LorentzVector maxSubleadPt_pair2lep1 = selLepton_sublead->p4();
-    Particle::LorentzVector maxSubleadPt_pair1lep2 = selLepton_third->p4();
-    Particle::LorentzVector maxSubleadPt_pair2lep2 = selLepton_fourth->p4();
+    Particle::LorentzVector maxSubleadPt_pair1lep1 = selLepton_lead->cone_p4();
+    Particle::LorentzVector maxSubleadPt_pair2lep1 = selLepton_sublead->cone_p4();
+    Particle::LorentzVector maxSubleadPt_pair1lep2 = selLepton_third->cone_p4();
+    Particle::LorentzVector maxSubleadPt_pair2lep2 = selLepton_fourth->cone_p4();
 
-    Particle::LorentzVector minDeltaRSum_pair1lep1 = selLepton_lead->p4();
-    Particle::LorentzVector minDeltaRSum_pair2lep1 = selLepton_sublead->p4();
-    Particle::LorentzVector minDeltaRSum_pair1lep2 = selLepton_third->p4();
-    Particle::LorentzVector minDeltaRSum_pair2lep2 = selLepton_fourth->p4();
+    Particle::LorentzVector minDeltaRSum_pair1lep1 = selLepton_lead->cone_p4();
+    Particle::LorentzVector minDeltaRSum_pair2lep1 = selLepton_sublead->cone_p4();
+    Particle::LorentzVector minDeltaRSum_pair1lep2 = selLepton_third->cone_p4();
+    Particle::LorentzVector minDeltaRSum_pair2lep2 = selLepton_fourth->cone_p4();
 
-    Particle::LorentzVector minSubclosestDeltaR_pair1lep1 = selLepton_lead->p4();
-    Particle::LorentzVector minSubclosestDeltaR_pair2lep1 = selLepton_sublead->p4();
-    Particle::LorentzVector minSubclosestDeltaR_pair1lep2 = selLepton_third->p4();
-    Particle::LorentzVector minSubclosestDeltaR_pair2lep2 = selLepton_fourth->p4();
+    Particle::LorentzVector minSubclosestDeltaR_pair1lep1 = selLepton_lead->cone_p4();
+    Particle::LorentzVector minSubclosestDeltaR_pair2lep1 = selLepton_sublead->cone_p4();
+    Particle::LorentzVector minSubclosestDeltaR_pair1lep2 = selLepton_third->cone_p4();
+    Particle::LorentzVector minSubclosestDeltaR_pair2lep2 = selLepton_fourth->cone_p4();
 
-    Particle::LorentzVector pair1lep1 = selLepton_lead->p4();
-    Particle::LorentzVector pair1lep2 = selLepton_third->p4();
-    Particle::LorentzVector pair2lep1 = selLepton_sublead->p4();
-    Particle::LorentzVector pair2lep2 = selLepton_fourth->p4();
+    Particle::LorentzVector pair1lep1 = selLepton_lead->cone_p4();
+    Particle::LorentzVector pair1lep2 = selLepton_third->cone_p4();
+    Particle::LorentzVector pair2lep1 = selLepton_sublead->cone_p4();
+    Particle::LorentzVector pair2lep2 = selLepton_fourth->cone_p4();
 
     bool lep1lep2OS = (selLepton_lead->charge() != selLepton_sublead->charge());
     bool lep1lep3OS = (selLepton_lead->charge() != selLepton_third->charge());
@@ -1518,8 +1519,8 @@ int main(int argc, char* argv[])
       {
 	if (!lep1lep3OS)
 	  {
-	    pair1lep2 = selLepton_fourth->p4();
-	    pair2lep2 = selLepton_third->p4();
+            pair1lep2 = selLepton_fourth->cone_p4();
+            pair2lep2 = selLepton_third->cone_p4();
 	  }
 	if ((pair1lep1 + pair1lep2).mass() < 130 && (pair2lep1 + pair2lep2).mass() < 130)
 	  {
@@ -1545,10 +1546,10 @@ int main(int argc, char* argv[])
 	  }
 	else
 	  {
-	    pair1lep1 = selLepton_lead->p4();
-	    pair1lep2 = selLepton_sublead->p4();
-	    pair2lep1 = selLepton_third->p4();
-	    pair2lep2 = selLepton_fourth->p4();
+            pair1lep1 = selLepton_lead->cone_p4();
+            pair1lep2 = selLepton_sublead->cone_p4();
+            pair2lep1 = selLepton_third->cone_p4();
+            pair2lep2 = selLepton_fourth->cone_p4();
 	    if ((pair1lep1 + pair1lep2).mass() < 130 && (pair2lep1 + pair2lep2).mass() < 130)
 	      {
 		maxPtSum_pair1lep1 = pair1lep1;
@@ -1575,25 +1576,25 @@ int main(int argc, char* argv[])
 	      {
 		if (lep1lep3OS)
 		  {
-		    pair1lep1 = selLepton_lead->p4();
-		    pair1lep2 = selLepton_third->p4();
-		    pair2lep1 = selLepton_sublead->p4();
-		    pair2lep2 = selLepton_fourth->p4();
+                    pair1lep1 = selLepton_lead->cone_p4();
+                    pair1lep2 = selLepton_third->cone_p4();
+                    pair2lep1 = selLepton_sublead->cone_p4();
+                    pair2lep2 = selLepton_fourth->cone_p4();
 		  }
 		else
 		  {
-		    pair1lep1 = selLepton_lead->p4();
-		    pair1lep2 = selLepton_fourth->p4();
-		    pair2lep1 = selLepton_sublead->p4();
-		    pair2lep2 = selLepton_third->p4();
+                    pair1lep1 = selLepton_lead->cone_p4();
+                    pair1lep2 = selLepton_fourth->cone_p4();
+                    pair2lep1 = selLepton_sublead->cone_p4();
+                    pair2lep2 = selLepton_third->cone_p4();
 		  }
-		if ((selLepton_lead->p4() + selLepton_sublead->p4()).pt() + (selLepton_third->p4() + selLepton_fourth->p4()).pt() >
+                if ((selLepton_lead->cone_p4() + selLepton_sublead->cone_p4()).pt() + (selLepton_third->cone_p4() + selLepton_fourth->cone_p4()).pt() >
 		    (pair1lep1 + pair1lep2).pt() + (pair2lep1 + pair2lep2).pt())
 		  {
-		    maxPtSum_pair1lep1 = selLepton_lead->p4();
-		    maxPtSum_pair1lep2 = selLepton_sublead->p4();
-		    maxPtSum_pair2lep1 = selLepton_third->p4();
-		    maxPtSum_pair2lep2 = selLepton_fourth->p4();
+                    maxPtSum_pair1lep1 = selLepton_lead->cone_p4();
+                    maxPtSum_pair1lep2 = selLepton_sublead->cone_p4();
+                    maxPtSum_pair2lep1 = selLepton_third->cone_p4();
+                    maxPtSum_pair2lep2 = selLepton_fourth->cone_p4();
 		  }
 		else
 		  {
@@ -1603,13 +1604,13 @@ int main(int argc, char* argv[])
 		    maxPtSum_pair2lep2 = pair2lep2;
 		  }
 
-		if (std::min((selLepton_lead->p4() + selLepton_sublead->p4()).pt(), (selLepton_third->p4() + selLepton_fourth->p4()).pt()) >
+                if (std::min((selLepton_lead->cone_p4() + selLepton_sublead->cone_p4()).pt(), (selLepton_third->cone_p4() + selLepton_fourth->cone_p4()).pt()) >
 		    std::min((pair1lep1 + pair1lep2).pt(), (pair2lep1 + pair2lep2).pt()))
 		  {
-		    maxSubleadPt_pair1lep1 = selLepton_lead->p4();
-		    maxSubleadPt_pair1lep2 = selLepton_sublead->p4();
-		    maxSubleadPt_pair2lep1 = selLepton_third->p4();
-		    maxSubleadPt_pair2lep2 = selLepton_fourth->p4();
+                    maxSubleadPt_pair1lep1 = selLepton_lead->cone_p4();
+                    maxSubleadPt_pair1lep2 = selLepton_sublead->cone_p4();
+                    maxSubleadPt_pair2lep1 = selLepton_third->cone_p4();
+                    maxSubleadPt_pair2lep2 = selLepton_fourth->cone_p4();
 		  }
 		else
 		  {
@@ -1619,13 +1620,13 @@ int main(int argc, char* argv[])
 		    maxSubleadPt_pair2lep2 = pair2lep2;
 		  }
 
-		if (deltaR(selLepton_lead->p4(), selLepton_sublead->p4()) + deltaR(selLepton_third->p4(), selLepton_fourth->p4()) <
+                if (deltaR(selLepton_lead->cone_p4(), selLepton_sublead->cone_p4()) + deltaR(selLepton_third->cone_p4(), selLepton_fourth->cone_p4()) <
 		    deltaR(pair1lep1, pair1lep2) + deltaR(pair2lep1, pair2lep2))
 		  {
-		    minDeltaRSum_pair1lep1 = selLepton_lead->p4();
-		    minDeltaRSum_pair1lep2 = selLepton_sublead->p4();
-		    minDeltaRSum_pair2lep1 = selLepton_third->p4();
-		    minDeltaRSum_pair2lep2 = selLepton_fourth->p4();
+                    minDeltaRSum_pair1lep1 = selLepton_lead->cone_p4();
+                    minDeltaRSum_pair1lep2 = selLepton_sublead->cone_p4();
+                    minDeltaRSum_pair2lep1 = selLepton_third->cone_p4();
+                    minDeltaRSum_pair2lep2 = selLepton_fourth->cone_p4();
 		  }
 		else
 		  {
@@ -1635,13 +1636,13 @@ int main(int argc, char* argv[])
 		    minDeltaRSum_pair2lep2 = pair2lep2;
 		  }
 
-		if (std::max(deltaR(selLepton_lead->p4(), selLepton_sublead->p4()), deltaR(selLepton_third->p4(), selLepton_fourth->p4())) <
+                if (std::max(deltaR(selLepton_lead->cone_p4(), selLepton_sublead->cone_p4()), deltaR(selLepton_third->cone_p4(), selLepton_fourth->cone_p4())) <
 		    std::max(deltaR(pair1lep1, pair1lep2), deltaR(pair2lep1, pair2lep2)))
 		  {
-		    minSubclosestDeltaR_pair1lep1 = selLepton_lead->p4();
-		    minSubclosestDeltaR_pair1lep2 = selLepton_sublead->p4();
-		    minSubclosestDeltaR_pair2lep1 = selLepton_third->p4();
-		    minSubclosestDeltaR_pair2lep2 = selLepton_fourth->p4();
+                    minSubclosestDeltaR_pair1lep1 = selLepton_lead->cone_p4();
+                    minSubclosestDeltaR_pair1lep2 = selLepton_sublead->cone_p4();
+                    minSubclosestDeltaR_pair2lep1 = selLepton_third->cone_p4();
+                    minSubclosestDeltaR_pair2lep2 = selLepton_fourth->cone_p4();
 		  }
 		else
 		  {
@@ -1679,8 +1680,8 @@ int main(int argc, char* argv[])
 	  }
 	else
 	  {
-	    pair1lep2 = selLepton_fourth->p4();
-	    pair2lep2 = selLepton_third->p4();
+            pair1lep2 = selLepton_fourth->cone_p4();
+            pair2lep2 = selLepton_third->cone_p4();
 	    if ((pair1lep1 + pair1lep2).mass() < 130 && (pair2lep1 + pair2lep2).mass() < 130)
 	      {
 		maxPtSum_pair1lep1 = pair1lep1;
@@ -1705,68 +1706,68 @@ int main(int argc, char* argv[])
 	      }
 	    else
 	      {
-		if ((selLepton_lead->p4() + selLepton_third->p4()).pt() + (selLepton_sublead->p4() + selLepton_fourth->p4()).pt() >
-		    (selLepton_lead->p4() + selLepton_fourth->p4()).pt() + (selLepton_sublead->p4() + selLepton_third->p4()).pt())
+                if ((selLepton_lead->cone_p4() + selLepton_third->cone_p4()).pt() + (selLepton_sublead->cone_p4() + selLepton_fourth->cone_p4()).pt() >
+                    (selLepton_lead->cone_p4() + selLepton_fourth->cone_p4()).pt() + (selLepton_sublead->cone_p4() + selLepton_third->cone_p4()).pt())
 		  {
-		    maxPtSum_pair1lep1 = selLepton_lead->p4();
-		    maxPtSum_pair1lep2 = selLepton_third->p4();
-		    maxPtSum_pair2lep1 = selLepton_sublead->p4();
-		    maxPtSum_pair2lep2 = selLepton_fourth->p4();
+                    maxPtSum_pair1lep1 = selLepton_lead->cone_p4();
+                    maxPtSum_pair1lep2 = selLepton_third->cone_p4();
+                    maxPtSum_pair2lep1 = selLepton_sublead->cone_p4();
+                    maxPtSum_pair2lep2 = selLepton_fourth->cone_p4();
 		  }
 		else
 		  {
-		    maxPtSum_pair1lep1 = selLepton_lead->p4();
-		    maxPtSum_pair1lep2 = selLepton_fourth->p4();
-		    maxPtSum_pair2lep1 = selLepton_sublead->p4();
-		    maxPtSum_pair2lep2 = selLepton_third->p4();
+                    maxPtSum_pair1lep1 = selLepton_lead->cone_p4();
+                    maxPtSum_pair1lep2 = selLepton_fourth->cone_p4();
+                    maxPtSum_pair2lep1 = selLepton_sublead->cone_p4();
+                    maxPtSum_pair2lep2 = selLepton_third->cone_p4();
 		  }
 
-		if (std::min((selLepton_lead->p4() + selLepton_third->p4()).pt(), (selLepton_sublead->p4() + selLepton_fourth->p4()).pt()) >
-		    std::min((selLepton_lead->p4() + selLepton_fourth->p4()).pt(), (selLepton_sublead->p4() + selLepton_third->p4()).pt()))
+                if (std::min((selLepton_lead->cone_p4() + selLepton_third->cone_p4()).pt(), (selLepton_sublead->cone_p4() + selLepton_fourth->cone_p4()).pt()) >
+                    std::min((selLepton_lead->cone_p4() + selLepton_fourth->cone_p4()).pt(), (selLepton_sublead->cone_p4() + selLepton_third->cone_p4()).pt()))
 		  {
-		    maxSubleadPt_pair1lep1 = selLepton_lead->p4();
-		    maxSubleadPt_pair1lep2 = selLepton_third->p4();
-		    maxSubleadPt_pair2lep1 = selLepton_sublead->p4();
-		    maxSubleadPt_pair2lep2 = selLepton_fourth->p4();
+                    maxSubleadPt_pair1lep1 = selLepton_lead->cone_p4();
+                    maxSubleadPt_pair1lep2 = selLepton_third->cone_p4();
+                    maxSubleadPt_pair2lep1 = selLepton_sublead->cone_p4();
+                    maxSubleadPt_pair2lep2 = selLepton_fourth->cone_p4();
 		  }
 		else
 		  {
-		    maxSubleadPt_pair1lep1 = selLepton_lead->p4();
-		    maxSubleadPt_pair1lep2 = selLepton_fourth->p4();
-		    maxSubleadPt_pair2lep1 = selLepton_sublead->p4();
-		    maxSubleadPt_pair2lep2 = selLepton_third->p4();
+                    maxSubleadPt_pair1lep1 = selLepton_lead->cone_p4();
+                    maxSubleadPt_pair1lep2 = selLepton_fourth->cone_p4();
+                    maxSubleadPt_pair2lep1 = selLepton_sublead->cone_p4();
+                    maxSubleadPt_pair2lep2 = selLepton_third->cone_p4();
 		  }
 
-		if (deltaR(selLepton_lead->p4(), selLepton_third->p4()) + deltaR(selLepton_sublead->p4(), selLepton_fourth->p4()) <
-		    deltaR(selLepton_lead->p4(), selLepton_fourth->p4()) + deltaR(selLepton_sublead->p4(), selLepton_third->p4()))
+                if (deltaR(selLepton_lead->cone_p4(), selLepton_third->cone_p4()) + deltaR(selLepton_sublead->cone_p4(), selLepton_fourth->cone_p4()) <
+                    deltaR(selLepton_lead->cone_p4(), selLepton_fourth->cone_p4()) + deltaR(selLepton_sublead->cone_p4(), selLepton_third->cone_p4()))
 		  {
-		    minDeltaRSum_pair1lep1 = selLepton_lead->p4();
-		    minDeltaRSum_pair1lep2 = selLepton_third->p4();
-		    minDeltaRSum_pair2lep1 = selLepton_sublead->p4();
-		    minDeltaRSum_pair2lep2 = selLepton_fourth->p4();
+                    minDeltaRSum_pair1lep1 = selLepton_lead->cone_p4();
+                    minDeltaRSum_pair1lep2 = selLepton_third->cone_p4();
+                    minDeltaRSum_pair2lep1 = selLepton_sublead->cone_p4();
+                    minDeltaRSum_pair2lep2 = selLepton_fourth->cone_p4();
 		  }
 		else
 		  {
-		    minDeltaRSum_pair1lep1 = selLepton_lead->p4();
-		    minDeltaRSum_pair1lep2 = selLepton_fourth->p4();
-		    minDeltaRSum_pair2lep1 = selLepton_sublead->p4();
-		    minDeltaRSum_pair2lep2 = selLepton_third->p4();
+                    minDeltaRSum_pair1lep1 = selLepton_lead->cone_p4();
+                    minDeltaRSum_pair1lep2 = selLepton_fourth->cone_p4();
+                    minDeltaRSum_pair2lep1 = selLepton_sublead->cone_p4();
+                    minDeltaRSum_pair2lep2 = selLepton_third->cone_p4();
 		  }
 
-		if (std::max(deltaR(selLepton_lead->p4(), selLepton_third->p4()), deltaR(selLepton_sublead->p4(), selLepton_fourth->p4())) <
-		    std::max(deltaR(selLepton_lead->p4(), selLepton_fourth->p4()), deltaR(selLepton_sublead->p4(), selLepton_third->p4())))
+                if (std::max(deltaR(selLepton_lead->cone_p4(), selLepton_third->cone_p4()), deltaR(selLepton_sublead->cone_p4(), selLepton_fourth->cone_p4())) <
+                    std::max(deltaR(selLepton_lead->cone_p4(), selLepton_fourth->cone_p4()), deltaR(selLepton_sublead->cone_p4(), selLepton_third->cone_p4())))
 		  {
-		    minSubclosestDeltaR_pair1lep1 = selLepton_lead->p4();
-		    minSubclosestDeltaR_pair1lep2 = selLepton_third->p4();
-		    minSubclosestDeltaR_pair2lep1 = selLepton_sublead->p4();
-		    minSubclosestDeltaR_pair2lep2 = selLepton_fourth->p4();
+                    minSubclosestDeltaR_pair1lep1 = selLepton_lead->cone_p4();
+                    minSubclosestDeltaR_pair1lep2 = selLepton_third->cone_p4();
+                    minSubclosestDeltaR_pair2lep1 = selLepton_sublead->cone_p4();
+                    minSubclosestDeltaR_pair2lep2 = selLepton_fourth->cone_p4();
 		  }
 		else
 		  {
-		    minSubclosestDeltaR_pair1lep1 = selLepton_lead->p4();
-		    minSubclosestDeltaR_pair1lep2 = selLepton_third->p4();
-		    minSubclosestDeltaR_pair2lep1 = selLepton_sublead->p4();
-		    minSubclosestDeltaR_pair2lep2 = selLepton_fourth->p4();
+                    minSubclosestDeltaR_pair1lep1 = selLepton_lead->cone_p4();
+                    minSubclosestDeltaR_pair1lep2 = selLepton_third->cone_p4();
+                    minSubclosestDeltaR_pair2lep1 = selLepton_sublead->cone_p4();
+                    minSubclosestDeltaR_pair2lep2 = selLepton_fourth->cone_p4();
 		  }
 	      }
 	  }
@@ -2153,7 +2154,7 @@ int main(int argc, char* argv[])
     // std::vector<SVfit4tauResult> svFit4tauResults_wMassConstraint = compSVfit4tau(
     //   *selLepton_lead, *selLepton_sublead, *selLepton_third, *selLepton_fourth, met, leptonChargeSelection_string, rnd, 125., 2.);
         
-    double dihiggsVisMass_sel = (selLepton_lead->p4() + selLepton_sublead->p4() + selLepton_third->p4() + selLepton_fourth->p4()).mass();
+    double dihiggsVisMass_sel = (selLepton_lead->cone_p4() + selLepton_sublead->cone_p4() + selLepton_third->cone_p4() + selLepton_fourth->cone_p4()).mass();
     double dihiggsMass = -10; // ( svFit4tauResults_wMassConstraint.size() >= 1 && svFit4tauResults_wMassConstraint[0].isValidSolution_ ) ? 
     //   svFit4tauResults_wMassConstraint[0].dihiggs_mass_ : -1.;
 
