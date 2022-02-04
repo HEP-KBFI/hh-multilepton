@@ -1105,7 +1105,7 @@ int main(int argc, char* argv[])
 		<< ",\t idxLepton: " << idxLepton << std::endl;
 
       selHistManagerType* selHistManager = new selHistManagerType();
-      if(! skipBooking && 1==1)
+      if(! skipBooking )
       {
         selHistManager->electrons_ = new ElectronHistManager(makeHistManager_cfg(process_and_genMatch,
           Form("%s/sel/electrons", histogramDir.data()), era_string, central_or_shift, "allHistograms"));
@@ -3759,7 +3759,8 @@ int main(int argc, char* argv[])
           selHistManager->met_->fillHistograms(met, mht_p4, met_LD, evtWeight);
           selHistManager->metFilters_->fillHistograms(metFilters, evtWeight);
 	}
-	if(! skipFilling  || isControlRegion)
+	//if(! skipFilling  || isControlRegion)
+	if ( 1==1 ) // fill these histograms for all systematics
         {
           selHistManager->evt_->fillHistograms(
 	    selElectrons.size(),
@@ -4009,6 +4010,7 @@ int main(int argc, char* argv[])
 	    BDTOutput_Map_spin0,
 	    BDTOutput_Map_spin2,
 	    BDTOutput_Map_nonRes,
+	    //
 	    //
 	    //
 	    evtWeight	    
