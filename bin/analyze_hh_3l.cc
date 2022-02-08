@@ -149,6 +149,8 @@ const int hadTauSelection_antiMuon = -1; // not applied
 const int printLevel = 0;
 const int genHHrewgtHistosLevel = 0; // 0: disable all histos, 1: fill minimum set of histos, 2: fill all histos
 
+const bool runKinVarsPlotForFullSyst = true; // true: make histograms for kinematic variables using EvtHistManager_hh_3l for full systematics
+
 double calculateAbsDeltaPhi(double phi1, double phi2)
 {
   double dPhi = std::abs(phi1 - phi2);
@@ -1147,7 +1149,7 @@ int main(int argc, char* argv[])
           Form("%s/sel/metFilters", histogramDir.data()), era_string, central_or_shift));
         selHistManager->metFilters_->bookHistograms(fs);
       }
-      if(! skipBooking || isControlRegion)
+      if(! skipBooking || isControlRegion || runKinVarsPlotForFullSyst)
       {
         selHistManager->evt_ = new EvtHistManager_hh_3l(makeHistManager_cfg(process_and_genMatch,
 	  Form("%s/sel/evt", histogramDir.data()), era_string, central_or_shift), isControlRegion);
@@ -3759,9 +3761,10 @@ int main(int argc, char* argv[])
           selHistManager->met_->fillHistograms(met, mht_p4, met_LD, evtWeight);
           selHistManager->metFilters_->fillHistograms(metFilters, evtWeight);
 	}
-	//if(! skipFilling  || isControlRegion)
-	if ( 1==1 ) // fill these histograms for all systematics
+	if(! skipFilling  || isControlRegion || runKinVarsPlotForFullSyst)
         {
+	  //std::cout << "analyze_hh_3l:: central_or_shift: " << central_or_shift << ", genMatch->getIdx(): " << genMatch->getIdx() << ", selHistManager: " << selHistManager << ", selHistManager->evt_: " << selHistManager->evt_ << std::endl;
+	  
           selHistManager->evt_->fillHistograms(
 	    selElectrons.size(),
 	    selMuons.size(),

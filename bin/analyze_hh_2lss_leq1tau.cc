@@ -138,6 +138,7 @@ const int hadTauSelection_antiMuon = -1; // not applied
 
 const int printLevel = 1;
 
+const bool runKinVarsPlotForFullSyst = true; // true: make histograms for kinematic variables using EvtHistManager_hh_3l for full systematics
 
 double calculateAbsDeltaPhi(double phi1, double phi2)
 {
@@ -921,7 +922,7 @@ int main(int argc, char* argv[])
             Form("%s/sel/metFilters", histogramDir.data()), era_string, central_or_shift));
         selHistManager->metFilters_->bookHistograms(fs);
       }
-      if(! skipBooking)
+      if( (! skipBooking ) || runKinVarsPlotForFullSyst)
       {
         selHistManager->evt_ = new EvtHistManager_hh_2lss_leq1tau(makeHistManager_cfg(process_and_genMatch,
             Form("%s/sel/evt", histogramDir.data()), era_string, central_or_shift));
@@ -2473,8 +2474,9 @@ int main(int argc, char* argv[])
           selHistManager->met_->fillHistograms(met, mhtP4, met_LD, evtWeight);
           selHistManager->metFilters_->fillHistograms(metFilters, evtWeight);
 	}
-	if(! skipFilling )
+	if( (! skipFilling ) || runKinVarsPlotForFullSyst )
         {
+	  //std::cout << "analyze_hh_2lss_leq1tau:: central_or_shift: " << central_or_shift << ", genMatch->getIdx(): " << genMatch->getIdx() << std::endl; 
           selHistManager->evt_->fillHistograms(
             selElectrons.size(),
             selMuons.size(),

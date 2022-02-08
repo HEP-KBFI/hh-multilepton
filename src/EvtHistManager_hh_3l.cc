@@ -2185,15 +2185,17 @@ EvtHistManager_hh_3l::fillHistograms(
   //
   double evtWeight)
 {
+  //std::cout << "EvtHistManager_hh_3l::fillHistograms():: here1 " << std::endl;
+  
   const double evtWeightErr = 0.;
 
   fillWithOverFlow(hEventCounter_,                                      0.,                                                evtWeight, evtWeightErr);
-
+  
   if (m3l > 0.)
     fillWithOverFlow(hm3l_,                                               m3l,                                               evtWeight, evtWeightErr);
   if (dihiggsVisMass_sel > 0.)
     fillWithOverFlow(hdihiggsVisMass_sel_,                                dihiggsVisMass_sel,                                evtWeight, evtWeightErr);
-  if (mSFOS2l_closestToZ > 0.)
+ if (mSFOS2l_closestToZ > 0.)
     fillWithOverFlow(hmSFOS2l_closestToZ_,                                mSFOS2l_closestToZ,                                evtWeight, evtWeightErr);
   if (dr_LeptonIdx3_AK4jNear_Approach2 > 0.)
     fillWithOverFlow(hdr_LeptonIdx3_AK4jNear_Approach2_,                  dr_LeptonIdx3_AK4jNear_Approach2,                  evtWeight, evtWeightErr);
@@ -2203,13 +2205,13 @@ EvtHistManager_hh_3l::fillHistograms(
   fillWithOverFlow(hdr_los_max_,                                        dr_los_max,                                        evtWeight, evtWeightErr); 
   fillWithOverFlow(hnumSameFlavor_OS_3l_,                               numSameFlavor_OS_3l,                               evtWeight, evtWeightErr);
   fillWithOverFlow(hmet_LD_,                                            met_LD,                                            evtWeight, evtWeightErr); 
-
+  
   fillWithOverFlow(hnumElectrons_,                                      numElectrons,                                      evtWeight, evtWeightErr);
   fillWithOverFlow(hnumMuons_,                                          numMuons,                                          evtWeight, evtWeightErr);
   fillWithOverFlow(hnJetAK4_,                                           nJetAK4,                                           evtWeight, evtWeightErr); 
   fillWithOverFlow(hnJetAK8_wSelectorAK8_Wjj_,                          nJetAK8_wSelectorAK8_Wjj,                          evtWeight, evtWeightErr);
 
-
+  
   if (dihiggsVisMass_sel_inclusive1j > 0.)
     fillWithOverFlow(hdihiggsVisMass_sel_inclusive1j_,                    dihiggsVisMass_sel_inclusive1j,                    evtWeight, evtWeightErr);
 
@@ -3383,5 +3385,6 @@ EvtHistManager_hh_3l::fillHistograms(
     fillWithOverFlow2d(hBDTOutput_700_spin2_vs_900_spin2_,  BDTOutput_Map_spin2["700_spin2"], BDTOutput_Map_spin2["900_spin2"],  evtWeight, evtWeightErr);
   
   }
+
 }
  
