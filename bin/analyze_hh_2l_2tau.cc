@@ -2246,6 +2246,9 @@ const HHWeightInterfaceCouplings * const hhWeight_couplings = new HHWeightInterf
 	  selHistManager->mvaInputVariables_2l_2tau_spin0_->fillHistograms(BDTInputs_SUM_spin0_reduced, evtWeight); 
 	  selHistManager->mvaInputVariables_2l_2tau_nonres_->fillHistograms(BDTInputs_SUM_nonres_reduced, evtWeight); 
 	  selHistManager->evt_->fillHistograms(
+	    selLepton_lead->charge(),           
+	    selLepton_sublead->charge(),	
+	    BDTOutput_SUM_Map_nonres["SM"],
             selElectrons.size(),
             selMuons.size(),
             selHadTaus.size(),
