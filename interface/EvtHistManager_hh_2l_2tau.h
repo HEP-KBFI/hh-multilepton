@@ -32,7 +32,10 @@ public:
     bookHistograms(TFileDirectory & dir) override;
 
   void
-  fillHistograms(int numElectrons,
+    fillHistograms(double BDTOutput_nonres_SM,
+		 int selLepton_lead_charge,
+		 int selLepton_sublead_charge,
+		 int numElectrons,
                  int numMuons,
                  int numHadTaus,
                  int numJets,
@@ -68,6 +71,13 @@ public:
 
   TH1 * histogram_dihiggsVisMass_;
   TH1 * histogram_dihiggsMass_;
+
+  TH1 * histogram_dihiggsMass_diLepChgZero_;
+  TH1 * histogram_dihiggsMass_diLepChgNonZero_;
+  TH1 * histogram_BDTOutput_nonres_SM_;
+  TH1 * histogram_BDTOutput_nonres_SM_diLepChgZero_;
+  TH1 * histogram_BDTOutput_nonres_SM_diLepChgNonZero_;
+
 
   TH1 * histogram_HT_;
   TH1 * histogram_STMET_;

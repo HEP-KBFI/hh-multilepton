@@ -138,6 +138,12 @@ if __name__ == '__main__':
   if sample_filter:
     samples = filter_samples(samples, sample_filter)
 
+
+  histograms_to_fit = get_histograms_to_fit(
+    "leptonPairMass", "dihiggsVisMass", "met_LD", "dR_ll", "dR_l_Wjets_min", "dR_l_leadWjet_min", "dR_l_Wjets_max", "dR_l_leadWjet_max", "dR_2j_fromW1", "mT_lep1_met",
+     "lep1_conePt", "lep2_conePt", "mindr_lep1_jet", "mindr_lep2_jet", "HT", "mht", "mass_2j_fromW1"
+  )
+    
   analysis = analyzeConfig_hh_2lss_leq1tau(
     configDir = os.path.join("/scratch-persistent", getpass.getuser(), "hhAnalysis", era, version),
     localDir  = os.path.join("/home",               getpass.getuser(), "hhAnalysis", era, version),
@@ -161,7 +167,7 @@ if __name__ == '__main__':
     executable_addBackgrounds             = "addBackgrounds",
     executable_addFakes                   = "addBackgroundLeptonFakes",
     executable_addFlips                   = "addBackgroundLeptonFlips",
-    histograms_to_fit                     = get_histograms_to_fit("dihiggsVisMass"),
+    histograms_to_fit                     = histograms_to_fit, 
     select_rle_output                     = True,
     dry_run                               = dry_run,
     isDebug                               = debug,

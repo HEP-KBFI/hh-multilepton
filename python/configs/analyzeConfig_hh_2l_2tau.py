@@ -804,10 +804,10 @@ class analyzeConfig_hh_2l_2tau(analyzeConfig_hh):
                 'histogramDir' : getHistogramDir(category, "Tight", "Tight", "disabled", leptonChargeSelection, hadTau_charge_selection, "OS"),
                 'histogramToFit' : histogramToFit,
                 'label' : '2l+2tau_{h}',
-                }
+              }
               self.createCfg_prep_dcard(self.jobOptions_prep_dcard[key_prep_dcard_job])
 
-              if "SS" in self.chargeSumSelections:
+            if "SS" in self.chargeSumSelections:
                 key_hadd_stage2_job = getKey(leptonChargeSelection, hadTau_charge_selection, get_lepton_and_hadTau_selection_and_frWeight("Tight", "disabled"), "SS")
                 prep_dcard_job_tuple = (self.channel, category, lepton_and_hadTau_charge_selection, "SS", histogramToFit)
                 key_prep_dcard_job = getKey(category, leptonChargeSelection, hadTau_charge_selection, "SS", histogramToFit)
@@ -821,14 +821,14 @@ class analyzeConfig_hh_2l_2tau(analyzeConfig_hh):
                 }
                 self.createCfg_prep_dcard(self.jobOptions_prep_dcard[key_prep_dcard_job])
 
-              # add shape templates for the following systematic uncertainties:
-              #  - 'CMS_ttHl_Clos_norm_e'
-              #  - 'CMS_ttHl_Clos_shape_e'
-              #  - 'CMS_ttHl_Clos_norm_m'
-              #  - 'CMS_ttHl_Clos_shape_m'
-              #  - 'CMS_ttHl_Clos_norm_t'
-              #  - 'CMS_ttHl_Clos_shape_t'
-              for chargeSumSelection in self.chargeSumSelections:
+            # add shape templates for the following systematic uncertainties:
+            #  - 'CMS_ttHl_Clos_norm_e'
+            #  - 'CMS_ttHl_Clos_shape_e'
+            #  - 'CMS_ttHl_Clos_norm_m'
+            #  - 'CMS_ttHl_Clos_shape_m'
+            #  - 'CMS_ttHl_Clos_norm_t'
+            #  - 'CMS_ttHl_Clos_shape_t'
+            for chargeSumSelection in self.chargeSumSelections:
                 key_prep_dcard_job = getKey(category, leptonChargeSelection, hadTau_charge_selection, chargeSumSelection, histogramToFit)
                 key_hadd_stage2_job = getKey(leptonChargeSelection, hadTau_charge_selection, get_lepton_and_hadTau_selection_and_frWeight("Tight", "disabled"), chargeSumSelection)
                 key_add_syst_fakerate_dir = getKey("addSystFakeRates")

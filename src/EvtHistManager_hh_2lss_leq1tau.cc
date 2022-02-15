@@ -4,10 +4,16 @@
 #include <TMath.h>
 
 const int histogramMakingLevel = 2; // 0 / 1 / 2: fill minimum / a few more / all histograms
+const bool makeBDTIpVarsPlotsWithFullSyst = true; // true: BDT ip variable plots are made for all systematics
 
 EvtHistManager_hh_2lss_leq1tau::EvtHistManager_hh_2lss_leq1tau(const edm::ParameterSet & cfg)
   : HistManagerBase(cfg)
 {
+  const std::vector<std::string> bdtIpVars = {
+     "leptonPairMass", "dihiggsVisMass", "met_LD", "dR_ll", "dR_l_Wjets_min", "dR_l_leadWjet_min", "dR_l_Wjets_max", "dR_l_leadWjet_max", "dR_2j_fromW1", "mT_lep1_met",
+     "lep1_conePt", "lep2_conePt", "mindr_lep1_jet", "mindr_lep2_jet", "HT", "mht", "mass_2j_fromW1"
+  };
+  
   central_or_shiftOptions_["numElectrons"] = { "central" };
   central_or_shiftOptions_["numMuons"] = { "central" };
   central_or_shiftOptions_["numJets"] = { "central" };
@@ -58,17 +64,20 @@ EvtHistManager_hh_2lss_leq1tau::EvtHistManager_hh_2lss_leq1tau(const edm::Parame
 
   central_or_shiftOptions_["nTaus"] = { "central" }; 
 
-  if (histogramMakingLevel >= 2)
-  {
   central_or_shiftOptions_["mindr_lep1_jet"] = { "central" };
   central_or_shiftOptions_["mindr_lep2_jet"] = { "central" };
+  central_or_shiftOptions_["lep1_conePt"] = { "central" };
+  central_or_shiftOptions_["lep2_conePt"] = { "central" };
+  
+  if (histogramMakingLevel >= 2)
+  {
   central_or_shiftOptions_["pT_ll"] = { "central" };
   central_or_shiftOptions_["max_lep_eta"] = { "central" };
   central_or_shiftOptions_["pT_llMEt"] = { "central" };
   central_or_shiftOptions_["Smin_llMEt"] = { "central" };
-  central_or_shiftOptions_["lep1_conePt"] = { "central" };
+  //central_or_shiftOptions_["lep1_conePt"] = { "central" };
   central_or_shiftOptions_["lep1_eta"] = { "central" };
-  central_or_shiftOptions_["lep2_conePt"] = { "central" };
+  //central_or_shiftOptions_["lep2_conePt"] = { "central" };
   central_or_shiftOptions_["lep2_eta"] = { "central" };
   }
 
@@ -78,6 +87,15 @@ EvtHistManager_hh_2lss_leq1tau::EvtHistManager_hh_2lss_leq1tau(const edm::Parame
     central_or_shiftOptions_["BDTOutput_500_spin2_vs_900_spin2"] = { "central" };
     central_or_shiftOptions_["BDTOutput_700_spin2_vs_900_spin2"] = { "central" };
   }
+
+  if ( makeBDTIpVarsPlotsWithFullSyst )
+  {
+    for(const std::string & bdtIpVar: bdtIpVars)
+    {
+      central_or_shiftOptions_[bdtIpVar] = { "*" };
+    }
+  }
+  
 }
 
 const TH1 *
@@ -139,18 +157,21 @@ EvtHistManager_hh_2lss_leq1tau::bookHistograms(TFileDirectory & dir)
 
   histogram_nTaus_               = book1D(dir, "nTaus",                "nTaus",                  3, -0.5,2.5);
 
-  if (histogramMakingLevel >= 2)
-  {
   histogram_mindr_lep1_jet_      = book1D(dir, "mindr_lep1_jet",       "mindr_lep1_jet",       100, 0,   7);
   histogram_mindr_lep2_jet_      = book1D(dir, "mindr_lep2_jet",       "mindr_lep2_jet",       100, 0,   7);
+  histogram_lep1_conePt_         = book1D(dir, "lep1_conePt",          "lep1_conePt",          150, 0,300);
+  histogram_lep2_conePt_         = book1D(dir, "lep2_conePt",          "lep2_conePt",          150, 0,300);
+  
+  if (histogramMakingLevel >= 2)
+  {
   histogram_pT_ll_               = book1D(dir, "pT_ll",                "pT_ll",                150, 0,300);
   histogram_max_lep_eta_         = book1D(dir, "max_lep_eta",          "max_lep_eta",          100, 0,2.5);
   histogram_pT_llMEt_            = book1D(dir, "pT_llMEt",             "pT_llMEt",             200, 0,600);
 
   histogram_Smin_llMEt_          = book1D(dir, "Smin_llMEt",           "Smin_llMEt",           200, 0,600);
-  histogram_lep1_conePt_         = book1D(dir, "lep1_conePt",          "lep1_conePt",          150, 0,300);
+  //histogram_lep1_conePt_         = book1D(dir, "lep1_conePt",          "lep1_conePt",          150, 0,300);
   histogram_lep1_eta_            = book1D(dir, "lep1_eta",             "lep1_eta",             100,-2.5,2.5);
-  histogram_lep2_conePt_         = book1D(dir, "lep2_conePt",          "lep2_conePt",          150, 0,300);
+  //histogram_lep2_conePt_         = book1D(dir, "lep2_conePt",          "lep2_conePt",          150, 0,300);
   histogram_lep2_eta_            = book1D(dir, "lep2_eta",             "lep2_eta",             100,-2.5,2.5);  
   }
 
@@ -323,19 +344,21 @@ EvtHistManager_hh_2lss_leq1tau::fillHistograms(int numElectrons,
   //
   fillWithOverFlow(histogram_nTaus_, nTaus, evtWeight, evtWeightErr);
 
+  fillWithOverFlow(histogram_mindr_lep1_jet_, mindr_lep1_jet, evtWeight, evtWeightErr);
+  fillWithOverFlow(histogram_mindr_lep2_jet_, mindr_lep2_jet, evtWeight, evtWeightErr);
+  fillWithOverFlow(histogram_lep1_conePt_, lep1_conePt, evtWeight, evtWeightErr);
+  fillWithOverFlow(histogram_lep2_conePt_, lep2_conePt, evtWeight, evtWeightErr);
   
   if (histogramMakingLevel >= 2)
   {
-  fillWithOverFlow(histogram_mindr_lep1_jet_, mindr_lep1_jet, evtWeight, evtWeightErr);
-  fillWithOverFlow(histogram_mindr_lep2_jet_, mindr_lep2_jet, evtWeight, evtWeightErr);
   fillWithOverFlow(histogram_pT_ll_, pT_ll, evtWeight, evtWeightErr);
   fillWithOverFlow(histogram_max_lep_eta_, max_lep_eta, evtWeight, evtWeightErr);
   fillWithOverFlow(histogram_pT_llMEt_, pT_llMEt, evtWeight, evtWeightErr);
 
   fillWithOverFlow(histogram_Smin_llMEt_, Smin_llMEt, evtWeight, evtWeightErr);
-  fillWithOverFlow(histogram_lep1_conePt_, lep1_conePt, evtWeight, evtWeightErr);
+  //fillWithOverFlow(histogram_lep1_conePt_, lep1_conePt, evtWeight, evtWeightErr);
   fillWithOverFlow(histogram_lep1_eta_, lep1_eta, evtWeight, evtWeightErr);
-  fillWithOverFlow(histogram_lep2_conePt_, lep2_conePt, evtWeight, evtWeightErr);
+  //fillWithOverFlow(histogram_lep2_conePt_, lep2_conePt, evtWeight, evtWeightErr);
   fillWithOverFlow(histogram_lep2_eta_, lep2_eta, evtWeight, evtWeightErr);  
   }
 

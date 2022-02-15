@@ -5,6 +5,7 @@
 #include <TMath.h>
 
 const int analysisRunLevel = 1; // 0: only nEvent histo, 1: all category histo, 2: all histo
+const bool makeBDTIpVarsPlotsWithFullSyst = true; // true: BDT ip variable plots are made for all systematics
 
 EvtHistManager_hh_3l::EvtHistManager_hh_3l(const edm::ParameterSet & cfg, bool isControlRegion)
   : HistManagerBase(cfg)
@@ -924,6 +925,9 @@ EvtHistManager_hh_3l::EvtHistManager_hh_3l(const edm::ParameterSet & cfg, bool i
     // WZctrl
     "mT_WZctrl_leptonW_MET",
   };
+  const std::vector<std::string> bdtIpVars = {
+     "m3l", "diHiggsVisMass", "mSFOS2l_closestToZ", "dr_LeptonIdx3_AK4jNear_Approach2", "dr_LeptonIdx3_2j_inclusive1j_Approach2", "dr_los_min", "dr_los_max", "nSFOS_3l", "met_LD",
+  };
   
   for(const std::string & sysOpt: sysOpts_central)
   {
@@ -932,7 +936,15 @@ EvtHistManager_hh_3l::EvtHistManager_hh_3l(const edm::ParameterSet & cfg, bool i
   for(const std::string & sysOpt: sysOpts_all)
   {
     central_or_shiftOptions_[sysOpt] = { "*" };
-  } 
+  }
+
+  if ( makeBDTIpVarsPlotsWithFullSyst )
+  {
+    for(const std::string & bdtIpVar: bdtIpVars)
+    {
+      central_or_shiftOptions_[bdtIpVar] = { "*" };
+    }
+  }
 }
 
 const TH1 *
@@ -949,12 +961,12 @@ EvtHistManager_hh_3l::bookHistograms(TFileDirectory & dir)
   hm3l_                                                = book1D(dir, "m3l",                                               "m3l",                                              200, 0,  600);
   hdihiggsVisMass_sel_                                 = book1D(dir, "dihiggsVisMass_sel",                                "dihiggsVisMass_sel",                               200, 0, 1500);
   hmSFOS2l_closestToZ_                                 = book1D(dir, "mSFOS2l_closestToZ",                                "mSFOS2l_closestToZ",                                40, 0,  320);
-  hdr_LeptonIdx3_AK4jNear_Approach2_                   = book1D(dir, "dr_LeptonIdx3_AK4jNear_Approach2",                  "dr_LeptonIdx3_AK4jNear_Approach2",                 100, 0,   7);
-  hdr_LeptonIdx3_2j_inclusive1j_Approach2_             = book1D(dir, "dr_LeptonIdx3_2j_inclusive1j_Approach2",            "dr_LeptonIdx3_2j_inclusive1j_Approach2",           100, 0,   7);
-  hdr_los_min_                                         = book1D(dir, "dr_los_min",                                        "dr_los_min",                                       100, 0, 7); 
-  hdr_los_max_                                         = book1D(dir, "dr_los_max",                                        "dr_los_max",                                       100, 0, 7);
+  hdr_LeptonIdx3_AK4jNear_Approach2_                   = book1D(dir, "dr_LeptonIdx3_AK4jNear_Approach2",                  "dr_LeptonIdx3_AK4jNear_Approach2",                 100, 0,   6);
+  hdr_LeptonIdx3_2j_inclusive1j_Approach2_             = book1D(dir, "dr_LeptonIdx3_2j_inclusive1j_Approach2",            "dr_LeptonIdx3_2j_inclusive1j_Approach2",           100, 0,   6);
+  hdr_los_min_                                         = book1D(dir, "dr_los_min",                                        "dr_los_min",                                       100, 0,   6); 
+  hdr_los_max_                                         = book1D(dir, "dr_los_max",                                        "dr_los_max",                                       100, 0,   6);
   hnumSameFlavor_OS_3l_                                = book1D(dir, "numSameFlavor_OS_3l",                               "numSameFlavor_OS_3l",                               9, -0.5,  +8.5);  
-  hmet_LD_                                             = book1D(dir, "met_LD",                                            "met_LD",                                           200, 0,500);
+  hmet_LD_                                             = book1D(dir, "met_LD",                                            "met_LD",                                           200, 0, 500);
 
 
   hnumElectrons_                                       = book1D(dir, "numElectrons",                                      "numElectrons",                                      5, -0.5,  +4.5); 
@@ -2170,17 +2182,20 @@ EvtHistManager_hh_3l::fillHistograms(
   std::map<std::string, double> BDTOutput_Map_nonRes,
   //
   //
+  //
   double evtWeight)
 {
+  //std::cout << "EvtHistManager_hh_3l::fillHistograms():: here1 " << std::endl;
+  
   const double evtWeightErr = 0.;
 
   fillWithOverFlow(hEventCounter_,                                      0.,                                                evtWeight, evtWeightErr);
-
+  
   if (m3l > 0.)
     fillWithOverFlow(hm3l_,                                               m3l,                                               evtWeight, evtWeightErr);
   if (dihiggsVisMass_sel > 0.)
     fillWithOverFlow(hdihiggsVisMass_sel_,                                dihiggsVisMass_sel,                                evtWeight, evtWeightErr);
-  if (mSFOS2l_closestToZ > 0.)
+ if (mSFOS2l_closestToZ > 0.)
     fillWithOverFlow(hmSFOS2l_closestToZ_,                                mSFOS2l_closestToZ,                                evtWeight, evtWeightErr);
   if (dr_LeptonIdx3_AK4jNear_Approach2 > 0.)
     fillWithOverFlow(hdr_LeptonIdx3_AK4jNear_Approach2_,                  dr_LeptonIdx3_AK4jNear_Approach2,                  evtWeight, evtWeightErr);
@@ -2190,13 +2205,13 @@ EvtHistManager_hh_3l::fillHistograms(
   fillWithOverFlow(hdr_los_max_,                                        dr_los_max,                                        evtWeight, evtWeightErr); 
   fillWithOverFlow(hnumSameFlavor_OS_3l_,                               numSameFlavor_OS_3l,                               evtWeight, evtWeightErr);
   fillWithOverFlow(hmet_LD_,                                            met_LD,                                            evtWeight, evtWeightErr); 
-
+  
   fillWithOverFlow(hnumElectrons_,                                      numElectrons,                                      evtWeight, evtWeightErr);
   fillWithOverFlow(hnumMuons_,                                          numMuons,                                          evtWeight, evtWeightErr);
   fillWithOverFlow(hnJetAK4_,                                           nJetAK4,                                           evtWeight, evtWeightErr); 
   fillWithOverFlow(hnJetAK8_wSelectorAK8_Wjj_,                          nJetAK8_wSelectorAK8_Wjj,                          evtWeight, evtWeightErr);
 
-
+  
   if (dihiggsVisMass_sel_inclusive1j > 0.)
     fillWithOverFlow(hdihiggsVisMass_sel_inclusive1j_,                    dihiggsVisMass_sel_inclusive1j,                    evtWeight, evtWeightErr);
 
@@ -3370,5 +3385,6 @@ EvtHistManager_hh_3l::fillHistograms(
     fillWithOverFlow2d(hBDTOutput_700_spin2_vs_900_spin2_,  BDTOutput_Map_spin2["700_spin2"], BDTOutput_Map_spin2["900_spin2"],  evtWeight, evtWeightErr);
   
   }
+
 }
  
