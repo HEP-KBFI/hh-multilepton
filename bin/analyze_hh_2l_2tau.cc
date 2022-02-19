@@ -1587,6 +1587,7 @@ const HHWeightInterfaceCouplings * const hhWeight_couplings = new HHWeightInterf
 
     if ( !(selHadTaus.size() >= 2) ) continue;
     cutFlowTable.update(">= 2 sel taus", evtWeightRecorder.get(central_or_shift_main));
+    cutFlowHistManager->fillHistograms(">= 2 sel taus", evtWeightRecorder.get(central_or_shift_main));
 
     const RecoHadTau* selHadTau_lead = selHadTaus[0];
     const RecoHadTau* selHadTau_sublead = selHadTaus[1];
