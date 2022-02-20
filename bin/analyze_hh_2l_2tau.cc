@@ -1108,6 +1108,7 @@ const HHWeightInterfaceCouplings * const hhWeight_couplings = new HHWeightInterf
       ">= 2 presel leptons",
       ">= 2 sel leptons",
       "lead lepton pT > 25 GeV && sublead lepton pT > 15 GeV",
+      "lep-pair OS/SS charge",
       "<= 2 tight leptons",
       ">= 2 sel taus",
       "tau-pair OS/SS charge",
@@ -1129,6 +1130,7 @@ const HHWeightInterfaceCouplings * const hhWeight_couplings = new HHWeightInterf
       ">= 2 presel leptons",
       ">= 2 sel leptons",
       "lead lepton pT > 25 GeV && sublead lepton pT > 15 GeV",
+      "lep-pair OS/SS charge",
       "<= 2 tight leptons",
       ">= 2 sel taus",
       "tau-pair OS/SS charge",
@@ -1571,6 +1573,11 @@ const HHWeightInterfaceCouplings * const hhWeight_couplings = new HHWeightInterf
                   << ", subleading selLepton charge = " << selLepton_sublead->charge() << ", leptonChargeSelection = SS)" << std::endl;
       }
       continue;
+    }
+
+    if ( leptonChargeSelection != kDisabled ) {
+      cutFlowTable.update(Form("lep-pair %s charge", leptonChargeSelection_string.data()), evtWeightRecorder.get(central_or_shift_main));
+      cutFlowHistManager->fillHistograms("lep-pair OS/SS charge", evtWeightRecorder.get(central_or_shift_main));
     }
 
 
