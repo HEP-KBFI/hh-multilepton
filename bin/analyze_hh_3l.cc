@@ -3662,6 +3662,27 @@ int main(int argc, char* argv[])
     //#########################################################################    
     */
 
+    //#########################################################################
+    //#########################################################################
+    //#########################################################################    
+    // to pick event for event-display for physics briefing
+    double bdt_thrsh_tmp = 0.95;
+    TString cutFlowMessage_tmp = Form("spin0 750 BDT > %g",bdt_thrsh_tmp);
+    if ( ! isWjjBoosted ) continue;
+    cutFlowTable.update("Wjj boosted", evtWeightRecorder.get(central_or_shift_main));
+    cutFlowHistManager->fillHistograms("Wjj boosted", evtWeightRecorder.get(central_or_shift_main));
+    
+    if ( isSameFlavor_OS ) continue;
+    cutFlowTable.update("No SFOS leptons", evtWeightRecorder.get(central_or_shift_main));
+    cutFlowHistManager->fillHistograms("No SFOS leptons", evtWeightRecorder.get(central_or_shift_main));
+    
+    if ( BDTOutput_Map_spin0["750_spin0"] < bdt_thrsh_tmp ) continue;
+    //printf("spin0 750 BDT (%g) above %g \n",BDTOutput_Map_spin0["750_spin0"],bdt_thrsh_tmp);
+    cutFlowTable.update(cutFlowMessage_tmp.Data(), evtWeightRecorder.get(central_or_shift_main));
+    cutFlowHistManager->fillHistograms(cutFlowMessage_tmp.Data(), evtWeightRecorder.get(central_or_shift_main));
+    //#########################################################################
+    //#########################################################################
+    //#########################################################################    
     
     /*
     const std::map<std::string, double>  mvaInputVariables_hh_3l_SUMBk_HH = {
