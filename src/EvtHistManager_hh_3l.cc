@@ -926,7 +926,8 @@ EvtHistManager_hh_3l::EvtHistManager_hh_3l(const edm::ParameterSet & cfg, bool i
     "mT_WZctrl_leptonW_MET",
   };
   const std::vector<std::string> bdtIpVars = {
-     "m3l", "diHiggsVisMass", "mSFOS2l_closestToZ", "dr_LeptonIdx3_AK4jNear_Approach2", "dr_LeptonIdx3_2j_inclusive1j_Approach2", "dr_los_min", "dr_los_max", "nSFOS_3l", "met_LD",
+    "m3l", "diHiggsVisMass", "mSFOS2l_closestToZ", "dr_LeptonIdx3_AK4jNear_Approach2", "dr_LeptonIdx3_2j_inclusive1j_Approach2", "dr_los_min", "dr_los_max", "nSFOS_3l", "met_LD",
+    "dihiggsVisMass_sel", "numSameFlavor_OS_3l",
   };
   
   for(const std::string & sysOpt: sysOpts_central)
