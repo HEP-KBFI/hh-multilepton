@@ -138,7 +138,6 @@
 #include <cstdlib> // EXIT_SUCCESS, EXIT_FAILURE
 #include <fstream> // std::ofstream
 #include <assert.h> // assert
-
 #include <sstream>
 #include <map>
 #include <iterator>
@@ -1576,7 +1575,10 @@ const HHWeightInterfaceCouplings * const hhWeight_couplings = new HHWeightInterf
     }
 
     if ( leptonChargeSelection != kDisabled ) {
-      cutFlowTable.update(Form("lep-pair %s charge", leptonChargeSelection_string.data()), evtWeightRecorder.get(central_or_shift_main));
+        //std::string cutName = "lep-pair " + leptonChargeSelection_string + " charge";
+        //cutFlowTable.update(cutName, evtWeightRecorder.get(central_or_shift_main));
+      //cutFlowTable.update(Form("lep-pair %s charge", leptonChargeSelection_string.data()), evtWeightRecorder.get(central_or_shift_main));
+      cutFlowTable.update("lep-pair OS/SS charge", evtWeightRecorder.get(central_or_shift_main));
       cutFlowHistManager->fillHistograms("lep-pair OS/SS charge", evtWeightRecorder.get(central_or_shift_main));
     }
 
@@ -2255,10 +2257,10 @@ const HHWeightInterfaceCouplings * const hhWeight_couplings = new HHWeightInterf
 	  selHistManager->mvaInputVariables_2l_2tau_spin0_->fillHistograms(BDTInputs_SUM_spin0_reduced, evtWeight); 
 	  selHistManager->mvaInputVariables_2l_2tau_nonres_->fillHistograms(BDTInputs_SUM_nonres_reduced, evtWeight); 
 	  selHistManager->evt_->fillHistograms(
+	    BDTOutput_SUM_Map_nonres["SM"],
 	    selLepton_lead->charge(),           
 	    selLepton_sublead->charge(),	
-	    BDTOutput_SUM_Map_nonres["SM"],
-            selElectrons.size(),
+	    selElectrons.size(),
             selMuons.size(),
             selHadTaus.size(),
             selJets.size(),

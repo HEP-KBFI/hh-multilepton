@@ -20,7 +20,7 @@ EvtHistManager_hh_2l_2tau::EvtHistManager_hh_2l_2tau(const edm::ParameterSet & c
   central_or_shiftOptions_["mTauTauVis"] = { "central" };
   central_or_shiftOptions_["leptonPairCharge"] = { "central" };
   central_or_shiftOptions_["hadTauPairCharge"] = { "central" };
-  central_or_shiftOptions_["dihiggsVisMass"] = { "central" };
+  central_or_shiftOptions_["dihiggsVisMass"] = { "*" };
   central_or_shiftOptions_["dihiggsMass"] = { "*" };
   central_or_shiftOptions_["dihiggsMass_diLepChgZero"] = { "*" };
   central_or_shiftOptions_["dihiggsMass_diLepChgNonZero"] = { "*" };
@@ -104,7 +104,8 @@ EvtHistManager_hh_2l_2tau::fillHistograms(double BDTOutput_nonres_SM,
     fillWithOverFlow(histogram_dihiggsMass_,    dihiggsMass,      evtWeight, evtWeightErr);
     if(std::abs(selLepton_lead_charge + selLepton_sublead_charge) == 0){ // Di-Lep Mass = 0 cond.
       fillWithOverFlow(histogram_dihiggsMass_diLepChgZero_,    dihiggsMass,      evtWeight, evtWeightErr);
-    }else{
+    }
+    if(std::abs(selLepton_lead_charge + selLepton_sublead_charge) != 0){
       fillWithOverFlow(histogram_dihiggsMass_diLepChgNonZero_,    dihiggsMass,      evtWeight, evtWeightErr);
     }
   }
@@ -112,7 +113,8 @@ EvtHistManager_hh_2l_2tau::fillHistograms(double BDTOutput_nonres_SM,
   fillWithOverFlow(histogram_BDTOutput_nonres_SM_, BDTOutput_nonres_SM, evtWeight, evtWeightErr);
   if(std::abs(selLepton_lead_charge + selLepton_sublead_charge) == 0){ // Di-Lep Mass = 0 cond. 
     fillWithOverFlow(histogram_BDTOutput_nonres_SM_diLepChgZero_, BDTOutput_nonres_SM, evtWeight, evtWeightErr);
-  }else{
+  }
+  if(std::abs(selLepton_lead_charge + selLepton_sublead_charge) != 0){
     fillWithOverFlow(histogram_BDTOutput_nonres_SM_diLepChgNonZero_, BDTOutput_nonres_SM, evtWeight, evtWeightErr);
   }
 
