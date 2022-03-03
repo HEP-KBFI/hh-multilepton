@@ -149,7 +149,7 @@ const int hadTauSelection_antiMuon = -1; // not applied
 const int printLevel = 0;
 const int genHHrewgtHistosLevel = 0; // 0: disable all histos, 1: fill minimum set of histos, 2: fill all histos
 
-const bool runKinVarsPlotForFullSyst = true; // true: make histograms for kinematic variables using EvtHistManager_hh_3l for full systematics
+const bool runKinVarsPlotForFullSyst = false; // true: make histograms for kinematic variables using EvtHistManager_hh_3l for full systematics
 
 double calculateAbsDeltaPhi(double phi1, double phi2)
 {
@@ -3662,6 +3662,8 @@ int main(int argc, char* argv[])
     //#########################################################################    
     */
 
+    
+    /*
     //#########################################################################
     //#########################################################################
     //#########################################################################    
@@ -3683,6 +3685,8 @@ int main(int argc, char* argv[])
     //#########################################################################
     //#########################################################################
     //#########################################################################    
+    */
+
     
     /*
     const std::map<std::string, double>  mvaInputVariables_hh_3l_SUMBk_HH = {

@@ -5,7 +5,7 @@
 #include <TMath.h>
 
 const int analysisRunLevel = 1; // 0: only nEvent histo, 1: all category histo, 2: all histo
-const bool makeBDTIpVarsPlotsWithFullSyst = true; // true: BDT ip variable plots are made for all systematics
+const bool makeBDTIpVarsPlotsWithFullSyst = false; // true: BDT ip variable plots are made for all systematics
 
 EvtHistManager_hh_3l::EvtHistManager_hh_3l(const edm::ParameterSet & cfg, bool isControlRegion)
   : HistManagerBase(cfg)
