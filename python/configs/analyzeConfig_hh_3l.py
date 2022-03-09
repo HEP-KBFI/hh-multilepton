@@ -56,6 +56,8 @@ class analyzeConfig_hh_3l(analyzeConfig_hh):
         max_files_per_job,
         era,
         isControlRegion,
+        useZmassVetoForCR,
+        useMETCutForCR,       
         use_lumi,
         lumi,
         check_output_files,
@@ -77,7 +79,7 @@ class analyzeConfig_hh_3l(analyzeConfig_hh):
         hlt_filter                = False,
         use_home                  = False,
         keep_logs                 = False,
-        blacklist                 = None,
+        blacklist                 = None,               
         submission_cmd            = None,
       ):
     analyzeConfig_hh.__init__(self,
@@ -159,6 +161,8 @@ class analyzeConfig_hh_3l(analyzeConfig_hh):
 
     self.isBDTtraining = False
     self.isControlRegion = isControlRegion
+    self.useZmassVetoForCR = useZmassVetoForCR
+    self.useMETCutForCR = useMETCutForCR       
 
     '''
     self.categories = [
@@ -444,6 +448,8 @@ class analyzeConfig_hh_3l(analyzeConfig_hh):
                   'useNonNominal'            : self.use_nonnominal,
                   'fillGenEvtHistograms'     : True,
                   'isControlRegion'          : self.isControlRegion,
+                  'useZmassVetoForCR'        : self.useZmassVetoForCR,
+                  'useMETCutForCR'           : self.useMETCutForCR,
                   'gen_mHH'                  : self.gen_mHH,
                 }
                 self.createCfg_analyze(self.jobOptions_analyze[key_analyze_job], sample_info, lepton_selection)

@@ -303,6 +303,22 @@ int main(int argc, char* argv[])
   const bool isControlRegion = cfg_analyze.getParameter<bool>("isControlRegion");
   std::cout << "isControlRegion: " << isControlRegion << "\n";
 
+  // command line options for Z-mass veto
+  const int flagZMassVetoForCR = cfg_analyze.exists("useZmassVetoForCR") ?
+    std::stoi( cfg_analyze.getParameter<std::string>("useZmassVetoForCR") )  :  -1 ;
+  // 1: use SFOS Z-mass cut, 0: do use any cut on SFOS Z-mass,  -1: invert SFOS Z-mass cut.
+  // -1 for WZCR.
+  // It is applicable only with CR mode.
+  std::cout << "flagZMassVetoForCR: " << flagZMassVetoForCR << "\n";
+  
+  // command line options for MET cut
+  const int flagMETCutForCR = cfg_analyze.exists("useMETCutForCR") ?
+    std::stoi( cfg_analyze.getParameter<std::string>("useMETCutForCR") )  :  -1 ;
+  // 1: use MET cut, 0: don't use MET cut, -1: invert MET cut
+  // 1: for WZ CR
+  // It is applicable only with CR mode.
+  std::cout << "flagMETCutForCR: " << flagMETCutForCR << "\n";
+  
   // single lepton triggers
   vstring triggerNames_1e = cfg_analyze.getParameter<vstring>("triggers_1e");
   std::vector<hltPath*> triggers_1e = create_hltPaths(triggerNames_1e, "triggers_1e");
@@ -2457,7 +2473,23 @@ int main(int argc, char* argv[])
     }
 
     bool failsZbosonMassVeto = isSameFlavor_OS && std::fabs(massSameFlavor_OS - z_mass) < z_window;
-    if ( failsZbosonMassVeto != isControlRegion ) { // WZ Control region 
+    bool statusZbosonMassVeto = false; // true: reject event
+    if ( ! isControlRegion ) { // 3l SR
+      statusZbosonMassVeto = failsZbosonMassVeto;
+    }
+    else {
+      if ( flagZMassVetoForCR == -1) { // 3l WZ CR, 3l Z+jet CR etc
+	statusZbosonMassVeto = ! failsZbosonMassVeto; 
+      }
+      else if ( flagZMassVetoForCR == 1) { // some CR not for Z events
+	statusZbosonMassVeto = failsZbosonMassVeto; 
+      }
+      else if ( flagZMassVetoForCR == 0) { // don't use SFOS Z-mass cut
+	statusZbosonMassVeto = false; 
+      }
+    }
+    //if ( failsZbosonMassVeto != isControlRegion ) { // WZ Control region
+    if ( statusZbosonMassVeto ) {
       if ( run_lumi_eventSelector ) {
 	std::cout << "event " << eventInfo.str() << " FAILS Z-boson veto." << std::endl;
       }
@@ -2577,7 +2609,23 @@ int main(int argc, char* argv[])
     if      ( selJetsAK4.size() >= 4 ) met_LD_cut = -1.; // MET LD cut not applied
     else if ( isSameFlavor_OS_FO     ) met_LD_cut = 45.;
     else                               met_LD_cut = 30.;
-    if ( met_LD_cut > 0 && met_LD < met_LD_cut ) {
+    bool statusMETCut = false; // true: reject event
+    if ( ! isControlRegion ) { // 3l SR
+      statusMETCut = ( met_LD_cut > 0 && met_LD < met_LD_cut );
+    }
+    else {
+      if ( flagMETCutForCR == 1 ) { // 3l WZ CR
+	statusMETCut = ( met_LD_cut > 0 && met_LD < met_LD_cut );
+      }
+      else if ( flagMETCutForCR == -1 ) { // 3l CR Z+X types
+	statusMETCut = ( met_LD_cut > 0 && met_LD > met_LD_cut );
+      }
+      else if ( flagMETCutForCR == 0 ) { // no MET cut
+	statusMETCut = false;
+      }
+    }
+    //if ( met_LD_cut > 0 && met_LD < met_LD_cut ) {
+    if ( statusMETCut ) { 
       if ( run_lumi_eventSelector ) {
     std::cout << "event " << eventInfo.str() << " FAILS MET LD selection." << std::endl;
 	std::cout << " (met_LD = " << met_LD << ", met_LD_cut = " << met_LD_cut << ")" << std::endl;
@@ -2715,7 +2763,7 @@ int main(int argc, char* argv[])
       cutFlowHistManager->fillHistograms("After all cuts: evt category isWjjHasOnly1j", evtWeightRecorder.get(central_or_shift_main));
     }
 
-
+    if (printLevel > 0) std::cout << "Siddh here100_1" << std::endl;       
 
 
     
@@ -2726,7 +2774,7 @@ int main(int argc, char* argv[])
     double dihiggsMass                    = -1.;
     double dihiggsVisMass_sel_inclusive1j = -1.;
     double dihiggsMass_inclusive1j        = -1.;    
-
+    if (printLevel > 0) std::cout << "Siddh here100_2" << std::endl;       
     if (selJet1_Wjj && selJet2_Wjj) {
       WTojjMass          = (selJet1_Wjj->p4() + selJet2_Wjj->p4()).mass();
       dihiggsVisMass_sel = (selLepton_lead->cone_p4() + selLepton_sublead->cone_p4() + selLepton_third->cone_p4() + selJet1_Wjj->p4() + selJet2_Wjj->p4()).mass();
@@ -2740,7 +2788,7 @@ int main(int argc, char* argv[])
       //WTojjMass = (selJet1_Wjj->p4()).mass();
     }    
     
-
+    if (printLevel > 0) std::cout << "Siddh here100_3" << std::endl;       
 
     double mTMetLepton1_chargeEqualSumCharge3l = -1.;
     double mTMetLepton2_chargeEqualSumCharge3l = -1.;
@@ -2758,7 +2806,7 @@ int main(int argc, char* argv[])
     else if (isWjjResolved)  eventCategory = 2;
     else if (isWjjHasOnly1j) eventCategory = 3;
     
-    
+    if (printLevel > 0) std::cout << "Siddh here100_4" << std::endl;
 
     const double lep1_conePt = comp_lep_conePt(*selLepton_lead);
     const double lep2_conePt = comp_lep_conePt(*selLepton_sublead);
@@ -2767,7 +2815,8 @@ int main(int argc, char* argv[])
     const double mindr_lep2_jet = comp_mindr_jet(*selLepton_sublead, selJetsAK4);
     const double mindr_lep3_jet = comp_mindr_jet(*selLepton_third, selJetsAK4);
     const double avg_dr_jet = comp_avg_dr_jet(selJetsAK4);
-
+    if (printLevel > 0) std::cout << "Siddh here100_5" << std::endl;
+    
     double dr_l12 = deltaR(selLepton_lead -> p4(),    selLepton_sublead -> p4());
     double dr_l23 = deltaR(selLepton_sublead -> p4(), selLepton_third -> p4());
     double dr_l13 = deltaR(selLepton_lead -> p4(),    selLepton_third -> p4());
@@ -2812,7 +2861,8 @@ int main(int argc, char* argv[])
       std::cout << "analyze_hh_3l: Error in calculating dr_os " << std::endl;
       throw cmsException("analyze_hh_3l", __LINE__) << "Error in calculating dr_os \n";
     }
-
+    if (printLevel > 0) std::cout << "Siddh here100_6" << std::endl;
+    
     double jet1_pt       = selJet1_Wjj ? selJet1_Wjj->pt() : 0.;
     double jet1_eta      = selJet1_Wjj ? selJet1_Wjj->eta() : -5.;
     double jet2_pt       = selJet2_Wjj ? selJet2_Wjj->pt() : 0.;
@@ -2896,7 +2946,7 @@ int main(int argc, char* argv[])
 
     double m_AK8 = (isWjjBoosted) ? selJetAK8_Wjj->mass() : -1.;
 
-    
+    if (printLevel > 0) std::cout << "Siddh here100_7" << std::endl;
     /*
     double dr_WjjLepIdx3      = -1.;
     double dr_Wjet1LepIdx3    = -1.;
@@ -2927,12 +2977,27 @@ int main(int argc, char* argv[])
     
     
     // just to avoid 'variables defined but not used' error
-    TString sTmp123 = Form("selLepton1_H_WW_ll pt: %f,  selLepton2_H_WW_ll: %f ",selLepton1_H_WW_ll->pt(),selLepton2_H_WW_ll->pt());
+    //TString sTmp123 = Form("selLepton1_H_WW_ll pt: %f,  selLepton2_H_WW_ll: %f ",selLepton1_H_WW_ll->pt(),selLepton2_H_WW_ll->pt());
+    TString sTmp123 = Form("dummy print statement ");
     sTmp123 += "";
     //sTmp123 += Form(" isVBF: %i, ",(int)isVBF); 
 
 
+    if (printLevel > 0) std::cout << "Siddh here100_8" << std::endl;
+    if (printLevel > 0) std::cout << "selLepton_H_WW_ljj: " << selLepton_H_WW_ljj
+				  << ", selLepton1_H_WW_ll: " << selLepton1_H_WW_ll
+				  << ", selLepton2_H_WW_ll: " << selLepton2_H_WW_ll
+				  << std::endl;
 
+    // DUMMY to protect 3lss mode <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    if ( ( selLepton_H_WW_ljj == 0 ||  selLepton1_H_WW_ll == 0 || selLepton2_H_WW_ll == 0 ) &&
+	 ( leptonChargeSelection == kSS ) ) {
+      // for SS mode with charge(3l) == +-3, selLepton_H_WW_ljj, selLepton1_H_WW_ll and selLepton2_H_WW_ll could not set
+      // Dummy assigment of leptons to avoid runtime crash. Physics-wise variables calculated based on them are wrong.
+      selLepton_H_WW_ljj = selLeptons[0];
+      selLepton1_H_WW_ll = selLeptons[1];
+      selLepton2_H_WW_ll = selLeptons[2];      
+    }
     
     // Approach-0 ----------------------------------------------------------------
     // Variables using lepton1/2/3 indexed following Approach-0
@@ -2940,6 +3005,7 @@ int main(int argc, char* argv[])
     const RecoLepton* selLepton1_H_WW_ll_Approach0 = selLepton1_H_WW_ll;
     const RecoLepton* selLepton2_H_WW_ll_Approach0 = selLepton2_H_WW_ll;
     //
+    if (printLevel > 0) std::cout << "Siddh here100_9" << std::endl;
     double mT_LeptonIdx1_Met_Approach0 = comp_MT_met(selLepton1_H_WW_ll_Approach0, met.pt(), met.phi());
     double mT_LeptonIdx2_Met_Approach0 = comp_MT_met(selLepton2_H_WW_ll_Approach0, met.pt(), met.phi());
     double mT_LeptonIdx3_Met_Approach0 = comp_MT_met(selLepton_H_WW_ljj_Approach0, met.pt(), met.phi());
@@ -2980,7 +3046,8 @@ int main(int argc, char* argv[])
       dr_LeptonIdx3_JetNear_Approach0 = dr_LeptonIdx3_Jet1_Approach0;
       m_LeptonIdx3_JetNear_Approach0 = m_LeptonIdx3_Jet1_Approach0;
     }
-
+    if (printLevel > 0) std::cout << "Siddh here100_10" << std::endl;
+    
     double dr_LeptonIdx3_2j_Approach0             = -1.;
     double dr_LeptonIdx3_2j_inclusive1j_Approach0 = -1.;
     if (isWjjBoosted)
@@ -2997,7 +3064,7 @@ int main(int argc, char* argv[])
     {
       dr_LeptonIdx3_2j_inclusive1j_Approach0 = deltaR(selLepton_H_WW_ljj_Approach0->p4(), (selJet1_Wjj->p4()));
     }
-
+    if (printLevel > 0) std::cout << "Siddh here100_11" << std::endl;
 
     double dr_LeptonIdx3_AK4jNear_Approach0              = -1.;
     double dr_LeptonIdx3_2AK4jNear_Approach0             = -1.;
@@ -3020,6 +3087,8 @@ int main(int argc, char* argv[])
       }
     }
 
+    if (printLevel > 0) std::cout << "Siddh here100_12" << std::endl;
+    
     // 2nd closest AK4 jet
     dr_LeptonIdx3_AK4_min = 99999.;
     for ( std::vector<const RecoJet*>::const_iterator selJet1 = selJetsAK4.begin();
@@ -3057,7 +3126,8 @@ int main(int argc, char* argv[])
       dr_LeptonIdx3_AK4jNear_Approach0 = deltaR(selLepton_H_WW_ljj_Approach0->p4(), selAK4J_closestToLeptonIdx3_Approach0->p4());
     }
 
-
+    if (printLevel > 0) std::cout << "Siddh here100_13" << std::endl;
+    
     double dr_LeptonIdx3_AK8_Approach0 = -1;
     double m_LeptonIdx3_AK8_Approach0  = -1; 
     if (isWjjBoosted)
@@ -3095,7 +3165,7 @@ int main(int argc, char* argv[])
       std::cout << "TMath::Pi(): " << TMath::Pi() << "\n";
       //std::cout << (selLepton1_H_WW_ll_Approach0->cone_p4()).DeltaPhi(selLepton2_H_WW_ll_Approach0->cone_p4()) << "\n";
     }
-
+    if (printLevel > 0) std::cout << "Siddh here100_14" << std::endl;
     
     // Approach-2 ----------------------------------------------------------------
     // Assume event topology deciding variable labels: H->WW->l1(+) l2(-) and other H->WW->l3(+) qq
@@ -3106,34 +3176,54 @@ int main(int argc, char* argv[])
     const RecoLepton* selLepton1_H_WW_ll_Approach2 = nullptr;
     const RecoLepton* selLepton2_H_WW_ll_Approach2 = nullptr;
 
+    if (printLevel > 0) std::cout << "Siddh here100_15" << std::endl;
     for (size_t iLepton1 = 0; iLepton1 < 3; iLepton1++) {
       if ((selLeptons[iLepton1]->charge() * sumLeptonCharge_3l) < 0.) {
 	idxLepton2_H_WW_ll_Approach2 = iLepton1;
 	selLepton2_H_WW_ll_Approach2 = selLeptons[iLepton1];
       }
     }
-    for (size_t iLepton1 = 0; iLepton1 < 3; iLepton1++) {
-      if (iLepton1 == idxLepton2_H_WW_ll_Approach2) continue;
-      size_t iLepton3 = 0;
-      if (iLepton3 == iLepton1)                     iLepton3++;
-      if (iLepton3 == idxLepton2_H_WW_ll_Approach2) iLepton3++;
-      if (iLepton3 == iLepton1)                     iLepton3++;
+    if (printLevel > 0) std::cout << "Siddh here100_15_1" << ", idxLepton2_H_WW_ll_Approach2:" << idxLepton2_H_WW_ll_Approach2 << std::endl;
+    if ( idxLepton2_H_WW_ll_Approach2 != 9999 ) {
+      for (size_t iLepton1 = 0; iLepton1 < 3; iLepton1++) {
+	if (iLepton1 == idxLepton2_H_WW_ll_Approach2) continue;
+	size_t iLepton3 = 0;
+	if (iLepton3 == iLepton1)                     iLepton3++;
+	if (iLepton3 == idxLepton2_H_WW_ll_Approach2) iLepton3++;
+	if (iLepton3 == iLepton1)                     iLepton3++;
       
-      if ((selLepton2_H_WW_ll_Approach2->cone_p4() + selLeptons[iLepton1]->cone_p4()).mass() <
-          (selLepton2_H_WW_ll_Approach2->cone_p4() + selLeptons[iLepton3]->cone_p4()).mass() ) { // assume m(l1+l2) < m(l2+l3)
-	idxLepton1_H_WW_ll_Approach2 = iLepton1;
-	idxLepton_H_WW_ljj_Approach2 = iLepton3;
-      } else { 
-	idxLepton1_H_WW_ll_Approach2 = iLepton3;
-	idxLepton_H_WW_ljj_Approach2 = iLepton1;
+	if ((selLepton2_H_WW_ll_Approach2->cone_p4() + selLeptons[iLepton1]->cone_p4()).mass() <
+	    (selLepton2_H_WW_ll_Approach2->cone_p4() + selLeptons[iLepton3]->cone_p4()).mass() ) { // assume m(l1+l2) < m(l2+l3)
+	  idxLepton1_H_WW_ll_Approach2 = iLepton1;
+	  idxLepton_H_WW_ljj_Approach2 = iLepton3;
+	} else { 
+	  idxLepton1_H_WW_ll_Approach2 = iLepton3;
+	  idxLepton_H_WW_ljj_Approach2 = iLepton1;
+	}
       }
     }
-    selLepton1_H_WW_ll_Approach2 = selLeptons[idxLepton1_H_WW_ll_Approach2];
-    selLepton_H_WW_ljj_Approach2 = selLeptons[idxLepton_H_WW_ljj_Approach2];
+    if (printLevel > 0) std::cout << "Siddh here100_16" << ", idxLepton1_H_WW_ll_Approach2:" << idxLepton1_H_WW_ll_Approach2 << ", idxLepton_H_WW_ljj_Approach2:" << idxLepton_H_WW_ljj_Approach2 << std::endl;
+    if ( idxLepton1_H_WW_ll_Approach2 != 9999  &&  idxLepton_H_WW_ljj_Approach2 != 9999 ) {
+      selLepton1_H_WW_ll_Approach2 = selLeptons[idxLepton1_H_WW_ll_Approach2];
+      selLepton_H_WW_ljj_Approach2 = selLeptons[idxLepton_H_WW_ljj_Approach2];
+    }
+    if (printLevel > 0) std::cout << "Siddh here100_18" << std::endl;
 
+
+    // DUMMY to protect 3lss mode <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    if ( ! ( selLepton2_H_WW_ll_Approach2 && selLepton1_H_WW_ll_Approach2 &&  selLepton_H_WW_ljj_Approach2 ) &&
+	 ( leptonChargeSelection == kSS ) ) {
+      // for SS mode with charge(3l) == +-3, selLepton_H_WW_ljj, selLepton1_H_WW_ll and selLepton2_H_WW_ll could not set
+      // Dummy assigment of leptons to avoid runtime crash. Physics-wise variables calculated based on them are wrong.
+      selLepton2_H_WW_ll_Approach2 = selLeptons[0];
+      selLepton1_H_WW_ll_Approach2 = selLeptons[1];
+      selLepton_H_WW_ljj_Approach2 = selLeptons[2];
+    }
+    
     // Complain if there is a mistake in picking leptons in Approach 2
-    if ((selLepton2_H_WW_ll_Approach2->cone_p4() + selLepton1_H_WW_ll_Approach2->cone_p4()).mass() >
-        (selLepton2_H_WW_ll_Approach2->cone_p4() + selLepton_H_WW_ljj_Approach2->cone_p4()).mass() ) { // mistake in picking leptons in Approach 2
+    if ( ( (selLepton2_H_WW_ll_Approach2->cone_p4() + selLepton1_H_WW_ll_Approach2->cone_p4()).mass() >
+	   (selLepton2_H_WW_ll_Approach2->cone_p4() + selLepton_H_WW_ljj_Approach2->cone_p4()).mass() ) &&
+	 ( leptonChargeSelection == kOS ) ){ // mistake in picking leptons in Approach 2
       std::cout << "analyze_hh_3l: mistake in picking leptons in Approach 2" << std::endl;
       throw cmsException("analyze_hh_3l", __LINE__) << "Error in calculating dr_os n";
     }
@@ -3508,7 +3598,20 @@ int main(int argc, char* argv[])
 	  }
 	}
       }
-      if ( !passesZbosonMassCut ) {
+
+      statusZbosonMassVeto = false; // true: reject event
+      if ( flagZMassVetoForCR == -1) { // 3l WZ CR, 3l Z+jet CR etc
+	statusZbosonMassVeto = ! passesZbosonMassCut; 
+      }
+      else if ( flagZMassVetoForCR == 1) { // some CR not for Z events
+	statusZbosonMassVeto = passesZbosonMassCut; 
+      }
+      else if ( flagZMassVetoForCR == 0) { // don't use SFOS Z-mass cut
+	statusZbosonMassVeto = false; 
+      }
+
+      //if ( ! passesZbosonMassCut ) {
+      if ( statusZbosonMassVeto ) {
 	if ( run_lumi_eventSelector ) {
 	  std::cout << "event " << eventInfo.str() << " FAILS Z-boson mass cut." << std::endl;
 	}
@@ -3516,16 +3619,13 @@ int main(int argc, char* argv[])
       }
       cutFlowTable.update("WZctrl: Z-boson mass cut", evtWeightRecorder.get(central_or_shift_main));
 
-      if(blacklist && (*blacklist)(eventInfo))
-      {
-        continue;
-      }
 
       const RecoLepton* selLepton_W = nullptr;
       if      ( selLepton1_Z == selLepton_sublead && selLepton2_Z == selLepton_third   ) selLepton_W = selLepton_lead;
       else if ( selLepton1_Z == selLepton_lead    && selLepton2_Z == selLepton_third   ) selLepton_W = selLepton_sublead;
       else if ( selLepton1_Z == selLepton_lead    && selLepton2_Z == selLepton_sublead ) selLepton_W = selLepton_third;
-      else assert(0);
+      //else assert(0);
+      else  selLepton_W = selLepton_lead; // for cases when ( flagZMassVetoForCR == 1 || flagZMassVetoForCR == 0) 
 
       mT_WZctrl_leptonW_MET = comp_MT_met(selLepton_W, met.pt(), met.phi());
 
@@ -3554,7 +3654,11 @@ int main(int argc, char* argv[])
     }
     // ---------------------------------------------------------------------------------------------------------------
 
-
+    // for blacklisted events
+    if(blacklist && (*blacklist)(eventInfo))
+    {
+      continue;
+    }
 
     
     //Gathering final BDT Inputs

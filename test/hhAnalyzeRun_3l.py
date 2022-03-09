@@ -36,6 +36,8 @@ parser.enable_regrouped_jerc(default = 'jes')
 parser.add_split_trigger_sys()
 parser.add_control_region()
 parser.add_blacklist()
+parser.useZmassVetoForCR(default = '-1')
+parser.useMETCutForCR(default = '1')
 args = parser.parse_args()
 
 # Common arguments
@@ -69,6 +71,8 @@ regroup_jerc      = args.enable_regrouped_jerc
 split_trigger_sys = args.split_trigger_sys
 control_region    = args.control_region
 use_blacklist     = args.use_blacklist
+useZmassVetoForCR = args.useZmassVetoForCR
+useMETCutForCR    = args.useMETCutForCR
 
 if lep_mva_wp != "hh_multilepton" and use_preselected:
   raise RuntimeError("Cannot use skimmed samples while tightening the prompt lepton MVA cut")
@@ -226,6 +230,8 @@ if __name__ == '__main__':
     max_files_per_job                     = files_per_job,
     era                                   = era,
     isControlRegion                       = control_region,
+    useZmassVetoForCR                     = useZmassVetoForCR,
+    useMETCutForCR                        = useMETCutForCR,
     use_lumi                              = True,
     lumi                                  = lumi,
     check_output_files                    = check_output_files,
