@@ -53,6 +53,7 @@ class analyzeConfig_hh_2lss_leq1tau(analyzeConfig_hh):
         gen_matching_by_index,
         max_files_per_job,
         era,
+        isControlRegion,       
         use_lumi,
         lumi,
         check_output_files,
@@ -150,6 +151,8 @@ class analyzeConfig_hh_2lss_leq1tau(analyzeConfig_hh):
     #self.rle_select = rle_select
     self.use_nonnominal = use_nonnominal
     self.hlt_filter = hlt_filter
+
+    self.isControlRegion = isControlRegion
 
     self.categories = [
       "hh_2lss_leq1tau",
@@ -395,6 +398,7 @@ class analyzeConfig_hh_2lss_leq1tau(analyzeConfig_hh):
                   'apply_hlt_filter'         : self.hlt_filter,
                   'useNonNominal'            : self.use_nonnominal,
                   'fillGenEvtHistograms'     : True,
+                  'isControlRegion'          : self.isControlRegion,
                   'gen_mHH'                  : self.gen_mHH,
                 }
                 self.createCfg_analyze(self.jobOptions_analyze[key_analyze_job], sample_info, lepton_selection)

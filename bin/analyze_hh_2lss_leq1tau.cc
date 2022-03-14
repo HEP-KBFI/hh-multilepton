@@ -325,6 +325,9 @@ int main(int argc, char* argv[])
   const int maxNumTaus = cfg_analyze.getParameter<int>("maxNumTaus");
   std::cout << "minNumJets = " << minNumJets << ",  maxNumTaus = " << maxNumTaus << '\n';
 
+  const bool isControlRegion = cfg_analyze.exists("isControlRegion") ? cfg_analyze.getParameter<bool>("isControlRegion") : false;
+  std::cout << "isControlRegion: " << isControlRegion << "\n"; 
+
   bool isMC = cfg_analyze.getParameter<bool>("isMC");
   bool hasLHE = cfg_analyze.getParameter<bool>("hasLHE");
   bool hasPS = cfg_analyze.getParameter<bool>("hasPS");
@@ -1336,6 +1339,7 @@ int main(int argc, char* argv[])
     bool selTrigger_1mu = use_triggers_1mu && isTriggered_1mu;
     bool selTrigger_2mu = use_triggers_2mu && isTriggered_2mu;
     bool selTrigger_1e1mu = use_triggers_1e1mu && isTriggered_1e1mu;
+    /*
     if ( !(selTrigger_1e || selTrigger_2e || selTrigger_1mu || selTrigger_2mu || selTrigger_1e1mu) ) {
       if ( run_lumi_eventSelector ) {
         std::cout << "event " << eventInfo.str() << " FAILS trigger selection." << std::endl;
@@ -1349,7 +1353,8 @@ int main(int argc, char* argv[])
     }
     cutFlowTable.update("trigger", evtWeightRecorder.get(central_or_shift_main));
     cutFlowHistManager->fillHistograms("trigger", evtWeightRecorder.get(central_or_shift_main));
-
+    */
+    
     if ( (selTrigger_2e    && !apply_offline_e_trigger_cuts_2e)    ||
 	 (selTrigger_1e1mu && !apply_offline_e_trigger_cuts_1e1mu) ||
 	 (selTrigger_1e    && !apply_offline_e_trigger_cuts_1e)    ||
@@ -1546,10 +1551,18 @@ int main(int argc, char* argv[])
     cutFlowTable.update(">= 2 presel leptons", evtWeightRecorder.get(central_or_shift_main));
     cutFlowHistManager->fillHistograms(">= 2 presel leptons", evtWeightRecorder.get(central_or_shift_main));
 
-    if ( selBJets_loose.size() >= 2 || selBJets_medium.size() >= 1 )
-      {
-	continue;
-      }
+    if ( ! isControlRegion ) {
+      // 2lss signal region
+      if ( selBJets_loose.size() >= 2 || selBJets_medium.size() >= 1 )
+	{
+	  continue;
+	}
+    }
+    else {
+      // 2lss control region: lepton fakes estimation targeting semileptonic ttbar with exactly 1 b-jet
+      if ( ! (selBJets_medium.size() == 1) ) continue;
+
+    }
     cutFlowTable.update("b-jet veto", evtWeightRecorder.get(central_or_shift_main));
     cutFlowHistManager->fillHistograms("b-jet veto", evtWeightRecorder.get(central_or_shift_main));
 
@@ -1626,6 +1639,7 @@ int main(int argc, char* argv[])
     cutFlowTable.update("<= 2 tight leptons", evtWeightRecorder.get(central_or_shift_main));
     cutFlowHistManager->fillHistograms("<= 2 tight leptons", evtWeightRecorder.get(central_or_shift_main));
 
+    /*
 // require that trigger paths match lepton flavor (for fakeable leptons)
     if ( !((fakeableElectrons.size() >= 2 &&                              (selTrigger_2e    || selTrigger_1e                  )) ||
            (fakeableElectrons.size() >= 1 && fakeableMuons.size() >= 1 && (selTrigger_1e1mu || selTrigger_1mu || selTrigger_1e)) ||
@@ -1644,7 +1658,8 @@ int main(int argc, char* argv[])
     }
     cutFlowTable.update("trigger & fakeable lepton flavor matching", evtWeightRecorder.get(central_or_shift_main));
     cutFlowHistManager->fillHistograms("trigger & fakeable lepton flavor matching", evtWeightRecorder.get(central_or_shift_main));
-
+    */
+    
     // Require that trigger paths match primary datasets,
     // to avoid that the same event is selected multiple times when processing different primary datasets (PD).
     // In case the same event passes the triggers paths for more than one primary datasets,
@@ -1713,6 +1728,7 @@ int main(int argc, char* argv[])
     cutFlowTable.update("trigger & dataset matching", evtWeightRecorder.get(central_or_shift_main));
     cutFlowHistManager->fillHistograms("trigger & dataset matching", evtWeightRecorder.get(central_or_shift_main));
 
+    /*
 //--- apply HLT filter
     if(apply_hlt_filter)
     {
@@ -1734,7 +1750,8 @@ int main(int argc, char* argv[])
     }
     cutFlowTable.update("HLT filter matching", evtWeightRecorder.get(central_or_shift_main));
     cutFlowHistManager->fillHistograms("HLT filter matching", evtWeightRecorder.get(central_or_shift_main));
-
+    */
+    
     if(isMC)
     {
 //--- compute event-level weight for data/MC correction of b-tagging efficiency and mistag rate
@@ -1755,7 +1772,7 @@ int main(int argc, char* argv[])
       dataToMCcorrectionInterface->setLeptons({ selLepton_lead, selLepton_sublead }, true);
 
 //--- apply data/MC corrections for trigger efficiency
-      evtWeightRecorder.record_leptonTriggerEff(dataToMCcorrectionInterface);
+      //evtWeightRecorder.record_leptonTriggerEff(dataToMCcorrectionInterface);
 
 //--- apply data/MC corrections for efficiencies for lepton to pass loose identification and isolation criteria
       evtWeightRecorder.record_leptonIDSF_recoToLoose(dataToMCcorrectionInterface);
@@ -2176,6 +2193,75 @@ int main(int argc, char* argv[])
     {
       continue;
     }
+
+
+
+
+    if(isMC) {
+      //--- apply data/MC corrections for trigger efficiency
+      evtWeightRecorder.record_leptonTriggerEff(dataToMCcorrectionInterface);
+    }
+
+    if ( !(selTrigger_1e || selTrigger_2e || selTrigger_1mu || selTrigger_2mu || selTrigger_1e1mu) ) {
+      if ( run_lumi_eventSelector ) {
+        std::cout << "event " << eventInfo.str() << " FAILS trigger selection." << std::endl;
+	std::cout << " (selTrigger_1e = " << selTrigger_1e
+		  << ", selTrigger_2e = " << selTrigger_2e
+		  << ", selTrigger_1mu = " << selTrigger_1mu
+		  << ", selTrigger_2mu = " << selTrigger_2mu
+		  << ", selTrigger_1e1mu = " << selTrigger_1e1mu << ")" << std::endl;
+      }
+      continue;
+    }
+    cutFlowTable.update("trigger", evtWeightRecorder.get(central_or_shift_main));
+    cutFlowHistManager->fillHistograms("trigger", evtWeightRecorder.get(central_or_shift_main));
+
+
+// require that trigger paths match lepton flavor (for fakeable leptons)
+    if ( !((fakeableElectrons.size() >= 2 &&                              (selTrigger_2e    || selTrigger_1e                  )) ||
+           (fakeableElectrons.size() >= 1 && fakeableMuons.size() >= 1 && (selTrigger_1e1mu || selTrigger_1mu || selTrigger_1e)) ||
+           (                                 fakeableMuons.size() >= 2 && (selTrigger_2mu   || selTrigger_1mu                 ))) ) {
+      if ( run_lumi_eventSelector ) {
+        std::cout << "event " << eventInfo.str() << " FAILS trigger selection for given fakeableLepton multiplicity." << std::endl;
+        std::cout << " (#fakeableElectrons = " << fakeableElectrons.size()
+                  << ", #fakeableMuons = " << fakeableMuons.size()
+                  << ", selTrigger_2mu = " << selTrigger_2mu
+                  << ", selTrigger_1e1mu = " << selTrigger_1e1mu
+                  << ", selTrigger_2e = " << selTrigger_2e
+                  << ", selTrigger_1mu = " << selTrigger_1mu
+                  << ", selTrigger_1e = " << selTrigger_1e << ")" << std::endl;
+      }
+      continue;
+    }
+    cutFlowTable.update("trigger & fakeable lepton flavor matching", evtWeightRecorder.get(central_or_shift_main));
+    cutFlowHistManager->fillHistograms("trigger & fakeable lepton flavor matching", evtWeightRecorder.get(central_or_shift_main));
+
+
+
+    if(apply_hlt_filter)
+    {
+      const std::map<hltPathsE, bool> trigger_bits = {
+        { hltPathsE::trigger_1e,    selTrigger_1e    },
+        { hltPathsE::trigger_1mu,   selTrigger_1mu   },
+        { hltPathsE::trigger_2e,    selTrigger_2e    },
+        { hltPathsE::trigger_2mu,   selTrigger_2mu   },
+        { hltPathsE::trigger_1e1mu, selTrigger_1e1mu },
+      };
+      if(! hltFilter(trigger_bits, fakeableLeptons, {}))
+      {
+        if(run_lumi_eventSelector || isDEBUG)
+        {
+          std::cout << "event " << eventInfo.str() << " FAILS HLT filter matching\n";
+        }
+        continue;
+      }
+    }
+    cutFlowTable.update("HLT filter matching", evtWeightRecorder.get(central_or_shift_main));
+    cutFlowHistManager->fillHistograms("HLT filter matching", evtWeightRecorder.get(central_or_shift_main));
+
+
+
+    
 
     // compute signal extraction observables
     double dihiggsVisMass_sel = (selJetP4 + selLepton_lead->cone_p4() + selLepton_sublead->cone_p4()).mass();
