@@ -304,20 +304,16 @@ int main(int argc, char* argv[])
   std::cout << "isControlRegion: " << isControlRegion << "\n";
 
   // command line options for Z-mass veto
-  const int flagZMassVetoForCR_default = -1;
   const int flagZMassVetoForCR = cfg_analyze.exists("useZmassVetoForCR") ?
-    ( (cfg_analyze.getParameter<std::string>("useZmassVetoForCR").compare("None")) ? std::stoi( cfg_analyze.getParameter<std::string>("useZmassVetoForCR") ) : flagZMassVetoForCR_default )
-    :  flagZMassVetoForCR_default ;
+    std::stoi( cfg_analyze.getParameter<std::string>("useZmassVetoForCR") )  :  -1 ;
   // 1: use SFOS Z-mass cut, 0: do use any cut on SFOS Z-mass,  -1: invert SFOS Z-mass cut.
   // -1 for WZCR.
   // It is applicable only with CR mode.
   std::cout << "flagZMassVetoForCR: " << flagZMassVetoForCR << "\n";
   
   // command line options for MET cut
-  const int flagMETCutForCR_default = 1;
   const int flagMETCutForCR = cfg_analyze.exists("useMETCutForCR") ?
-    ( (cfg_analyze.getParameter<std::string>("useMETCutForCR").compare("None")) ? std::stoi( cfg_analyze.getParameter<std::string>("useMETCutForCR") ) : flagMETCutForCR_default )
-    :  flagMETCutForCR_default ;
+    std::stoi( cfg_analyze.getParameter<std::string>("useMETCutForCR") )  :  -1 ;
   // 1: use MET cut, 0: don't use MET cut, -1: invert MET cut
   // 1: for WZ CR
   // It is applicable only with CR mode.
@@ -1716,7 +1712,6 @@ int main(int argc, char* argv[])
     bool selTrigger_2e1mu = use_triggers_2e1mu && isTriggered_2e1mu;
     bool selTrigger_1e2mu = use_triggers_1e2mu && isTriggered_1e2mu;
     bool selTrigger_3mu = use_triggers_3mu && isTriggered_3mu;
-    /*
     if ( !(selTrigger_1e || selTrigger_1mu   ||
 	   selTrigger_2e || selTrigger_1e1mu || selTrigger_2mu   ||
 	   selTrigger_3e || selTrigger_2e1mu || selTrigger_1e2mu || selTrigger_3mu) ) {
@@ -1736,8 +1731,7 @@ int main(int argc, char* argv[])
     }
     cutFlowTable.update("trigger", evtWeightRecorder.get(central_or_shift_main));
     cutFlowHistManager->fillHistograms("trigger", evtWeightRecorder.get(central_or_shift_main));
-    */
-    
+
     if ( (selTrigger_3mu   && !apply_offline_e_trigger_cuts_3mu)   ||
 	 (selTrigger_2e1mu && !apply_offline_e_trigger_cuts_2e1mu) ||
 	 (selTrigger_1e2mu && !apply_offline_e_trigger_cuts_1e2mu) ||
@@ -1985,10 +1979,8 @@ int main(int argc, char* argv[])
       dataToMCcorrectionInterface->setLeptons({ selLepton_lead, selLepton_sublead, selLepton_third });
 
 //--- apply data/MC corrections for trigger efficiency
-      /*
       evtWeightRecorder.record_leptonTriggerEff(dataToMCcorrectionInterface);
-      */
-      
+
 //--- apply data/MC corrections for efficiencies for lepton to pass loose identification and isolation criteria
       evtWeightRecorder.record_leptonIDSF_recoToLoose(dataToMCcorrectionInterface);
 
@@ -2035,7 +2027,7 @@ int main(int argc, char* argv[])
      cutFlowTable.update("<= 3 tight sel leptons", evtWeightRecorder.get(central_or_shift_main));
     cutFlowHistManager->fillHistograms("<= 3 tight sel leptons", evtWeightRecorder.get(central_or_shift_main));
    
-    /*
+
     // require that trigger paths match lepton flavor (for fakeable leptons)
     if ( !((fakeableElectrons.size() >= 3 &&                              (selTrigger_3e    || selTrigger_2e  || selTrigger_1e                                      )) ||
 	   (fakeableElectrons.size() >= 2 && fakeableMuons.size() >= 1 && (selTrigger_2e1mu || selTrigger_2e  || selTrigger_1e1mu || selTrigger_1mu || selTrigger_1e)) ||
@@ -2059,8 +2051,7 @@ int main(int argc, char* argv[])
     }
     cutFlowTable.update("trigger & fakeable lepton flavor matching", evtWeightRecorder.get(central_or_shift_main));
     cutFlowHistManager->fillHistograms("trigger & fakeable lepton flavor matching", evtWeightRecorder.get(central_or_shift_main));
-    */
-    
+
     // Require that trigger paths match primary datasets,
     // to avoid that the same event is selected multiple times when processing different primary datasets (PD).
     // In case the same event passes the triggers paths for more than one primary datasets,
@@ -2133,7 +2124,6 @@ int main(int argc, char* argv[])
     cutFlowTable.update("trigger & dataset matching", evtWeightRecorder.get(central_or_shift_main));
     cutFlowHistManager->fillHistograms("trigger & dataset matching", evtWeightRecorder.get(central_or_shift_main));
 
-    /*
 //--- apply HLT filter
     if(apply_hlt_filter)
     {
@@ -2159,7 +2149,7 @@ int main(int argc, char* argv[])
     }
     cutFlowTable.update("HLT filter matching", evtWeightRecorder.get(central_or_shift_main));
     cutFlowHistManager->fillHistograms("HLT filter matching", evtWeightRecorder.get(central_or_shift_main));
-    */
+
 
     if ( (selBJetsAK4_loose.size() >= 2 || selBJetsAK4_medium.size() >= 1) ) {
       if ( run_lumi_eventSelector ) {
@@ -2740,92 +2730,6 @@ int main(int argc, char* argv[])
     }
 
     if (printLevel > 0) std::cout << "Siddh here100" << std::endl;       
-
-
-    if(isMC) {
-      evtWeightRecorder.record_leptonTriggerEff(dataToMCcorrectionInterface);
-    }
-    
-    if ( !(selTrigger_1e || selTrigger_1mu   ||
-	   selTrigger_2e || selTrigger_1e1mu || selTrigger_2mu   ||
-	   selTrigger_3e || selTrigger_2e1mu || selTrigger_1e2mu || selTrigger_3mu) ) {
-      if ( run_lumi_eventSelector ) {
-    std::cout << "event " << eventInfo.str() << " FAILS trigger selection." << std::endl;
-	std::cout << " (selTrigger_3mu = " << selTrigger_3mu
-		  << ", selTrigger_1e2mu = " << selTrigger_1e2mu
-		  << ", selTrigger_2e1mu = " << selTrigger_2e1mu
-		  << ", selTrigger_3e = " << selTrigger_3e
-		  << ", selTrigger_2mu = " << selTrigger_2mu
-		  << ", selTrigger_1e1mu = " << selTrigger_1e1mu
-		  << ", selTrigger_2e = " << selTrigger_2e
-		  << ", selTrigger_1mu = " << selTrigger_1mu
-		  << ", selTrigger_1e = " << selTrigger_1e << ")" << std::endl;
-      }
-      continue;
-    }
-    cutFlowTable.update("trigger", evtWeightRecorder.get(central_or_shift_main));
-    cutFlowHistManager->fillHistograms("trigger", evtWeightRecorder.get(central_or_shift_main));
-
-
-
-    // require that trigger paths match lepton flavor (for fakeable leptons)
-    if ( !((fakeableElectrons.size() >= 3 &&                              (selTrigger_3e    || selTrigger_2e  || selTrigger_1e                                      )) ||
-	   (fakeableElectrons.size() >= 2 && fakeableMuons.size() >= 1 && (selTrigger_2e1mu || selTrigger_2e  || selTrigger_1e1mu || selTrigger_1mu || selTrigger_1e)) ||
-	   (fakeableElectrons.size() >= 1 && fakeableMuons.size() >= 2 && (selTrigger_1e2mu || selTrigger_2mu || selTrigger_1e1mu || selTrigger_1mu || selTrigger_1e)) ||
-	   (                                 fakeableMuons.size() >= 3 && (selTrigger_3mu   || selTrigger_2mu || selTrigger_1mu                                     ))) ) {
-      if ( run_lumi_eventSelector ) {
-        std::cout << "event " << eventInfo.str() << " FAILS trigger selection for given fakeableLepton multiplicity." << std::endl;
-	std::cout << " (#fakeableElectrons = " << fakeableElectrons.size()
-		  << ", #fakeableMuons = " << fakeableMuons.size()
-		  << ", selTrigger_3mu = " << selTrigger_3mu
-		  << ", selTrigger_1e2mu = " << selTrigger_1e2mu
-		  << ", selTrigger_2e1mu = " << selTrigger_2e1mu
-		  << ", selTrigger_3e = " << selTrigger_3e
-		  << ", selTrigger_2mu = " << selTrigger_2mu
-		  << ", selTrigger_1e1mu = " << selTrigger_1e1mu
-		  << ", selTrigger_2e = " << selTrigger_2e
-		  << ", selTrigger_1mu = " << selTrigger_1mu
-		  << ", selTrigger_1e = " << selTrigger_1e << ")" << std::endl;
-      }
-      continue;
-    }
-    cutFlowTable.update("trigger & fakeable lepton flavor matching", evtWeightRecorder.get(central_or_shift_main));
-    cutFlowHistManager->fillHistograms("trigger & fakeable lepton flavor matching", evtWeightRecorder.get(central_or_shift_main));
-
-
-//--- apply HLT filter
-    if(apply_hlt_filter)
-    {
-      const std::map<hltPathsE, bool> trigger_bits = {
-        { hltPathsE::trigger_1e,    selTrigger_1e    },
-        { hltPathsE::trigger_1mu,   selTrigger_1mu   },
-        { hltPathsE::trigger_2e,    selTrigger_2e    },
-        { hltPathsE::trigger_2mu,   selTrigger_2mu   },
-        { hltPathsE::trigger_1e1mu, selTrigger_1e1mu },
-        { hltPathsE::trigger_1e2mu, selTrigger_1e2mu },
-        { hltPathsE::trigger_2e1mu, selTrigger_2e1mu },
-        { hltPathsE::trigger_3e,    selTrigger_3e    },
-        { hltPathsE::trigger_3mu,   selTrigger_3mu   },
-      };
-      if(! hltFilter(trigger_bits, fakeableLeptons, {}))
-      {
-        if(run_lumi_eventSelector || isDEBUG)
-        {
-          std::cout << "event " << eventInfo.str() << " FAILS HLT filter matching\n";
-        }
-        continue;
-      }
-    }
-    cutFlowTable.update("HLT filter matching", evtWeightRecorder.get(central_or_shift_main));
-    cutFlowHistManager->fillHistograms("HLT filter matching", evtWeightRecorder.get(central_or_shift_main));
-    
-    
-    
-
-
-
-
-
     
     
     /*
