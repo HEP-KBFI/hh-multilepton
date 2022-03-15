@@ -30,7 +30,7 @@ Plotter_HH::Plotter_HH(const TFile* inputFile, const edm::ParameterSet& cfg)
 {
   scaleSignal_ = cfg.getParameter<double>("scaleSignal");
   legendEntrySignal_ = cfg.getParameter<std::string>("legendEntrySignal");
-  sort_ = cfg.exists("sort") ? cfg.getParameter<bool>("scale") : false;
+  sort_ = cfg.exists("sort") ? cfg.getParameter<bool>("sort") : false;
 
   if (cfg.exists("legendEntriesSignal"))
   {
