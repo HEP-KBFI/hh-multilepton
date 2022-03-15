@@ -155,6 +155,9 @@ enum { kFR_disabled, kFR_2lepton, kFR_4L, kFR_2tau };
 const int hadTauSelection_antiElectron = -1; // not applied
 const int hadTauSelection_antiMuon = -1; // not applied
 
+
+const bool runKinVarsPlotForFullSyst = true; // true: make histograms for kinematic variables using EvtHistManager_hh_2l_2tau for full systematics
+
 struct ParticlePair
 {
 
@@ -978,13 +981,19 @@ const HHWeightInterfaceCouplings * const hhWeight_couplings = new HHWeightInterf
         selHistManager->metFilters_ = new MEtFilterHistManager(makeHistManager_cfg(process_and_genMatch,
           Form("%s/sel/metFilters", histogramDir.data()), era_string, central_or_shift));
         selHistManager->metFilters_->bookHistograms(fs);
-        selHistManager->evt_ = new EvtHistManager_hh_2l_2tau(makeHistManager_cfg(process_and_genMatch,
-	  Form("%s/sel/evt", histogramDir.data()), era_string, central_or_shift));
-        selHistManager->evt_->bookHistograms(fs);
-        selHistManager->svFit4tau_wMassConstraint_ = new SVfit4tauHistManager_MarkovChain(makeHistManager_cfg(process_and_genMatch,
+	selHistManager->svFit4tau_wMassConstraint_ = new SVfit4tauHistManager_MarkovChain(makeHistManager_cfg(process_and_genMatch,
           Form("%s/sel/svFit4tau_wMassConstraint", histogramDir.data()), era_string, central_or_shift));
         selHistManager->svFit4tau_wMassConstraint_->bookHistograms(fs);
       }
+
+      if(! skipBooking || runKinVarsPlotForFullSyst)
+      {
+	selHistManager->evt_ = new EvtHistManager_hh_2l_2tau(makeHistManager_cfg(process_and_genMatch,
+	  Form("%s/sel/evt", histogramDir.data()), era_string, central_or_shift));
+        selHistManager->evt_->bookHistograms(fs);
+      }
+
+
       selHistManager->datacard_ = new DatacardHistManager_hh(makeHistManager_cfg(process_and_genMatch,
         Form("%s/sel/datacard", histogramDir.data()), era_string, central_or_shift),
         analysisConfig, eventInfo, HHWeightLO_calc, HHWeightNLO_calc,
@@ -2256,6 +2265,11 @@ const HHWeightInterfaceCouplings * const hhWeight_couplings = new HHWeightInterf
 	  selHistManager->mvaInputVariables_2l_2tau_spin2_->fillHistograms(BDTInputs_SUM_spin2_reduced, evtWeight); 
 	  selHistManager->mvaInputVariables_2l_2tau_spin0_->fillHistograms(BDTInputs_SUM_spin0_reduced, evtWeight); 
 	  selHistManager->mvaInputVariables_2l_2tau_nonres_->fillHistograms(BDTInputs_SUM_nonres_reduced, evtWeight); 
+	  selHistManager->svFit4tau_wMassConstraint_->fillHistograms(svFit4tauResults_wMassConstraint, evtWeight);
+	} 
+
+        if(! skipFilling || runKinVarsPlotForFullSyst)
+        {
 	  selHistManager->evt_->fillHistograms(
 	    BDTOutput_SUM_Map_nonres["SM"],
 	    selLepton_lead->charge(),           
@@ -2276,8 +2290,7 @@ const HHWeightInterfaceCouplings * const hhWeight_couplings = new HHWeightInterf
             STMET,
             eventInfo.event,
             evtWeight);
-	  selHistManager->svFit4tau_wMassConstraint_->fillHistograms(svFit4tauResults_wMassConstraint, evtWeight);
-	} 
+	}
 
         selHistManager->datacard_->fillHistograms(
           BDTOutput_SUM_Map_spin2,
