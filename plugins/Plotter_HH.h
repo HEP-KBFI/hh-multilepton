@@ -43,6 +43,7 @@ class Plotter_HH : public Plotter
 			bool divideByBinWidth);
 
   double scaleSignal_;
+  bool sort_;
   std::string legendEntrySignal_;
 
   std::vector<std::string> legendEntriesSignal_;

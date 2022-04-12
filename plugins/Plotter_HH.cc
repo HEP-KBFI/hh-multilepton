@@ -17,11 +17,20 @@ bool isDataBlinded = true; // added by Siddhesh
 
 typedef std::vector<std::string> vstring;
 
+namespace
+{
+  bool sortbysecondmax(const std::pair<TH1*,float> &a,
+                      const std::pair<TH1*,float> &b)
+  {
+    return (a.second > b.second);
+  }
+}
 Plotter_HH::Plotter_HH(const TFile* inputFile, const edm::ParameterSet& cfg)
   : Plotter(inputFile, cfg)
 {
   scaleSignal_ = cfg.getParameter<double>("scaleSignal");
   legendEntrySignal_ = cfg.getParameter<std::string>("legendEntrySignal");
+  sort_ = cfg.exists("sort") ? cfg.getParameter<bool>("sort") : false;
 
   if (cfg.exists("legendEntriesSignal"))
   {
@@ -497,63 +506,64 @@ void Plotter_HH::makePlot(double canvasSizeX, double canvasSizeY,
   const std::string legendEntry_Other       = "Other";
   const std::string legendEntry_Flips       = "Flips";
   
-  std::vector<TH1*> histogramsForStack_density;
+  std::vector<std::pair<TH1*, float>> histogramsForStack_density;
   if ( histogramDY_density ) {
     histogramDY_density->SetFillColor(color_DY);
-    histogramsForStack_density.push_back(histogramDY_density);
+    histogramsForStack_density.push_back(std::make_pair(histogramDY_density,histogramDY_density->Integral()));
     legend->AddEntry(histogramDY_density, legendEntry_DY.data(), "f");
   }
   if ( histogramW_density ) {
     histogramW_density->SetFillColor(color_W);
-    histogramsForStack_density.push_back(histogramW_density);
+    histogramsForStack_density.push_back(std::make_pair(histogramW_density, histogramW_density->Integral()));
     legend->AddEntry(histogramW_density, legendEntry_W.data(), "f");
   }
   if ( histogramVV_density ) {
     histogramVV_density->SetFillColor(color_VV);
-    histogramsForStack_density.push_back(histogramVV_density);
+    histogramsForStack_density.push_back(std::make_pair(histogramVV_density, histogramVV_density->Integral()));
     legend->AddEntry(histogramVV_density, legendEntry_VV.data(), "f");
   }
   if ( histogramFakes_density ) {
     histogramFakes_density->SetFillColor(color_Fakes);
     histogramFakes_density->SetFillStyle(3005); // stripes extending from top left to bottom right
-    histogramsForStack_density.push_back(histogramFakes_density);
+    histogramsForStack_density.push_back(std::make_pair(histogramFakes_density, histogramFakes_density->Integral()));
     legend->AddEntry(histogramFakes_density, legendEntry_Fakes.data(), "f");
   }
   if ( histogramTTZ_density ) {
     histogramTTZ_density->SetFillColor(color_ttZ);
-    histogramsForStack_density.push_back(histogramTTZ_density);
+    histogramsForStack_density.push_back(std::make_pair(histogramTTZ_density, histogramTTZ_density->Integral()));
     legend->AddEntry(histogramTTZ_density, legendEntry_ttZ.data(), "f");
   } 
   if ( histogramSingleTop_density ) {
     histogramSingleTop_density->SetFillColor(color_singleTop);
-    histogramsForStack_density.push_back(histogramSingleTop_density);
+    histogramsForStack_density.push_back(std::make_pair(histogramSingleTop_density, histogramSingleTop_density->Integral()));
     legend->AddEntry(histogramSingleTop_density, legendEntry_singleTop.data(), "f");
   }
   if ( histogramConversions_density ) {
     histogramConversions_density->SetFillColor(color_Conversions);
-    histogramsForStack_density.push_back(histogramConversions_density);
+    histogramsForStack_density.push_back(std::make_pair(histogramConversions_density, histogramConversions_density->Integral()));
     legend->AddEntry(histogramConversions_density, legendEntry_Conversions.data(), "f");
   }
   if ( histogramVH_density ) {
     histogramVH_density->SetFillColor(color_VH);
-    histogramsForStack_density.push_back(histogramVH_density);
+    histogramsForStack_density.push_back(std::make_pair(histogramVH_density, histogramVH_density->Integral()));
     legend->AddEntry(histogramVH_density, legendEntry_VH.data(), "f");
   }
   if ( histogramOther_density ) {
     histogramOther_density->SetFillColor(color_Other);
-    histogramsForStack_density.push_back(histogramOther_density);
+    histogramsForStack_density.push_back(std::make_pair(histogramOther_density, histogramOther_density->Integral()));
     legend->AddEntry(histogramOther_density, legendEntry_Other.data(), "f");
   }
   if ( histogramFlips_density ) {
     histogramFlips_density->SetFillColor(color_Flips);
-    histogramsForStack_density.push_back(histogramFlips_density);
+    histogramsForStack_density.push_back(std::make_pair(histogramFlips_density, histogramFlips_density->Integral()));
     legend->AddEntry(histogramFlips_density, legendEntry_Flips.data(), "f");
   }
+  if ( sort_ ) sort(histogramsForStack_density.begin(), histogramsForStack_density.end(), sortbysecondmax);
   // CV: add histograms to THStack in "reverse" order, so that VV background is drawn on top
   THStack* histogramStack_density = new THStack("stack", "");
-  for ( std::vector<TH1*>::reverse_iterator histogram_density = histogramsForStack_density.rbegin(); 
+  for ( std::vector<std::pair<TH1*, float>>::reverse_iterator histogram_density = histogramsForStack_density.rbegin();
 	histogram_density != histogramsForStack_density.rend(); ++histogram_density ) {
-    histogramStack_density->Add(*histogram_density);
+    histogramStack_density->Add((*histogram_density).first);
   }
   if ( histogramData_blinded_density ) histogramStack_density->Draw("histsame");
   else histogramStack_density->Draw("hist");
@@ -612,7 +622,7 @@ void Plotter_HH::makePlot(double canvasSizeX, double canvasSizeY,
     hSig_density->SetLineColor(lineColor_multiSignal[iSig]);
     hSig_density->Draw("histsame");
     legend->AddEntry(hSig_density, legendEntry.data(), "l");
-  }
+    }
   
 
   if ( histogramData_blinded_density ) {

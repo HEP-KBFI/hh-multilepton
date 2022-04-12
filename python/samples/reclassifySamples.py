@@ -170,4 +170,10 @@ def reclassifySamples(samples_era_hh, samples_era_bkg, samples_era_ttbar = None,
         assert(sample_name.startswith("/VH"))
         sample_info["use_it"] = False
 
+    if sample_info["process_name_specific"] == "TTToHadronic" and "RunIIFall17MiniAODv2" in sample_name:
+      # disable TTToHadronic 2017 sample because it does not have PS weights
+      # see also https://gitlab.cern.ch/cms-hh-bbww/cms-hh-to-bbww/-/commit/fbeeb76bdf52256700d929f0ae123917957510fd
+      #          https://github.com/HEP-KBFI/tth-htt/issues/181
+      sample_info["use_it"] = False
+
   return samples
