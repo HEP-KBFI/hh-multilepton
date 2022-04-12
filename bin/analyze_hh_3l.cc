@@ -166,6 +166,106 @@ void dumpGenParticles(const std::string& label, const std::vector<GenParticle>& 
     std::cout << std::endl;
   }
 }
+
+void printParticle(const std::string& label, Particle::LorentzVector p4) {
+  std::cout << label
+	    << " pt: " << p4.pt()
+	    << ", eta: " << p4.eta()
+	    << ", phi: " << p4.phi()
+	    << ", m: " << p4.mass()
+	    <<", ";
+}
+
+
+bool
+isfailsLowMassVeto(const std::vector<GenLepton> & preselLeptons)
+{
+  bool failsLowMassVeto = false;
+  for(auto lepton1_it = preselLeptons.begin(); lepton1_it != preselLeptons.end(); ++lepton1_it) {
+    GenLepton lepton1 = *lepton1_it;
+    for(auto lepton2_it = lepton1_it + 1; lepton2_it != preselLeptons.end(); ++lepton2_it) {
+      GenLepton lepton2 = *lepton2_it;
+      const double mass = (lepton1.p4() + lepton2.p4()).mass();
+      if(mass < 12.) {
+        failsLowMassVeto = true;
+        break;
+      }
+    }
+  }
+  return failsLowMassVeto;
+}
+
+bool
+isfailsHtoZZVeto(const std::vector<GenLepton> & preselLeptons)
+{
+  bool failsHtoZZVeto = false;
+  for(auto lepton1_it = preselLeptons.begin(); lepton1_it != preselLeptons.end(); ++lepton1_it)
+  {
+    GenLepton lepton1 = *lepton1_it;
+    for(auto lepton2_it = lepton1_it + 1; lepton2_it != preselLeptons.end(); ++lepton2_it)
+    {
+      GenLepton lepton2 = *lepton2_it;
+      if(lepton1.pdgId() == -lepton2.pdgId())
+      {
+        // first pair of same flavor leptons of opposite charge
+        for(auto lepton3_it = preselLeptons.begin(); lepton3_it != preselLeptons.end(); ++lepton3_it)
+        {
+          GenLepton lepton3 = *lepton3_it;
+          //if(lepton3 == lepton1 || lepton3 == lepton2)
+	  if(lepton3.p4() == lepton1.p4() || lepton3.p4() == lepton2.p4())
+          {
+            continue;
+          }
+          for(auto lepton4_it = lepton3_it + 1; lepton4_it != preselLeptons.end(); ++lepton4_it)
+          {
+            GenLepton lepton4 = *lepton4_it;
+            if(lepton4.p4() == lepton1.p4() || lepton4.p4() == lepton2.p4())
+            {
+              continue;
+            }
+
+            if(lepton3.pdgId() == -lepton4.pdgId())
+            {
+              // second pair of same flavor leptons of opposite charge
+              const double mass = (lepton1.p4() + lepton2.p4() + lepton3.p4() + lepton4.p4()).mass();
+              if(mass < 140.)
+              {
+                failsHtoZZVeto = true;
+                break;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  return failsHtoZZVeto;
+}
+
+
+bool
+isSFOS(const std::vector<GenLepton> & leptons)
+{
+  bool isSameFlavor_OS = false;
+  for(auto lepton1_it = leptons.begin(); lepton1_it != leptons.end(); ++lepton1_it)
+  {
+    GenLepton lepton1 = *lepton1_it;
+    for(auto lepton2_it = lepton1_it + 1; lepton2_it != leptons.end(); ++lepton2_it)
+    {
+      GenLepton lepton2 = *lepton2_it;
+      if(lepton1.pdgId() == -lepton2.pdgId())
+      {
+        // pair of same flavor leptons of opposite charge
+        isSameFlavor_OS = true;
+        break;
+      }
+    }
+  }
+  return isSameFlavor_OS;
+}
+
+
+
 /*
 void printWjj(const std::vector<const RecoJetAK8*>& jets_ak8, const RecoJetCollectionSelectorAK8_hh_Wjj& jetSelectorAK8_Wjj, 
 	      const std::vector<GenParticle>& genWBosons, const std::vector<GenParticle>& genWJets)
@@ -303,6 +403,7 @@ int main(int argc, char* argv[])
   const bool isControlRegion = cfg_analyze.getParameter<bool>("isControlRegion");
   std::cout << "isControlRegion: " << isControlRegion << "\n";
 
+  
   // command line options for Z-mass veto
   const int flagZMassVetoForCR = cfg_analyze.exists("useZmassVetoForCR") ?
     std::stoi( cfg_analyze.getParameter<std::string>("useZmassVetoForCR") )  :  -1 ;
@@ -760,11 +861,16 @@ int main(int argc, char* argv[])
 
   if(isMC)
   {
+
+    genLeptonReader = new GenLeptonReader(branchName_genLeptons);
+    inputTree -> registerReader(genLeptonReader);
+    
     bool readGenPhotons = apply_genPhotonFilter;
     if(! readGenObjects)
+    //if( readGenObjects) // Siddhesh: temporary change
     {
-      genLeptonReader = new GenLeptonReader(branchName_genLeptons);
-      inputTree -> registerReader(genLeptonReader);
+      //genLeptonReader = new GenLeptonReader(branchName_genLeptons);
+      //inputTree -> registerReader(genLeptonReader);
       genHadTauReader = new GenHadTauReader(branchName_genHadTaus);
       inputTree -> registerReader(genPhotonReader);
       genJetReader = new GenJetReader(branchName_genJets);
@@ -1561,6 +1667,10 @@ int main(int argc, char* argv[])
     std::vector<GenParticle> electronGenMatch;
     std::vector<GenParticle> hadTauGenMatch;
     std::vector<GenParticle> jetGenMatch;
+
+    std::vector<GenLepton> genLeptons_withinCMS;
+    std::vector<GenLepton> genElectrons_withinCMS;
+    std::vector<GenLepton> genMuons_withinCMS;
     if(isMC && (fillGenEvtHistograms || apply_genPhotonFilter))
     {
       if(genLeptonReader)
@@ -1573,6 +1683,23 @@ int main(int argc, char* argv[])
           {
             case 11: genElectrons.push_back(genLepton); break;
             case 13: genMuons.push_back(genLepton);     break;
+            default: assert(0);
+          }
+
+	  switch(abs_pdgId)
+          {
+            case 11:
+	      if (genLepton.pt() > 10 && genLepton.absEta() < 2.5) {
+		genElectrons_withinCMS.push_back(genLepton);
+		genLeptons_withinCMS.push_back(genLepton);
+	      }
+	      break;
+            case 13:
+	      if (genLepton.pt() > 10 && genLepton.absEta() < 2.4) {
+		genMuons_withinCMS.push_back(genLepton);
+		genLeptons_withinCMS.push_back(genLepton);
+	      }
+	      break;
             default: assert(0);
           }
         }
@@ -1592,6 +1719,7 @@ int main(int argc, char* argv[])
       if(genMatchToJetReader)      jetGenMatch = genMatchToJetReader->read();
 
       
+            
       if(isDEBUG)
       {
         printCollection("genLeptons", genLeptons);
@@ -1600,9 +1728,24 @@ int main(int argc, char* argv[])
         printCollection("genJets", genJets);
 	printCollection("genHiggses", genHiggses);
       }
+
+      if (printLevel >= 2) {
+	printCollection("genLeptons", genLeptons);
+	printCollection("genElectrons", genElectrons);
+	printCollection("genMuons", genMuons);
+	
+	printCollection("genLeptons_withinCMS", genLeptons_withinCMS);
+	printCollection("genElectrons_withinCMS", genElectrons_withinCMS);
+	printCollection("genMuons_withinCMS", genMuons_withinCMS);
+      }
     }
     genPhotonsFinal = filterByStatus(genPhotons, 1);
 
+    
+    if (printLevel >= 2)
+      std::cout << "genLeptonReader: " << genLeptonReader
+		<< ", readGenObjects: " << readGenObjects << "\n";
+    
     if (printLevel > 5) std::cout << "eventInfo: " << eventInfo
 				  << ", evtWgt: " << evtWeightRecorder.get(central_or_shift_main) << "\n";
     
@@ -1679,7 +1822,7 @@ int main(int argc, char* argv[])
       
     }
     if (printLevel > 6) std::cout << "Siddh here12 " << std::endl;
-    if (printLevel > 0) std::cout << "evtWeightRecorder: " << evtWeightRecorder << std::endl;
+    if (printLevel > 6) std::cout << "evtWeightRecorder: " << evtWeightRecorder << std::endl;
 
     bool isTriggered_1e = hltPaths_isTriggered(triggers_1e, triggerWhiteList, eventInfo, isMC, isDEBUG);
     bool isTriggered_1mu = hltPaths_isTriggered(triggers_1mu, triggerWhiteList, eventInfo, isMC, isDEBUG);
@@ -1920,6 +2063,331 @@ int main(int argc, char* argv[])
         jetGenMatcherAK4.addGenJetMatch   (selJetsAK4, genJets);
       }
     }
+
+
+
+
+
+    if ( (selBJetsAK4_loose.size() >= 2 || selBJetsAK4_medium.size() >= 1) ) {
+      if ( run_lumi_eventSelector ) {
+    std::cout << "event " << eventInfo.str() << " FAILS selBJets selection." << std::endl;
+	printCollection("selJetsAK4", selJetsAK4);
+	printCollection("selBJetsAK4_loose", selBJetsAK4_loose);
+	printCollection("selBJetsAK4_medium", selBJetsAK4_medium);
+      }
+      continue;
+    }
+    cutFlowTable.update("b-jet veto", evtWeightRecorder.get(central_or_shift_main));
+    cutFlowHistManager->fillHistograms("b-jet veto", evtWeightRecorder.get(central_or_shift_main));
+
+    
+    if ( selHadTaus.size() > 0 ) {
+      if ( run_lumi_eventSelector ) {
+    std::cout << "event " << eventInfo.str() << " FAILS selHadTaus veto." << std::endl;
+	printCollection("selHadTaus", selHadTaus);
+      }
+      continue;
+    }
+    cutFlowTable.update("sel tau veto", evtWeightRecorder.get(central_or_shift_main));
+    cutFlowHistManager->fillHistograms("sel tau veto", evtWeightRecorder.get(central_or_shift_main));
+    
+    if ( !( selJetsAK4.size() >= 1) ) {
+      if ( run_lumi_eventSelector ) {
+    std::cout << "event " << eventInfo.str() << " FAILS selHadTaus veto." << std::endl;
+	printCollection("selHadTaus", selHadTaus);
+      }
+      continue;
+    }
+    cutFlowTable.update("sel AK4 jets >= 1", evtWeightRecorder.get(central_or_shift_main));
+    cutFlowHistManager->fillHistograms("sel AK4 jets >= 1", evtWeightRecorder.get(central_or_shift_main));
+    
+
+
+    const double minPt_lead = 25.;
+    const double minPt_sublead = 15.;
+    const double minPt_third = 10.;
+    
+
+    // gen lepton cuts mimicing reco lepton cuts ---------------------------------------------------------------
+    const bool useGenLeptonCuts = true;
+    if (useGenLeptonCuts) {
+      if ( !(genLeptons_withinCMS.size() == 3) ) {
+	if ( run_lumi_eventSelector ) {
+	  std::cout << "event " << eventInfo.str() << " FAILS preselLeptons selection." << std::endl;
+	  printCollection("preselLeptons", preselLeptonsFull);
+	}
+	continue;
+      }
+      cutFlowTable.update("== 3 genLeptons_withinCMS", evtWeightRecorder.get(central_or_shift_main));
+      cutFlowHistManager->fillHistograms("== 3 genLeptons_withinCMS", evtWeightRecorder.get(central_or_shift_main));
+
+      const RecoMEt met = metReader->read();
+
+      // MET ----------    
+      Particle::LorentzVector met_p4 = met.p4();
+      Particle::LorentzVector met_p4_0 = met_p4;
+      if (printLevel >= 6) {
+	std::cout << "Initial met:: ";
+	printParticle("met_p4 ", met_p4);
+      }
+      for (const RecoLepton* lepton: preselLeptonsFull) {
+	met_p4 += lepton->p4();
+	if (printLevel >= 6) { printParticle("\n\tmet_p4 ", met_p4); printParticle("\t reco-lepton ", lepton->p4()); }
+	/*Particle::LorentzVector lepton_p4 = lepton->p4();
+	Particle::LorentzVector lepton_pT(lepton_p4.pt(), 0, lepton_p4.phi(), 0);
+	met_p4 -= lepton_pT;
+	if (printLevel >= 2) { printParticle("\n\tmet_p4 ", met_p4); printParticle("\t reco-lepton-pT ", lepton_pT); }
+	*/
+      }
+      for(GenLepton lepton: genLeptons_withinCMS) {
+	met_p4 -= lepton.p4();
+	if (printLevel >= 6) { printParticle("\n\tmet_p4 ", met_p4); printParticle("\t gen-lepton ", lepton.p4()); }
+	/*Particle::LorentzVector lepton_p4 = lepton.p4();
+	Particle::LorentzVector lepton_pT(lepton_p4.pt(), 0, lepton_p4.phi(), 0);
+	met_p4 += lepton_pT;
+	//if (printLevel >= 2) { printParticle("\n\tmet_p4 ", met_p4); printParticle("\t reco-lepton ", lepton->p4()); }
+	if (printLevel >= 2) { printParticle("\n\tmet_p4 ", met_p4); printParticle("\t gen-lepton-pT ", lepton_pT); }*/
+      }
+      if (printLevel >= 6) {
+	std::cout << "\nmet with gen-leptons:: ";
+	printParticle("met_p4 ", met_p4);
+	printParticle("met_p4_0 ", met_p4_0);
+	std::cout << "\n";
+      }
+  
+
+      // MHT -------      
+      //Particle::LorentzVector mht_p4 = compMHT(fakeableLeptonsFull, fakeableHadTaus, selJetsAK4);
+      Particle::LorentzVector mht_p4(0,0,0,0);
+      for(GenLepton lepton: genLeptons_withinCMS) {
+	mht_p4 += lepton.p4();
+      }
+      for(const RecoHadTau * hadTau: fakeableHadTaus) {
+	mht_p4 += hadTau->p4();
+      }
+      for(const RecoJet * jet: selJetsAK4) {
+	mht_p4 += jet->p4();
+      }
+
+      // met_LD -----
+      double met_LD = compMEt_LD(met.p4(), mht_p4);
+   
+
+
+      // require that trigger paths match lepton flavor (for fakeable leptons)
+      if ( !((genElectrons_withinCMS.size() >= 3 &&                              (selTrigger_3e    || selTrigger_2e  || selTrigger_1e                                      )) ||
+	     (genElectrons_withinCMS.size() >= 2 && genMuons_withinCMS.size() >= 1 && (selTrigger_2e1mu || selTrigger_2e  || selTrigger_1e1mu || selTrigger_1mu || selTrigger_1e)) ||
+	     (genElectrons_withinCMS.size() >= 1 && genMuons_withinCMS.size() >= 2 && (selTrigger_1e2mu || selTrigger_2mu || selTrigger_1e1mu || selTrigger_1mu || selTrigger_1e)) ||
+	     (                                 genMuons_withinCMS.size() >= 3 && (selTrigger_3mu   || selTrigger_2mu || selTrigger_1mu                                     ))) ) {
+	if ( run_lumi_eventSelector ) {
+	  std::cout << "event " << eventInfo.str() << " FAILS trigger selection for given fakeableLepton multiplicity." << std::endl;
+	  std::cout << " (#genElectrons_withinCMS = " << genElectrons_withinCMS.size()
+		    << ", #genMuons_withinCMS = " << genMuons_withinCMS.size()
+		    << ", selTrigger_3mu = " << selTrigger_3mu
+		    << ", selTrigger_1e2mu = " << selTrigger_1e2mu
+		    << ", selTrigger_2e1mu = " << selTrigger_2e1mu
+		    << ", selTrigger_3e = " << selTrigger_3e
+		    << ", selTrigger_2mu = " << selTrigger_2mu
+		    << ", selTrigger_1e1mu = " << selTrigger_1e1mu
+		    << ", selTrigger_2e = " << selTrigger_2e
+		    << ", selTrigger_1mu = " << selTrigger_1mu
+		    << ", selTrigger_1e = " << selTrigger_1e << ")" << std::endl;
+	}
+	continue;
+      }
+      cutFlowTable.update("trigger & gen lepton flavor matching", evtWeightRecorder.get(central_or_shift_main));
+      cutFlowHistManager->fillHistograms("trigger & gen lepton flavor matching", evtWeightRecorder.get(central_or_shift_main));
+
+
+      
+
+
+      if ( !(genLeptons_withinCMS[0].pt() > minPt_lead && genLeptons_withinCMS[1].pt() > minPt_sublead && genLeptons_withinCMS[2].pt() > minPt_third) ) {
+	if ( run_lumi_eventSelector ) {
+	  std::cout << "event " << eventInfo.str() << " FAILS gen-lepton pT selection." << std::endl;
+	  std::cout << " (leading selLepton pT = " << genLeptons_withinCMS[0].pt() << ", minPt_lead = " << minPt_lead
+		    << ", subleading selLepton pT = " << genLeptons_withinCMS[1].pt() << ", minPt_sublead = " << minPt_sublead
+		    << ", third selLepton pT = " << genLeptons_withinCMS[2].pt() << ", minPt_third = " << minPt_third << ")" << std::endl;
+	}
+	continue;
+      }
+      cutFlowTable.update("gen-lead lepton pT > 25 GeV && gen-sublead lepton pT > 15 GeV && gen-third lepton pT > 10 GeV", evtWeightRecorder.get(central_or_shift_main));
+      cutFlowHistManager->fillHistograms("gen-lead lepton pT > 25 GeV && gen-sublead lepton pT > 15 GeV && gen-third lepton pT > 10 GeV", evtWeightRecorder.get(central_or_shift_main));
+
+
+
+      int sumLeptonCharge_3l = genLeptons_withinCMS[0].charge() + genLeptons_withinCMS[1].charge() + genLeptons_withinCMS[2].charge();
+      bool isCharge_SS = std::abs(sumLeptonCharge_3l) >  1;
+      bool isCharge_OS = std::abs(sumLeptonCharge_3l) <= 1;
+      if ( leptonChargeSelection == kOS && isCharge_SS ) {
+	if ( run_lumi_eventSelector ) {
+	  std::cout << "event " << eventInfo.str() << " FAILS lepton charge selection." << std::endl;
+	  std::cout << " (leading selLepton charge = " << genLeptons_withinCMS[0].charge()
+		    << ", subleading selLepton charge = " << genLeptons_withinCMS[1].charge()
+		    << ", third selLepton charge = " << genLeptons_withinCMS[2].charge() << ", leptonChargeSelection = OS)" << std::endl;
+	}
+	continue;
+      }
+      if ( leptonChargeSelection == kSS && isCharge_OS ) {
+	if ( run_lumi_eventSelector  || 1==1) {
+	  std::cout << "event " << eventInfo.str() << " FAILS lepton charge selection." << std::endl;
+	  std::cout << " (leading selLepton charge = " << genLeptons_withinCMS[0].charge()
+		    << ", subleading selLepton charge = " << genLeptons_withinCMS[1].charge()
+		    << ", third selLepton charge = " << genLeptons_withinCMS[2].charge() << ", leptonChargeSelection = SS)" << std::endl;
+	}
+	continue;
+      }
+      cutFlowTable.update("gen-lepton charge", evtWeightRecorder.get(central_or_shift_main));
+      cutFlowHistManager->fillHistograms("gen-lepton charge", evtWeightRecorder.get(central_or_shift_main));
+
+
+
+    
+      const bool failsLowMassVeto = isfailsLowMassVeto(genLeptons_withinCMS);
+      if ( failsLowMassVeto ) {
+	if ( run_lumi_eventSelector ) {
+	  std::cout << "event " << eventInfo.str() << " FAILS low mass lepton pair veto." << std::endl;
+	}
+	continue;
+      }
+      cutFlowTable.update("gen-lepton m(ll) > 12 GeV", evtWeightRecorder.get(central_or_shift_main));
+      cutFlowHistManager->fillHistograms("gen-lepton m(ll) > 12 GeV", evtWeightRecorder.get(central_or_shift_main));
+
+
+
+    
+      bool isSameFlavor_OS = false;
+      double massSameFlavor_OS = -1.;
+      int  numSameFlavor_OS_Full = 0;
+      for ( std::vector<GenLepton>::const_iterator lepton1 = genLeptons_withinCMS.begin();
+	    lepton1 != genLeptons_withinCMS.end(); ++lepton1 ) {
+	for ( std::vector<GenLepton>::const_iterator lepton2 = lepton1 + 1;
+	      lepton2 != genLeptons_withinCMS.end(); ++lepton2 ) {
+	  if ( (*lepton1).pdgId() == -(*lepton2).pdgId() ) { // pair of same flavor leptons of opposite charge
+	    isSameFlavor_OS = true;
+	    numSameFlavor_OS_Full++;
+	    double mass = ((*lepton1).p4() + (*lepton2).p4()).mass();
+	    //hm_SFOS2lpresel_0[genMatchIdx_0].Fill(mass, evtWeightRecorder.get(central_or_shift_main));
+	    if ( std::fabs(mass - z_mass) < std::fabs(massSameFlavor_OS - z_mass) ) massSameFlavor_OS = mass;
+	  }
+	}
+      }
+
+      bool failsZbosonMassVeto = isSameFlavor_OS && std::fabs(massSameFlavor_OS - z_mass) < z_window;
+      bool statusZbosonMassVeto = false; // true: reject event
+      if ( ! isControlRegion ) { // 3l SR
+	statusZbosonMassVeto = failsZbosonMassVeto;
+      }
+      else {
+	if ( flagZMassVetoForCR == -1) { // 3l WZ CR, 3l Z+jet CR etc
+	  statusZbosonMassVeto = ! failsZbosonMassVeto; 
+	}
+	else if ( flagZMassVetoForCR == 1) { // some CR not for Z events
+	  statusZbosonMassVeto = failsZbosonMassVeto; 
+	}
+	else if ( flagZMassVetoForCR == 0) { // don't use SFOS Z-mass cut
+	  statusZbosonMassVeto = false; 
+	}
+      }
+      //if ( failsZbosonMassVeto != isControlRegion ) { // WZ Control region
+      if ( statusZbosonMassVeto ) {
+	if ( run_lumi_eventSelector ) {
+	  std::cout << "event " << eventInfo.str() << " FAILS Z-boson veto." << std::endl;
+	}
+	continue;
+      }
+      cutFlowTable.update("gen-lepton Z-boson mass veto", evtWeightRecorder.get(central_or_shift_main));
+      cutFlowHistManager->fillHistograms("gen-lepton Z-boson mass veto", evtWeightRecorder.get(central_or_shift_main));
+
+
+    
+      const bool failsHtoZZVeto = isfailsHtoZZVeto(genLeptons_withinCMS);
+      if ( failsHtoZZVeto ) {
+	if ( run_lumi_eventSelector ) {
+	  std::cout << "event " << eventInfo.str() << " FAILS H->ZZ*->4l veto." << std::endl;
+	}
+	continue;
+      }
+      cutFlowTable.update("gen-lepton H->ZZ*->4l veto", evtWeightRecorder.get(central_or_shift_main));
+      cutFlowHistManager->fillHistograms("gen-lepton H->ZZ*->4l veto", evtWeightRecorder.get(central_or_shift_main));
+
+
+
+
+
+
+      const bool isSameFlavor_OS_FO = isSFOS(genLeptons_withinCMS);
+      /*
+	hMEt_All_0[genMatchIdx_0]->Fill(met.pt(),      evtWeightRecorder.get(central_or_shift_main));
+	hHt_All_0[genMatchIdx_0]->Fill(mht_p4.pt(),    evtWeightRecorder.get(central_or_shift_main));
+	hMEt_LD_All_0[genMatchIdx_0]->Fill(met_LD,     evtWeightRecorder.get(central_or_shift_main));
+	hHT_All_0[genMatchIdx_0]->Fill(HT,             evtWeightRecorder.get(central_or_shift_main));
+	hSTMET_All_0[genMatchIdx_0]->Fill(STMET,       evtWeightRecorder.get(central_or_shift_main));
+	if (isSameFlavor_OS_FO) {
+	hMEt_SFOS_0[genMatchIdx_0]->Fill(met.pt(),   evtWeightRecorder.get(central_or_shift_main));
+	hHt_SFOS_0[genMatchIdx_0]->Fill(mht_p4.pt(), evtWeightRecorder.get(central_or_shift_main));
+	hMEt_LD_SFOS_0[genMatchIdx_0]->Fill(met_LD,  evtWeightRecorder.get(central_or_shift_main));
+	hHT_SFOS_0[genMatchIdx_0]->Fill(HT,          evtWeightRecorder.get(central_or_shift_main));
+	hSTMET_SFOS_0[genMatchIdx_0]->Fill(STMET,    evtWeightRecorder.get(central_or_shift_main));
+	}*/
+    
+      double met_LD_cut = 0.;
+      if      ( selJetsAK4.size() >= 4 ) met_LD_cut = -1.; // MET LD cut not applied
+      else if ( isSameFlavor_OS_FO     ) met_LD_cut = 45.;
+      else                               met_LD_cut = 30.;
+      bool statusMETCut = false; // true: reject event
+      if ( ! isControlRegion ) { // 3l SR
+	statusMETCut = ( met_LD_cut > 0 && met_LD < met_LD_cut );
+      }
+      else {
+	if ( flagMETCutForCR == 1 ) { // 3l WZ CR
+	  statusMETCut = ( met_LD_cut > 0 && met_LD < met_LD_cut );
+	}
+	else if ( flagMETCutForCR == -1 ) { // 3l CR Z+X types
+	  statusMETCut = ( met_LD_cut > 0 && met_LD > met_LD_cut );
+	}
+	else if ( flagMETCutForCR == 0 ) { // no MET cut
+	  statusMETCut = false;
+	}
+      }
+      //if ( met_LD_cut > 0 && met_LD < met_LD_cut ) {
+      if ( statusMETCut ) { 
+	if ( run_lumi_eventSelector ) {
+	  std::cout << "event " << eventInfo.str() << " FAILS MET LD selection." << std::endl;
+	  std::cout << " (met_LD = " << met_LD << ", met_LD_cut = " << met_LD_cut << ")" << std::endl;
+	}
+	continue;
+      }
+      cutFlowTable.update("gen-lepton met LD", evtWeightRecorder.get(central_or_shift_main));
+      cutFlowHistManager->fillHistograms("gen-lepton met LD", evtWeightRecorder.get(central_or_shift_main));
+      
+ 
+      if ( apply_met_filters ) {
+	if ( !metFilterSelector(metFilters) ) {
+	  if ( run_lumi_eventSelector ) {
+	    std::cout << "event " << eventInfo.str() << " FAILS MEt filters." << std::endl;
+	  }
+	  continue;
+	} 
+      }
+      cutFlowTable.update("gen-lepton MEt filters", evtWeightRecorder.get(central_or_shift_main));
+      cutFlowHistManager->fillHistograms("gen-lepton MEt filters", evtWeightRecorder.get(central_or_shift_main));
+
+
+      cutFlowTable.update("genLeptons = 3 selected", evtWeightRecorder.get(central_or_shift_main));
+      if (genElectrons_withinCMS.size() == 3) {
+	cutFlowTable.update("genEletrons = 3 selected", evtWeightRecorder.get(central_or_shift_main));
+      }
+      if (genMuons_withinCMS.size() == 3) {
+	cutFlowTable.update("genMuons = 3 selected", evtWeightRecorder.get(central_or_shift_main));
+      }
+
+
+
+      
+    }
+    // gen lepton cuts mimicing reco lepton cuts ENDs  ---------------------------------------------------------------
+    
     
 //--- apply preselection
     // require exactly three leptons passing loose preselection criteria to avoid overlap with 4l category
@@ -1935,7 +2403,18 @@ int main(int argc, char* argv[])
 
 //--- compute MHT and linear MET discriminant (met_LD)
     const RecoMEt met = metReader->read();
-    Particle::LorentzVector mht_p4 = compMHT(fakeableLeptonsFull, fakeableHadTaus, selJetsAK4);
+    //Particle::LorentzVector mht_p4 = compMHT(fakeableLeptonsFull, fakeableHadTaus, selJetsAK4);
+    Particle::LorentzVector mht_p4(0,0,0,0);
+    for(GenLepton lepton: genLeptons_withinCMS) {
+      mht_p4 += lepton.p4();
+    }
+    for(const RecoHadTau * hadTau: fakeableHadTaus) {
+      mht_p4 += hadTau->p4();
+    }
+    for(const RecoJet * jet: selJetsAK4) {
+      mht_p4 += jet->p4();
+    }
+    
     double met_LD = compMEt_LD(met.p4(), mht_p4);
 
     double HT = compHT(fakeableLeptons, {}, selJetsAK4);
@@ -1945,7 +2424,7 @@ int main(int argc, char* argv[])
     // require exactly three leptons passing tight selection criteria of final event selection
     if ( !(selLeptons.size() >= 3) ) {
       if ( run_lumi_eventSelector ) {
-    std::cout << "event " << eventInfo.str() << " FAILS selLeptons selection." << std::endl;
+	std::cout << "event " << eventInfo.str() << " FAILS selLeptons selection." << std::endl;
 	printCollection("selLeptons", selLeptons);
 	//printCollection("preselLeptons", preselLeptons);
       }
@@ -2151,33 +2630,6 @@ int main(int argc, char* argv[])
     cutFlowHistManager->fillHistograms("HLT filter matching", evtWeightRecorder.get(central_or_shift_main));
 
 
-    if ( (selBJetsAK4_loose.size() >= 2 || selBJetsAK4_medium.size() >= 1) ) {
-      if ( run_lumi_eventSelector ) {
-    std::cout << "event " << eventInfo.str() << " FAILS selBJets selection." << std::endl;
-	printCollection("selJetsAK4", selJetsAK4);
-	printCollection("selBJetsAK4_loose", selBJetsAK4_loose);
-	printCollection("selBJetsAK4_medium", selBJetsAK4_medium);
-      }
-      continue;
-    }
-    cutFlowTable.update("b-jet veto", evtWeightRecorder.get(central_or_shift_main));
-    cutFlowHistManager->fillHistograms("b-jet veto", evtWeightRecorder.get(central_or_shift_main));
-
-    
-    if ( selHadTaus.size() > 0 ) {
-      if ( run_lumi_eventSelector ) {
-    std::cout << "event " << eventInfo.str() << " FAILS selHadTaus veto." << std::endl;
-	printCollection("selHadTaus", selHadTaus);
-      }
-      continue;
-    }
-    cutFlowTable.update("sel tau veto", evtWeightRecorder.get(central_or_shift_main));
-    cutFlowHistManager->fillHistograms("sel tau veto", evtWeightRecorder.get(central_or_shift_main));
-
-
-    const double minPt_lead = 25.;
-    const double minPt_sublead = 15.;
-    const double minPt_third = 10.;
     // CV: according to Giovanni, the pT cuts should be applied on cone_pt
     //    (combined efficiency of single lepton, double lepton, and triple lepton triggers assumed to be high,
     //     even if one or two leptons and fakes and hence cone_pt may be significantly smaller than lepton_pt,
@@ -2732,7 +3184,7 @@ int main(int argc, char* argv[])
     if (printLevel > 0) std::cout << "Siddh here100" << std::endl;       
     
     
-    /*
+    
     int nEle_3selLep = 0, nMu_3selLep = 0;
     for (size_t i=0; i<3; i++) {
       //std::cout << "lep pdgId: " << selLeptons[i]->pdgId() << std::endl;
@@ -2740,7 +3192,13 @@ int main(int argc, char* argv[])
       if (abs(selLeptons[i]->pdgId()) == 13) nMu_3selLep++;
     }
     //std::cout << "nEle_3selLep: " << nEle_3selLep << ",  nMu_3selLep: " << nMu_3selLep << std::endl;
-    */
+
+    if (nEle_3selLep == 3)
+      cutFlowTable.update("selElectrons = 3 events selected", evtWeightRecorder.get(central_or_shift_main));
+    if (nMu_3selLep == 3)
+      cutFlowTable.update("selMuons = 3 events selected", evtWeightRecorder.get(central_or_shift_main));
+
+
     
     if (genMatchIdx_0 == 0) {
       cutFlowTable.update(Form("signal region veto,  3l ,  genMatchIdx %d",genMatchIdx_0), evtWeightRecorder.get(central_or_shift_main));
