@@ -13,3 +13,4 @@ python/configs/makePlots_cfi_v1.py
 python/configs/makePlots_cfi_vDefault.py
 python/configs/analyzeConfig_hh_3l_v1.py
 cout_*.txt
+.qtc_clangd/
