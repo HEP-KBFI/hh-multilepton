@@ -27,7 +27,7 @@ samples_2016["/GluGluToRadionToHHTo4Tau_M-250_narrow_13TeV-madgraph/RunIISummer1
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-250_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-250_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_114712"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-250_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-250_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_114712"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -70,7 +70,7 @@ samples_2016["/GluGluToRadionToHHTo4T_M-250_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_124607"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_124607"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -113,7 +113,7 @@ samples_2016["/GluGluToRadionToHHTo4Tau_M-260_narrow_13TeV-madgraph/RunIISummer1
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-260_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-260_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_114851"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-260_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-260_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_114851"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -156,7 +156,7 @@ samples_2016["/GluGluToRadionToHHTo4T_M-260_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct31/GluGluToRadionToHHTo4T_M-260_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToRadionToHHTo4T_M-260_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201031_122655"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct31/GluGluToRadionToHHTo4T_M-260_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToRadionToHHTo4T_M-260_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201031_122655"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -199,7 +199,7 @@ samples_2016["/GluGluToRadionToHHTo4Tau_M-270_narrow_13TeV-madgraph/RunIISummer1
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-270_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-270_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_115028"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-270_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-270_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_115028"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -242,7 +242,7 @@ samples_2016["/GluGluToRadionToHHTo4T_M-270_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct31/GluGluToRadionToHHTo4T_M-270_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToRadionToHHTo4T_M-270_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201031_122802"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct31/GluGluToRadionToHHTo4T_M-270_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToRadionToHHTo4T_M-270_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201031_122802"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -285,7 +285,7 @@ samples_2016["/GluGluToRadionToHHTo4Tau_M-280_narrow_13TeV-madgraph/RunIISummer1
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-280_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-280_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_115237"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-280_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-280_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_115237"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -328,7 +328,7 @@ samples_2016["/GluGluToRadionToHHTo4T_M-280_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-280_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-280_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_124715"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-280_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-280_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_124715"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -371,7 +371,7 @@ samples_2016["/GluGluToRadionToHHTo4Tau_M-300_narrow_13TeV-madgraph/RunIISummer1
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-300_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-300_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_115441"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-300_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-300_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_115441"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -414,7 +414,7 @@ samples_2016["/GluGluToRadionToHHTo4T_M-300_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct19/GluGluToRadionToHHTo4T_M-300_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct19_GluGluToRadionToHHTo4T_M-300_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201019_121509"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct19/GluGluToRadionToHHTo4T_M-300_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct19_GluGluToRadionToHHTo4T_M-300_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201019_121509"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -457,7 +457,7 @@ samples_2016["/GluGluToRadionToHHTo4Tau_M-320_narrow_13TeV-madgraph/RunIISummer1
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-320_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-320_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_115654"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-320_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-320_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_115654"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -500,7 +500,7 @@ samples_2016["/GluGluToRadionToHHTo4T_M-320_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-320_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-320_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_124850"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-320_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-320_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_124850"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -543,7 +543,7 @@ samples_2016["/GluGluToRadionToHHTo4Tau_M-340_narrow_13TeV-madgraph/RunIISummer1
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-340_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-340_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_115900"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-340_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-340_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_115900"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -586,7 +586,7 @@ samples_2016["/GluGluToRadionToHHTo4Tau_M-350_narrow_13TeV-madgraph/RunIISummer1
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-350_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-350_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_120050"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-350_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-350_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_120050"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -629,7 +629,7 @@ samples_2016["/GluGluToRadionToHHTo4T_M-350_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct17/GluGluToRadionToHHTo4T_M-350_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct17_GluGluToRadionToHHTo4T_M-350_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201017_194300"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct17/GluGluToRadionToHHTo4T_M-350_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct17_GluGluToRadionToHHTo4T_M-350_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201017_194300"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -672,7 +672,7 @@ samples_2016["/GluGluToRadionToHHTo4Tau_M-400_narrow_13TeV-madgraph/RunIISummer1
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-400_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-400_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_120326"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-400_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-400_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_120326"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -715,7 +715,7 @@ samples_2016["/GluGluToRadionToHHTo4T_M-400_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-400_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-400_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_124957"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-400_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-400_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_124957"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -758,7 +758,7 @@ samples_2016["/GluGluToRadionToHHTo4Tau_M-450_narrow_13TeV-madgraph/RunIISummer1
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-450_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-450_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_120534"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-450_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-450_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_120534"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -801,7 +801,7 @@ samples_2016["/GluGluToRadionToHHTo4T_M-450_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-450_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-450_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_125102"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-450_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-450_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_125102"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -844,7 +844,7 @@ samples_2016["/GluGluToRadionToHHTo4Tau_M-500_narrow_13TeV-madgraph/RunIISummer1
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-500_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-500_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_120709"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-500_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-500_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_120709"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -887,7 +887,7 @@ samples_2016["/GluGluToRadionToHHTo4T_M-500_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_125246"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_125246"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -930,7 +930,7 @@ samples_2016["/GluGluToRadionToHHTo4Tau_M-550_narrow_13TeV-madgraph/RunIISummer1
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-550_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-550_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_120846"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-550_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-550_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_120846"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -973,7 +973,7 @@ samples_2016["/GluGluToRadionToHHTo4T_M-550_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct17/GluGluToRadionToHHTo4T_M-550_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct17_GluGluToRadionToHHTo4T_M-550_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201017_194409"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct17/GluGluToRadionToHHTo4T_M-550_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct17_GluGluToRadionToHHTo4T_M-550_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201017_194409"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -1016,7 +1016,7 @@ samples_2016["/GluGluToRadionToHHTo4Tau_M-600_narrow_13TeV-madgraph/RunIISummer1
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-600_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-600_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_121053"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-600_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-600_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_121053"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -1059,7 +1059,7 @@ samples_2016["/GluGluToRadionToHHTo4T_M-600_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-600_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-600_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_125425"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-600_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-600_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_125425"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -1102,7 +1102,7 @@ samples_2016["/GluGluToRadionToHHTo4Tau_M-650_narrow_13TeV-madgraph/RunIISummer1
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-650_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-650_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_121311"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-650_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-650_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_121311"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -1145,7 +1145,7 @@ samples_2016["/GluGluToRadionToHHTo4T_M-650_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-650_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-650_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_125529"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-650_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-650_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_125529"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -1188,7 +1188,7 @@ samples_2016["/GluGluToRadionToHHTo4Tau_M-700_narrow_13TeV-madgraph/RunIISummer1
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-700_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-700_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_121448"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-700_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-700_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_121448"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -1231,7 +1231,7 @@ samples_2016["/GluGluToRadionToHHTo4T_M-700_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct31/GluGluToRadionToHHTo4T_M-700_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToRadionToHHTo4T_M-700_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201031_122911"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct31/GluGluToRadionToHHTo4T_M-700_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToRadionToHHTo4T_M-700_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201031_122911"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -1274,7 +1274,7 @@ samples_2016["/GluGluToRadionToHHTo4Tau_M-750_narrow_13TeV-madgraph/RunIISummer1
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-750_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-750_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_121658"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-750_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-750_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_121658"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -1317,7 +1317,7 @@ samples_2016["/GluGluToRadionToHHTo4T_M-750_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_125704"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_125704"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -1360,7 +1360,7 @@ samples_2016["/GluGluToRadionToHHTo4Tau_M-800_narrow_13TeV-madgraph/RunIISummer1
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-800_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-800_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_121912"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-800_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-800_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_121912"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -1403,7 +1403,7 @@ samples_2016["/GluGluToRadionToHHTo4T_M-800_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-800_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-800_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_125810"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-800_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-800_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_125810"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -1446,7 +1446,7 @@ samples_2016["/GluGluToRadionToHHTo4T_M-850_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-850_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-850_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_125914"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-850_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-850_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_125914"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -1489,7 +1489,7 @@ samples_2016["/GluGluToRadionToHHTo4Tau_M-900_narrow_13TeV-madgraph/RunIISummer1
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-900_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-900_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_122151"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToRadionToHHTo4Tau_M-900_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToRadionToHHTo4Tau_M-900_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_122151"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -1532,7 +1532,7 @@ samples_2016["/GluGluToRadionToHHTo4T_M-900_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-900_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-900_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_130052"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-900_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-900_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_130052"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -1575,7 +1575,7 @@ samples_2016["/GluGluToRadionToHHTo4T_M-1000_narrow_TuneCUETP8M1_PSWeights_13TeV
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct21/GluGluToRadionToHHTo4T_M-1000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct21_GluGluToRadionToHHTo4T_M-1000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201021_104955"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct21/GluGluToRadionToHHTo4T_M-1000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct21_GluGluToRadionToHHTo4T_M-1000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201021_104955"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -1618,7 +1618,7 @@ samples_2016["/GluGluToRadionToHHTo4T_M-1250_narrow_TuneCUETP8M1_PSWeights_13TeV
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-1250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-1250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201011_130302"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-1250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-1250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201011_130302"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -1661,7 +1661,7 @@ samples_2016["/GluGluToRadionToHHTo4T_M-1500_narrow_TuneCUETP8M1_PSWeights_13TeV
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct21/GluGluToRadionToHHTo4T_M-1500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct21_GluGluToRadionToHHTo4T_M-1500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201021_105104"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct21/GluGluToRadionToHHTo4T_M-1500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct21_GluGluToRadionToHHTo4T_M-1500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201021_105104"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -1704,7 +1704,7 @@ samples_2016["/GluGluToRadionToHHTo4T_M-1750_narrow_TuneCUETP8M1_PSWeights_13TeV
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-1750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-1750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201011_130547"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-1750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-1750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201011_130547"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -1747,7 +1747,7 @@ samples_2016["/GluGluToRadionToHHTo4T_M-2000_narrow_TuneCUETP8M1_PSWeights_13TeV
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-2000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-2000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201011_130652"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-2000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-2000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201011_130652"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -1790,7 +1790,7 @@ samples_2016["/GluGluToRadionToHHTo4T_M-2500_narrow_TuneCUETP8M1_PSWeights_13TeV
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-2500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-2500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201011_130757"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-2500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-2500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201011_130757"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -1833,7 +1833,7 @@ samples_2016["/GluGluToRadionToHHTo4T_M-3000_narrow_TuneCUETP8M1_PSWeights_13TeV
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-3000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-3000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201011_130933"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4T_M-3000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4T_M-3000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201011_130933"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -1876,7 +1876,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4Tau_M-250_narrow_13TeV-madgraph/RunIIS
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-250_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-250_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_122402"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-250_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-250_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_122402"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -1919,7 +1919,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4T_M-250_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct19/GluGluToBulkGravitonToHHTo4T_M-250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct19_GluGluToBulkGravitonToHHTo4T_M-250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201019_121849"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct19/GluGluToBulkGravitonToHHTo4T_M-250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct19_GluGluToBulkGravitonToHHTo4T_M-250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201019_121849"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -1962,7 +1962,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4Tau_M-260_narrow_13TeV-madgraph/RunIIS
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-260_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-260_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_122614"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-260_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-260_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_122614"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -2005,7 +2005,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4T_M-260_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct17/GluGluToBulkGravitonToHHTo4T_M-260_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct17_GluGluToBulkGravitonToHHTo4T_M-260_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201017_194809"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct17/GluGluToBulkGravitonToHHTo4T_M-260_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct17_GluGluToBulkGravitonToHHTo4T_M-260_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201017_194809"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -2048,7 +2048,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4Tau_M-270_narrow_13TeV-madgraph/RunIIS
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-270_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-270_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_122954"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-270_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-270_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_122954"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -2091,7 +2091,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4T_M-270_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-270_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-270_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_131038"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-270_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-270_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_131038"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -2134,7 +2134,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4Tau_M-280_narrow_13TeV-madgraph/RunIIS
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-280_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-280_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_123159"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-280_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-280_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_123159"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -2177,7 +2177,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4T_M-280_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-280_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-280_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_131144"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-280_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-280_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_131144"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -2220,7 +2220,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4Tau_M-300_narrow_13TeV-madgraph/RunIIS
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-300_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-300_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_123546"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-300_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-300_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_123546"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -2263,7 +2263,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4T_M-300_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct31/GluGluToBulkGravitonToHHTo4T_M-300_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToBulkGravitonToHHTo4T_M-300_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201031_120444"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct31/GluGluToBulkGravitonToHHTo4T_M-300_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToBulkGravitonToHHTo4T_M-300_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201031_120444"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -2306,7 +2306,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4Tau_M-320_narrow_13TeV-madgraph/RunIIS
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-320_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-320_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_123959"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-320_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-320_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_123959"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -2349,7 +2349,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4T_M-320_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-320_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-320_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_131320"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-320_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-320_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_131320"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -2392,7 +2392,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4Tau_M-340_narrow_13TeV-madgraph/RunIIS
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-340_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-340_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_124142"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-340_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-340_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_124142"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -2435,7 +2435,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4Tau_M-350_narrow_13TeV-madgraph/RunIIS
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-350_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-350_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_124317"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-350_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-350_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_124317"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -2478,7 +2478,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4T_M-350_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct31/GluGluToBulkGravitonToHHTo4T_M-350_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToBulkGravitonToHHTo4T_M-350_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201031_120550"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct31/GluGluToBulkGravitonToHHTo4T_M-350_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToBulkGravitonToHHTo4T_M-350_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201031_120550"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -2521,7 +2521,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4Tau_M-400_narrow_13TeV-madgraph/RunIIS
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-400_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-400_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_124526"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-400_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-400_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_124526"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -2564,7 +2564,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4T_M-400_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct19/GluGluToBulkGravitonToHHTo4T_M-400_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct19_GluGluToBulkGravitonToHHTo4T_M-400_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201019_122005"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct19/GluGluToBulkGravitonToHHTo4T_M-400_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct19_GluGluToBulkGravitonToHHTo4T_M-400_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201019_122005"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -2607,7 +2607,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4Tau_M-450_narrow_13TeV-madgraph/RunIIS
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-450_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-450_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_124742"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-450_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-450_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_124742"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -2650,7 +2650,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4T_M-450_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct31/GluGluToBulkGravitonToHHTo4T_M-450_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToBulkGravitonToHHTo4T_M-450_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201031_120728"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct31/GluGluToBulkGravitonToHHTo4T_M-450_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToBulkGravitonToHHTo4T_M-450_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201031_120728"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -2693,7 +2693,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4Tau_M-500_narrow_13TeV-madgraph/RunIIS
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-500_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-500_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_124958"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-500_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-500_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_124958"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -2736,7 +2736,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4T_M-500_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_131424"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_131424"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -2779,7 +2779,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4Tau_M-550_narrow_13TeV-madgraph/RunIIS
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-550_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-550_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_125414"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-550_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-550_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_125414"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -2822,7 +2822,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4T_M-550_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-550_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-550_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_131529"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-550_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-550_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_131529"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -2865,7 +2865,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4Tau_M-600_narrow_13TeV-madgraph/RunIIS
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-600_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-600_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/191004_125604"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-600_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-600_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/191004_125604"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -2908,7 +2908,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4T_M-600_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-600_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-600_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_131704"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-600_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-600_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_131704"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -2951,7 +2951,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4Tau_M-650_narrow_13TeV-madgraph/RunIIS
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-650_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-650_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_125746"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-650_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-650_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_125746"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -2994,7 +2994,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4T_M-650_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-650_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-650_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_131810"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-650_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-650_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_131810"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -3037,7 +3037,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4Tau_M-700_narrow_13TeV-madgraph/RunIIS
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-700_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-700_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_125924"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-700_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-700_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_125924"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -3080,7 +3080,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4T_M-700_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-700_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-700_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_131916"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-700_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-700_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_131916"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -3123,7 +3123,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4Tau_M-750_narrow_13TeV-madgraph/RunIIS
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-750_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-750_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_130134"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-750_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-750_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_130134"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -3166,7 +3166,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4T_M-750_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct31/GluGluToBulkGravitonToHHTo4T_M-750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToBulkGravitonToHHTo4T_M-750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201031_120852"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct31/GluGluToBulkGravitonToHHTo4T_M-750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToBulkGravitonToHHTo4T_M-750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201031_120852"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -3209,7 +3209,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4Tau_M-800_narrow_13TeV-madgraph/RunIIS
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-800_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-800_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_130343"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-800_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-800_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_130343"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -3252,7 +3252,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4T_M-800_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-800_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-800_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_132026"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-800_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-800_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_132026"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -3295,7 +3295,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4T_M-850_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-850_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-850_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_132202"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-850_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-850_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_132202"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -3338,7 +3338,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4Tau_M-900_narrow_13TeV-madgraph/RunIIS
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-900_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-900_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_130559"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToBulkGravitonToHHTo4Tau_M-900_narrow_13TeV-madgraph/2016v3_2019Oct04_GluGluToBulkGravitonToHHTo4Tau_M-900_narrow_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_130559"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -3381,7 +3381,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4T_M-900_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-900_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-900_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_132306"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-900_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-900_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_132306"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -3424,7 +3424,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4T_M-1000_narrow_TuneCUETP8M1_PSWeights
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-1000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-1000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201011_132411"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-1000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-1000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201011_132411"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -3467,7 +3467,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4T_M-1250_narrow_TuneCUETP8M1_PSWeights
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-1250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-1250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201011_132547"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-1250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-1250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201011_132547"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -3510,7 +3510,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4T_M-1500_narrow_TuneCUETP8M1_PSWeights
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct21/GluGluToBulkGravitonToHHTo4T_M-1500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct21_GluGluToBulkGravitonToHHTo4T_M-1500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201021_105246"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct21/GluGluToBulkGravitonToHHTo4T_M-1500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct21_GluGluToBulkGravitonToHHTo4T_M-1500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201021_105246"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -3553,7 +3553,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4T_M-1750_narrow_TuneCUETP8M1_PSWeights
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-1750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-1750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201011_132758"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-1750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-1750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201011_132758"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -3596,7 +3596,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4T_M-2000_narrow_TuneCUETP8M1_PSWeights
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-2000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-2000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201011_132934"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-2000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-2000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201011_132934"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -3639,7 +3639,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4T_M-2500_narrow_TuneCUETP8M1_PSWeights
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct31/GluGluToBulkGravitonToHHTo4T_M-2500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToBulkGravitonToHHTo4T_M-2500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201031_120329"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct31/GluGluToBulkGravitonToHHTo4T_M-2500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToBulkGravitonToHHTo4T_M-2500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201031_120329"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -3682,7 +3682,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4T_M-3000_narrow_TuneCUETP8M1_PSWeights
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-3000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-3000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201011_133041"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4T_M-3000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4T_M-3000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201011_133041"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -3725,7 +3725,7 @@ samples_2016["/GluGluToRadionToHHTo2V2Tau_M-250_narrow_TuneCUETP8M1_PSWeights_13
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct17/GluGluToRadionToHHTo2V2Tau_M-250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct17_GluGluToRadionToHHTo2V2Tau_M-250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201017_195138"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct17/GluGluToRadionToHHTo2V2Tau_M-250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct17_GluGluToRadionToHHTo2V2Tau_M-250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201017_195138"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -3768,7 +3768,7 @@ samples_2016["/GluGluToRadionToHHTo2V2Tau_M-260_narrow_TuneCUETP8M1_PSWeights_13
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-260_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-260_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_133147"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-260_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-260_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_133147"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -3811,7 +3811,7 @@ samples_2016["/GluGluToRadionToHHTo2V2Tau_M-270_narrow_TuneCUETP8M1_PSWeights_13
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-270_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-270_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_133323"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-270_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-270_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_133323"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -3854,7 +3854,7 @@ samples_2016["/GluGluToRadionToHHTo2V2Tau_M-280_narrow_TuneCUETP8M1_PSWeights_13
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-280_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-280_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_133429"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-280_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-280_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_133429"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -3897,7 +3897,7 @@ samples_2016["/GluGluToRadionToHHTo2V2Tau_M-300_narrow_TuneCUETP8M1_PSWeights_13
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct17/GluGluToRadionToHHTo2V2Tau_M-300_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct17_GluGluToRadionToHHTo2V2Tau_M-300_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201017_195250"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct17/GluGluToRadionToHHTo2V2Tau_M-300_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct17_GluGluToRadionToHHTo2V2Tau_M-300_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201017_195250"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -3940,7 +3940,7 @@ samples_2016["/GluGluToRadionToHHTo2V2Tau_M-320_narrow_TuneCUETP8M1_PSWeights_13
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-320_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-320_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_133534"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-320_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-320_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_133534"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -3983,7 +3983,7 @@ samples_2016["/GluGluToRadionToHHTo2V2Tau_M-350_narrow_TuneCUETP8M1_PSWeights_13
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-350_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-350_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_133710"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-350_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-350_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_133710"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -4026,7 +4026,7 @@ samples_2016["/GluGluToRadionToHHTo2V2Tau_M-400_narrow_TuneCUETP8M1_PSWeights_13
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct17/GluGluToRadionToHHTo2V2Tau_M-400_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct17_GluGluToRadionToHHTo2V2Tau_M-400_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201017_195359"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct17/GluGluToRadionToHHTo2V2Tau_M-400_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct17_GluGluToRadionToHHTo2V2Tau_M-400_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201017_195359"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -4069,7 +4069,7 @@ samples_2016["/GluGluToRadionToHHTo2V2Tau_M-450_narrow_TuneCUETP8M1_PSWeights_13
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-450_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-450_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_133815"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-450_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-450_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_133815"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -4112,7 +4112,7 @@ samples_2016["/GluGluToRadionToHHTo2V2Tau_M-500_narrow_TuneCUETP8M1_PSWeights_13
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_133921"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_133921"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -4155,7 +4155,7 @@ samples_2016["/GluGluToRadionToHHTo2V2Tau_M-550_narrow_TuneCUETP8M1_PSWeights_13
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-550_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-550_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_134026"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-550_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-550_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_134026"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -4198,7 +4198,7 @@ samples_2016["/GluGluToRadionToHHTo2V2Tau_M-600_narrow_TuneCUETP8M1_PSWeights_13
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct31/GluGluToRadionToHHTo2V2Tau_M-600_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToRadionToHHTo2V2Tau_M-600_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201031_122547"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct31/GluGluToRadionToHHTo2V2Tau_M-600_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToRadionToHHTo2V2Tau_M-600_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201031_122547"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -4241,7 +4241,7 @@ samples_2016["/GluGluToRadionToHHTo2V2Tau_M-650_narrow_TuneCUETP8M1_PSWeights_13
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-650_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-650_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_134203"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-650_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-650_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_134203"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -4284,7 +4284,7 @@ samples_2016["/GluGluToRadionToHHTo2V2Tau_M-700_narrow_TuneCUETP8M1_PSWeights_13
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-700_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-700_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_134309"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-700_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-700_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_134309"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -4327,7 +4327,7 @@ samples_2016["/GluGluToRadionToHHTo2V2Tau_M-750_narrow_TuneCUETP8M1_PSWeights_13
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_134415"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_134415"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -4370,7 +4370,7 @@ samples_2016["/GluGluToRadionToHHTo2V2Tau_M-800_narrow_TuneCUETP8M1_PSWeights_13
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-800_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-800_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_134554"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-800_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-800_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_134554"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -4413,7 +4413,7 @@ samples_2016["/GluGluToRadionToHHTo2V2Tau_M-850_narrow_TuneCUETP8M1_PSWeights_13
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-850_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-850_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_134700"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-850_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-850_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_134700"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -4456,7 +4456,7 @@ samples_2016["/GluGluToRadionToHHTo2V2Tau_M-900_narrow_TuneCUETP8M1_PSWeights_13
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-900_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-900_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_134808"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-900_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-900_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_as/201011_134808"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -4499,7 +4499,7 @@ samples_2016["/GluGluToRadionToHHTo2V2Tau_M-1000_narrow_TuneCUETP8M1_PSWeights_1
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-1000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-1000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_a/201011_134947"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-1000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-1000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_a/201011_134947"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -4542,7 +4542,7 @@ samples_2016["/GluGluToRadionToHHTo2V2Tau_M-1250_narrow_TuneCUETP8M1_PSWeights_1
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-1250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-1250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_a/201011_135053"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-1250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-1250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_a/201011_135053"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -4585,7 +4585,7 @@ samples_2016["/GluGluToRadionToHHTo2V2Tau_M-1500_narrow_TuneCUETP8M1_PSWeights_1
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-1500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-1500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_a/201011_135159"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-1500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-1500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_a/201011_135159"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -4628,7 +4628,7 @@ samples_2016["/GluGluToRadionToHHTo2V2Tau_M-1750_narrow_TuneCUETP8M1_PSWeights_1
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-1750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-1750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_a/201011_135305"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-1750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-1750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_a/201011_135305"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -4671,7 +4671,7 @@ samples_2016["/GluGluToRadionToHHTo2V2Tau_M-2000_narrow_TuneCUETP8M1_PSWeights_1
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-2000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-2000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_a/201011_135441"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-2000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-2000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_a/201011_135441"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -4714,7 +4714,7 @@ samples_2016["/GluGluToRadionToHHTo2V2Tau_M-2500_narrow_TuneCUETP8M1_PSWeights_1
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-2500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-2500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_a/201011_135547"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-2500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-2500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_a/201011_135547"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -4757,7 +4757,7 @@ samples_2016["/GluGluToRadionToHHTo2V2Tau_M-3000_narrow_TuneCUETP8M1_PSWeights_1
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-3000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-3000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_a/201011_135652"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo2V2Tau_M-3000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo2V2Tau_M-3000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_a/201011_135652"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -4800,7 +4800,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo2V2Tau_M-250_narrow_TuneCUETP8M1_PSWeig
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_135829"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_135829"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -4843,7 +4843,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo2V2Tau_M-260_narrow_TuneCUETP8M1_PSWeig
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-260_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-260_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_135934"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-260_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-260_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_135934"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -4886,7 +4886,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo2V2Tau_M-270_narrow_TuneCUETP8M1_PSWeig
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-270_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-270_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_140043"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-270_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-270_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_140043"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -4929,7 +4929,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo2V2Tau_M-280_narrow_TuneCUETP8M1_PSWeig
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-280_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-280_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_140150"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-280_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-280_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_140150"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -4972,7 +4972,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo2V2Tau_M-300_narrow_TuneCUETP8M1_PSWeig
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-300_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-300_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_140327"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-300_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-300_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_140327"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -5015,7 +5015,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo2V2Tau_M-320_narrow_TuneCUETP8M1_PSWeig
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-320_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-320_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_140435"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-320_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-320_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_140435"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -5058,7 +5058,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo2V2Tau_M-350_narrow_TuneCUETP8M1_PSWeig
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct17/GluGluToBulkGravitonToHHTo2V2Tau_M-350_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct17_GluGluToBulkGravitonToHHTo2V2Tau_M-350_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201017_195539"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct17/GluGluToBulkGravitonToHHTo2V2Tau_M-350_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct17_GluGluToBulkGravitonToHHTo2V2Tau_M-350_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201017_195539"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -5101,7 +5101,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo2V2Tau_M-400_narrow_TuneCUETP8M1_PSWeig
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-400_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-400_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_140541"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-400_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-400_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_140541"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -5144,7 +5144,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo2V2Tau_M-450_narrow_TuneCUETP8M1_PSWeig
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-450_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-450_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_140717"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-450_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-450_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_140717"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -5187,7 +5187,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo2V2Tau_M-500_narrow_TuneCUETP8M1_PSWeig
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_140823"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_140823"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -5230,7 +5230,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo2V2Tau_M-550_narrow_TuneCUETP8M1_PSWeig
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-550_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-550_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_140930"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-550_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-550_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_140930"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -5273,7 +5273,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo2V2Tau_M-600_narrow_TuneCUETP8M1_PSWeig
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct17/GluGluToBulkGravitonToHHTo2V2Tau_M-600_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct17_GluGluToBulkGravitonToHHTo2V2Tau_M-600_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201017_195720"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct17/GluGluToBulkGravitonToHHTo2V2Tau_M-600_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct17_GluGluToBulkGravitonToHHTo2V2Tau_M-600_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201017_195720"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -5316,7 +5316,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo2V2Tau_M-650_narrow_TuneCUETP8M1_PSWeig
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct21/GluGluToBulkGravitonToHHTo2V2Tau_M-650_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct21_GluGluToBulkGravitonToHHTo2V2Tau_M-650_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201021_105425"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct21/GluGluToBulkGravitonToHHTo2V2Tau_M-650_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct21_GluGluToBulkGravitonToHHTo2V2Tau_M-650_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201021_105425"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -5359,7 +5359,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo2V2Tau_M-700_narrow_TuneCUETP8M1_PSWeig
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-700_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-700_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_141211"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-700_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-700_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_141211"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -5402,7 +5402,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo2V2Tau_M-750_narrow_TuneCUETP8M1_PSWeig
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct17/GluGluToBulkGravitonToHHTo2V2Tau_M-750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct17_GluGluToBulkGravitonToHHTo2V2Tau_M-750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201017_195942"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct17/GluGluToBulkGravitonToHHTo2V2Tau_M-750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct17_GluGluToBulkGravitonToHHTo2V2Tau_M-750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201017_195942"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -5445,7 +5445,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo2V2Tau_M-800_narrow_TuneCUETP8M1_PSWeig
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct17/GluGluToBulkGravitonToHHTo2V2Tau_M-800_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct17_GluGluToBulkGravitonToHHTo2V2Tau_M-800_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201017_200054"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct17/GluGluToBulkGravitonToHHTo2V2Tau_M-800_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct17_GluGluToBulkGravitonToHHTo2V2Tau_M-800_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201017_200054"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -5488,7 +5488,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo2V2Tau_M-850_narrow_TuneCUETP8M1_PSWeig
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-850_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-850_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_141454"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-850_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-850_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_141454"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -5531,7 +5531,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo2V2Tau_M-900_narrow_TuneCUETP8M1_PSWeig
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct21/GluGluToBulkGravitonToHHTo2V2Tau_M-900_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct21_GluGluToBulkGravitonToHHTo2V2Tau_M-900_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201021_105534"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct21/GluGluToBulkGravitonToHHTo2V2Tau_M-900_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct21_GluGluToBulkGravitonToHHTo2V2Tau_M-900_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201021_105534"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -5574,7 +5574,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo2V2Tau_M-1000_narrow_TuneCUETP8M1_PSWei
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-1000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-1000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mc/201011_141704"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-1000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-1000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mc/201011_141704"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -5617,7 +5617,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo2V2Tau_M-1250_narrow_TuneCUETP8M1_PSWei
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-1250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-1250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mc/201011_141840"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-1250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-1250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mc/201011_141840"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -5660,7 +5660,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo2V2Tau_M-1500_narrow_TuneCUETP8M1_PSWei
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-1500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-1500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mc/201011_141945"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-1500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-1500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mc/201011_141945"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -5703,7 +5703,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo2V2Tau_M-1750_narrow_TuneCUETP8M1_PSWei
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-1750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-1750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mc/201011_142052"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-1750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-1750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mc/201011_142052"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -5746,7 +5746,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo2V2Tau_M-2000_narrow_TuneCUETP8M1_PSWei
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-2000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-2000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mc/201011_142230"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-2000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-2000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mc/201011_142230"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -5789,7 +5789,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo2V2Tau_M-2500_narrow_TuneCUETP8M1_PSWei
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct31/GluGluToBulkGravitonToHHTo2V2Tau_M-2500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToBulkGravitonToHHTo2V2Tau_M-2500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mc/201031_120153"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct31/GluGluToBulkGravitonToHHTo2V2Tau_M-2500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToBulkGravitonToHHTo2V2Tau_M-2500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mc/201031_120153"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -5832,7 +5832,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo2V2Tau_M-3000_narrow_TuneCUETP8M1_PSWei
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-3000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-3000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mc/201011_142335"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo2V2Tau_M-3000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo2V2Tau_M-3000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mc/201011_142335"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -5875,7 +5875,7 @@ samples_2016["/GluGluToRadionToHHTo4V_M-250_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_142443"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_142443"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -5918,7 +5918,7 @@ samples_2016["/GluGluToRadionToHHTo4V_M-260_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-260_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-260_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_142619"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-260_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-260_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_142619"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -5961,7 +5961,7 @@ samples_2016["/GluGluToRadionToHHTo4V_M-270_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-270_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-270_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_142725"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-270_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-270_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_142725"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -6004,7 +6004,7 @@ samples_2016["/GluGluToRadionToHHTo4V_M-280_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-280_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-280_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_142833"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-280_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-280_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_142833"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -6047,7 +6047,7 @@ samples_2016["/GluGluToRadionToHHTo4V_M-300_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-300_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-300_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_143011"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-300_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-300_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_143011"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -6090,7 +6090,7 @@ samples_2016["/GluGluToRadionToHHTo4V_M-320_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-320_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-320_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_143115"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-320_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-320_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_143115"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -6133,7 +6133,7 @@ samples_2016["/GluGluToRadionToHHTo4V_M-350_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-350_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-350_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_143221"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-350_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-350_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_143221"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -6176,7 +6176,7 @@ samples_2016["/GluGluToRadionToHHTo4V_M-400_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-400_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-400_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_143327"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-400_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-400_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_143327"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -6219,7 +6219,7 @@ samples_2016["/GluGluToRadionToHHTo4V_M-450_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-450_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-450_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_143503"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-450_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-450_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_143503"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -6262,7 +6262,7 @@ samples_2016["/GluGluToRadionToHHTo4V_M-500_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_143609"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_143609"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -6305,7 +6305,7 @@ samples_2016["/GluGluToRadionToHHTo4V_M-550_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-550_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-550_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_143714"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-550_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-550_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_143714"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -6348,7 +6348,7 @@ samples_2016["/GluGluToRadionToHHTo4V_M-600_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-600_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-600_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_143851"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-600_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-600_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_143851"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -6391,7 +6391,7 @@ samples_2016["/GluGluToRadionToHHTo4V_M-650_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-650_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-650_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_143957"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-650_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-650_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_143957"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -6434,7 +6434,7 @@ samples_2016["/GluGluToRadionToHHTo4V_M-700_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct17/GluGluToRadionToHHTo4V_M-700_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct17_GluGluToRadionToHHTo4V_M-700_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201017_200344"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct17/GluGluToRadionToHHTo4V_M-700_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct17_GluGluToRadionToHHTo4V_M-700_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201017_200344"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -6477,7 +6477,7 @@ samples_2016["/GluGluToRadionToHHTo4V_M-750_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_144104"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_144104"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -6520,7 +6520,7 @@ samples_2016["/GluGluToRadionToHHTo4V_M-800_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct17/GluGluToRadionToHHTo4V_M-800_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct17_GluGluToRadionToHHTo4V_M-800_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201017_200453"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct17/GluGluToRadionToHHTo4V_M-800_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct17_GluGluToRadionToHHTo4V_M-800_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201017_200453"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -6563,7 +6563,7 @@ samples_2016["/GluGluToRadionToHHTo4V_M-850_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-850_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-850_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_144240"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-850_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-850_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_144240"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -6606,7 +6606,7 @@ samples_2016["/GluGluToRadionToHHTo4V_M-900_narrow_TuneCUETP8M1_PSWeights_13TeV-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-900_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-900_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_144347"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-900_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-900_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asympt/201011_144347"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -6649,7 +6649,7 @@ samples_2016["/GluGluToRadionToHHTo4V_M-1000_narrow_TuneCUETP8M1_PSWeights_13TeV
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-1000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-1000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201011_144456"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-1000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-1000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201011_144456"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -6692,7 +6692,7 @@ samples_2016["/GluGluToRadionToHHTo4V_M-1250_narrow_TuneCUETP8M1_PSWeights_13TeV
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-1250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-1250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201011_144634"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-1250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-1250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201011_144634"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -6735,7 +6735,7 @@ samples_2016["/GluGluToRadionToHHTo4V_M-1500_narrow_TuneCUETP8M1_PSWeights_13TeV
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-1500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-1500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201011_144741"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-1500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-1500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201011_144741"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -6778,7 +6778,7 @@ samples_2016["/GluGluToRadionToHHTo4V_M-1750_narrow_TuneCUETP8M1_PSWeights_13TeV
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-1750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-1750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201011_144848"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-1750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-1750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201011_144848"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -6821,7 +6821,7 @@ samples_2016["/GluGluToRadionToHHTo4V_M-2000_narrow_TuneCUETP8M1_PSWeights_13TeV
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-2000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-2000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201011_144953"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-2000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-2000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201011_144953"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -6864,7 +6864,7 @@ samples_2016["/GluGluToRadionToHHTo4V_M-2500_narrow_TuneCUETP8M1_PSWeights_13TeV
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-2500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-2500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201011_145129"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-2500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-2500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201011_145129"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -6907,7 +6907,7 @@ samples_2016["/GluGluToRadionToHHTo4V_M-3000_narrow_TuneCUETP8M1_PSWeights_13TeV
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-3000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-3000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201011_145238"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToRadionToHHTo4V_M-3000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToRadionToHHTo4V_M-3000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymp/201011_145238"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -6950,7 +6950,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4V_M-250_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_145344"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_145344"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -6993,7 +6993,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4V_M-260_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct31/GluGluToBulkGravitonToHHTo4V_M-260_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToBulkGravitonToHHTo4V_M-260_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201031_121029"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct31/GluGluToBulkGravitonToHHTo4V_M-260_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToBulkGravitonToHHTo4V_M-260_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201031_121029"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -7036,7 +7036,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4V_M-270_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-270_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-270_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_145521"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-270_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-270_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_145521"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -7079,7 +7079,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4V_M-280_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-280_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-280_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_145626"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-280_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-280_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_145626"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -7122,7 +7122,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4V_M-300_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-300_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-300_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_145732"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-300_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-300_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_145732"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -7165,7 +7165,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4V_M-320_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct31/GluGluToBulkGravitonToHHTo4V_M-320_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToBulkGravitonToHHTo4V_M-320_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201031_121137"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct31/GluGluToBulkGravitonToHHTo4V_M-320_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToBulkGravitonToHHTo4V_M-320_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201031_121137"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -7208,7 +7208,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4V_M-350_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-350_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-350_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_145908"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-350_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-350_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_145908"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -7251,7 +7251,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4V_M-400_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct21/GluGluToBulkGravitonToHHTo4V_M-400_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct21_GluGluToBulkGravitonToHHTo4V_M-400_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201021_105646"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct21/GluGluToBulkGravitonToHHTo4V_M-400_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct21_GluGluToBulkGravitonToHHTo4V_M-400_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201021_105646"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -7294,7 +7294,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4V_M-450_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-450_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-450_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_150120"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-450_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-450_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_150120"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -7337,7 +7337,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4V_M-500_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_150227"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_150227"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -7380,7 +7380,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4V_M-550_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-550_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-550_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_150402"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-550_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-550_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_150402"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -7423,7 +7423,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4V_M-600_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-600_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-600_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_150509"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-600_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-600_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_150509"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -7466,7 +7466,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4V_M-650_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-650_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-650_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_150614"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-650_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-650_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_150614"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -7509,7 +7509,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4V_M-700_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct17/GluGluToBulkGravitonToHHTo4V_M-700_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct17_GluGluToBulkGravitonToHHTo4V_M-700_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201017_200714"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct17/GluGluToBulkGravitonToHHTo4V_M-700_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct17_GluGluToBulkGravitonToHHTo4V_M-700_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201017_200714"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -7552,7 +7552,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4V_M-750_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_150750"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_150750"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -7595,7 +7595,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4V_M-800_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-800_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-800_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_150856"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-800_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-800_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_150856"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -7638,7 +7638,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4V_M-850_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct21/GluGluToBulkGravitonToHHTo4V_M-850_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct21_GluGluToBulkGravitonToHHTo4V_M-850_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201021_105755"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct21/GluGluToBulkGravitonToHHTo4V_M-850_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct21_GluGluToBulkGravitonToHHTo4V_M-850_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201021_105755"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -7681,7 +7681,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4V_M-900_narrow_TuneCUETP8M1_PSWeights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-900_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-900_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_151139"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-900_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-900_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_151139"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -7724,7 +7724,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4V_M-1000_narrow_TuneCUETP8M1_PSWeights
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-1000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-1000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201011_151247"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-1000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-1000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201011_151247"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -7767,7 +7767,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4V_M-1250_narrow_TuneCUETP8M1_PSWeights
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-1250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-1250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201011_151355"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-1250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-1250_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201011_151355"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -7810,7 +7810,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4V_M-1500_narrow_TuneCUETP8M1_PSWeights
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-1500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-1500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201011_151532"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-1500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-1500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201011_151532"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -7853,7 +7853,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4V_M-1750_narrow_TuneCUETP8M1_PSWeights
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-1750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-1750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201011_151644"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-1750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-1750_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201011_151644"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -7896,7 +7896,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4V_M-2000_narrow_TuneCUETP8M1_PSWeights
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-2000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-2000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201011_151753"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-2000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-2000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201011_151753"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -7939,7 +7939,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4V_M-2500_narrow_TuneCUETP8M1_PSWeights
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-2500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-2500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201011_151859"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-2500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-2500_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201011_151859"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -7982,7 +7982,7 @@ samples_2016["/GluGluToBulkGravitonToHHTo4V_M-3000_narrow_TuneCUETP8M1_PSWeights
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-3000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-3000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201011_152005"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToBulkGravitonToHHTo4V_M-3000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToBulkGravitonToHHTo4V_M-3000_narrow_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2/201011_152005"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -8025,7 +8025,7 @@ samples_2016["/VBFHHTo4T_CV_1_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct31/VBFHHTo4T_CV_1_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct31_VBFHHTo4T_CV_1_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201031_123814"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct31/VBFHHTo4T_CV_1_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct31_VBFHHTo4T_CV_1_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201031_123814"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -8068,7 +8068,7 @@ samples_2016["/VBFHHTo4T_CV_1_C2V_1_C3_2_dipoleRecoilOff-TuneCUETP8M1_PSweights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo4T_CV_1_C2V_1_C3_2_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo4T_CV_1_C2V_1_C3_2_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_152143"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo4T_CV_1_C2V_1_C3_2_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo4T_CV_1_C2V_1_C3_2_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_152143"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -8111,7 +8111,7 @@ samples_2016["/VBFHHTo4T_CV_1_C2V_2_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo4T_CV_1_C2V_2_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo4T_CV_1_C2V_2_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_152251"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo4T_CV_1_C2V_2_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo4T_CV_1_C2V_2_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_152251"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -8154,7 +8154,7 @@ samples_2016["/VBFHHTo4T_CV_1_C2V_1_C3_0_dipoleRecoilOff-TuneCUETP8M1_PSweights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct19/VBFHHTo4T_CV_1_C2V_1_C3_0_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct19_VBFHHTo4T_CV_1_C2V_1_C3_0_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201019_122738"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct19/VBFHHTo4T_CV_1_C2V_1_C3_0_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct19_VBFHHTo4T_CV_1_C2V_1_C3_0_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201019_122738"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -8197,7 +8197,7 @@ samples_2016["/VBFHHTo4T_CV_0_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweight
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo4T_CV_0_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo4T_CV_0_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun/201011_152359"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo4T_CV_0_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo4T_CV_0_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun/201011_152359"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -8240,7 +8240,7 @@ samples_2016["/VBFHHTo4T_CV_1_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweight
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo4T_CV_1_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo4T_CV_1_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun/201011_152536"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo4T_CV_1_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo4T_CV_1_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun/201011_152536"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -8283,7 +8283,7 @@ samples_2016["/VBFHHTo4T_CV_1_C2V_0_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo4T_CV_1_C2V_0_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo4T_CV_1_C2V_0_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_152643"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo4T_CV_1_C2V_0_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo4T_CV_1_C2V_0_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_152643"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -8326,7 +8326,7 @@ samples_2016["/VBFHHTo2V2Tau_CV_1_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweig
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct31/VBFHHTo2V2Tau_CV_1_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct31_VBFHHTo2V2Tau_CV_1_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201031_123705"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct31/VBFHHTo2V2Tau_CV_1_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct31_VBFHHTo2V2Tau_CV_1_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201031_123705"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -8369,7 +8369,7 @@ samples_2016["/VBFHHTo2V2Tau_CV_1_C2V_1_C3_2_dipoleRecoilOff-TuneCUETP8M1_PSweig
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo2V2Tau_CV_1_C2V_1_C3_2_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo2V2Tau_CV_1_C2V_1_C3_2_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_152750"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo2V2Tau_CV_1_C2V_1_C3_2_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo2V2Tau_CV_1_C2V_1_C3_2_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_152750"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -8412,7 +8412,7 @@ samples_2016["/VBFHHTo2V2Tau_CV_1_C2V_2_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweig
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo2V2Tau_CV_1_C2V_2_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo2V2Tau_CV_1_C2V_2_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_152927"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo2V2Tau_CV_1_C2V_2_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo2V2Tau_CV_1_C2V_2_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_152927"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -8455,7 +8455,7 @@ samples_2016["/VBFHHTo2V2Tau_CV_1_C2V_1_C3_0_dipoleRecoilOff-TuneCUETP8M1_PSweig
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo2V2Tau_CV_1_C2V_1_C3_0_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo2V2Tau_CV_1_C2V_1_C3_0_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_153032"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo2V2Tau_CV_1_C2V_1_C3_0_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo2V2Tau_CV_1_C2V_1_C3_0_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_153032"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -8498,7 +8498,7 @@ samples_2016["/VBFHHTo2V2Tau_CV_0_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSwe
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo2V2Tau_CV_0_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo2V2Tau_CV_0_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_m/201011_153138"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo2V2Tau_CV_0_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo2V2Tau_CV_0_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_m/201011_153138"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -8541,7 +8541,7 @@ samples_2016["/VBFHHTo2V2Tau_CV_1_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSwe
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo2V2Tau_CV_1_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo2V2Tau_CV_1_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_m/201011_153248"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo2V2Tau_CV_1_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo2V2Tau_CV_1_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_m/201011_153248"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -8584,7 +8584,7 @@ samples_2016["/VBFHHTo2V2Tau_CV_1_C2V_0_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweig
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo2V2Tau_CV_1_C2V_0_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo2V2Tau_CV_1_C2V_0_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_153425"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo2V2Tau_CV_1_C2V_0_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo2V2Tau_CV_1_C2V_0_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcR/201011_153425"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -8627,7 +8627,7 @@ samples_2016["/VBFHHTo4V_CV_1_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct31/VBFHHTo4V_CV_1_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct31_VBFHHTo4V_CV_1_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201031_123926"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct31/VBFHHTo4V_CV_1_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct31_VBFHHTo4V_CV_1_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201031_123926"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -8670,7 +8670,7 @@ samples_2016["/VBFHHTo4V_CV_1_C2V_1_C3_2_dipoleRecoilOff-TuneCUETP8M1_PSweights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo4V_CV_1_C2V_1_C3_2_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo4V_CV_1_C2V_1_C3_2_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_153531"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo4V_CV_1_C2V_1_C3_2_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo4V_CV_1_C2V_1_C3_2_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_153531"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -8713,7 +8713,7 @@ samples_2016["/VBFHHTo4V_CV_1_C2V_1_C3_0_dipoleRecoilOff-TuneCUETP8M1_PSweights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo4V_CV_1_C2V_1_C3_0_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo4V_CV_1_C2V_1_C3_0_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_153641"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo4V_CV_1_C2V_1_C3_0_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo4V_CV_1_C2V_1_C3_0_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_153641"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -8756,7 +8756,7 @@ samples_2016["/VBFHHTo4V_CV_1_C2V_2_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct17/VBFHHTo4V_CV_1_C2V_2_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct17_VBFHHTo4V_CV_1_C2V_2_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201017_200934"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct17/VBFHHTo4V_CV_1_C2V_2_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct17_VBFHHTo4V_CV_1_C2V_2_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201017_200934"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -8799,7 +8799,7 @@ samples_2016["/VBFHHTo4V_CV_0_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweight
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct19/VBFHHTo4V_CV_0_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct19_VBFHHTo4V_CV_0_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun/201019_122852"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct19/VBFHHTo4V_CV_0_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct19_VBFHHTo4V_CV_0_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun/201019_122852"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -8842,7 +8842,7 @@ samples_2016["/VBFHHTo4V_CV_1_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweight
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo4V_CV_1_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo4V_CV_1_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun/201011_153748"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo4V_CV_1_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo4V_CV_1_5_C2V_1_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun/201011_153748"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -8885,7 +8885,7 @@ samples_2016["/VBFHHTo4V_CV_1_C2V_0_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo4V_CV_1_C2V_0_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo4V_CV_1_C2V_0_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_153925"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/VBFHHTo4V_CV_1_C2V_0_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8/2016v3_2020Oct11_VBFHHTo4V_CV_1_C2V_0_C3_1_dipoleRecoilOff-TuneCUETP8M1_PSweights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_/201011_153925"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -8928,7 +8928,7 @@ samples_2016["/GluGluToHHTo4Tau_node_SM_13TeV-madgraph/RunIISummer16MiniAODv3-PU
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToHHTo4Tau_node_SM_13TeV-madgraph/2016v3_2019Oct04_GluGluToHHTo4Tau_node_SM_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_130811"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToHHTo4Tau_node_SM_13TeV-madgraph/2016v3_2019Oct04_GluGluToHHTo4Tau_node_SM_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_130811"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -8971,7 +8971,7 @@ samples_2016["/GluGluToHHTo4Tau_node_box_13TeV-madgraph/RunIISummer16MiniAODv3-P
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToHHTo4Tau_node_box_13TeV-madgraph/2016v3_2019Oct04_GluGluToHHTo4Tau_node_box_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_131050"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToHHTo4Tau_node_box_13TeV-madgraph/2016v3_2019Oct04_GluGluToHHTo4Tau_node_box_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_131050"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -9014,7 +9014,7 @@ samples_2016["/GluGluToHHTo4Tau_node_2_13TeV-madgraph/RunIISummer16MiniAODv3-PUM
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToHHTo4Tau_node_2_13TeV-madgraph/2016v3_2019Oct04_GluGluToHHTo4Tau_node_2_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_131230"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToHHTo4Tau_node_2_13TeV-madgraph/2016v3_2019Oct04_GluGluToHHTo4Tau_node_2_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_131230"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -9057,7 +9057,7 @@ samples_2016["/GluGluToHHTo4Tau_node_3_13TeV-madgraph/RunIISummer16MiniAODv3-PUM
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToHHTo4Tau_node_3_13TeV-madgraph/2016v3_2019Oct04_GluGluToHHTo4Tau_node_3_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_131436"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToHHTo4Tau_node_3_13TeV-madgraph/2016v3_2019Oct04_GluGluToHHTo4Tau_node_3_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_131436"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -9100,7 +9100,7 @@ samples_2016["/GluGluToHHTo4Tau_node_4_13TeV-madgraph/RunIISummer16MiniAODv3-PUM
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToHHTo4Tau_node_4_13TeV-madgraph/2016v3_2019Oct04_GluGluToHHTo4Tau_node_4_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_131643"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToHHTo4Tau_node_4_13TeV-madgraph/2016v3_2019Oct04_GluGluToHHTo4Tau_node_4_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_131643"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -9143,7 +9143,7 @@ samples_2016["/GluGluToHHTo4Tau_node_5_13TeV-madgraph/RunIISummer16MiniAODv3-PUM
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToHHTo4Tau_node_5_13TeV-madgraph/2016v3_2019Oct04_GluGluToHHTo4Tau_node_5_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_131922"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToHHTo4Tau_node_5_13TeV-madgraph/2016v3_2019Oct04_GluGluToHHTo4Tau_node_5_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_131922"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -9186,7 +9186,7 @@ samples_2016["/GluGluToHHTo4Tau_node_6_13TeV-madgraph/RunIISummer16MiniAODv3-PUM
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToHHTo4Tau_node_6_13TeV-madgraph/2016v3_2019Oct04_GluGluToHHTo4Tau_node_6_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_132229"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToHHTo4Tau_node_6_13TeV-madgraph/2016v3_2019Oct04_GluGluToHHTo4Tau_node_6_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_132229"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -9229,7 +9229,7 @@ samples_2016["/GluGluToHHTo4Tau_node_7_13TeV-madgraph/RunIISummer16MiniAODv3-PUM
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToHHTo4Tau_node_7_13TeV-madgraph/2016v3_2019Oct04_GluGluToHHTo4Tau_node_7_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_132402"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToHHTo4Tau_node_7_13TeV-madgraph/2016v3_2019Oct04_GluGluToHHTo4Tau_node_7_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_132402"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -9272,7 +9272,7 @@ samples_2016["/GluGluToHHTo4Tau_node_8_13TeV-madgraph/RunIISummer16MiniAODv3-PUM
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToHHTo4Tau_node_8_13TeV-madgraph/2016v3_2019Oct04_GluGluToHHTo4Tau_node_8_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_132613"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToHHTo4Tau_node_8_13TeV-madgraph/2016v3_2019Oct04_GluGluToHHTo4Tau_node_8_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_132613"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -9315,7 +9315,7 @@ samples_2016["/GluGluToHHTo4Tau_node_9_13TeV-madgraph/RunIISummer16MiniAODv3-PUM
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToHHTo4Tau_node_9_13TeV-madgraph/2016v3_2019Oct04_GluGluToHHTo4Tau_node_9_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_132749"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToHHTo4Tau_node_9_13TeV-madgraph/2016v3_2019Oct04_GluGluToHHTo4Tau_node_9_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_132749"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -9358,7 +9358,7 @@ samples_2016["/GluGluToHHTo4Tau_node_10_13TeV-madgraph/RunIISummer16MiniAODv3-PU
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToHHTo4Tau_node_10_13TeV-madgraph/2016v3_2019Oct04_GluGluToHHTo4Tau_node_10_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_132954"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToHHTo4Tau_node_10_13TeV-madgraph/2016v3_2019Oct04_GluGluToHHTo4Tau_node_10_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_132954"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -9401,7 +9401,7 @@ samples_2016["/GluGluToHHTo4Tau_node_11_13TeV-madgraph/RunIISummer16MiniAODv3-PU
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToHHTo4Tau_node_11_13TeV-madgraph/2016v3_2019Oct04_GluGluToHHTo4Tau_node_11_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_133201"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToHHTo4Tau_node_11_13TeV-madgraph/2016v3_2019Oct04_GluGluToHHTo4Tau_node_11_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_133201"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -9444,7 +9444,7 @@ samples_2016["/GluGluToHHTo4Tau_node_12_13TeV-madgraph/RunIISummer16MiniAODv3-PU
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/snandan/2016v3_2019Oct04/GluGluToHHTo4Tau_node_12_13TeV-madgraph/2016v3_2019Oct04_GluGluToHHTo4Tau_node_12_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_133412"),
+        ("path",      "/store/user/snandan/2016v3_2019Oct04/GluGluToHHTo4Tau_node_12_13TeV-madgraph/2016v3_2019Oct04_GluGluToHHTo4Tau_node_12_13TeV-madgraph__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191004_133412"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -9487,7 +9487,7 @@ samples_2016["/GluGluToHHTo4Tau_node_cHHH0_TuneCUETP8M1_PSWeights_13TeV-powheg-p
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct31/GluGluToHHTo4Tau_node_cHHH0_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8/2016v3_2020Oct31_GluGluToHHTo4Tau_node_cHHH0_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201031_122046"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct31/GluGluToHHTo4Tau_node_cHHH0_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8/2016v3_2020Oct31_GluGluToHHTo4Tau_node_cHHH0_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201031_122046"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -9530,7 +9530,7 @@ samples_2016["/GluGluToHHTo4Tau_node_cHHH1_TuneCUETP8M1_PSWeights_13TeV-powheg-p
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct19/GluGluToHHTo4Tau_node_cHHH1_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8/2016v3_2020Oct19_GluGluToHHTo4Tau_node_cHHH1_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201019_123004"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct19/GluGluToHHTo4Tau_node_cHHH1_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8/2016v3_2020Oct19_GluGluToHHTo4Tau_node_cHHH1_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201019_123004"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -9573,7 +9573,7 @@ samples_2016["/GluGluToHHTo4Tau_node_cHHH2p45_TuneCUETP8M1_PSWeights_13TeV-powhe
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct17/GluGluToHHTo4Tau_node_cHHH2p45_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8/2016v3_2020Oct17_GluGluToHHTo4Tau_node_cHHH2p45_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3/201017_201225"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct17/GluGluToHHTo4Tau_node_cHHH2p45_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8/2016v3_2020Oct17_GluGluToHHTo4Tau_node_cHHH2p45_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3/201017_201225"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -9616,7 +9616,7 @@ samples_2016["/GluGluToHHTo4Tau_node_cHHH5_TuneCUETP8M1_PSWeights_13TeV-powheg-p
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct17/GluGluToHHTo4Tau_node_cHHH5_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8/2016v3_2020Oct17_GluGluToHHTo4Tau_node_cHHH5_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201017_201335"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct17/GluGluToHHTo4Tau_node_cHHH5_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8/2016v3_2020Oct17_GluGluToHHTo4Tau_node_cHHH5_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201017_201335"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -9659,7 +9659,7 @@ samples_2016["/GluGluToHHTo2V2Tau_node_SM_TuneCUETP8M1_PSWeights_13TeV-madgraph-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_SM_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_SM_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v/201011_154036"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_SM_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_SM_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v/201011_154036"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -9702,7 +9702,7 @@ samples_2016["/GluGluToHHTo2V2Tau_node_1_TuneCUETP8M1_PSWeights_13TeV-madgraph-p
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_1_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_1_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_154237"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_1_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_1_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_154237"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -9745,7 +9745,7 @@ samples_2016["/GluGluToHHTo2V2Tau_node_2_TuneCUETP8M1_PSWeights_13TeV-madgraph-p
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_2_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_2_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_154413"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_2_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_2_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_154413"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -9788,7 +9788,7 @@ samples_2016["/GluGluToHHTo2V2Tau_node_3_TuneCUETP8M1_PSWeights_13TeV-madgraph-p
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_3_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_3_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_154518"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_3_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_3_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_154518"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -9831,7 +9831,7 @@ samples_2016["/GluGluToHHTo2V2Tau_node_4_TuneCUETP8M1_PSWeights_13TeV-madgraph-p
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_4_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_4_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_154656"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_4_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_4_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_154656"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -9874,7 +9874,7 @@ samples_2016["/GluGluToHHTo2V2Tau_node_5_TuneCUETP8M1_PSWeights_13TeV-madgraph-p
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_5_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_5_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_154801"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_5_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_5_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_154801"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -9917,7 +9917,7 @@ samples_2016["/GluGluToHHTo2V2Tau_node_6_TuneCUETP8M1_PSWeights_13TeV-madgraph-p
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct31/GluGluToHHTo2V2Tau_node_6_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToHHTo2V2Tau_node_6_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201031_121931"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct31/GluGluToHHTo2V2Tau_node_6_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToHHTo2V2Tau_node_6_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201031_121931"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -9960,7 +9960,7 @@ samples_2016["/GluGluToHHTo2V2Tau_node_7_TuneCUETP8M1_PSWeights_13TeV-madgraph-p
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_7_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_7_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_154907"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_7_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_7_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_154907"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -10003,7 +10003,7 @@ samples_2016["/GluGluToHHTo2V2Tau_node_8_TuneCUETP8M1_PSWeights_13TeV-madgraph-p
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_8_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_8_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_155013"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_8_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_8_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_155013"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -10046,7 +10046,7 @@ samples_2016["/GluGluToHHTo2V2Tau_node_9_TuneCUETP8M1_PSWeights_13TeV-madgraph-p
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_9_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_9_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_155149"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_9_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_9_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_155149"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -10089,7 +10089,7 @@ samples_2016["/GluGluToHHTo2V2Tau_node_10_TuneCUETP8M1_PSWeights_13TeV-madgraph-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_10_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_10_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v/201011_155256"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_10_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_10_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v/201011_155256"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -10132,7 +10132,7 @@ samples_2016["/GluGluToHHTo2V2Tau_node_11_TuneCUETP8M1_PSWeights_13TeV-madgraph-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_11_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_11_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v/201011_155401"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_11_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_11_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v/201011_155401"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -10175,7 +10175,7 @@ samples_2016["/GluGluToHHTo2V2Tau_node_12_TuneCUETP8M1_PSWeights_13TeV-madgraph-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_12_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_12_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v/201011_155535"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_12_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_12_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v/201011_155535"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -10218,7 +10218,7 @@ samples_2016["/GluGluToHHTo2V2Tau_node_cHHH0_TuneCUETP8M1_PSWeights_13TeV-powheg
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_cHHH0_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_cHHH0_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-/201011_155644"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_cHHH0_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_cHHH0_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-/201011_155644"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -10261,7 +10261,7 @@ samples_2016["/GluGluToHHTo2V2Tau_node_cHHH1_TuneCUETP8M1_PSWeights_13TeV-powheg
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_cHHH1_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_cHHH1_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-/201011_155750"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_cHHH1_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_cHHH1_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-/201011_155750"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -10304,7 +10304,7 @@ samples_2016["/GluGluToHHTo2V2Tau_node_cHHH2p45_TuneCUETP8M1_PSWeights_13TeV-pow
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_cHHH2p45_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_cHHH2p45_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_/201011_155856"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_cHHH2p45_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_cHHH2p45_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_/201011_155856"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -10347,7 +10347,7 @@ samples_2016["/GluGluToHHTo2V2Tau_node_cHHH5_TuneCUETP8M1_PSWeights_13TeV-powheg
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_cHHH5_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_cHHH5_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-/201011_160039"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo2V2Tau_node_cHHH5_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8/2016v3_2020Oct11_GluGluToHHTo2V2Tau_node_cHHH5_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-/201011_160039"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -10390,7 +10390,7 @@ samples_2016["/GluGluToHHTo4V_node_SM_TuneCUETP8M1_PSWeights_13TeV-madgraph-pyth
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo4V_node_SM_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo4V_node_SM_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_160145"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo4V_node_SM_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo4V_node_SM_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_160145"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -10433,7 +10433,7 @@ samples_2016["/GluGluToHHTo4V_node_1_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythi
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo4V_node_1_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo4V_node_1_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_160251"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo4V_node_1_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo4V_node_1_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_160251"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -10476,7 +10476,7 @@ samples_2016["/GluGluToHHTo4V_node_2_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythi
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo4V_node_2_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo4V_node_2_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_160356"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo4V_node_2_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo4V_node_2_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_160356"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -10519,7 +10519,7 @@ samples_2016["/GluGluToHHTo4V_node_3_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythi
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct31/GluGluToHHTo4V_node_3_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToHHTo4V_node_3_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201031_122153"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct31/GluGluToHHTo4V_node_3_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToHHTo4V_node_3_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201031_122153"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -10562,7 +10562,7 @@ samples_2016["/GluGluToHHTo4V_node_4_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythi
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo4V_node_4_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo4V_node_4_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_160534"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo4V_node_4_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo4V_node_4_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_160534"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -10605,7 +10605,7 @@ samples_2016["/GluGluToHHTo4V_node_5_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythi
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo4V_node_5_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo4V_node_5_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_160640"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo4V_node_5_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo4V_node_5_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_160640"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -10648,7 +10648,7 @@ samples_2016["/GluGluToHHTo4V_node_6_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythi
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct31/GluGluToHHTo4V_node_6_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToHHTo4V_node_6_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201031_122300"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct31/GluGluToHHTo4V_node_6_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToHHTo4V_node_6_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201031_122300"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -10691,7 +10691,7 @@ samples_2016["/GluGluToHHTo4V_node_7_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythi
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo4V_node_7_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo4V_node_7_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_160748"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo4V_node_7_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo4V_node_7_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_160748"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -10734,7 +10734,7 @@ samples_2016["/GluGluToHHTo4V_node_8_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythi
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct31/GluGluToHHTo4V_node_8_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToHHTo4V_node_8_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201031_122410"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct31/GluGluToHHTo4V_node_8_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct31_GluGluToHHTo4V_node_8_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201031_122410"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -10777,7 +10777,7 @@ samples_2016["/GluGluToHHTo4V_node_9_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythi
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo4V_node_9_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo4V_node_9_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_160924"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo4V_node_9_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo4V_node_9_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_160924"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -10820,7 +10820,7 @@ samples_2016["/GluGluToHHTo4V_node_10_TuneCUETP8M1_PSWeights_13TeV-madgraph-pyth
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo4V_node_10_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo4V_node_10_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_161035"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo4V_node_10_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo4V_node_10_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_161035"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -10863,7 +10863,7 @@ samples_2016["/GluGluToHHTo4V_node_11_TuneCUETP8M1_PSWeights_13TeV-madgraph-pyth
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct19/GluGluToHHTo4V_node_11_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct19_GluGluToHHTo4V_node_11_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201019_123150"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct19/GluGluToHHTo4V_node_11_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct19_GluGluToHHTo4V_node_11_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201019_123150"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -10906,7 +10906,7 @@ samples_2016["/GluGluToHHTo4V_node_12_TuneCUETP8M1_PSWeights_13TeV-madgraph-pyth
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo4V_node_12_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo4V_node_12_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_161141"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo4V_node_12_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8/2016v3_2020Oct11_GluGluToHHTo4V_node_12_TuneCUETP8M1_PSWeights_13TeV-madgraph-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_161141"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -10949,7 +10949,7 @@ samples_2016["/GluGluToHHTo4V_node_cHHH0_TuneCUETP8M1_PSWeights_13TeV-powheg-pyt
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo4V_node_cHHH0_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8/2016v3_2020Oct11_GluGluToHHTo4V_node_cHHH0_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_161247"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo4V_node_cHHH0_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8/2016v3_2020Oct11_GluGluToHHTo4V_node_cHHH0_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_161247"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -10992,7 +10992,7 @@ samples_2016["/GluGluToHHTo4V_node_cHHH1_TuneCUETP8M1_PSWeights_13TeV-powheg-pyt
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo4V_node_cHHH1_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8/2016v3_2020Oct11_GluGluToHHTo4V_node_cHHH1_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_161423"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo4V_node_cHHH1_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8/2016v3_2020Oct11_GluGluToHHTo4V_node_cHHH1_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_161423"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -11035,7 +11035,7 @@ samples_2016["/GluGluToHHTo4V_node_cHHH2p45_TuneCUETP8M1_PSWeights_13TeV-powheg-
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo4V_node_cHHH2p45_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8/2016v3_2020Oct11_GluGluToHHTo4V_node_cHHH2p45_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v/201011_161529"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo4V_node_cHHH2p45_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8/2016v3_2020Oct11_GluGluToHHTo4V_node_cHHH2p45_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v/201011_161529"),
         ("selection", "*"),
         ("blacklist", []),
       ]),
@@ -11078,7 +11078,7 @@ samples_2016["/GluGluToHHTo4V_node_cHHH5_TuneCUETP8M1_PSWeights_13TeV-powheg-pyt
   ("local_paths",
     [
       OD([
-        ("path",      "/hdfs/cms/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo4V_node_cHHH5_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8/2016v3_2020Oct11_GluGluToHHTo4V_node_cHHH5_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_161642"),
+        ("path",      "/store/user/kaehatah/2016v3_2020Oct11/GluGluToHHTo4V_node_cHHH5_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8/2016v3_2020Oct11_GluGluToHHTo4V_node_cHHH5_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8__RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v1/201011_161642"),
         ("selection", "*"),
         ("blacklist", []),
       ]),

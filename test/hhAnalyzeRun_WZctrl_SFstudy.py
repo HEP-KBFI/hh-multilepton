@@ -157,7 +157,7 @@ if __name__ == '__main__':
   analysis = analyzeConfig_WZctrl_SFstudy(
     configDir = os.path.join("/scratch-persistent", getpass.getuser(), "hhAnalysis", era, version),
     localDir  = os.path.join("/home",               getpass.getuser(), "hhAnalysis", era, version),
-    outputDir = os.path.join("/hdfs/local",         getpass.getuser(), "hhAnalysis", era, version),
+    outputDir = os.path.join("/local",              getpass.getuser(), "hhAnalysis", era, version),
     executable_analyze                    = "analyze_WZctrl_SFstudy",
     cfgFile_analyze                       = "analyze_WZctrl_SFstudy_cfg.py",
     samples                               = samples,

@@ -5,7 +5,7 @@ import os
 process = cms.PSet()
 
 process.fwliteInput = cms.PSet(
-    fileNames = cms.vstring("/hdfs/local/ram/hhAnalysis/2017/2018Oct4/histograms/hh_2l_2tau/histograms_harvested_stage1_hh_2l_2tau_signal_ggf_spin0_400_hh_2v2t_disabled_disabled_Tight_OS.root")
+    fileNames = cms.vstring("/local/ram/hhAnalysis/2017/2018Oct4/histograms/hh_2l_2tau/histograms_harvested_stage1_hh_2l_2tau_signal_ggf_spin0_400_hh_2v2t_disabled_disabled_Tight_OS.root")
 )
 
 process.fwliteOutput = cms.PSet(

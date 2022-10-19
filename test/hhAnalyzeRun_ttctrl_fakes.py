@@ -130,7 +130,7 @@ if __name__ == '__main__':
   analysis = analyzeConfig_ttctrl_fakes(
     configDir = os.path.join("/scratch-persistent", getpass.getuser(), "hhAnalysis", era, version),
     localDir  = os.path.join("/home",               getpass.getuser(), "hhAnalysis", era, version),
-    outputDir = os.path.join("/hdfs/local",         getpass.getuser(), "hhAnalysis", era, version),
+    outputDir = os.path.join("/local",              getpass.getuser(), "hhAnalysis", era, version),
     executable_analyze                    = "analyze_ttctrl_fakes",
     cfgFile_analyze                       = "analyze_ttctrl_fakes_cfg.py",
     samples                               = samples,

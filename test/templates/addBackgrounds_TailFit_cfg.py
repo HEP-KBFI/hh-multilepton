@@ -5,8 +5,8 @@ import os
 process = cms.PSet()
 
 process.fwliteInput = cms.PSet(
-#    fileNames = cms.vstring('/hdfs/local/veelken/hhAnalysis/2017/2018Aug01v1/histograms/hh_2l_2tau/histograms_harvested_stage2_hh_2l_2tau_disabled_disabled_Tight_OS_with2016.root'),
-    fileNames = cms.vstring('/hdfs/local/veelken/hhAnalysis/2017/2018Aug01v1/histograms/hh_2l_2tau/addBackgroundLeptonFakes_hh_2l_2tau_disabled_disabled_OS.root'),
+#    fileNames = cms.vstring('/local/veelken/hhAnalysis/2017/2018Aug01v1/histograms/hh_2l_2tau/histograms_harvested_stage2_hh_2l_2tau_disabled_disabled_Tight_OS_with2016.root'),
+    fileNames = cms.vstring('/local/veelken/hhAnalysis/2017/2018Aug01v1/histograms/hh_2l_2tau/addBackgroundLeptonFakes_hh_2l_2tau_disabled_disabled_OS.root'),
     maxEvents = cms.int32(-1),
     outputEvery = cms.uint32(100000)
 )
