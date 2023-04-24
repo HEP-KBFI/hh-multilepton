@@ -186,7 +186,7 @@ if __name__ == '__main__':
     histograms_to_fit = get_histograms_to_fit("EventCounter","m3l","dihiggsVisMass_sel","mSFOS2l_closestToZ","dr_LeptonIdx3_AK4jNear_Approach2","dr_LeptonIdx3_2j_inclusive1j_Approach2","dr_los_min","dr_los_max","numSameFlavor_OS_3l","met_LD","numElectrons","numMuons","nJetAK4","nJetAK8_wSelectorAK8_Wjj")
   
   analysis = analyzeConfig_conversions(
-    configDir = os.path.join("/scratch-persistent", getpass.getuser(), "hhAnalysis", era, version),
+    configDir = os.path.join("/scratch/persistent", getpass.getuser(), "hhAnalysis", era, version),
     localDir  = os.path.join("/home",               getpass.getuser(), "hhAnalysis", era, version),
     outputDir = os.path.join("/local",              getpass.getuser(), "hhAnalysis", era, version),
     executable_analyze                    = "analyze_conversions",

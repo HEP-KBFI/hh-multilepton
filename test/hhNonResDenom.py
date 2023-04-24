@@ -92,7 +92,7 @@ if __name__ == '__main__':
   if 'sum_events' in samples:
     del samples['sum_events']
 
-  configDir = os.path.join("/scratch-persistent", getpass.getuser(), "hhDenomProduction", era, version)
+  configDir = os.path.join("/scratch/persistent", getpass.getuser(), "hhDenomProduction", era, version)
   localDir  = os.path.join("/home",               getpass.getuser(), "hhDenomProduction", era, version)
   outputDir = os.path.join("/local",              getpass.getuser(), "hhDenomProduction", era, version)
 
